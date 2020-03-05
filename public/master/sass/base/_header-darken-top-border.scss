@@ -1,0 +1,30 @@
+/* Header Darken Top Border */
+@media (min-width: 992px) {
+	#header.darken-top-border {
+		> .container {
+			height: 103px;
+		}
+		ul.nav-main {
+			margin: -11px 0 -8px;
+		}
+	}
+
+	/* Header Darken Top Border - Sticky Menu / Boxed */
+	body.sticky-menu-active #header.darken-top-border {
+		nav {
+			ul.nav-main {
+				margin-top: 33px;
+				> li {
+					> a, &:hover > a {
+						padding-bottom: 22px;
+						padding-top: 30px;
+					}
+				}
+			}
+		}
+	}
+
+	html.boxed #header.darken-top-border {
+		border-top: 0;
+	}
+}

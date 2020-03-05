@@ -1,0 +1,234 @@
+/* Social Icons */
+ul.social-icons {
+	margin: 0;
+	padding: 0;
+	width: auto;
+	li {
+		@include transition (all 0.3s ease);
+		background-image: url(../img/social-sprites.png);
+		background-repeat: no-repeat;
+		background-position: 0 100px;
+		display: inline-block;
+		margin: side-values(-1px 1px 5px 0);
+		padding: 0;
+		border-radius: 100%;
+		overflow: visible;
+		box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+		a {
+			display: block;
+			height: 30px;
+			width: 30px;
+			text-align: center;
+			&:hover {
+				text-decoration: none;
+			}
+			i[class^="icon-"] {
+				color: #444;
+				font-style: 16px;
+				position: relative;
+				top: 3px;
+			}
+			&:active {
+				box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.3);
+			}
+		}
+		&[class] a {
+			text-indent: -9999px;
+		}
+		&:active, a:active {
+			border-radius: 100%;
+		}
+		&.digg {
+			background-position: 0 0;
+			&:hover {
+				background-position: 0 -30px;
+			}
+		}
+		&.dribbble {
+			background-position: 0 -60px;
+			&:hover {
+				background-position: 0 -90px;
+			}
+		}
+		&.facebook {
+			background-position: 0 -120px;
+			&:hover {
+				background-position: 0 -150px;
+			}
+		}
+		&.flickr {
+			background-position: 0 -180px;
+			&:hover {
+				background-position: 0 -210px;
+			}
+		}
+		&.forrst {
+			background-position: 0 -240px;
+			&:hover {
+				background-position: 0 -270px;
+			}
+		}
+		&.googleplus {
+			background-position: 0 -300px;
+			&:hover {
+				background-position: 0 -330px;
+			}
+		}
+		&.html5 {
+			background-position: 0 -360px;
+			&:hover {
+				background-position: 0 -390px;
+			}
+		}
+		&.icloud {
+			background-position: 0 -420px;
+			&:hover {
+				background-position: 0 -450px;
+			}
+		}
+		&.lastfm {
+			background-position: 0 -480px;
+			&:hover {
+				background-position: 0 -510px;
+			}
+		}
+		&.linkedin {
+			background-position: 0 -540px;
+			&:hover {
+				background-position: 0 -570px;
+			}
+		}
+		&.myspace {
+			background-position: 0 -600px;
+			&:hover {
+				background-position: 0 -630px;
+			}
+		}
+		&.paypal {
+			background-position: 0 -660px;
+			&:hover {
+				background-position: 0 -690px;
+			}
+		}
+		&.picasa {
+			background-position: 0 -720px;
+			&:hover {
+				background-position: 0 -750px;
+			}
+		}
+		&.pinterest {
+			background-position: 0 -780px;
+			&:hover {
+				background-position: 0 -810px;
+			}
+		}
+		&.reddit {
+			background-position: 0 -840px;
+			&:hover {
+				background-position: 0 -870px;
+			}
+		}
+		&.rss {
+			background-position: 0 -900px;
+			&:hover {
+				background-position: 0 -930px;
+			}
+		}
+		&.skype {
+			background-position: 0 -960px;
+			&:hover {
+				background-position: 0 -990px;
+			}
+		}
+		&.stumbleupon {
+			background-position: 0 -1020px;
+			&:hover {
+				background-position: 0 -1050px;
+			}
+		}
+		&.tumblr {
+			background-position: 0 -1080px;
+			&:hover {
+				background-position: 0 -1110px;
+			}
+		}
+		&.twitter {
+			background-position: 0 -1140px;
+			&:hover {
+				background-position: 0 -1170px;
+			}
+		}
+		&.vimeo {
+			background-position: 0 -1200px;
+			&:hover {
+				background-position: 0 -1230px;
+			}
+		}
+		&.wordpress {
+			background-position: 0 -1260px;
+			&:hover {
+				background-position: 0 -1290px;
+			}
+		}
+		&.yahoo {
+			background-position: 0 -1320px;
+			&:hover {
+				background-position: 0 -1350px;
+			}
+		}
+		&.youtube {
+			background-position: 0 -1380px;
+			&:hover {
+				background-position: 0 -1410px;
+			}
+		}
+		&.github {
+			background-position: 0 -1440px;
+			&:hover {
+				background-position: 0 -1470px;
+			}
+		}
+		&.behance {
+			background-position: 0 -1500px;
+			&:hover {
+				background-position: 0 -1530px;
+			}
+		}
+		&.yelp {
+			background-position: 0 -1560px;
+			&:hover {
+				background-position: 0 -1590px;
+			}
+		}
+		&.mail {
+			background-position: 0 -1620px;
+			&:hover {
+				background-position: 0 -1650px;
+			}
+		}
+		&.instagram {
+			background-position: 0 -1680px;
+			&:hover {
+				background-position: 0 -1710px;
+			}
+		}
+		&.foursquare {
+			background-position: 0 -1740px;
+			&:hover {
+				background-position: 0 -1770px;
+			}
+		}
+		&.zerply {
+			background-position: 0 -1800px;
+			&:hover {
+				background-position: 0 -1830px;
+			}
+		}
+		&.vk {
+			background-position: 0 -1860px;
+			&:hover {
+				background-position: 0 -1890px;
+			}
+		}
+	}
+}

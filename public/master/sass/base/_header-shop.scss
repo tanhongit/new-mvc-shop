@@ -1,0 +1,51 @@
+/* Shop - Mega Menu (Cart) */
+#header {
+	nav.mega-menu .mega-menu-shop {
+		margin-#{$right}: -20px;
+		padding-#{$left}: 0;
+		margin-#{$left}: 0;
+		a {
+			color: #444;
+		}
+		table {
+			width: 100%;
+			margin-top: 0px;
+		}
+		.dropdown-menu {
+			width: 40%;
+			#{$right}: 8px;
+			border-radius: corner-values(6px 0 6px 6px);
+			li {
+				table tr td a {
+					background-color: transparent !important;
+					color: #333;
+					padding: 0;
+					margin: 0;
+					display: block;
+					&.remove {
+						float: $right;
+					}
+					&:hover {
+						text-decoration: none;
+					}
+				}
+			}
+		}
+		.fa-shopping-cart {
+			margin-#{$right}: 5px;
+		}
+		.product-thumbnail {
+			width: 120px;
+		}
+		.product-actions {
+			text-align: $right;
+			width: 80px;
+		}
+		.actions-continue {
+			margin-top: 10px;
+			padding-top: 20px;
+			border-top: 1px solid #DDD;
+			clear: both;
+		}
+	}
+}

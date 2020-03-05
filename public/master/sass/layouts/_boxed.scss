@@ -1,0 +1,48 @@
+/* Boxed Layout */
+html.boxed {
+	body {
+		background-color: transparent;
+		background-position: 0 0;
+		background-repeat: repeat;
+	}
+	.body {
+		background-color: #FFF;
+		border-bottom: 5px solid $color-dark;
+		border-radius: 5px;
+		border-top: 5px solid #CCC;
+		box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+		margin: 25px auto;
+		max-width: 1200px;
+		height: auto;
+	}
+	#header {
+		padding: 15px 0;
+	}
+	body.sticky-menu-active {
+		#header {
+			#{$left}: 0;
+			top: -65px;
+		}
+	}
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+
+	html.boxed .body {
+		margin: 0 auto;
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+	}
+
+}
+
+@media (max-width: 767px) {
+
+	/* Boxed */
+	html.boxed {
+		background: none !important;
+	}
+
+}

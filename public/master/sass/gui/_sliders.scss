@@ -1,0 +1,160 @@
+/* Home Slider - Revolution Slider */
+.slider-container {
+	background: #171717;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+	z-index: 1;
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.tp-bannershadow {
+		filter: alpha(opacity = 20);
+		opacity: 0.20;
+	}
+	.top-label {
+		color: #FFF;
+		font-size: 24px;
+		font-weight: 300;
+	}
+	.main-label {
+		color: #FFF;
+		font-size: 62px;
+		line-height: 62px;
+		font-weight: 800;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+	}
+	.featured-label {
+		color: #FFF;
+		font-size: 52px;
+		line-height: 52px;
+		font-weight: 800;
+		text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+	}
+	.bottom-label {
+		color: #FFF;
+		font-size: 20px;
+		font-weight: 300;
+	}
+	.blackboard-text {
+		color: #BAB9BE;
+		font-size: 46px;
+		line-height: 46px;
+		font-family: $font-secundary;
+		text-transform: uppercase;
+	}
+	.tp-caption {
+		opacity: 0;
+		a {
+			color: #FFF;
+			&:hover {
+				color: #FFF;
+			}
+		}
+		&.fullscreenvideo {
+			height: 100%;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			#{$left}: 0 !important;
+			video {
+				height: 100%;
+				width: 100%;
+				padding: 0;
+				position: relative;
+			}
+		}
+	}
+	&.light {
+		background-color: #EAEAEA;
+		.tp-bannershadow {
+			filter: alpha(opacity = 5);
+			opacity: 0.05;
+			top: 0;
+			bottom: auto;
+			z-index: 1000;
+		}
+		.top-label, .main-label, .bottom-label {
+			color: #333;
+		}
+		.tp-caption a {
+			color: #333;
+			&:hover {
+				color: #333;
+			}
+		}
+	}
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+
+	.slider-container {
+		min-height: 0;
+	}
+
+}
+
+.slider {
+	height: 495px;
+	max-height: 495px;
+	position: relative;
+	> ul > li > {
+		img {
+			visibility: hidden;
+		}
+		.center-caption {
+			#{$left}: 0 !important;
+			margin-#{$left}: 0 !important;
+			text-align: center;
+			width: 100%;
+		}
+	}
+	.tp-bannertimer {
+		display: none;
+	}
+	.main-button {
+		font-size: 22px;
+		font-weight: 600;
+		line-height: 20px;
+		padding-bottom: 20px;
+		padding-top: 20px;
+		padding-#{$left}: 25px;
+		padding-#{$right}: 25px;
+	}
+}
+
+.slider-container-fullscreen {
+	height: 2000px;
+	max-height: none;
+	.slider {
+		max-height: none;
+	}
+}
+
+/* Home Slider - Nivo Slider */
+.nivo-slider {
+	position: relative;
+	.theme-default {
+		.nivoSlider {
+			border-radius: 10px 10px 0px 0px;
+			box-shadow: none;
+			margin-top: 10px;
+			img {
+				border-radius: corner-values(10px 10px 0px 0px);
+			}
+		}
+		.nivo-controlNav {
+			margin-top: -72px;
+			position: absolute;
+			z-index: 100;
+			#{$right}: 5px;
+			bottom: -17px;
+		}
+		.nivo-caption {
+			padding-#{$left}: 20px;
+		}
+	}
+}

@@ -1,0 +1,58 @@
+/* Header Center */
+@media (min-width: 992px) {
+	#header.center {
+		.logo {
+			text-align: center;
+			position: static;
+			margin-top: 5px;
+		}
+		nav {
+			float: $left;
+			text-align: center;
+			width: 100%;
+			ul.nav-main {
+				margin: 35px 0 10px;
+				> li {
+					display: inline-block;
+					float: none;
+					text-align: $left;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 991px) {
+	#header.center {
+		text-align: $left;
+		nav {
+			float: none;
+		}
+	}
+}
+
+/* Header Center - Sticky Menu */
+@media (min-width: 992px) {
+	body.sticky-menu-active #header.center {
+		> .container {
+			margin-top: -60px;
+		}
+		.logo {
+			text-align: $left;
+			img {
+				margin-top: 42px;
+			}
+		}
+		nav {
+			float: $right;
+			margin-top: 18px;
+			width: auto;
+			ul.nav-main > li {
+				> a, &:hover > a {
+					padding-bottom: 10px;
+					padding-top: 10px;
+				}
+			}
+		}
+	}
+}

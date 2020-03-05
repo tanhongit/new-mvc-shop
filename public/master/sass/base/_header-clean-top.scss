@@ -1,0 +1,23 @@
+/* Header Clean Top */
+@media (min-width: 992px) {
+	#header.clean-top {
+		.header-top {
+			border-bottom: 1px solid #EDEDED;
+			background-color: #F4F4F4;
+			margin-top: -8px;
+		}
+		.social-icons {
+			margin: 11px 10px 9px 10px;
+		}
+	}
+
+	/* Header Clean Top - Sticky Menu / Boxed */
+	body {
+		&.sticky-menu-active #header.clean-top ul.nav-main > li {
+			> a, &:hover > a {
+				padding-bottom: 20px;
+				padding-top: 33px;
+			}
+		}
+	}
+}

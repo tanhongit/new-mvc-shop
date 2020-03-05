@@ -1,0 +1,11 @@
+/* Header Full-Width */
+@media (min-width: 992px) {
+	#header.full-width {
+		.container,
+		> .container,
+		> .navbar-collapse > .container {
+			max-width: 100%;
+			width: 100%;
+		}
+	}
+}

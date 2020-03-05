@@ -1,0 +1,142 @@
+/* Mega Menu (Signin/SignUp) */
+#header nav.mega-menu ul.nav-main .mega-menu-signin {
+	padding-#{$left}: 0;
+	margin-#{$left}: 0;
+	margin-#{$right}: -20px;
+	a {
+		color: #444;
+	}
+	.dropdown-menu {
+		width: 40%;
+		#{$right}: 8px;
+		border-radius: corner-values(6px 0 6px 6px);
+	}
+	.fa-user {
+		margin-#{$right}: 5px;
+	}
+	.mega-menu-sub-title {
+		margin-bottom: 10px;
+		display: block;
+	}
+	.sign-up-info, .log-in-info {
+		text-align: center;
+		display: block;
+	}
+	&.open {
+		a.dropdown-toggle {
+		    margin-bottom: -1px;
+    		padding-bottom: 11px;
+    	}
+	}
+	&.signin {
+		.signin-form {
+			display: block;
+		}
+		.signup-form, .recover-form {
+			display: none;
+		}
+	}
+	&.signup {
+		.signin-form {
+			display: none;
+		}
+		.signup-form {
+			display: block;
+		}
+		.recover-form {
+			display: none;
+		}
+	}
+	&.recover {
+		.signin-form, .signup-form {
+			display: none;
+		}
+		.recover-form {
+			display: block;
+		}
+	}
+	&.logged {
+		.user-avatar {
+			.img-thumbnail {
+				img {
+					max-width: 55px;
+				}
+				float: $left;
+				margin-#{$right}: 15px;
+			}
+			strong {
+				color: #111;
+				display: block;
+				padding-top: 7px;
+			}
+			span {
+				color: #666;
+				display: block;
+				font-size: 12px;
+			}
+			p {
+				color: #999;
+				margin: side-values(0 0 0 25px);
+				text-align: $left;
+			}
+		}
+		.list-account-options {
+			list-style: square;
+			margin-top: 6px;
+			a:hover {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+body #header nav.mega-menu .mega-menu-signin ul.dropdown-menu {
+	li a, &:hover li:hover li:hover a {
+		background-color: transparent !important;
+		color: #333;
+		padding: 0;
+		margin: 0;
+	}
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+
+	#header nav.mega-menu ul.nav-main .mega-menu-signin {
+		margin-#{$right}: 0;
+		a {
+			color: #FFF;
+			.fa-angle-down {
+				display: none !important;
+			}
+		}
+		ul.dropdown-menu {
+			display: block !important;
+			margin: side-values(25px 0 0 0) !important;
+			padding: side-values(0 0 0 8px);
+			width: 100%;
+			#{$right}: 0;
+			li a {
+				color: #FFF;
+				padding: 6px 0 !important;
+			}
+		}
+		&.logged {
+			.user-avatar {
+				strong, span {
+					color: #FFF !important;
+				}
+			}
+			.list-account-options {
+				a {
+					color: #FFF !important;
+					&:hover {
+						color: #FFF !important;
+					}
+				}
+				margin: 25px 0 0 0 !important;
+			}
+		}
+	}	
+
+}

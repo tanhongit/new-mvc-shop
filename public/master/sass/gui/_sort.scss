@@ -1,0 +1,140 @@
+/* Sort Source Wrapper */
+.sort-source-wrapper {
+	padding: 8px 0;
+	position: relative;
+	.nav {
+		margin: -100px 0 5px;
+		> li {
+			> a {
+				color: #FFF;
+				background: transparent;
+				&:hover, &:focus {
+					background: transparent;
+				}
+			}
+			&.active > a {
+				background: transparent;
+				&:hover, &:focus {
+					background: transparent;
+				}
+			}
+		}
+	}
+}
+
+/* Sort Source */
+.sort-source {
+	clear: both;
+}
+
+/* Sort Destination */
+.sort-destination {
+	&.full-width {
+		position: relative;
+		.isotope-item {
+			width: 20%;
+			float: $left;
+			&.w2 {
+				width: 40%;
+			}
+			.img-thumbnail {
+				border: 0;
+				padding: 0;
+				margin: 0;
+			}
+			.img-thumbnail, a, .thumb-info img {
+				border-radius: 0;
+				float: $left;
+			}
+		}
+	}
+}
+
+.sort-source-wrapper + .sort-destination {
+	&.full-width {
+		margin: 0 0 -81px;
+		top: -51px;
+	}
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+
+	ul.sort-destination.isotope {
+		overflow: visible !important;
+		height: auto !important;
+		&.full-width {
+			overflow: hidden !important;
+		}
+	}
+
+	.isotope-hidden {
+		display: none !important;
+	}	
+
+}
+
+@media (max-width: 767px) {
+
+	.sort-source-wrapper {
+		background: #171717;
+		clear: both;
+		margin-top: -35px;
+		.nav {
+			margin: 0;
+		}
+	}
+
+	.sort-destination {
+		height: auto !important;
+	}
+
+	.sort-destination, .isotope-item {
+		margin-#{$left}: auto !important;
+		margin-#{$right}: auto !important;
+	}
+
+	.sort-destination.full-width {
+		max-width: none;
+		top: 0;
+		margin-bottom: -30px;
+		.isotope-item {
+			max-width: none;
+		}
+	}
+
+	.isotope-item {
+		position: static !important;
+		text-align: center;
+		width: 100%;
+		margin-#{$left}: auto;
+		margin-#{$right}: auto;
+		-moz-transform: none !important;
+		-ms-transform: none !important;
+		-o-transform: none !important;
+		-webkit-transform: none !important;
+		transform: none !important;
+		&.product {
+			position: relative !important;
+		}
+	}
+
+}
+
+@media (max-width: 479px) {
+
+	.sort-destination, .isotope-item {
+		margin-#{$left}: auto !important;
+		margin-#{$right}: auto !important;
+	}
+
+	.sort-destination.full-width {
+		.isotope-item {
+			position: static !important;
+			clear: both;
+			float: none;
+			width: auto;
+		}
+	}
+
+}

@@ -1,0 +1,21 @@
+html {
+	direction: $dir;
+}
+
+body {
+	background-color: $light-bg;
+	color: $color-default;
+	font-family: $font-primary;
+	font-size: $body-font-size;
+	line-height: $body-line-height;
+	margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 479px) {
+
+	body {
+		font-size: 13px;
+	}
+
+}

@@ -1,0 +1,25 @@
+/* Owl Carousel */
+.owl-carousel-spaced {
+	margin-#{$left}: -5px;
+	.owl-item > div {
+		margin: 5px;
+	}
+}
+
+/* Testimonials */
+.owl-carousel.testimonials {
+	img {
+		display: inline-block;
+		height: 70px;
+		width: 70px;
+	}
+}
+
+/* Responsive */
+@media (max-width: 479px) {
+
+	.owl-carousel-spaced {
+		margin-#{$left}: 0;
+	}
+
+}

@@ -1,0 +1,30 @@
+/* Navs */
+ul {
+	&.nav-list.primary > li {
+		margin: 0;
+		padding: 0;
+		a {
+			@include transition (all 0.3s);
+			border-bottom: 1px solid #EDEDDE;
+			padding: 8px 0;
+			&:before {
+				content: "";
+				display: inline-block;
+				width: 0; 
+				height: 0; 
+				border-top: 4px solid transparent;
+				border-bottom: 4px solid transparent;
+				border-left: 4px solid #333;
+				margin-left: 5px;
+				margin-right: 5px;
+				position: relative;
+			}
+		}
+	}
+	&.nav-pills > li.active > a {
+		background-color: #CCC;
+		&:hover, &:focus {
+			background-color: #CCC;
+		}
+	}
+}

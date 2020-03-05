@@ -1,0 +1,207 @@
+/* Miscellaneous */
+body a {
+	outline: none !important;
+}
+
+li {
+	line-height: 24px;
+}
+
+.pull-left {
+	float: $left !important;
+}
+
+.pull-right {
+	float: $right !important;
+}
+
+.center {
+	text-align: center;
+}
+
+.push-bottom {
+	margin-bottom: 35px;
+}
+
+.push-top {
+	margin-top: 35px;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.inverted {
+	color: #FFF;
+	display: inline-block;
+	padding-#{$left}: 10px;
+	padding-#{$right}: 10px;
+}
+
+h1 .inverted {
+	padding-#{$left}: 10px;
+	padding-#{$right}: 10px;
+}
+
+h2 .inverted {
+	padding-#{$left}: 7px;
+	padding-#{$right}: 7px;
+}
+
+h3 .inverted {
+	padding-#{$left}: 2px;
+	padding-#{$right}: 2px;;
+}
+
+h4 .inverted {
+	padding-#{$left}: 4px;
+	padding-#{$right}: 4px;
+}
+
+h5 .inverted {
+	padding-#{$left}: 2px;
+	padding-#{$right}: 2px;
+}
+
+h6 .inverted {
+	padding-#{$left}: 2px;
+	padding-#{$right}: 2px;
+}
+
+/* Clearfix */
+.clearfix {
+	display: inline-block;
+	&:after {
+		content: ".";
+		display: block;
+		clear: both;
+		visibility: hidden;
+		line-height: 0;
+		height: 0;
+	}
+}
+
+html[xmlns] .clearfix {
+	display: block;
+}
+
+* html .clearfix {
+	height: 1%;
+}
+
+/* Pagination */
+.pagination {
+	> li > a,
+	> li > span,
+	> li > a:hover,
+	> li > span:hover,
+	> li > a:focus,
+	> li > span:focus {
+		color: #CCC;
+	}
+	> .active > a,
+	> .active > span,
+	> .active > a:hover,
+	> .active > span:hover,
+	> .active > a:focus,
+	> .active > span:focus {
+		background-color: #CCC;
+		border-color: #CCC;
+	}
+}
+
+/* Divider Line */
+hr {
+	@include background-image(linear-gradient(left, transparent, rgba(0, 0, 0, 0.2), transparent));
+	border: 0;
+	height: 1px;
+	margin: 22px 0 22px 0;
+	&.short {
+		margin: 11px 0 11px 0;
+	}
+	&.tall {
+		margin: 44px 0 44px 0;
+	}
+	&.taller {
+		margin: 66px 0 66px 0;
+	}
+	&.light {
+		@include background-image(linear-gradient(left, transparent, rgba(255, 255, 255, 0.2), transparent));
+	}
+	&.invisible {
+		background: none;
+	}
+}
+
+/* Read More */
+.read-more,
+.learn-more {
+	display: inline-block;
+	white-space: nowrap;
+}
+
+/* Offset Anchor */
+.offset-anchor {
+	display: block;
+	position: relative;
+	visibility: hidden;
+	top: -100px;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+
+	.offset-anchor {
+		top: 0;
+	}
+
+}
+
+/* Show Grid */
+.show-grid [class*="col-md-"] .show-grid-block {
+	background-color: #EEE;
+	line-height: 40px;
+	min-height: 40px;
+	text-align: center;
+	border: 1px solid #FFF;
+	display: block;
+}
+
+/* Font Awesome */
+.fontawesome-icon-list {
+	[class*="col-md-"] {
+		margin-bottom: 9px;
+	}
+	i {
+		font-size: 1.3em;
+		margin-#{$right}: 5px;
+		display: inline-block;
+		width: 30px;
+		text-align: center;
+		position: relative;
+		top: 2px;
+	}
+}
+
+/* Alert Admin */
+.alert-admin {
+	margin: 25px 0;
+	img {
+		margin: -50px 0 0;
+	}
+	.btn {
+		margin: 0 0 -15px;
+	}
+	p {
+		color: #444;
+	}
+	h4 {
+		color: #111;
+		font-size: 1.2em;
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+	.warning {
+		color: #B20000;
+	}
+}

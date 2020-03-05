@@ -1,0 +1,48 @@
+/* Header Colored */
+@media (min-width: 992px) {
+	#header.colored {
+		border-top: 0;
+		> .container {
+			height: 107px;
+			margin-bottom: -92px;
+		}
+		.header-top {
+			p, a, span {
+				color: #FFF;
+			}
+		}
+		.search input.search-query {
+			border: 0;
+			padding-bottom: 5px;
+			padding-top: 5px;
+			box-shadow: none;
+		}
+		nav {
+			ul.nav-main {
+				margin: -15px 0 -8px;
+				li {
+					a {
+						padding-bottom: 24px;
+						padding-top: 50px;
+					}
+					&.dropdown:hover > a {
+						padding-bottom: 24px;
+					}
+				}
+			}
+		}
+	}
+
+	/* Header Colored - Sticky Menu / Boxed */
+	body.sticky-menu-active #header.colored {
+		.logo {
+			padding-top: 6px;
+		}
+		ul.nav-main > li {
+			> a, &:hover > a {
+				padding-bottom: 24px;
+				padding-top: 24px;
+			}
+		}
+	}
+}

@@ -1,0 +1,108 @@
+/* Header Mega Menu */
+@media (min-width: 992px) {
+	#header {
+		nav.mega-menu {
+			.nav, .dropup, .dropdown, .collapse {
+				position: static;
+			}
+			ul.nav-main {
+				.mega-menu-content {
+					text-shadow: none;
+				}
+				li {
+					&.mega-menu-item {
+						.mega-menu-sub-title {
+							color: #333333;
+							display: block;
+							font-size: 1em;
+							font-weight: 600;
+							padding-bottom: 5px;
+							text-transform: uppercase;
+							margin-top: 20px;
+							&:first-child {
+								margin-top: 0;
+							}
+							.not-included {
+								color: #b7b7b7;
+								display: block;
+								font-size: 0.8em;
+								font-style: normal;
+								margin: -8px 0 -4px;
+								padding: 0;
+							}
+						}
+						ul.dropdown-menu {
+							background: #FFF !important;
+							border-top: 6px solid #CCC;
+							color: $color-default;
+							box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+						}
+						ul.sub-menu {
+							list-style: none;
+							padding: 0;
+							margin: 0;
+							a {
+								color: $color-default;
+								text-shadow: none;
+								margin: side-values(0 0 0 -8px);
+								padding: 3px 8px;
+								text-transform: none;
+								font-size: 0.9em;
+								display: block;
+								font-weight: normal;
+								border-radius: 4px;
+								border: 0;
+							}
+						}
+						&:hover ul.sub-menu li:hover a:hover {
+							background: #F4F4F4 !important;
+							text-decoration: none;
+						}
+					}
+					&.mega-menu-fullwidth ul.dropdown-menu {
+						border-radius: 6px;
+					}
+				}
+			}
+			.navbar-inner, .container {
+				position: relative;
+			}
+			.dropdown-menu {
+				#{$left}: auto;
+				> li {
+					display: block;
+				}
+			}
+			.mega-menu-content {
+				padding: 20px 30px;
+				&:before {
+					display: table;
+					content: "";
+					line-height: 0;
+				}
+				&:after {
+					display: table;
+					content: "";
+					line-height: 0;
+					clear: both;
+				}
+			}
+			&.navbar .nav > li > .dropdown-menu {
+				&:after, &:before {
+					display: none;
+				}
+			}
+			.dropdown.mega-menu-fullwidth .dropdown-menu {
+				width: 100%;
+				#{$left}: 0;
+				#{$right}: 0;
+			}
+			nav.pull-right .dropdown-menu {
+				#{$right}: 0;
+			}
+		}
+		&.flat-menu nav.mega-menu ul.nav-main li.mega-menu-fullwidth ul.dropdown-menu {
+			border-radius: 0;
+		}
+	}
+}

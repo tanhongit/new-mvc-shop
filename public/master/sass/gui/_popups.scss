@@ -1,0 +1,20 @@
+/* Popup */
+.popup-inline-content {
+	background: none repeat scroll 0 0 #FFF;
+	margin: 40px auto;
+	max-width: 1170px;
+	padding: 20px 30px;
+	position: relative;
+	text-align: $left;
+	display: none;
+}
+
+/* Magnific Popup */
+.mfp-wrap {
+	.popup-inline-content {
+		display: block;
+	}
+	.mfp-counter {
+		direction: ltr;
+	}
+}

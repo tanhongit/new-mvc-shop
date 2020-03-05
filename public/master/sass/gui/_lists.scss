@@ -1,0 +1,37 @@
+/* List */
+ul {
+	&.list {
+		li {
+			margin-bottom: 13px;
+		}
+		&.icons li i {
+			color: #CCC;
+			margin-#{$right}: 5px;
+		}
+		&.pull-left li {
+			text-align: $left;
+		}
+	}
+	&.list-unstyled {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+/* Sitemap */
+ul {
+	&.sitemap {
+		> li > a {
+			font-weight: bold;
+		}
+		&.list {
+			li {
+				margin: 0 0 3px 0;
+			}
+			ul {
+				margin-bottom: 5px;
+				margin-top: 5px;
+			}
+		}
+	}
+}

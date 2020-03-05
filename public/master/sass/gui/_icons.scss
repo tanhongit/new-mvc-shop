@@ -1,0 +1,37 @@
+/* Icons */
+.featured-icon {
+	background: #CCC;
+	border-radius: 35px;
+	color: #FFF;
+	display: inline-block;
+	height: 35px;
+	line-height: 35px;
+	margin-#{$right}: 10px;
+	position: relative;
+	text-align: center;
+	top: 5px;
+	width: 35px;
+	i {
+		color: #FFF;
+		font-size: 0.9em;
+		font-weight: normal;
+	}
+}
+
+/* Icons List */
+ul.icons {
+	list-style: none;
+	[class^="fa-"] {
+		margin-#{$right}: 5px;
+	}
+}
+
+/* Font Awesome List */
+.fontawesome-icon-list {
+	[class*="col-md-"] {
+    	margin-bottom: 9px;
+    }
+    > section {
+    	margin-top: 25px;
+    }
+}

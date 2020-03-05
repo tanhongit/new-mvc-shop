@@ -1,0 +1,49 @@
+// =============================================================================
+// TYPOGRAPHY
+// =============================================================================
+$font-primary: "Open Sans", Arial, sans-serif;
+$font-secundary: "Shadows Into Light", cursive;
+$body-font-size: 14px;
+$root-font-size: 14px;
+$body-line-height: 22px;
+
+// weights
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// spacement
+$spacement-increment: 5px;
+$spacement-xs: $spacement-increment;
+$spacement-sm: $spacement-xs + $spacement-increment;
+$spacement-md: $spacement-sm + $spacement-increment;
+$spacement-lg: $spacement-md + $spacement-increment;
+$spacement-xl: $spacement-lg + $spacement-increment;
+$spacement-xlg: $spacement-xl + $spacement-increment;
+
+// borders
+$border-thin: 3px;
+$border-normal: 5px;
+$border-thick: 7px;
+
+// =============================================================================
+// COLORS
+// =============================================================================
+$color-default: #777;
+$color-dark: #0e0e0e;
+
+// Light Version
+$light-bg: #FFF;
+$footer-bg: $color-dark;
+
+// Dark Version
+$dark-bg: #1d2127;
+
+$dark-color-1: $dark-bg;
+$dark-color-2: lighten($dark-color-1, 2%);
+$dark-color-3: lighten($dark-color-1, 5%);
+$dark-color-4: lighten($dark-color-1, 8%);
+$dark-color-5: lighten($dark-color-1, 3%);
+
+$darken-color-1: darken($dark-color-1, 2%);

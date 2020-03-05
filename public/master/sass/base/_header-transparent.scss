@@ -1,0 +1,32 @@
+/* Header Transparent */
+#header.transparent {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	border-top: 0;
+	background: transparent;
+	z-index: 1000;
+	&.semi-transparent {
+		background: rgba(0, 0, 0, 0.3);
+		&.light {
+			background: rgba(255, 255, 255, 0.3);
+		}
+	}
+}
+
+body.sticky-menu-active #header.transparent {
+	background: #fff;
+	&.semi-transparent {
+		background: rgba(0, 0, 0, 0.8);
+		border-bottom: 0;
+		&.light {
+			background: rgba(255, 255, 255, 0.8);
+		}
+		&.font-color-light {
+			nav.nav-main ul.nav-main > li.active > a,
+			nav.nav-main ul.nav-main > li > a {
+				color: #FFF;
+			}
+		}
+	}
+}

@@ -1,10 +1,4 @@
 <?php
-/*
-Name: 			Contact Form
-Written by: 	Okler Themes - (http://www.okler.net)
-Version: 		3.7.0
-*/
-
 session_cache_limiter('nocache');
 header('Expires: ' . gmdate('r', 0));
 

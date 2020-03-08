@@ -1,10 +1,4 @@
-/*
-Name: 			View - Home
-Written by: 	Okler Themes - (http://www.okler.net)
-Version: 		3.7.0
-*/
-
-(function($) {
+(function ($) {
 
 	'use strict';
 
@@ -28,13 +22,13 @@ Version: 		3.7.0
 	Move Cloud
 	*/
 	if ($('.cloud').get(0)) {
-		var moveCloud = function() {
+		var moveCloud = function () {
 			$('.cloud').animate({
 				'top': '+=20px'
-			}, 3000, 'linear', function() {
+			}, 3000, 'linear', function () {
 				$('.cloud').animate({
 					'top': '-=20px'
-				}, 3000, 'linear', function() {
+				}, 3000, 'linear', function () {
 					moveCloud();
 				});
 			});

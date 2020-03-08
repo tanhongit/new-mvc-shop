@@ -1,10 +1,4 @@
 <?php
-/*
-Name: 			Twitter Feed
-Written by: 	Okler Themes - (http://www.okler.net)
-Version: 		3.7.0
-*/
-
 require_once('tweet-php/TweetPHP.php');
 
 // Step 1 - To interact with Twitter’s API you will need to create an API KEY, which you can create at: https://dev.twitter.com/apps

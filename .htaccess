@@ -1,0 +1,3 @@
+RewriteEngine On
+
+ErrorDocument 404 /

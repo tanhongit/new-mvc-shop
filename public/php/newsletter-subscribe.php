@@ -1,10 +1,4 @@
 <?php
-/*
-Name: 			Newsletter Subscribe
-Written by: 	Okler Themes - (http://www.okler.net)
-Version: 		3.7.0
-*/
-
 require_once('mailchimp/mailchimp.php');
 
 // Step 1 - Set the apiKey - How get your Mailchimp API KEY - http://kb.mailchimp.com/article/where-can-i-find-my-api-key

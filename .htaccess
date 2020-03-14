@@ -1,3 +1,5 @@
 RewriteEngine On
-
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteBase /generalshop/
 ErrorDocument 404 /

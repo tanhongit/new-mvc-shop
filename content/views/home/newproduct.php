@@ -13,14 +13,16 @@
 						<?php endif; ?>
 						<?php foreach ($new_products as $new_product) : ?>
 							<li class="col-sm-3 col-xs-12 product">
-								<a href="shop-product-sidebar.html">
-									<span class="onsale">Sale!</span>
-								</a>
+								<?php if ($new_product['saleoff'] != 0) : ?>
+									<a href="shop-product-sidebar.html">
+										<span class="onsale">Sale!</span>
+									</a>
+								<?php endif; ?>
 								<span class="product-thumb-info">
 									<a href="shop-cart.html" class="add-to-cart-product">
 										<span><i class="fa fa-shopping-cart"></i> Add to Cart</span>
 									</a>
-									<a href="product/<?php echo $new_product['id']; ?>-<?php echo $new_product['slug']; ?>/">
+									<a href="product/<?php echo $new_product['slug'] . '-' . $new_product['id']; ?>">
 										<span class="product-thumb-info-image">
 											<span class="product-thumb-info-act">
 												<span class="product-thumb-info-act-left"><em>View</em></span>
@@ -36,7 +38,7 @@
 												<?php if ($new_product['saleoff'] != 0) { ?>
 													<del><span class="amount"><?php echo $new_product['product_price']; ?></span></del>
 													<ins><span class="amount"><?php echo $new_product['product_price']; ?> VNĐ</span></ins>
-												<?php } else {?>
+												<?php } else { ?>
 													<ins><span class="amount"><?php echo $new_product['product_price']; ?> VNĐ</span></ins>
 												<?php } ?>
 											</span>

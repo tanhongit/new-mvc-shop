@@ -1,22 +1,190 @@
+<?php require('content/views/shared/header.php'); ?>
 <div role="main" class="main shop">
     <div class="container">
-
         <hr class="tall">
-
         <div class="row">
             <div class="col-md-9">
-
                 <div class="row">
                     <div class="col-md-6">
-                        <h1 class="shorter"><strong>Shop</strong></h1>
-                        <p>Showing 1–9 of 25 results.</p>
+                        <div class="owl-carousel" data-plugin-options='{"items": 1}'>
+                            <div>
+                                <div class="thumbnail">
+                                    <img alt="" class="img-responsive img-rounded" src="public/upload/products/project-1.jpg">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="thumbnail">
+                                    <img alt="" class="img-responsive img-rounded" src="public/upload/products/<?php echo $product['img2'] ?>">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="thumbnail">
+                                    <img alt="" class="img-responsive img-rounded" src="public/upload/products/<?php echo $product['img3'] ?>">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="thumbnail">
+                                    <img alt="" class="img-responsive img-rounded" src="public/upload/products/<?php echo $product['img4'] ?>">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="summary entry-summary">
+
+                            <h1 class="shorter"><strong>Blue Ladies Handbag</strong></h1>
+
+                            <div class="review_num">
+                                <span class="count" itemprop="ratingCount">2</span> reviews
+                            </div>
+
+                            <div title="Rated 5.00 out of 5" class="star-rating">
+                                <span style="width:100%"><strong class="rating">5.00</strong> out of 5</span>
+                            </div>
+
+                            <p class="price">
+                                <span class="amount">$22</span>
+                            </p>
+
+                            <p class="taller">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus nibh sed elimttis adipiscing. Fusce in hendrerit purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus nibh sed elimttis adipiscing. Fusce in hendrerit purus. </p>
+
+                            <form enctype="multipart/form-data" method="post" class="cart">
+                                <div class="quantity">
+                                    <input type="button" class="minus" value="-">
+                                    <input type="text" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
+                                    <input type="button" class="plus" value="+">
+                                </div>
+                                <button href="#" class="btn btn-primary btn-icon">Add to cart</button>
+                            </form>
+
+                            <div class="product_meta">
+                                <span class="posted_in">Categories: <a rel="tag" href="#">Accessories</a>, <a rel="tag" href="#">Bags</a>.</span>
+                            </div>
+
+                        </div>
+
+
                     </div>
                 </div>
 
                 <div class="row">
+                    <div class="col-md-12">
+                        <div class="tabs tabs-product">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#productDescription" data-toggle="tab">Description</a></li>
+                                <li><a href="#productInfo" data-toggle="tab">Aditional Information</a></li>
+                                <li><a href="#productReviews" data-toggle="tab">Reviews (2)</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="productDescription">
+                                    <p><?php echo $product['product_description'] ?></p>
+                                </div>
+                                <div class="tab-pane" id="productInfo">
+                                    <table class="table table-striped push-top">
+                                        <tbody>
+                                            <tr>
+                                                <th>
+                                                    Size:
+                                                </th>
+                                                <td>
+                                                    <?php echo $product['product_size'] ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    Colors
+                                                </th>
+                                                <td>
+                                                    <?php echo $product['product_color'] ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    Material
+                                                </th>
+                                                <td>
+                                                    <?php echo $product['product_material'] ?>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>s
+                                <div class="tab-pane" id="productReviews">
+                                    <ul class="comments">
+                                        <li>
+                                            <div class="comment">
+                                                <div class="img-thumbnail">
+                                                    <img class="avatar" alt="" src="img/avatar-2.jpg">
+                                                </div>
+                                                <div class="comment-block">
+                                                    <div class="comment-arrow"></div>
+                                                    <span class="comment-by">
+                                                        <strong>John Doe</strong>
+                                                        <span class="pull-right">
+                                                            <div title="Rated 5.00 out of 5" class="star-rating">
+                                                                <span style="width:100%"><strong class="rating">5.00</strong> out of 5</span>
+                                                            </div>
+                                                        </span>
+                                                    </span>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <hr class="tall">
+                                    <h4>Add a review</h4>
+                                    <div class="row">
+                                        <div class="col-md-12">
 
-                    <ul class="products product-thumb-info-list" data-plugin-masonry data-plugin-options='{"layoutMode": "fitRows"}'>
-                        <li class="col-md-4 col-sm-6 col-xs-12 product">
+                                            <form action="" id="submitReview" method="post">
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-6">
+                                                            <label>Your name *</label>
+                                                            <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" id="name">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label>Your email address *</label>
+                                                            <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>Review *</label>
+                                                            <textarea maxlength="5000" data-msg-required="Please enter your message." rows="10" class="form-control" name="message" id="message"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <input type="submit" value="Submit Review" class="btn btn-primary" data-loading-text="Loading...">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="tall" />
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <h2>Related <strong>Products</strong></h2>
+                    </div>
+
+                    <ul class="products product-thumb-info-list">
+                        <li class="col-sm-3 col-xs-12 product">
                             <a href="shop-product-sidebar.html">
                                 <span class="onsale">Sale!</span>
                             </a>
@@ -44,7 +212,7 @@
                                 </span>
                             </span>
                         </li>
-                        <li class="col-md-4 col-sm-6 col-xs-12 product">
+                        <li class="col-sm-3 col-xs-12 product">
                             <span class="product-thumb-info">
                                 <a href="shop-cart.html" class="add-to-cart-product">
                                     <span><i class="fa fa-shopping-cart"></i> Add to Cart</span>
@@ -68,7 +236,7 @@
                                 </span>
                             </span>
                         </li>
-                        <li class="col-md-4 col-sm-6 col-xs-12 product">
+                        <li class="col-sm-3 col-xs-12 product">
                             <span class="product-thumb-info">
                                 <a href="shop-cart.html" class="add-to-cart-product">
                                     <span><i class="fa fa-shopping-cart"></i> Add to Cart</span>
@@ -92,7 +260,7 @@
                                 </span>
                             </span>
                         </li>
-                        <li class="col-md-4 col-sm-6 col-xs-12 product">
+                        <li class="col-sm-3 col-xs-12 product">
                             <span class="product-thumb-info">
                                 <a href="shop-cart.html" class="add-to-cart-product">
                                     <span><i class="fa fa-shopping-cart"></i> Add to Cart</span>
@@ -116,150 +284,14 @@
                                 </span>
                             </span>
                         </li>
-                        <li class="col-md-4 col-sm-6 col-xs-12 product">
-                            <span class="product-thumb-info">
-                                <a href="shop-cart.html" class="add-to-cart-product">
-                                    <span><i class="fa fa-shopping-cart"></i> Add to Cart</span>
-                                </a>
-                                <a href="shop-product-sidebar.html">
-                                    <span class="product-thumb-info-image">
-                                        <span class="product-thumb-info-act">
-                                            <span class="product-thumb-info-act-left"><em>View</em></span>
-                                            <span class="product-thumb-info-act-right"><em><i class="fa fa-plus"></i> Details</em></span>
-                                        </span>
-                                        <img alt="" class="img-responsive" src="img/products/product-5.jpg">
-                                    </span>
-                                </a>
-                                <span class="product-thumb-info-content">
-                                    <a href="shop-product-sidebar.html">
-                                        <h4>Ladies' handbag</h4>
-                                        <span class="price">
-                                            <span class="amount">$189</span>
-                                        </span>
-                                    </a>
-                                </span>
-                            </span>
-                        </li>
-                        <li class="col-md-4 col-sm-6 col-xs-12 product">
-                            <a href="shop-product-sidebar.html">
-                                <span class="onsale">Sale!</span>
-                            </a>
-                            <span class="product-thumb-info">
-                                <a href="shop-cart.html" class="add-to-cart-product">
-                                    <span><i class="fa fa-shopping-cart"></i> Add to Cart</span>
-                                </a>
-                                <a href="shop-product-sidebar.html">
-                                    <span class="product-thumb-info-image">
-                                        <span class="product-thumb-info-act">
-                                            <span class="product-thumb-info-act-left"><em>View</em></span>
-                                            <span class="product-thumb-info-act-right"><em><i class="fa fa-plus"></i> Details</em></span>
-                                        </span>
-                                        <img alt="" class="img-responsive" src="img/products/product-6.jpg">
-                                    </span>
-                                </a>
-                                <span class="product-thumb-info-content">
-                                    <a href="shop-product-sidebar.html">
-                                        <h4>Baseball Cap</h4>
-                                        <span class="price">
-                                            <del><span class="amount">$25</span></del>
-                                            <ins><span class="amount">$22</span></ins>
-                                        </span>
-                                    </a>
-                                </span>
-                            </span>
-                        </li>
-                        <li class="col-md-4 col-sm-6 col-xs-12 product">
-                            <span class="product-thumb-info">
-                                <a href="shop-cart.html" class="add-to-cart-product">
-                                    <span><i class="fa fa-shopping-cart"></i> Add to Cart</span>
-                                </a>
-                                <a href="shop-product-sidebar.html">
-                                    <span class="product-thumb-info-image">
-                                        <span class="product-thumb-info-act">
-                                            <span class="product-thumb-info-act-left"><em>View</em></span>
-                                            <span class="product-thumb-info-act-right"><em><i class="fa fa-plus"></i> Details</em></span>
-                                        </span>
-                                        <img alt="" class="img-responsive" src="img/products/product-7.jpg">
-                                    </span>
-                                </a>
-                                <span class="product-thumb-info-content">
-                                    <a href="shop-product-sidebar.html">
-                                        <h4>Blue Ladies Handbag</h4>
-                                        <span class="price">
-                                            <span class="amount">$290</span>
-                                        </span>
-                                    </a>
-                                </span>
-                            </span>
-                        </li>
-                        <li class="col-md-4 col-sm-6 col-xs-12 product">
-                            <span class="product-thumb-info">
-                                <a href="shop-cart.html" class="add-to-cart-product">
-                                    <span><i class="fa fa-shopping-cart"></i> Add to Cart</span>
-                                </a>
-                                <a href="shop-product-sidebar.html">
-                                    <span class="product-thumb-info-image">
-                                        <span class="product-thumb-info-act">
-                                            <span class="product-thumb-info-act-left"><em>View</em></span>
-                                            <span class="product-thumb-info-act-right"><em><i class="fa fa-plus"></i> Details</em></span>
-                                        </span>
-                                        <img alt="" class="img-responsive" src="img/products/product-8.jpg">
-                                    </span>
-                                </a>
-                                <span class="product-thumb-info-content">
-                                    <a href="shop-product-sidebar.html">
-                                        <h4>Military Rucksack</h4>
-                                        <span class="price">
-                                            <span class="amount">$49</span>
-                                        </span>
-                                    </a>
-                                </span>
-                            </span>
-                        </li>
-                        <li class="col-md-4 col-sm-6 col-xs-12 product">
-                            <a href="shop-product-sidebar.html">
-                                <span class="onsale">Sale!</span>
-                            </a>
-                            <span class="product-thumb-info">
-                                <a href="shop-cart.html" class="add-to-cart-product">
-                                    <span><i class="fa fa-shopping-cart"></i> Add to Cart</span>
-                                </a>
-                                <a href="shop-product-sidebar.html">
-                                    <span class="product-thumb-info-image">
-                                        <span class="product-thumb-info-act">
-                                            <span class="product-thumb-info-act-left"><em>View</em></span>
-                                            <span class="product-thumb-info-act-right"><em><i class="fa fa-plus"></i> Details</em></span>
-                                        </span>
-                                        <img alt="" class="img-responsive" src="img/products/product-9.jpg">
-                                    </span>
-                                </a>
-                                <span class="product-thumb-info-content">
-                                    <a href="shop-product-sidebar.html">
-                                        <h4>Baseball</h4>
-                                        <span class="price">
-                                            <del><span class="amount">$15</span></del>
-                                            <ins><span class="amount">$12</span></ins>
-                                        </span>
-                                    </a>
-                                </span>
-                            </span>
-                        </li>
                     </ul>
+
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <ul class="pagination pull-right">
-                            <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
+
             </div>
             <div class="col-md-3">
                 <aside class="sidebar">
+
                     <form>
                         <div class="input-group input-group-lg">
                             <input class="form-control" placeholder="Search..." name="s" id="s" type="text">
@@ -268,8 +300,11 @@
                             </span>
                         </div>
                     </form>
+
                     <hr />
+
                     <h5>Tags</h5>
+
                     <a href="#"><span class="label label-dark">Nike</span></a>
                     <a href="#"><span class="label label-dark">Travel</span></a>
                     <a href="#"><span class="label label-dark">Sport</span></a>
@@ -283,7 +318,9 @@
                     <a href="#"><span class="label label-dark">Books</span></a>
                     <a href="#"><span class="label label-dark">Tech</span></a>
                     <a href="#"><span class="label label-dark">New</span></a>
+
                     <hr />
+
                     <h5>Top Rated Products</h5>
                     <ul class="simple-post-list">
                         <li>
@@ -332,8 +369,12 @@
                             </div>
                         </li>
                     </ul>
+
                 </aside>
             </div>
         </div>
     </div>
+
 </div>
+<?php
+require('content/views/shared/footer.php');

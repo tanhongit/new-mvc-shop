@@ -8,11 +8,9 @@ function get_a_record($table, $id, $select = '*')
     $sql = "SELECT $select FROM `$table` WHERE id=$id";
     $query = mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
     $data = NULL;
-    if ($query = mysqli_query($linkconnectDB, $sql) === true) {
-        if (mysqli_num_rows($query) > 0) {
-            $data = mysqli_fetch_assoc($query);
-            mysqli_free_result($query);
-        }
+    if (mysqli_num_rows($query) > 0) {
+        $data = mysqli_fetch_assoc($query);
+        mysqli_free_result($query);
     }
     return $data;
 }

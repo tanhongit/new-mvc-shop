@@ -2,7 +2,9 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f 
 RewriteBase /generalshop/
+
 RewriteRule ^([^/]+)/?$ index.php?controller=$1 [QSA,L]
 RewriteRule ^([^/]+)/([^/]+)/?$ index.php?controller=$1&id=$2 [QSA,L]
 RewriteRule ^([a-zA-Z]*)/?([a-zA-Z]*)?/?([a-zA-Z0-9]*)?/?$ index.php?controller=$1&action=$2&id=$3 [NC,L]
+
 ErrorDocument 404 /

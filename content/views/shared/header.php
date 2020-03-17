@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<base href="<?php echo PATH_URL;?>"/>
 	<meta charset="utf-8">
 	<title><?php echo isset($title) ? $title : 'Chị Kòi Shop'; ?></title>
 	<meta name="keywords" content="HTML5 Template" />

@@ -3,13 +3,20 @@
     <div class="container">
         <hr class="tall">
         <div class="row">
+            <ul class="breadcrumb">
+                <li><a href="<?php echo PATH_URL; ?>">Home</a></li>
+                <li><?php echo $breadCrumb ?></li>
+                <li class="active"><?php echo $product['product_name'] ?></li>
+            </ul>
+        </div>
+        <div class="row">
             <div class="col-md-9">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="owl-carousel" data-plugin-options='{"items": 1}'>
                             <div>
                                 <div class="thumbnail">
-                                    <img alt="" class="img-responsive img-rounded" src="public/upload/products/project-1.jpg">
+                                    <img alt="" class="img-responsive img-rounded" src="public/upload/products/<?php echo $product['img1'] ?>">
                                 </div>
                             </div>
                             <div>
@@ -35,7 +42,7 @@
 
                         <div class="summary entry-summary">
 
-                            <h1 class="shorter"><strong>Blue Ladies Handbag</strong></h1>
+                            <h1 class="shorter"><strong><?php echo $product['product_name'] ?></strong></h1>
 
                             <div class="review_num">
                                 <span class="count" itemprop="ratingCount">2</span> reviews
@@ -46,10 +53,15 @@
                             </div>
 
                             <p class="price">
-                                <span class="amount">$22</span>
+                                <?php if ($product['saleoff'] != 0) { ?>
+                                    <del><span class="amount"><?php echo number_format($product['product_price'], 0, ',', '.');  ?></span></del>
+                                    <ins><span class="amount"><?php echo number_format(($product['product_price']) - (($product['product_price'] * $product['percentoff']) / 100), 0, ',', '.'); ?> VNĐ</span></ins>
+                                <?php } else { ?>
+                                    <ins><span class="amount"><?php echo number_format($product['product_price'], 0, ',', '.');  ?> VNĐ</span></ins>
+                                <?php } ?>
                             </p>
 
-                            <p class="taller">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus nibh sed elimttis adipiscing. Fusce in hendrerit purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus nibh sed elimttis adipiscing. Fusce in hendrerit purus. </p>
+                            <p class="taller"><?php echo $product['product_description'] ?>. </p>
 
                             <form enctype="multipart/form-data" method="post" class="cart">
                                 <div class="quantity">
@@ -74,8 +86,8 @@
                     <div class="col-md-12">
                         <div class="tabs tabs-product">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#productDescription" data-toggle="tab">Description</a></li>
-                                <li><a href="#productInfo" data-toggle="tab">Aditional Information</a></li>
+                                <li class="active"><a href="#productDescription" data-toggle="tab">Thông tin sản phẩm</a></li>
+                                <li><a href="#productInfo" data-toggle="tab">Thông tin khác</a></li>
                                 <li><a href="#productReviews" data-toggle="tab">Reviews (2)</a></li>
                             </ul>
                             <div class="tab-content">
@@ -111,7 +123,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                </div>s
+                                </div>
                                 <div class="tab-pane" id="productReviews">
                                     <ul class="comments">
                                         <li>

@@ -1,11 +1,11 @@
 <?php
-$options_orderproduct = array(
+$options_hotproduct = array(
     'where' => 'product_typeid = 1',
     'limit' => '12',
     'offset' => '0',
     'order_by' => 'createDate DESC'
 );
-$order_products = get_all('products',$options_orderproduct);
+$hot_products = get_all('products',$options_hotproduct);
 $options_newproduct = array(
     'where' => 'product_typeid = 2',
     'limit' => '12',

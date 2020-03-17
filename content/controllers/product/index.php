@@ -1,6 +1,6 @@
 <?php
-$pid = intval($_GET['id']);
-$product = get_a_record('products', $pid);
+$product_id = intval($_GET['id']);
+$product = get_a_record('products', $product_id);
 function updateCountView($id){
     global $linkconnectDB;
     $sql = "Update products set totalView = totalView + 1 WHERE id =$id";
@@ -8,7 +8,7 @@ function updateCountView($id){
 }
 if (!$product) {
     show_404();
-}else   updateCountView($pid);
+}else   updateCountView($product_id);
 $title = $product['product_name'];
 
 $categories = get_all('categories', array(
@@ -20,4 +20,4 @@ if ($product['sub_category_id'] != 0) {
     $breadCrumb = $subcategories['subcategory_name'];
 }
 //load view
-require('content/views/product/view.php');
+require('content/views/product/index.php');

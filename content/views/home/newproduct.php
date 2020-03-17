@@ -22,7 +22,7 @@
 									<a href="shop-cart.html" class="add-to-cart-product">
 										<span><i class="fa fa-shopping-cart"></i> Add to Cart</span>
 									</a>
-									<a href="product/<?php echo $new_product['slug'] . '-' . $new_product['id']; ?>">
+									<a href="product/<?php echo $new_product['id']; ?>-<?php echo $new_product['slug']; ?>">
 										<span class="product-thumb-info-image">
 											<span class="product-thumb-info-act">
 												<span class="product-thumb-info-act-left"><em>View</em></span>
@@ -36,10 +36,10 @@
 											<h4><?php echo $new_product['product_name']; ?></h4>
 											<span class="price">
 												<?php if ($new_product['saleoff'] != 0) { ?>
-													<del><span class="amount"><?php echo $new_product['product_price']; ?></span></del>
-													<ins><span class="amount"><?php echo $new_product['product_price']; ?> VNĐ</span></ins>
+													<del><span class="amount"><?php echo number_format($new_product['product_price'], 0, ',', '.');  ?></span></del>
+													<ins><span class="amount"><?php echo number_format(($new_product['product_price']) - (($new_product['product_price'] * $new_product['percentoff']) / 100), 0, ',', '.'); ?> VNĐ</span></ins>
 												<?php } else { ?>
-													<ins><span class="amount"><?php echo $new_product['product_price']; ?> VNĐ</span></ins>
+													<ins><span class="amount"><?php echo number_format($new_product['product_price'], 0, ',', '.');  ?> VNĐ</span></ins>
 												<?php } ?>
 											</span>
 										</a>

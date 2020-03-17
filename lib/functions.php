@@ -5,5 +5,6 @@ function show_404(){
     exit();
 }
 function escape($str) {
-    return mysqli::real_escape_string($str);
+    global $linkconnectDB;
+    return mysqli_real_escape_string($linkconnectDB,$str);
 }

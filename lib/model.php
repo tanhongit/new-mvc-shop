@@ -34,3 +34,11 @@ function get_all($table, $options = array())
     }
     return $data;
 }
+function get_total($table, $options = array()) {
+    global $linkconnectDB;
+    $where = isset($options['where']) ? 'WHERE ' . $options['where'] : '';
+    $sql = "SELECT COUNT(*) as total FROM `$table` $where";
+    $query = mysqli_query($linkconnectDB,$sql) or die(mysqli_error($linkconnectDB));
+    $row = mysqli_fetch_assoc($query);
+    return $row['total'];
+}

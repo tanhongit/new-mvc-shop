@@ -5,7 +5,7 @@
         <div class="row">
             <ul class="breadcrumb">
                 <li><a href="<?php echo PATH_URL; ?>">Home</a></li>
-                <li><?php echo $breadCrumb ?></li>
+                <li><a href="category/<?php echo $subcategories['id'] . '-' . $subcategories['slug']; ?>"><?php echo $breadCrumb ?></a></li>
                 <li class="active"><?php echo $product['product_name'] ?></li>
             </ul>
         </div>

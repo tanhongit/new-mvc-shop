@@ -1,15 +1,18 @@
 <?php
-$product_id = intval($_GET['id']);
+if (isset($_GET['id'])) {
+    $product_id = intval($_GET['id']);
+} else show_404();
 $product = get_a_record('products', $product_id);
-function updateCountView($id){
+function updateCountView($id)
+{
     global $linkconnectDB;
     $sql = "Update products set totalView = totalView + 1 WHERE id =$id";
-    return mysqli_query($linkconnectDB,$sql);
+    return mysqli_query($linkconnectDB, $sql);
 }
 if (!$product) {
     show_404();
-}else   updateCountView($product_id);
-$title = $product['product_name'];
+} else   updateCountView($product_id);
+$title = $product['product_name'] . ' - Chị Kòi Shop';
 
 $categories = get_all('categories', array(
     'select' => 'id, category_name',

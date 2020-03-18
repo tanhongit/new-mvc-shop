@@ -8,7 +8,7 @@ require('content/views/shared/header.php'); ?>
                 <div class="col-md-12">
                     <ul class="breadcrumb">
                         <li><a href="<?php echo PATH_URL; ?>">Home</a></li>
-                        <li class="active">Pages</li>
+                        <li class="active">404</li>
                     </ul>
                 </div>
             </div>

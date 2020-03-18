@@ -15,7 +15,7 @@
 							<li class="col-sm-3 col-xs-12 product">
 								<?php if ($saleoff_product['saleoff'] != 0) : ?>
 									<a href="shop-product-sidebar.html">
-										<span class="onsale">Sale!</span>
+										<span class="onsale">-<?php echo $saleoff_product['percentoff'];?>%</span>
 									</a>
 								<?php endif; ?>
 								<span class="product-thumb-info">

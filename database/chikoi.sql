@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th3 08, 2020 lúc 08:39 AM
--- Phiên bản máy phục vụ: 5.7.26
--- Phiên bản PHP: 7.3.5
+-- Thời gian đã tạo: Th3 19, 2020 lúc 05:02 AM
+-- Phiên bản máy phục vụ: 10.4.10-MariaDB
+-- Phiên bản PHP: 5.6.40
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -23,6 +23,32 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `chikoi` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE `chikoi`;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `categories`
+--
+
+DROP TABLE IF EXISTS `categories`;
+CREATE TABLE IF NOT EXISTS `categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `supply_id` int(11) DEFAULT NULL,
+  `category_position` int(4) DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_supply_id` (`supply_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `categories`
+--
+
+INSERT INTO `categories` (`id`, `category_name`, `supply_id`, `category_position`, `slug`) VALUES
+(1, 'Ăn Uống', 1, 1, 'an-uong'),
+(2, 'Làm Đẹp', 1, 2, 'lam-dep'),
+(3, 'Mỹ Phẩm', 1, 3, 'my-pham');
 
 -- --------------------------------------------------------
 
@@ -50,23 +76,23 @@ CREATE TABLE IF NOT EXISTS `menu` (
 
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
-  `product_id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `product_name` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `product_typeid` int(11) NOT NULL,
   `category_id` int(11) DEFAULT NULL,
   `sub_category_id` int(11) DEFAULT NULL,
   `supply_id` int(11) DEFAULT NULL,
-  `product_description` longtext COLLATE utf8mb4_unicode_ci,
+  `product_description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `product_price` int(11) NOT NULL,
   `product_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `product_material` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `product_size` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `product_detail` longtext COLLATE utf8mb4_unicode_ci,
+  `product_detail` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `createBy` int(11) DEFAULT NULL,
   `createDate` date DEFAULT NULL,
   `editBy` int(11) DEFAULT NULL,
   `editDate` date DEFAULT NULL,
-  `totalView` int(11) DEFAULT NULL,
+  `totalView` int(11) DEFAULT 0,
   `saleoff` tinyint(11) DEFAULT NULL,
   `percentoff` int(11) DEFAULT NULL,
   `img1` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -74,8 +100,30 @@ CREATE TABLE IF NOT EXISTS `products` (
   `img3` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `img4` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`product_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  PRIMARY KEY (`id`),
+  KEY `fk_category_id` (`category_id`),
+  KEY `fk_supply_id` (`supply_id`),
+  KEY `fk_type_id` (`product_typeid`)
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `products`
+--
+
+INSERT INTO `products` (`id`, `product_name`, `product_typeid`, `category_id`, `sub_category_id`, `supply_id`, `product_description`, `product_price`, `product_color`, `product_material`, `product_size`, `product_detail`, `createBy`, `createDate`, `editBy`, `editDate`, `totalView`, `saleoff`, `percentoff`, `img1`, `img2`, `img3`, `img4`, `slug`) VALUES
+(1, 'Hạt Hướng Dương Chất Lượng', 2, 1, 4, 1, 'Hạt hướng dương có hạt to, hàng chất lượng không hôi không có hạt lép, hạt hư.', 10000, 'Đen', 'Hạt hướng dương', 'To', 'Hạt hướng dương có hạt to, hàng chất lượng không hôi không có hạt lép, hạt hư.', NULL, '2020-03-18', NULL, NULL, 14, NULL, NULL, NULL, NULL, '', '', 'hat-huong-duong'),
+(2, 'Trà Sữa Thái Xanh (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'Xanh', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-18', NULL, NULL, 9, NULL, NULL, NULL, NULL, '', '', 'tra-sua-thai-xanh'),
+(3, 'Trà Sữa Truyền Thống (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-18', NULL, NULL, 5, NULL, NULL, NULL, NULL, '', '', 'tra-sua-truyen-thong'),
+(4, 'Trà Sữa Vị Dâu (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'tra-sua-vi-dau-chan-chau-pudding'),
+(5, 'Trà Sữa Vị Socola (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 1, NULL, NULL, NULL, NULL, '', '', 'tra-sua-vi-socola-chan-chau-pudding'),
+(6, 'Trà Sữa Vị Đào (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'tra-sua-vi-dao'),
+(7, 'Trà bí đao hạt é - Giải khát, thanh lọc', 2, 1, 5, 1, 'ok', 10000, 'ok', 'ok', 'ok', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'tra-bi-dao-hat-e'),
+(8, 'Sương Sáo', 2, 1, 5, 1, 'ok', 10000, 'ok', 'ok', 'kok', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'suong-sao'),
+(9, 'Cá viên chiên', 2, 1, 2, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'ca-vien-chien'),
+(10, 'Tôm viên', 2, 1, 2, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'tom-vien'),
+(11, 'Bò viên', 2, 1, 2, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'bo-vien'),
+(12, 'Đậu hủ', 2, 1, 2, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 1, NULL, NULL, NULL, NULL, '', '', 'dau-hu'),
+(13, 'a', 2, 1, 2, 1, 'ok', 15000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'a');
 
 -- --------------------------------------------------------
 
@@ -85,10 +133,10 @@ CREATE TABLE IF NOT EXISTS `products` (
 
 DROP TABLE IF EXISTS `roles`;
 CREATE TABLE IF NOT EXISTS `roles` (
-  `role_id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `role_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `role_desc` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`role_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -99,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
 
 DROP TABLE IF EXISTS `slide`;
 CREATE TABLE IF NOT EXISTS `slide` (
-  `slide_id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `slide_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `slide_img1` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `slide_text1` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -111,8 +159,76 @@ CREATE TABLE IF NOT EXISTS `slide` (
   `slide_text4` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slide_img5` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slide_text5` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`slide_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `subcategory`
+--
+
+DROP TABLE IF EXISTS `subcategory`;
+CREATE TABLE IF NOT EXISTS `subcategory` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subcategory_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `supply_id` int(11) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `pld` int(11) NOT NULL,
+  `slug` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_category_id` (`category_id`),
+  KEY `fk_supply_id` (`supply_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `subcategory`
+--
+
+INSERT INTO `subcategory` (`id`, `subcategory_name`, `supply_id`, `category_id`, `pld`, `slug`) VALUES
+(1, 'Bánh Xèo', 1, 1, 0, 'banh-xeo'),
+(2, 'Đồ Ăn Vặt', 1, 1, 0, 'do-an-vat'),
+(3, 'Trà Sữa', 1, 1, 0, 'tra-sua'),
+(4, 'Đậu & Hạt', 1, 1, 0, 'dau-va-hat'),
+(5, 'Ăn Uống & Giải Khát', 1, 1, 0, 'an-uong-giai-khat');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `supplies`
+--
+
+DROP TABLE IF EXISTS `supplies`;
+CREATE TABLE IF NOT EXISTS `supplies` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `supply_name` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `logo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `types`
+--
+
+DROP TABLE IF EXISTS `types`;
+CREATE TABLE IF NOT EXISTS `types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type_description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `types`
+--
+
+INSERT INTO `types` (`id`, `type_name`, `type_description`, `slug`) VALUES
+(1, 'SẢN PHẨM NỔI BẬT (HOT)', NULL, 'san-pham-noi-bat'),
+(2, 'SẢN PHẨM MỚI', NULL, 'san-pham-moi'),
+(3, 'SẢN PHẨM GIẢM GIÁ', NULL, 'san-pham-giam-gia');
 
 -- --------------------------------------------------------
 
@@ -122,7 +238,7 @@ CREATE TABLE IF NOT EXISTS `slide` (
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_password` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -132,7 +248,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_phone` int(20) DEFAULT NULL,
   `user_address` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `createDate` date DEFAULT NULL,
-  PRIMARY KEY (`user_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 COMMIT;
 

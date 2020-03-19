@@ -19,7 +19,7 @@
 									</a>
 								<?php endif; ?>
 								<span class="product-thumb-info">
-									<a href="shop-cart.html" class="add-to-cart-product">
+									<a href="cart/add/<?php echo $new_product['id']; ?>" class="add-to-cart-product">
 										<span><i class="fa fa-shopping-cart"></i> Add to Cart</span>
 									</a>
 									<a href="product/<?php echo $new_product['id']; ?>-<?php echo $new_product['slug']; ?>">

@@ -1,8 +1,4 @@
 <?php
-
-/**
- * lưu giỏ hàng vào $_SESSION['cart'] có dạng array
- */
 //khởi tạo giỏ hàng
 if (!isset($_SESSION['cart'])) $_SESSION['cart'] = array();
 //thêm giỏ hàng
@@ -17,7 +13,7 @@ function cart_add($product_id)
 
         $_SESSION['cart'][$product_id] = array(
             'id' => $product_id,
-            'cart_name' => $product['product_name'],
+            'name' => $product['product_name'],
             'image' => $product['img1'],
             'number' => 1,
             'typeid' => $product['product_typeid'],

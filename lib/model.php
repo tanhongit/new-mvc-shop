@@ -32,11 +32,30 @@ function get_all($table, $options = array())
     }
     return $data;
 }
-function get_total($table, $options = array()) {
+function get_total($table, $options = array())
+{
     global $linkconnectDB;
     $where = isset($options['where']) ? 'WHERE ' . $options['where'] : '';
     $sql = "SELECT COUNT(*) as total FROM `$table` $where";
-    $query = mysqli_query($linkconnectDB,$sql) or die(mysqli_error($linkconnectDB));
+    $query = mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
     $row = mysqli_fetch_assoc($query);
     return $row['total'];
+}
+function save($table, $data = array())
+{
+    $values = array();
+    global $linkconnectDB;
+    foreach ($data as $key => $value) {
+        $value = mysqli_real_escape_string($linkconnectDB, $value);
+        $values[] = "`$key`='$value'";
+    }
+    $id = intval($data['id']);
+    if ($id > 0) {
+        $sql = "UPDATE `$table` SET " . implode(',', $values) . " WHERE id=$id";
+    } else {
+        $sql = "INSERT INTO `$table` SET " . implode(',', $values);
+    }
+    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    $id = ($id > 0) ? $id : mysqli_insert_id($linkconnectDB);
+    return $id;
 }

@@ -243,8 +243,8 @@
 								</ul>
 							</li>
 							<li class="dropdown mega-menu-item mega-menu-shop">
-								<a class="dropdown-toggle mobile-redirect" href="shop-cart.html">
-									<i class="fa fa-shopping-cart"></i> Cart (1) - $299
+								<a class="dropdown-toggle mobile-redirect" href="cart">
+									<i class="fa fa-shopping-cart"></i> Cart (<?php echo cart_number(); ?>)
 									<i class="fa fa-angle-down"></i>
 								</a>
 								<ul class="dropdown-menu">

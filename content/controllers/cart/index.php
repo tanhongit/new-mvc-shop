@@ -7,8 +7,7 @@ if (!empty($_POST)) {
     header('location:index.php?controller=cart');
 }
 //data
-$title = 'Giỏ hàng - Chị Kòi Shop';
+$title = 'Giỏ hàng - Quán Chị Kòi';
 $cart = cart_list();
-
-//load view
+//load vieư
 require('content/views/cart/index.php');

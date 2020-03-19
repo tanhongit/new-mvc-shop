@@ -36,9 +36,9 @@
 					</a>
 				</div>
 				<div class="search">
-					<form id="searchForm" action="#" method="get">
+					<form id="searchForm" action="<?php echo PATH_URL;?>search/" method="get">
 						<div class="input-group">
-							<input type="text" class="form-control search" name="q" id="q" placeholder="Search..." required>
+							<input type="text" class="form-control search" name="keyword" id="q" placeholder="Search..." required>
 							<span class="input-group-btn">
 								<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
 							</span>

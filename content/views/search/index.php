@@ -9,16 +9,27 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <h1 class="shorter"><strong>Shop</strong></h1>
-                        <p>Showing 1–9 of 25 results.</p>
+                        <h1 class="shorter"><strong>Search</strong></h1>
+                        <p>Hiển thị <?php if($total_rows>=9) echo '1–9 trong ';?><?php echo $total_rows;?> kết quả.</p>
                     </div>
                 </div>
 
                 <div class="row">
-                    <?php if (empty($products)) { ?>
-                        <h3 class="col-sm-12">Không tìm thấy kết quả phù hợp cho từ khoá trên.</h3>
-                    <?php } else { ?><h3 class="col-sm-12">Có tổng cộng <?php echo $total_rows ?> kết quả phù hợp với từ
-                            khóa "<?php echo $keyword ?>".</h3><?php } ?>
+                    <div>
+                        <form action="<?php echo PATH_URL; ?>search/" method="get">
+                            <div class="input-group input-group-lg">
+                                <input class="form-control" placeholder="Search..." name="keyword" id="s" type="text">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-search"></i></button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <hr>
+                    <div><?php if (empty($products)) { ?>
+                            <h3 class="col-sm-12">Không tìm thấy kết quả phù hợp cho từ khoá trên.</h3>
+                        <?php } else { ?><h3 class="col-sm-12">Có tổng cộng <?php echo $total_rows ?> kết quả phù hợp với từ
+                                khóa "<?php echo $keyword ?>".</h3><?php } ?></div>
                     <hr class="tall">
                     <ul class="products product-thumb-info-list" data-plugin-masonry data-plugin-options='{"layoutMode": "fitRows"}'>
                         <?php
@@ -30,7 +41,7 @@
                                     </a>
                                 <?php endif; ?>
                                 <span class="product-thumb-info">
-                                    <a href="shop-cart.html" class="add-to-cart-product">
+                                    <a href="cart/add/<?php echo $product['id']; ?>" class="add-to-cart-product">
                                         <span><i class="fa fa-shopping-cart"></i> Add to Cart</span>
                                     </a>
                                     <a href="product/<?php echo $product['id']; ?>-<?php echo $product['slug']; ?>">

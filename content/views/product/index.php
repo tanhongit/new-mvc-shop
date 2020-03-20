@@ -69,13 +69,12 @@
                                     <input type="text" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
                                     <input type="button" class="plus" value="+">
                                 </div>
-                                <button href="#" class="btn btn-primary btn-icon">Add to cart</button>
+                                <button href="cart/add/<?php echo $product['id']; ?>" class="btn btn-primary btn-icon">Add to cart</button>
                             </form>
 
                             <div class="product_meta">
                                 <span class="posted_in">Categories: <a rel="tag" href="#">Accessories</a>, <a rel="tag" href="#">Bags</a>.</span>
                             </div>
-
                         </div>
 
 

@@ -11,16 +11,16 @@
                             &nbsp;
                         </th>
                         <th class="product-name">
-                            Product
+                            Sản Phẩm
                         </th>
                         <th class="product-price">
-                            Price
+                            Giá
                         </th>
                         <th class="product-quantity">
-                            Quantity
+                            Số Lượng
                         </th>
                         <th class="product-subtotal">
-                            Total
+                            Tổng Tiền
                         </th>
                     </tr>
                 </thead>
@@ -28,12 +28,12 @@
                     <?php foreach ($cart as $product_id => $product) { ?>
                         <tr class="cart_table_item">
                             <td class="product-remove">
-                                <a title="Remove this item" class="remove" href="#">
+                                <a title="Remove this item" class="remove" href="cart/delete/<?php echo $product['id']; ?>">
                                     <i class="fa fa-times"></i>
                                 </a>
                             </td>
                             <td class="product-thumbnail">
-                                <a href="shop-product-sidebar.html">
+                                <a href="product/<?php echo $product['id'] . '-' . $product['name']; ?>">
                                     <img width="100" height="100" alt="" class="img-responsive" src="<?php echo 'public/upload/products/' . $product['image'] ?>">
                                 </a>
                             </td>
@@ -47,13 +47,13 @@
                                 <form enctype="multipart/form-data" method="post" class="cart">
                                     <div class="quantity">
                                         <input type="button" class="minus" value="-">
-                                        <input type="text" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
+                                        <input type="text" class="input-text qty text" title="Qty" value="<?php echo $product['number']; ?>" name="number[<?php echo $product['id']; ?>]" min="1" step="1">
                                         <input type="button" class="plus" value="+">
                                     </div>
                                 </form>
                             </td>
                             <td class="product-subtotal">
-                                <span class="amount"><?php echo number_format($product['price']*$product['number'], 0, ',', '.') ?> VNĐ</span>
+                                <span class="amount"><?php echo number_format($product['price'] * $product['number'], 0, ',', '.') ?> VNĐ</span>
                             </td>
                         </tr>
                     <?php } ?>

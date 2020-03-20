@@ -9,8 +9,8 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <h1 class="shorter"><strong>Shop</strong></h1>
-                        <p>Showing 1–9 of 25 results.</p>
+                        <h1 class="shorter"><strong><?php echo $category['category_name'];?></strong></h1>
+                        <p>Hiển thị <?php if($total_rows>=9) echo '1–9 trong ';?><?php echo $total_rows;?> kết quả.</p>
                     </div>
                 </div>
 
@@ -25,7 +25,7 @@
                                     </a>
                                 <?php endif; ?>
                                 <span class="product-thumb-info">
-                                    <a href="shop-cart.html" class="add-to-cart-product">
+                                    <a href="cart/add/<?php echo $product['id']; ?>" class="add-to-cart-product">
                                         <span><i class="fa fa-shopping-cart"></i> Add to Cart</span>
                                     </a>
                                     <a href="product/<?php echo $product['id']; ?>-<?php echo $product['slug']; ?>">

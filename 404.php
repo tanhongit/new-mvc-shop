@@ -7,7 +7,7 @@ require('content/views/shared/header.php'); ?>
             <div class="row">
                 <div class="col-md-12">
                     <ul class="breadcrumb">
-                        <li><a href="<?php echo PATH_URL; ?>">Home</a></li>
+                        <li><a href="<?php echo PATH_URL; ?>home">Home</a></li>
                         <li class="active">404</li>
                     </ul>
                 </div>
@@ -31,7 +31,7 @@ require('content/views/shared/header.php'); ?>
                 <div class="col-md-4">
                     <h4>Here are some useful links</h4>
                     <ul class="nav nav-list primary">
-                        <li><a href="<?php echo PATH_URL; ?>">Home</a></li>
+                        <li><a href="<?php echo PATH_URL; ?>home">Home</a></li>
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">FAQ's</a></li>
                         <li><a href="#">Sitemap</a></li>

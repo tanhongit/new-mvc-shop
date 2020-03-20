@@ -4,8 +4,8 @@
    
     require 'newproduct.php';
     require 'hotproduct.php';
-    require 'saleproduct.php';
     require 'slide.php';
+    require 'saleproduct.php';
     ?>
 </div>
 <?php

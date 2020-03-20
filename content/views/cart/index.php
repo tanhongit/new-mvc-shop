@@ -1,5 +1,4 @@
-<?php 
-require_once 'content/models/cart.php';
+<?php
 require('content/views/shared/header.php'); ?>
 <div role="main" class="main shop">
     <div class="container">
@@ -11,7 +10,7 @@ require('content/views/shared/header.php'); ?>
 
                 <div class="row featured-boxes">
                     <div class="col-md-12">
-                    <?php require('content/views/cart/list.php'); ?>
+                        <?php require('content/views/cart/list.php'); ?>
                     </div>
                 </div>
 

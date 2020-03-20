@@ -63,17 +63,17 @@
 
                             <p class="taller"><?php echo $product['product_description'] ?>. </p>
 
-                            <form enctype="multipart/form-data" method="post" class="cart">
+                            <form enctype="multipart/form-data" method="post" class="cart" action="cart/add/<?php echo $product['id']; ?>">
                                 <div class="quantity">
                                     <input type="button" class="minus" value="-">
                                     <input type="text" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
                                     <input type="button" class="plus" value="+">
                                 </div>
-                                <button href="cart/add/<?php echo $product['id']; ?>" class="btn btn-primary btn-icon">Add to cart</button>
+                                <button class="btn btn-primary btn-icon" role="button" type="submit">Add to cart</button>
                             </form>
 
                             <div class="product_meta">
-                                <span class="posted_in">Categories: <a rel="tag" href="#">Accessories</a>, <a rel="tag" href="#">Bags</a>.</span>
+                                <span class="posted_in">Categories: <a rel="tag" href="category/<?php echo $subcategories['id'] . '-' . $subcategories['slug']; ?>"><?php echo $breadCrumb ?></a></span>
                             </div>
                         </div>
 

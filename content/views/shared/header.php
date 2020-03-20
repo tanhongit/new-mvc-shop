@@ -1,7 +1,12 @@
+<?php
+include_once('content/models/cart.php');
+$cart = cart_list();
+?>
 <!DOCTYPE html>
 <html>
+
 <head>
-	<base href="<?php echo PATH_URL;?>"/>
+	<base href="<?php echo PATH_URL; ?>" />
 	<meta charset="utf-8">
 	<title><?php echo isset($title) ? $title : 'Chị Kòi Shop'; ?></title>
 	<meta name="keywords" content="HTML5 Template" />
@@ -36,7 +41,7 @@
 					</a>
 				</div>
 				<div class="search">
-					<form id="searchForm" action="<?php echo PATH_URL;?>search/" method="get">
+					<form id="searchForm" action="<?php echo PATH_URL; ?>search/" method="get">
 						<div class="input-group">
 							<input type="text" class="form-control search" name="keyword" id="q" placeholder="Search..." required>
 							<span class="input-group-btn">
@@ -254,26 +259,27 @@
 												<div class="col-md-12">
 													<table cellspacing="0" class="cart">
 														<tbody>
-															<tr>
-																<td class="product-thumbnail">
-																	<a href="shop-product-sidebar.html">
-																		<img width="100" height="100" alt="" class="img-responsive" src="img/products/product-1.jpg">
-																	</a>
-																</td>
-																<td class="product-name">
-																	<a href="shop-product-sidebar.html">Hế Camera<br><span class="amount"><strong>$299</strong></span></a>
-																</td>
-																<td class="product-actions">
-																	<a title="Remove this item" class="remove" href="#">
-																		<i class="fa fa-times"></i>
-																	</a>
-																</td>
-															</tr>
+															<?php foreach ($cart as $product_id => $product_cart) { ?>
+																<tr>
+																	<td class="product-thumbnail">
+																		<a href="product/<?php echo $product_cart['id'] . '-' . $product_cart['name']; ?>">
+																			<img width="100" height="100" alt="" class="img-responsive" src="public/upload/products/<?php echo $product_cart['image'] ?>">
+																		</a>
+																	</td>
+																	<td class="product-name">
+																		<a href="product/<?php echo $product_cart['id'] . '-' . $product_cart['name']; ?>"><?php echo $product_cart['name'] ?><br><span class="amount"><strong><?php echo $product_cart['price'] ?> VNĐ</strong> - SLượng: <?php echo $product_cart['number'] ?>  </span></a>
+																	</td>
+																	<td class="product-actions">
+																		<a title="Remove this item" class="remove" href="cart/delete/<?php echo $product_cart['id']; ?>">
+																			<i class="fa fa-times"></i>
+																		</a>
+																	</td>
+																</tr>
+															<?php } ?>
 															<tr>
 																<td class="actions" colspan="6">
 																	<div class="actions-continue">
-																		<input type="submit" value="View All" class="btn btn-default">
-																		<input type="submit" value="Proceed to Checkout →" name="proceed" class="btn pull-right btn-primary">
+																		<form action="cart"><input type="submit" value="View All" class="btn pull-right btn-primary"></form>
 																	</div>
 																</td>
 															</tr>

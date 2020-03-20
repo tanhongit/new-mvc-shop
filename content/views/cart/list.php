@@ -33,15 +33,19 @@
                                 </a>
                             </td>
                             <td class="product-thumbnail">
-                                <a href="product/<?php echo $product['id'] . '-' . $product['name']; ?>">
+                                <a href="product/<?php echo $product['id'] . '-' . slug($product['name']); ?>">
                                     <img width="100" height="100" alt="" class="img-responsive" src="<?php echo 'public/upload/products/' . $product['image'] ?>">
                                 </a>
                             </td>
                             <td class="product-name">
-                                <a href="product/<?php echo $product['id'] . '-' . $product['name']; ?>"><?php echo $product['name'] ?></a>
+                                <a href="product/<?php echo $product['id'] . '-' . slug($product['name']); ?>"><?php echo $product['name'] ?></a>
                             </td>
                             <td class="product-price">
-                                <span class="amount"><?php echo number_format($product['price'], 0, ',', '.') ?> VNĐ</span>
+                                <?php if ($product["typeid"] == 3) : ?>
+                                    <span class="amount"><?php echo $product ? number_format(($product['price']) - ($product['price']) * ($product['percent_off']) / 100, 0, ',', '.') : 0; ?> VNĐ</span>
+                                <?php else : ?>
+                                    <span class="amount"><?php echo number_format($product['price'], 0, ',', '.'); ?> VNĐ</span>
+                                <?php endif ?>
                             </td>
                             <td class="product-quantity">
                                 <form enctype="multipart/form-data" method="post" class="cart">
@@ -53,7 +57,11 @@
                                 </form>
                             </td>
                             <td class="product-subtotal">
-                                <span class="amount"><?php echo number_format($product['price'] * $product['number'], 0, ',', '.') ?> VNĐ</span>
+                                <?php if ($product["typeid"] == 3) : ?>
+                                    <span class="amount"><?php echo number_format((($product['price']) - ($product['price']) * ($product['percent_off']) / 100) * $product['number'], 0, ',', '.') ?> VNĐ</span>
+                                <?php else : ?>
+                                    <span class="amount"><?php echo number_format($product['price'] * $product['number'], 0, ',', '.') ?> VNĐ</span>
+                                <?php endif ?>
                             </td>
                         </tr>
                     <?php } ?>

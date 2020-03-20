@@ -1,5 +1,5 @@
 <?php
-$title = 'Đơn hàng - Chị kòi Shop';
+$title = 'Đơn hàng - Quán Chị kòi';
 $cart = cart_list();
 if (empty($cart)) {
 	header('location:.');

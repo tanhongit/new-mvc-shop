@@ -91,7 +91,8 @@ require('content/views/shared/header.php'); ?>
                 <div class="row featured-boxes">
                     <div class="col-md-12">
                         <div class="actions-continue">
-                            <input type="submit" value="Proceed to Checkout →" name="proceed" class="btn btn-lg btn-primary">
+                            <form action="cart/order/checkout" method="post">
+                                <input type="submit" value="Proceed to Checkout →" name="proceed" class="btn btn-lg btn-primary"></form>
                         </div>
                     </div>
                 </div>

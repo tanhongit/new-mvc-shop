@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th3 19, 2020 lúc 05:02 AM
+-- Thời gian đã tạo: Th3 20, 2020 lúc 10:38 AM
 -- Phiên bản máy phục vụ: 10.4.10-MariaDB
 -- Phiên bản PHP: 5.6.40
 
@@ -104,26 +104,27 @@ CREATE TABLE IF NOT EXISTS `products` (
   KEY `fk_category_id` (`category_id`),
   KEY `fk_supply_id` (`supply_id`),
   KEY `fk_type_id` (`product_typeid`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `products`
 --
 
 INSERT INTO `products` (`id`, `product_name`, `product_typeid`, `category_id`, `sub_category_id`, `supply_id`, `product_description`, `product_price`, `product_color`, `product_material`, `product_size`, `product_detail`, `createBy`, `createDate`, `editBy`, `editDate`, `totalView`, `saleoff`, `percentoff`, `img1`, `img2`, `img3`, `img4`, `slug`) VALUES
-(1, 'Hạt Hướng Dương Chất Lượng', 2, 1, 4, 1, 'Hạt hướng dương có hạt to, hàng chất lượng không hôi không có hạt lép, hạt hư.', 10000, 'Đen', 'Hạt hướng dương', 'To', 'Hạt hướng dương có hạt to, hàng chất lượng không hôi không có hạt lép, hạt hư.', NULL, '2020-03-18', NULL, NULL, 14, NULL, NULL, NULL, NULL, '', '', 'hat-huong-duong'),
-(2, 'Trà Sữa Thái Xanh (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'Xanh', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-18', NULL, NULL, 9, NULL, NULL, NULL, NULL, '', '', 'tra-sua-thai-xanh'),
-(3, 'Trà Sữa Truyền Thống (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-18', NULL, NULL, 5, NULL, NULL, NULL, NULL, '', '', 'tra-sua-truyen-thong'),
-(4, 'Trà Sữa Vị Dâu (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'tra-sua-vi-dau-chan-chau-pudding'),
-(5, 'Trà Sữa Vị Socola (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 1, NULL, NULL, NULL, NULL, '', '', 'tra-sua-vi-socola-chan-chau-pudding'),
+(1, 'Hạt Hướng Dương Chất Lượng', 2, 1, 4, 1, 'Hạt hướng dương có hạt to, hàng chất lượng không hôi không có hạt lép, hạt hư.', 10000, 'Đen', 'Hạt hướng dương', 'To', 'Hạt hướng dương có hạt to, hàng chất lượng không hôi không có hạt lép, hạt hư.', NULL, '2020-03-18', NULL, NULL, 37, NULL, NULL, 'hat-huong-duong-1.png', 'hat-huong-duong-2.png', '', '', 'hat-huong-duong'),
+(2, 'Trà Sữa Thái Xanh (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'Xanh', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-18', NULL, NULL, 18, NULL, NULL, NULL, NULL, '', '', 'tra-sua-thai-xanh'),
+(3, 'Trà Sữa Truyền Thống (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-18', NULL, NULL, 6, NULL, NULL, NULL, NULL, '', '', 'tra-sua-truyen-thong'),
+(4, 'Trà Sữa Vị Dâu (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 20, NULL, NULL, NULL, NULL, '', '', 'tra-sua-vi-dau-chan-chau-pudding'),
+(5, 'Trà Sữa Vị Socola (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 11, NULL, NULL, NULL, NULL, '', '', 'tra-sua-vi-socola-chan-chau-pudding'),
 (6, 'Trà Sữa Vị Đào (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'tra-sua-vi-dao'),
-(7, 'Trà bí đao hạt é - Giải khát, thanh lọc', 2, 1, 5, 1, 'ok', 10000, 'ok', 'ok', 'ok', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'tra-bi-dao-hat-e'),
+(7, 'Trà bí đao hạt é - Giải khát, thanh lọc', 2, 1, 5, 1, 'ok', 10000, 'ok', 'ok', 'ok', 'ok', NULL, '2020-03-19', NULL, NULL, 2, NULL, NULL, NULL, NULL, '', '', 'tra-bi-dao-hat-e'),
 (8, 'Sương Sáo', 2, 1, 5, 1, 'ok', 10000, 'ok', 'ok', 'kok', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'suong-sao'),
 (9, 'Cá viên chiên', 2, 1, 2, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'ca-vien-chien'),
 (10, 'Tôm viên', 2, 1, 2, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'tom-vien'),
 (11, 'Bò viên', 2, 1, 2, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'bo-vien'),
-(12, 'Đậu hủ', 2, 1, 2, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 1, NULL, NULL, NULL, NULL, '', '', 'dau-hu'),
-(13, 'a', 2, 1, 2, 1, 'ok', 15000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'a');
+(12, 'Đậu hủ', 2, 1, 2, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 5, NULL, NULL, 'banh-plan-1.jpg', NULL, '', '', 'dau-hu'),
+(13, 'a', 2, 1, 2, 1, 'ok', 15000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'a'),
+(14, 'Bánh Plan', 3, 1, 2, 1, 'ok', 10000, 'Vàng', 'ok', NULL, 'ok', NULL, '2020-03-20', NULL, NULL, 67, 1, 20, 'banh-plan-1.jpg', 'banh-plan-2.jpg', 'banh-plan-3.jpg', 'banh-plan-4.jpg', 'banh-plan');
 
 -- --------------------------------------------------------
 

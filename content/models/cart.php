@@ -22,11 +22,7 @@ function cart_add($product_id)
         );
     }
 }
-/**
- * Cập nhật số lượng sản phẩm
- * @param int
- * @param int
- */
+//Cập nhật số lượng sản phẩm
 function cart_update($product_id, $number)
 {
     if ($number == 0) {
@@ -36,10 +32,7 @@ function cart_update($product_id, $number)
         $_SESSION['cart'][$product_id]['number'] = $number;
     }
 }
-/**
- * Xóa sản phẩm ra khỏi giỏ hàng
- * @param int
- */
+//Xóa sản phẩm ra khỏi giỏ hàng
 function cart_delete($product_id)
 {
     unset($_SESSION['cart'][$product_id]);

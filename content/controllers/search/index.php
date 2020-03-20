@@ -24,4 +24,4 @@ $total = ceil($total_rows / $limit);
 $products = get_all('products', $options);
 $pagination = pagination($url, $page, $total);
 //load view
-require('/content/views/search/index.php');
+require('content/views/search/index.php');

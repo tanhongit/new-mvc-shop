@@ -33,6 +33,6 @@ $pagination = pagination($url, $page, $total);
 if ($category['id'] != 0) {
     $breadCrumb = $category['category_name'];
 }
-$title = $category['category_name'] . ' - Chị Kòi Shop';
+$title = $category['category_name'] . ' - Quán Chị Kòi';
 //load view
 require('content/views/shop/index.php');

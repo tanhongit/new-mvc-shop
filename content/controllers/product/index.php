@@ -12,7 +12,7 @@ function updateCountView($id)
 if (!$product) {
     show_404();
 } else   updateCountView($product_id);
-$title = $product['product_name'] . ' - Chị Kòi Shop';
+$title = $product['product_name'] . ' - Quán Chị Kòi';
 
 $categories = get_all('categories', array(
     'select' => 'id, category_name',

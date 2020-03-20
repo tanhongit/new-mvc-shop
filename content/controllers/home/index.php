@@ -20,5 +20,5 @@ $options_saleproduct = array(
     'order_by' => 'createDate DESC'
 );
 $saleoff_products = get_all('products',$options_saleproduct);
-$title = 'Trang chủ - Chị Kòi Shop';
+$title = 'Trang chủ - Quán Chị Kòi';
 require('content/views/home/index.php');

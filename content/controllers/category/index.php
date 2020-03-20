@@ -36,5 +36,5 @@ $subcategories = get_a_record('subcategory', $_GET["id"]);
 if ($subcategories['id'] != 0) {
     $breadCrumb = $subcategories['subcategory_name'];
 }
-$title = $category['subcategory_name'] . ' - Chị Kòi Shop';
+$title = $category['subcategory_name'] . ' - Quán Chị Kòi';
 require('content/views/category/index.php');

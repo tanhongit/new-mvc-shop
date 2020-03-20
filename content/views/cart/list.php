@@ -48,13 +48,11 @@
                                 <?php endif ?>
                             </td>
                             <td class="product-quantity">
-                                <form enctype="multipart/form-data" method="post" class="cart">
-                                    <div class="quantity">
-                                        <input type="button" class="minus" value="-">
-                                        <input type="text" class="input-text qty text" title="Qty" value="<?php echo $product['number']; ?>" name="number[<?php echo $product['id']; ?>]" min="1" step="1">
-                                        <input type="button" class="plus" value="+">
-                                    </div>
-                                </form>
+                                <div class="quantity">
+                                    <input type="button" class="minus" value="-">
+                                    <input type="text" class="input-text qty text" title="Qty" value="<?php echo $product['number']; ?>" name="number[<?php echo $product['id']; ?>]" min="1" step="1">
+                                    <input type="button" class="plus" value="+">
+                                </div>
                             </td>
                             <td class="product-subtotal">
                                 <?php if ($product["typeid"] == 3) : ?>
@@ -68,7 +66,7 @@
                     <tr>
                         <td class="actions" colspan="6">
                             <div class="actions-continue">
-                                <input type="submit" value="Update Cart" name="update_cart" class="btn btn-default">
+                                <input type="submit" value="Cập Nhật Giỏ Hàng" class="btn btn-default">
                             </div>
                         </td>
                     </tr>

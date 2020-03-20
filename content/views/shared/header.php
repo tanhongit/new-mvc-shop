@@ -8,9 +8,9 @@ $cart = cart_list();
 <head>
 	<base href="<?php echo PATH_URL; ?>" />
 	<meta charset="utf-8">
-	<title><?php echo isset($title) ? $title : 'Chị Kòi Shop'; ?></title>
-	<meta name="keywords" content="HTML5 Template" />
-	<meta name="description" content="Chị Kòi ShopOnline">
+	<title><?php echo isset($title) ? $title : 'Quán Chị Kòi'; ?></title>
+	<meta name="keywords" content="Quán Chị Kòi - Phát Triển Bởi TanHongIT" />
+	<meta name="description" content="Quán Chị Kòi">
 	<meta name="author" content="chikoi.com">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
@@ -262,12 +262,12 @@ $cart = cart_list();
 															<?php foreach ($cart as $product_id => $product_cart) { ?>
 																<tr>
 																	<td class="product-thumbnail">
-																		<a href="product/<?php echo $product_cart['id'] . '-' . $product_cart['name']; ?>">
+																		<a href="product/<?php echo $product_cart['id'] . '-' . slug($product_cart['name']); ?>">
 																			<img width="100" height="100" alt="" class="img-responsive" src="public/upload/products/<?php echo $product_cart['image'] ?>">
 																		</a>
 																	</td>
 																	<td class="product-name">
-																		<a href="product/<?php echo $product_cart['id'] . '-' . $product_cart['name']; ?>"><?php echo $product_cart['name'] ?><br><span class="amount"><strong><?php echo $product_cart['price'] ?> VNĐ</strong> - SLượng: <?php echo $product_cart['number'] ?>  </span></a>
+																		<a href="product/<?php echo $product_cart['id'] . '-' . slug($product_cart['name']); ?>"><?php echo $product_cart['name'] ?><br><span class="amount"><strong><?php echo $product_cart['price'] ?> VNĐ</strong> - SLượng: <?php echo $product_cart['number'] ?>  </span></a>
 																	</td>
 																	<td class="product-actions">
 																		<a title="Remove this item" class="remove" href="cart/delete/<?php echo $product_cart['id']; ?>">

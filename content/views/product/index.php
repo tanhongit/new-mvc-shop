@@ -35,23 +35,16 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                     <div class="col-md-6">
-
                         <div class="summary entry-summary">
-
                             <h1 class="shorter"><strong><?php echo $product['product_name'] ?></strong></h1>
-
                             <div class="review_num">
                                 <span class="count" itemprop="ratingCount">2</span> reviews
                             </div>
-
                             <div title="Rated 5.00 out of 5" class="star-rating">
                                 <span style="width:100%"><strong class="rating">5.00</strong> out of 5</span>
                             </div>
-
                             <p class="price">
                                 <?php if ($product['saleoff'] != 0) { ?>
                                     <del><span class="amount"><?php echo number_format($product['product_price'], 0, ',', '.');  ?></span></del>
@@ -143,7 +136,6 @@
                                     <h4>Add a review</h4>
                                     <div class="row">
                                         <div class="col-md-12">
-
                                             <form action="" id="submitReview" method="post">
                                                 <div class="row">
                                                     <div class="form-group">

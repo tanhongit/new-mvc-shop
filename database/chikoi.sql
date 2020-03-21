@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th3 20, 2020 lúc 10:38 AM
+-- Thời gian đã tạo: Th3 21, 2020 lúc 03:43 AM
 -- Phiên bản máy phục vụ: 10.4.10-MariaDB
 -- Phiên bản PHP: 5.6.40
 
@@ -71,6 +71,61 @@ CREATE TABLE IF NOT EXISTS `menu` (
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE IF NOT EXISTS `orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `province` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cart_total` double NOT NULL,
+  `createtime` datetime NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `orders`
+--
+
+INSERT INTO `orders` (`id`, `customer`, `province`, `address`, `phone`, `cart_total`, `createtime`, `status`) VALUES
+(1, 'Nguyen Phuong Tan', 'Dong Nai', 'khu 2, thi tran gia ray, xuan loc, dong nai, vn', '0363220339', 165000, '2020-03-21 10:19:59', 0),
+(2, 'Sieu Share', 'Dong Nai', 'xuân lộc, đồng nai, việt nam', '0363220339', 8000, '2020-03-21 10:22:14', 0),
+(3, 'Nguyen Tan', 'Dong Nai', 'Xuan Lu1ed9c', '1663220339', 30000, '2020-03-21 10:30:22', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `order_detail`
+--
+
+DROP TABLE IF EXISTS `order_detail`;
+CREATE TABLE IF NOT EXISTS `order_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `price` float NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `order_detail`
+--
+
+INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `quantity`, `price`) VALUES
+(1, 1, 4, 1, 15000),
+(2, 1, 12, 10, 15000),
+(3, 2, 14, 1, 10000),
+(4, 3, 4, 1, 15000),
+(5, 3, 12, 1, 15000);
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `products`
 --
 
@@ -111,20 +166,20 @@ CREATE TABLE IF NOT EXISTS `products` (
 --
 
 INSERT INTO `products` (`id`, `product_name`, `product_typeid`, `category_id`, `sub_category_id`, `supply_id`, `product_description`, `product_price`, `product_color`, `product_material`, `product_size`, `product_detail`, `createBy`, `createDate`, `editBy`, `editDate`, `totalView`, `saleoff`, `percentoff`, `img1`, `img2`, `img3`, `img4`, `slug`) VALUES
-(1, 'Hạt Hướng Dương Chất Lượng', 2, 1, 4, 1, 'Hạt hướng dương có hạt to, hàng chất lượng không hôi không có hạt lép, hạt hư.', 10000, 'Đen', 'Hạt hướng dương', 'To', 'Hạt hướng dương có hạt to, hàng chất lượng không hôi không có hạt lép, hạt hư.', NULL, '2020-03-18', NULL, NULL, 37, NULL, NULL, 'hat-huong-duong-1.png', 'hat-huong-duong-2.png', '', '', 'hat-huong-duong'),
-(2, 'Trà Sữa Thái Xanh (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'Xanh', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-18', NULL, NULL, 18, NULL, NULL, NULL, NULL, '', '', 'tra-sua-thai-xanh'),
-(3, 'Trà Sữa Truyền Thống (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-18', NULL, NULL, 6, NULL, NULL, NULL, NULL, '', '', 'tra-sua-truyen-thong'),
-(4, 'Trà Sữa Vị Dâu (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 20, NULL, NULL, NULL, NULL, '', '', 'tra-sua-vi-dau-chan-chau-pudding'),
-(5, 'Trà Sữa Vị Socola (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 11, NULL, NULL, NULL, NULL, '', '', 'tra-sua-vi-socola-chan-chau-pudding'),
-(6, 'Trà Sữa Vị Đào (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'tra-sua-vi-dao'),
-(7, 'Trà bí đao hạt é - Giải khát, thanh lọc', 2, 1, 5, 1, 'ok', 10000, 'ok', 'ok', 'ok', 'ok', NULL, '2020-03-19', NULL, NULL, 2, NULL, NULL, NULL, NULL, '', '', 'tra-bi-dao-hat-e'),
-(8, 'Sương Sáo', 2, 1, 5, 1, 'ok', 10000, 'ok', 'ok', 'kok', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'suong-sao'),
-(9, 'Cá viên chiên', 2, 1, 2, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'ca-vien-chien'),
-(10, 'Tôm viên', 2, 1, 2, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'tom-vien'),
-(11, 'Bò viên', 2, 1, 2, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'bo-vien'),
+(1, 'Hạt Hướng Dương Chất Lượng', 2, 1, 4, 1, 'Hạt hướng dương có hạt to, hàng chất lượng không hôi không có hạt lép, hạt hư.', 10000, 'Đen', 'Hạt hướng dương', 'To', 'Hạt hướng dương có hạt to, hàng chất lượng không hôi không có hạt lép, hạt hư.', NULL, '2020-03-18', NULL, NULL, 42, NULL, NULL, 'hat-huong-duong-1.png', 'hat-huong-duong-2.png', '', '', 'hat-huong-duong'),
+(2, 'Trà Sữa Thái Xanh (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'Xanh', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-18', NULL, NULL, 18, NULL, NULL, 'project-1.jpg', NULL, '', '', 'tra-sua-thai-xanh'),
+(3, 'Trà Sữa Truyền Thống (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-18', NULL, NULL, 6, NULL, NULL, 'project-1.jpg', NULL, '', '', 'tra-sua-truyen-thong'),
+(4, 'Trà Sữa Vị Dâu (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 28, NULL, NULL, 'tra-sua-vi-dau-1.jpg', NULL, '', '', 'tra-sua-vi-dau-chan-chau-pudding'),
+(5, 'Trà Sữa Vị Socola (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 33, NULL, NULL, 'project-1.jpg', NULL, '', '', 'tra-sua-vi-socola-chan-chau-pudding'),
+(6, 'Trà Sữa Vị Đào (Chân Châu, Pudding) 15k, 20k', 2, 1, 3, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 5, NULL, NULL, 'project-1.jpg', NULL, '', '', 'tra-sua-vi-dao'),
+(7, 'Trà bí đao hạt é - Giải khát, thanh lọc', 2, 1, 5, 1, 'ok', 10000, 'ok', 'ok', 'ok', 'ok', NULL, '2020-03-19', NULL, NULL, 4, NULL, NULL, 'project-1.jpg', NULL, '', '', 'tra-bi-dao-hat-e'),
+(8, 'Sương Sáo', 2, 1, 5, 1, 'ok', 10000, 'ok', 'ok', 'kok', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, 'project-1.jpg', NULL, '', '', 'suong-sao'),
+(9, 'Cá viên chiên', 2, 1, 2, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 1, NULL, NULL, 'project-1.jpg', NULL, '', '', 'ca-vien-chien'),
+(10, 'Tôm viên', 2, 1, 2, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, 'project-1.jpg', NULL, '', '', 'tom-vien'),
+(11, 'Bò viên', 2, 1, 2, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 0, NULL, NULL, 'project-1.jpg', NULL, '', '', 'bo-vien'),
 (12, 'Đậu hủ', 2, 1, 2, 1, 'ok', 15000, 'ok', 'ok', 'Vừa - 15k, Lớn - 20k', 'ok', NULL, '2020-03-19', NULL, NULL, 5, NULL, NULL, 'banh-plan-1.jpg', NULL, '', '', 'dau-hu'),
 (13, 'a', 2, 1, 2, 1, 'ok', 15000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '', '', 'a'),
-(14, 'Bánh Plan', 3, 1, 2, 1, 'ok', 10000, 'Vàng', 'ok', NULL, 'ok', NULL, '2020-03-20', NULL, NULL, 67, 1, 20, 'banh-plan-1.jpg', 'banh-plan-2.jpg', 'banh-plan-3.jpg', 'banh-plan-4.jpg', 'banh-plan');
+(14, 'Bánh Plan', 3, 1, 2, 1, 'ok', 10000, 'Vàng', 'ok', NULL, 'ok', NULL, '2020-03-20', NULL, NULL, 90, 1, 20, 'banh-plan-1.jpg', 'banh-plan-2.jpg', 'banh-plan-3.jpg', 'banh-plan-4.jpg', 'banh-plan');
 
 -- --------------------------------------------------------
 

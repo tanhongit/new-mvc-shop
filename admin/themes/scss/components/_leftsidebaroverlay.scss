@@ -1,0 +1,380 @@
+﻿.overlay {
+    position: fixed;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($dark, 0.5);
+    display: none;
+    z-index: 999;
+}
+
+.navbar-brand{
+    display: flex;
+    align-items: center;
+    margin: 10px 10px 0 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid $grey-300;
+
+    .btn-menu{
+        @include transition(all .5s);
+        border: 0;
+        background: $transparent-bg;
+        line-height: 15px;
+        opacity: 0.6;
+        padding: 6px;
+
+        &:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+    }
+    a{
+        margin-left: 10px;
+        width: 100%;
+    }
+    span{
+        font-size: $font-size + 4px;
+        color: $grey-800;
+    }
+}
+
+.sidebar {
+    @include transition(all .5s);
+    @extend .inlineblock;
+    font-family: $body-font-family;
+    width: 250px;
+    height: calc(100vh - 0px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: none;
+    z-index: 10;
+
+    @media only screen and (max-width: $break-small - 1px){
+        left: -250px;
+    }
+
+    .legal {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        border-top: 1px solid $grey-200;
+        padding: 15px;
+        overflow: hidden;        
+    }
+    .user-info {
+        @extend .p-b-0;
+        @extend .m-b-15;
+        @extend .align-center;
+        position: relative;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid $grey-300;
+
+        .image {
+            img {
+                @include border-radius(8px);
+                width: 50px;
+                vertical-align: bottom !important;
+                border: 3px solid $white;
+                box-shadow: 0px 5px 5px 0px rgba($dark, 0.2);
+            }
+        }
+        .detail{
+            h4{
+                @extend .m-t-0;
+                @extend .m-b-0;
+                font-size: 20px;
+            }            
+        }
+    }
+    .menu {
+        position: relative;
+
+        .list {
+            @extend .p-l-0;
+            list-style: none;
+            margin: 0 10px;
+
+            li {
+                &.active {
+                    > :first-child {
+                        span {
+                            font-weight: $font-weight-700;
+                        }
+                    }
+                }                
+            }
+
+            .menu-toggle {
+                &:after,
+                &:before {
+                    @include transform(scale(0));
+                    @include transition(all .5s);
+                    font-size: $font-size + 2px;
+                    position: absolute;
+                    top: calc(50% - 11px);
+                    right: 17px;                    
+                    font-family: 'Material-Design-Iconic-Font';
+                }
+                &:before {
+                    content: '\f2fb';
+                    @include transform(scale(1));
+                }
+                &:after {
+                    content: '\f2f9';
+                    @include transform(scale(0));
+                }
+            }
+
+            .menu-toggle.toggled {
+                &:before {
+                    content: '\f2f9';
+                    @include transform(scale(0));
+                    font-family: 'Material-Design-Iconic-Font';
+                }
+
+                &:after {
+                    @include transform(scale(1));
+                }
+            }
+
+            a {
+                @extend .displayblock;
+                color: $grey-900;
+                position: relative;                
+                padding: 15px 10px;                
+
+                &:hover,
+                &:active,
+                &:focus {
+                    text-decoration: none !important;
+                    i{
+                        @include transform(rotate(-20deg));
+                    }
+                }
+                i {
+                    @include transform(rotate(20deg));
+                    @include transition(all .5s);
+                    @extend .align-center;
+                    width: 16px;
+                }
+                small {
+                    position: absolute;
+                    top: calc(50% - 7.5px);
+                    right: 15px;
+                }
+                span {
+                    margin: 0 0 0 12px;
+                }
+            }            
+
+            .ml-menu {
+                @extend .p-l-0;
+                list-style: none;
+                display: none;                
+
+                span {
+                    font-weight: $font-weight-400;
+                    margin: 3px 0 1px 6px;
+                }
+
+                li {
+                    a {
+                        font-size: $font-size + 2px;
+                        padding-left: 40px;
+                        padding-top: 7px;
+                        padding-bottom: 7px;
+                        
+                        &:before {
+                            font-size: $font-size;
+                            color: $grey-500;
+                            content: '\f30f';
+                            position: absolute;
+                            left: 14px;
+                            font-family: 'Material-Design-Iconic-Font';                            
+                            top: 8px;
+                        }
+                    }
+                    
+                    &.active {                        
+                        a.toggled:not(.menu-toggle) {
+                            font-weight: $font-weight-700;
+                        }
+                    }
+                }
+            }
+        }
+
+        .progress-container{
+            margin:12px;
+        }
+    }
+    &.open{
+        left: 0;
+        @include box-shadow(0px 5px 15px rgba($dark, 0.3));
+    }    
+}
+
+.right-sidebar {
+    @include box-shadow(-2px 2px 5px rgba($dark, 0.1));
+    @include transition(.5s);
+    @include border-radius(10px);
+    background: $white;
+    width: 280px;
+    height: calc(100vh - 40px);
+    position: fixed;
+    right: -300px;
+    top: 20px;    
+    z-index: 999;
+    overflow: hidden;
+
+    @media only screen and (max-width: $break-small){
+        width: 280px;
+    }
+
+    &.open {
+        right: 20px;
+    }
+
+    .slim_scroll{
+        @extend .p-t-15;
+    }
+
+    .card{
+        padding:10px 20px;
+
+        h6{
+            font-size: $font-size;
+            @extend .p-b-5;
+            @extend .m-b-15;
+        }
+        ul{
+            @extend .m-b-0;
+        }
+    }
+    
+    .nav-tabs {
+        padding: 10px 20px;
+        border-bottom: 1px solid $grey-200;
+
+        @media only screen and (max-width: $break-1024){
+            padding: 7px 15px;
+
+            li{
+                display: inline-block;
+                a{
+                    margin: 0px !important;
+                }
+            }
+        }
+    }
+
+    .choose-skin,
+    .bg_color {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0;
+
+        li {
+            position: relative;
+            cursor: pointer;            
+    
+            &.active {
+    
+                &:after {
+                    color: $white;
+                    font-family: 'Material-Design-Iconic-Font';
+                    position: absolute;
+                    top: 0px;
+                    right: 9px;
+                    content: '\f26b';
+                    font-size: 16px;
+                }
+            }
+    
+            div {
+                @include border-radius(3px);
+                @extend .inlineblock;
+                width: 33px;
+                height: 25px;
+            }
+    
+            span {
+                position: relative;
+                bottom: 7px;
+                left: 5px;
+            }
+        }
+    
+        @each $key, $val in $colors {
+            .#{$key} {
+                background-color: $val;
+            }
+        }
+    }
+
+    .right_chat{
+        li {
+            position: relative;
+            &.offline {
+                .status {
+                    background: $orange;
+                }
+            }
+            &.online {
+                .status {
+                    background: $green;
+                }
+            }
+            &.me {
+                .status {
+                    background: $blue;
+                }
+            }
+        }
+        .media {
+            @extend .p-b-20;
+            border-bottom: 1px dotted $grey-300;
+            
+            .media-object {
+                @extend .m-r-10;
+                @include border-radius(3px);
+                width: 30px;                
+            }
+            .name {
+                color: $grey-900;
+                font-size: $font-size + 3px;
+                display: block;
+                
+                small{
+                    color: $grey-500;
+                }
+            }
+            .message {
+                @extend .inlineblock;
+                font-size: $font-size + 1px;
+            }
+            .status {
+                @include border-radius(50px);
+                @extend .inlineblock;
+                position: absolute;
+                left: 23px;
+                top: 0px;
+                width: 9px;
+                height: 9px;
+                padding: 0;                
+                min-width: inherit;
+                border: 2px solid $white;
+            }
+        }
+    }
+
+    .theme-light-dark{
+        li{
+            @extend .inlineblock;
+        }
+    }
+}

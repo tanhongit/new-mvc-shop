@@ -1,0 +1,99 @@
+.theme-orange{
+
+    #search{
+        background-color: rgba($orange, 0.9);
+    }
+
+    .checkbox input[type="checkbox"]:checked+label::after{
+        background: $orange;
+        color: $white;
+    }
+    .radio{
+        input[type="radio"]:checked+label::before{
+            background: $orange;
+            color: $white;
+            border-color: $orange;
+        }
+        input[type="radio"]:checked+label::after{
+            background-color: $white;
+            border-color: $white;
+        }
+    }
+    .right-sidebar{
+        .nav-tabs{
+            background: $orange;
+            li{
+                a.nav-link{
+                    color: $white;
+                    &.active,
+                    &:hover{
+                        background: $white;
+                        color: $orange;
+                    }
+                }
+            }
+        }
+    }
+    .sidebar{
+        .menu{
+            .list{
+                li.active {
+                    background-color: $transparent-bg;
+
+                    >:first-child{
+
+                        i, span{
+                            color:$orange;
+                        }
+                    }
+                }
+                a:hover{
+                    color:$orange;
+                }
+            }
+        }
+    }
+    .table{
+        &.theme-color{
+            thead{
+                td, th{
+                    background: $orange;
+                }
+            }
+        }
+    }
+    .navbar-right .navbar-nav>li>a:hover{
+        background: $orange;
+    }  
+    .nav-tabs{
+        .nav-link.active {
+            border: 1px solid $orange;
+            color: $orange;
+        }
+    }
+    .card{
+        .header{
+            h2{
+                &:before{
+                    background: $orange;
+                }
+                strong{
+                    color: $orange;
+                }
+            }
+        }
+    }
+
+    .inbox-widget{
+        .inbox-inner{
+            &:hover{
+                .inbox-img{
+                    img {
+                        border: 2px solid $orange;
+                        transition: all 150ms linear;
+                    }
+                }
+            }
+        }
+    }
+}

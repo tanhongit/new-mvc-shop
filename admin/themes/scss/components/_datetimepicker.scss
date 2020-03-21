@@ -1,0 +1,55 @@
+﻿.dtp {
+    div.dtp-date,
+    div.dtp-time {
+        background: $aqua;
+    }
+
+    > .dtp-content {
+        border-radius: $border-radius-large;
+        overflow: hidden;
+        
+        > .dtp-date-view {
+            > header.dtp-header {
+                background: $aqua;
+            }
+        }
+    }
+
+    .dtp-buttons {
+        text-align: center;
+        .dtp-btn-ok {
+            margin-left: 10px;
+        }
+
+        .dtp-btn-clear {
+            margin-right: 10px !important;
+        }
+    }
+
+    .p10 {
+        > a {
+            color: $white !important;
+        }
+    }
+
+    div.dtp-actual-year {
+        font-size: 1.5em;
+        color: $white;
+    }
+
+    table.dtp-picker-days {
+        tr {
+            td {
+                a.selected {
+                    background: $aqua;
+                    color: $white;
+                }
+            }
+        }
+    }
+    .dtp-close{
+        a{
+            color: $white !important;
+        }
+    }
+}

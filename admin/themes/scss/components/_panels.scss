@@ -1,0 +1,123 @@
+﻿.panel-group {
+    @each $key, $val in $colors {
+        .panel-col-#{$key} {
+            border: 1px solid $val;
+
+            .panel-title {
+                background-color: $val !important;
+                color: $white;
+                margin: 0;
+            }
+
+            .panel-body {
+                border-top-color: transparent !important;
+            }
+        }
+    }
+
+    .panel {
+        @include border-radius(0);
+        margin-bottom:1px;
+
+        .panel-title {
+            font-size: $font-size + 4px;
+            font-weight: $font-weight-400;
+            margin: 0;
+
+            a{
+                color: inherit;
+            }
+        }
+
+        .panel-heading {
+            @include border-radius(0);
+            padding: 0;            
+
+            a {
+                display: block;
+                padding: 10px 15px;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .panel-body {
+            padding: 20px;
+        }
+    }
+    .panel-primary {
+        .panel-title {
+            background-color: $grey-100;
+            font-size: $font-size + 4px;
+            border-bottom: 1px solid $grey-200;
+			color: $grey-600;
+            font-weight: $font-weight-400;
+            margin: 0;
+        }
+    }
+    .panel-success {
+        .panel-title {
+            background-color: $green;
+            color: $white;
+        }
+    }
+    .panel-warning {
+
+        .panel-title {
+            background-color: $orange;
+            color: $white;
+        }
+    }
+    .panel-danger {
+
+        .panel-title {
+            background-color: $red;
+            color: $white;
+        }
+    }
+}
+
+.full-body {
+    @each $key, $val in $colors {
+        .panel-col-#{$key} {
+            .panel-body {
+                border-top-color: $white !important;
+                background-color: $val;
+                color: $white;
+            }
+        }
+    }
+
+    .panel-primary {
+        .panel-body {
+            border-top-color: $white !important;
+            background-color: $blue;
+            color: $white;
+        }
+    }
+    .panel-success {
+        .panel-body {
+            border-top-color: $white !important;
+            background-color: $green;
+            color: $white;
+        }
+    }
+    .panel-warning {
+        .panel-body {
+            border-top-color: $white !important;
+            background-color: $orange;
+            color: $white;
+        }
+    }
+    .panel-danger {
+        .panel-body {
+            border-top-color: $white !important;
+            background-color: $red;
+            color: $white;
+        }
+    }
+}

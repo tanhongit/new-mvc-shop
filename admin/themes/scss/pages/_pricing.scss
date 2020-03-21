@@ -1,0 +1,106 @@
+
+.pricing {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-justify-content: center;
+	justify-content: center;
+	width: 100%;
+	margin: 0 auto 3em;
+    
+    &-item{
+	    position: relative;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        -webkit-align-items: stretch;
+        align-items: stretch;
+        text-align: center;
+        -webkit-flex: 0 1 350px;
+        flex: 0 1 350px;
+	}
+    
+    &-action{
+	    color: inherit;
+        border: none;
+        background: none;
+    
+        &:focus{
+            outline: none;
+        }
+    }
+
+    &.pricing-item {
+
+        cursor: default;	
+        background: $white;
+    
+        &:hover{
+            .deco-layer--1 {
+            -webkit-transform: translate3d(15px,0,0);
+            transform: translate3d(15px,0,0);
+            }
+            .deco-layer--2 {
+                -webkit-transform: translate3d(-15px,0,0);
+                transform: translate3d(-15px,0,0);
+            }
+        }
+    
+        .pricing-deco {
+            border-radius: $border-radius-large $border-radius-large 0 0;
+            padding: 50px 0 100px;
+            position: relative;
+    
+            .pricing-deco-img {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100px;
+            }
+            
+            .deco-layer {
+                -webkit-transition: -webkit-transform 0.5s;
+                transition: transform 0.5s;
+            }
+    
+            .pricing-title {
+                color: $white;
+                font-size: $font-size + 6px;
+                margin: 0;
+                text-transform: uppercase;
+                letter-spacing: 2px;                
+            }
+    
+            .pricing-price {                
+                font-weight: $font-weight-700;
+                color: $white;
+                font-size: 4em;
+                padding: 0;                
+                margin: 0 0 0.25em 0;
+                line-height: 0.75;
+    
+                .pricing-currency {
+                    font-size: $font-size + 3px;
+                    vertical-align: top;                    
+                }
+    
+                .pricing-period {
+                    font-size: $font-size + 3px;
+                    font-style: italic;
+                }
+            }
+        }
+    
+        .feature-list {
+            padding: 0;
+            margin: 0;
+    
+            li {
+                padding: 10px 0;
+            }
+        }
+    }
+}

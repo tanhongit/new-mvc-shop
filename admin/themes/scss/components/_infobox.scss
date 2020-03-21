@@ -1,0 +1,189 @@
+﻿.info-box {
+    background-color: $white;
+    height: 80px;    
+    display: flex;
+    cursor: default;    
+    position: relative;
+    overflow: hidden;
+
+    .icon {
+        display: inline-block;
+        text-align: center;
+        background-color: rgba($dark,0.12);
+        width: 80px;
+
+        i {
+            color: $white;
+            font-size: 30px;
+            line-height: 80px;
+        }
+
+        .chart.chart-bar {
+            height: 100%;
+            line-height: 100px;
+
+            canvas {
+                vertical-align: baseline !important;
+            }
+        }
+
+        .chart.chart-pie {
+            height: 100%;
+            line-height: 123px;
+
+            canvas {
+                vertical-align: baseline !important;
+            }
+        }
+
+        .chart.chart-line {
+            height: 100%;
+            line-height: 115px;
+
+            canvas {
+                vertical-align: baseline !important;
+            }
+        }
+    }
+    .content {
+        display: inline-block;
+        padding: 7px 10px;
+
+        .text {
+            font-size: $font-size + 1px;            
+            color: $grey-800;
+            margin-top: 11px;
+        }
+
+        .number {
+            font-size: $font-size + 14px;
+            font-weight: $font-weight-400;
+            color: $grey-800;
+        }
+    }
+}
+
+.info-box.hover-zoom-effect {
+    .icon {
+        overflow: hidden;
+
+        i {
+            @include transition(all .3s ease);
+        }
+    }
+
+    &:hover {
+        .icon {
+            i {
+                opacity: 0.4;
+                @include transform(rotate(-32deg) scale(1.4));
+            }
+        }
+    }
+}
+
+.info-box.hover-expand-effect {
+    &:after {
+        @include transition(all .95s);
+        background-color: rgba($dark,0.05);
+        content: ".";
+        position: absolute;
+        left: 80px;
+        top: 0;
+        width: 0;
+        height: 100%;
+        color: transparent;        
+    }
+
+    &:hover {
+        &:after {
+            width: 100%;
+        }
+    }
+}
+
+.info-box-2 {
+    display: flex;
+    cursor: default;
+    background-color: $white;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    min-height: 150px;
+
+    .icon {
+        display: inline-block;                
+
+        i {
+            font-size: $font-size + 18px;
+            color: $white;
+            line-height: 70px;
+        }
+    }
+
+    .chart{
+        &.chart-bar,
+        &.chart-pie,
+        &.chart-line {
+            height: 100%;
+            canvas {
+                vertical-align: baseline !important;
+            }
+        }
+    }
+
+    .content {
+        display: inline-block;
+        padding: 7px 10px;
+
+        .text {
+            font-size: $font-size + 2px;
+            color: $grey-800;
+        }
+
+        .number {
+            font-size: $font-size + 14px;
+            font-weight: $font-weight-400;
+            color: $grey-800;
+        }
+    }
+}
+
+.info-box-2.hover-zoom-effect {
+    .icon {
+        overflow: hidden;
+
+        i {
+            @include transition(all .3s ease);
+        }
+    }
+
+    &:hover {
+        .icon {
+            i {
+                opacity: 0.4;
+                @include transform(rotate(-32deg) scale(1.4));
+            }
+        }
+    }
+}
+
+.info-box-2.hover-expand-effect {
+    &:after {
+        @include transition(all .95s);
+        background-color: rgba($dark,0.05);
+        content: ".";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 100%;
+        color: transparent;        
+    }
+
+    &:hover {
+        &:after {
+            width: 100%;
+        }
+    }
+}

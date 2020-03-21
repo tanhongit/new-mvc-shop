@@ -1,0 +1,223 @@
+﻿.dd {
+    font-size: $font-size + 1px;
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: 20px;
+
+    .dd-list {
+        display: block;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        .dd-list{
+            padding-left: 30px;
+        }
+    }
+}
+.dd-item{
+    font-size: $font-size + 1px;
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    min-height: 20px;
+    line-height: 20px;
+
+    button[data-action="collapse"]:before {
+        content: '-';
+    }
+
+    > button {
+        font-size: $font-size + 6px;
+        font-weight: $font-weight-700;
+        display: block;
+        position: relative;
+        cursor: pointer;
+        float: left;
+        width: 25px;
+        height: 26px;
+        margin: 6px 0;
+        padding: 0;
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        border: 0;
+        background: transparent;
+        line-height: 1;
+        text-align: center;        
+
+        &:before {
+            content: '+';
+            display: block;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            text-indent: 0;
+        }
+    }
+}
+.dd-collapsed .dd-list {
+    display: none;
+}
+
+.dd-handle {
+    @include border-radius(4px);
+    color: $grey-800;
+    font-weight: $font-weight-700;
+    border: 1px solid $grey-200;
+    display: block;
+    margin: 5px 0;
+    padding: 8px 15px;    
+    text-decoration: none;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+    &:hover {
+        border-color: $primary-color;
+        color: $primary-color;
+    }
+
+    &.dd3-handle {
+        background: $primary-color;
+        position: absolute;
+        margin: 0;
+        left: 1px;
+        top: 1px;
+        height: 34px;
+        width: 34px;
+        cursor: move;    
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        
+        &:before {
+            content: '≡';
+            color: $white;
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 4px;
+            width: 100%;
+            text-align: center;
+            text-indent: 0;        
+            font-weight: normal;
+        }
+    
+        &:hover {
+            background: $white;
+        }
+    }
+}
+.dd-empty,
+.dd-placeholder {
+    font-size: $font-size + 1px;
+    display: block;
+    position: relative;
+    margin: 5px 0;
+    padding: 0;
+    min-height: 20px;
+    line-height: 20px;    
+    background: $grey-100;
+    border: 1px dashed $blue-grey-300;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.dd-empty {
+    border: 1px dashed #bbb;
+    min-height: 100px;
+    background-color: #e5e5e5;
+    background-image: -webkit-linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white), -webkit-linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
+    background-image: -moz-linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white), -moz-linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
+    background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
+    -ms-background-size: 60px 60px;
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+}
+.dd-dragel {
+    position: absolute;
+    pointer-events: none;
+    z-index: 9999;
+    > .dd-item{
+        .dd-handle {
+            margin-top: 0;
+        }
+    }
+    .dd-handle {
+        @include box-shadow(2px 4px 6px 0 rgba($dark,.1));
+    }
+
+    > .dd3-item >{
+        .dd3-content {
+            margin: 0;
+        }
+    }
+}
+
+/** * Nestable Extras */
+.nestable-lists {
+    display: block;
+    clear: both;
+    padding: 30px 0;
+    width: 100%;
+    border: 0;
+    border-top: 2px solid $grey-400;
+    border-bottom: 2px solid $grey-400;
+}
+#nestable-menu {
+    padding: 0;
+    margin: 20px 0;
+}
+.dd-hover > .dd-handle {
+    background: #2ea8e5 !important;
+}
+
+/** * Nestable Draggable Handles */
+.dd3-item{
+    .dd3-content {
+        @include border-radius(4px);
+        display: block;
+        margin: 7px 0;
+        padding: 7px 10px 7px 40px;
+        text-decoration: none;
+        font-weight: bold;
+        border: 1px solid $grey-300;
+        background: $grey-200;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        cursor: default;
+    
+        &:hover {
+            border-color: $primary-color;
+        }
+    }
+    > button {
+        margin-left: 36px;
+    }
+}
+
+/* nestable dark theme */
+.nestable-dark-theme{
+
+    .dd-handle {
+        color: $white;
+        background: $dark;
+
+        &:hover {
+            border-color: $primary-color;
+            background: $primary-color;
+        }
+    }
+    .dd-item >{
+        button:before {
+            color: $white;
+        }
+    }
+}

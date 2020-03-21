@@ -1,0 +1,33 @@
+.form-group{
+    label.error{
+        color: $danger-color;
+        font-size: $font-size;
+    }
+}
+.form-control{
+    font-size: $font-size + 2px;
+    background: $transparent-bg;
+    height: auto;
+    &.form-control-success{
+        border-color: $success-color;
+    }
+    &.form-control-danger{
+        border-color: $danger-color;
+    }
+    &.form-control-warning{
+        border-color: $warning-color;
+    }
+}
+.input-group{
+    .input-group-append,
+    .input-group-prepend{
+        .btn-outline-secondary{
+            margin: 0;
+            border: 1px solid;
+        }
+    }
+}
+.input-group-text{
+    background: $transparent-bg;
+    padding: 0 .75rem;
+}

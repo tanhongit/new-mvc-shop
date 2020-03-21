@@ -1,0 +1,99 @@
+﻿.theme-cyan{
+
+    #search{
+        background-color: rgba($cyan, 0.9);
+    }
+
+    .checkbox input[type="checkbox"]:checked+label::after{
+        background: $cyan;
+        color: $white;
+    }
+    .radio{
+        input[type="radio"]:checked+label::before{
+            background: $cyan;
+            color: $white;
+            border-color: $cyan;
+        }
+        input[type="radio"]:checked+label::after{
+            background-color: $white;
+            border-color: $white;
+        }
+    }
+    .right-sidebar{
+        .nav-tabs{
+            background: $cyan;
+            li{
+                a.nav-link{
+                    color: $white;
+                    &.active,
+                    &:hover{
+                        background: $white;
+                        color: $cyan;
+                    }
+                }
+            }
+        }
+    }
+    .sidebar{
+        .menu{
+            .list{
+                li.active {
+                    background-color: $transparent-bg;
+
+                    >:first-child{
+
+                        i, span{
+                            color:$cyan;
+                        }
+                    }
+                }
+                a:hover{
+                    color:$cyan;
+                }
+            }
+        }
+    }
+    .table{
+        &.theme-color{
+            thead{
+                td, th{
+                    background: $cyan;
+                }
+            }
+        }
+    }
+    .navbar-right .navbar-nav>li>a:hover{
+        background: $cyan;
+    }  
+    .nav-tabs{
+        .nav-link.active {
+            border: 1px solid $cyan;
+            color: $cyan;
+        }
+    }
+    .card{
+        .header{
+            h2{
+                &:before{
+                    background: $cyan;
+                }
+                strong{
+                    color: $cyan;
+                }
+            }
+        }
+    }
+
+    .inbox-widget{
+        .inbox-inner{
+            &:hover{
+                .inbox-img{
+                    img {
+                        border: 2px solid $cyan;
+                        transition: all 150ms linear;
+                    }
+                }
+            }
+        }
+    }
+}

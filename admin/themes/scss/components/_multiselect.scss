@@ -1,0 +1,34 @@
+﻿.ms-container {
+    width: auto !important;
+
+    .ms-list {
+        @include box-shadow(none !important);
+        @include border-radius(0 !important);
+    }
+
+    .ms-list.ms-focus {
+        @include box-shadow(none !important);
+    }
+
+    .ms-selectable,
+    .ms-selection {
+        min-width: 250px !important;
+
+        li.ms-hover {
+            color: $dark !important;
+            background-color: $grey-300 !important;
+        }
+
+        li.ms-elem-selectable,
+        li.ms-elem-selection {
+            padding: 9px 15px 6px 15px !important;
+        }
+        @media only screen and (max-width: $break-small){
+            width: 100%;   
+        }
+    }
+
+    .ms-optgroup-label {
+        padding: 5px 0 0 8px !important;
+    }
+}

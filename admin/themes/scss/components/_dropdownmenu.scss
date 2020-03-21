@@ -1,0 +1,113 @@
+﻿.dropdown-menu {
+    @include border-radius(5px);
+    box-shadow: 0px 10px 50px 0px rgba($dark, 0.2);
+    border: none;
+    top: 50px;
+    right: 0;
+    left: auto;    
+    padding: 0;
+    margin: 0;
+
+    .dropdown-item{
+        font-size: $font-size + 2px;
+        padding: $padding-btn-vertical $padding-btn-horizontal;
+    }
+
+    .divider {
+        margin: 1px 0;
+        border-bottom: 1px solid $grey-300;
+    }
+
+    .header {
+        @extend .align-left;
+        font-weight: $font-weight-600;        
+        border-bottom: 1px solid $grey-300;
+        min-width: 280px;
+        padding: 15px;
+    }
+    
+    ul.menu {
+        @extend .p-l-0;
+
+        .icon-circle {
+            @include border-radius(4px);
+            @extend .align-center;
+            @extend .inlineblock;
+            color: $white;
+            width: 36px;
+            height: 36px;
+
+            i {
+                line-height: 36px;
+            }
+        }
+
+        li {
+            a {
+                @include transition(.5s);
+                @extend .displayblock;
+                display: flex;
+                padding: 13px 15px;
+                text-decoration: none;
+
+                &:hover {
+                    background-color: $grey-300;
+                }
+            }
+        }
+
+        .menu-info {
+            @extend .m-l-10;
+            h4 {
+                @extend .margin-0;
+                font-size: $font-size + 2px;
+                color: $grey-800;
+            }
+
+            p {
+                @extend .margin-0;
+                font-size: $font-size - 1px;
+
+                i {
+                    font-size: $font-size;
+                    position: relative;
+                }
+            }
+        }
+    }
+
+    .footer {
+        padding: 0;
+
+        a {
+            @extend .displayblock;
+            border-top: 1px solid $grey-300;            
+        }
+    }
+
+    > li {
+
+        >a {            
+            @include transition(all .5s);
+            @extend .displayblock;
+            color: $grey-600;
+            font-size: $font-size + 2px;
+            padding: 7px 18px;
+            line-height: 25px;
+
+            &:hover {
+                background-color: rgba($dark, 0.1);                
+                color: $grey-900;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.dropdown {
+    .dropdown-toggle {
+        &:after {
+            display: none;
+        }
+    }
+}

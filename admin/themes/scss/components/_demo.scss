@@ -1,0 +1,48 @@
+.button-demo {
+    ul {
+        padding-left: 0;
+
+        li {
+            list-style: none;
+            padding-left: 0;
+            display: inline-block;
+            margin-right: 7px;
+
+            .btn {
+                display: block;
+                min-width: 175px;
+            }
+        }
+    }
+    .btn {
+        margin-right: 8px;
+        margin-bottom: 13px;
+        min-width: 120px;
+    }
+}
+
+//COLOR BOX
+.demo-color-box {
+    @include border-radius(3px);
+    padding: 15px 0;
+    text-align: center;
+
+    .color-name {
+        font-size: $font-size + 4px;
+        margin-bottom: 5px;
+    }
+
+    .color-code,
+    .color-class-name {
+        font-size: $font-size + 1px;
+    }
+}
+
+//ION RANGE SLIDER
+.irs-demo {
+    margin-bottom: 40px;
+
+    .irs {
+        margin-top: 15px;
+    }
+}

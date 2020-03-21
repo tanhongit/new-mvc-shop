@@ -1,0 +1,66 @@
+.profile-page{
+    
+    #timeline{
+
+        .timeline{
+            border-left: 1px solid #dedede;
+            font-size: 14px;
+            position: relative;
+            
+            .border-info {
+                border-color:$brand-info;
+            }
+            .border-warning {
+                border-color:$brand-warning;
+            }
+            .border-danger {
+                border-color:$brand-danger;
+            }
+            
+            .timeline-item{
+                @extend .m-b-0;                
+                position: relative;                
+                
+                &:after{
+                    background-color: $white;
+                    border-color: inherit;
+                    border-radius: 50%;
+                    border-style: solid;
+                    border-width: 2px;                  
+                    content: "";
+                    height: 11px;
+                    left: 0;
+                    margin-left: -6px;
+                    position: absolute;
+                    width: 11px;
+                    bottom: auto;
+                    clear: both;
+                    top:4px;
+
+                }
+                
+                .item-content{
+                    margin-left: 24px;
+                    margin-top: 0;
+                    
+                    p{
+                        font-weight:400;
+                        color:#444;
+                    }
+                }
+            }
+         }
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .profile-page{
+        .nav-tabs{
+            padding-left: 0;
+            padding-right: 0;
+            .nav-item{
+                display: inline-block;
+            }
+        }
+    }
+}

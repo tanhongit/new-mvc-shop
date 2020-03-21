@@ -1,0 +1,25 @@
+.contact{
+    
+    .c_list{
+        .checkbox{
+            @extend .m-b-0;
+            @extend .m-t-0;
+            @extend .inlineblock;
+        }        
+        .c_name{
+            @extend .m-b-0;
+            @extend .m-l-10;
+            @extend .inlineblock;
+            font-weight: $font-weight-600;
+            
+        }
+        address{
+            @extend .m-b-0;
+
+            i{
+                font-size: $font-size + 3px;
+                width: 15px;
+            }
+        }        
+    }
+}

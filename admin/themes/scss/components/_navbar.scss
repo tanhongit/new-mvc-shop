@@ -1,0 +1,159 @@
+.navbar {
+    @include border-radius(0);
+    @extend .padding-0;
+    font-family: $body-font-family;    
+    border: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    width: 100%;    
+    .navbar-toggle {
+        text-decoration: none;
+        color: $white;
+        width: 20px;
+        height: 20px;
+        margin-top: -4px;
+        margin-right: 17px;
+
+        &:before {
+            content: '\E8D5';
+            font-family: 'Material-Design-Iconic-Font';
+            font-size: 26px;
+        }
+    }
+    .navbar-collapse {
+        &.in {
+            overflow: visible;
+        }
+    }
+}
+
+.overlay-open {
+
+    .bars {        
+        &:before {
+            @include transform(scale(0));
+        }
+        &:after {
+            @include transform(scale(1));
+        }
+    }
+}
+
+.navbar-right {
+    .navbar-nav {
+        @include transition(all .5s);
+        position: fixed;
+        right: 0;
+        width: 50px;
+        margin: 0 10px;
+        z-index: 999;
+
+        > li {
+            @extend .inlineblock;
+
+            >a {
+                @include transition(all .5s);
+                @include border-radius(5px);
+                @extend .inlineblock;
+                @extend .padding-0;
+                color: $grey-900;                
+                line-height: 50px;
+                text-align: center;
+                width: 50px;
+
+                &:hover{
+                    color: $white !important;
+                }
+    
+                i {
+                    font-size: $font-size + 8px;
+                    vertical-align: middle;
+                }
+            }
+        }
+        .dropdown-menu{
+            @include transition(all .5s);
+            position: absolute;
+            right: 60px;
+            left: auto !important;
+            transform: none !important;
+
+            &:before{
+                color: $white;
+                display: inline-block;
+                position: absolute;
+                width: 0;
+                height: 0;
+                vertical-align: middle;
+                content: "";
+                top: 15px;
+                left: auto;
+                right: -10px;                
+                border-left: .6em solid;
+                border-top: .6em solid transparent;
+                border-bottom: .6em solid transparent;
+            }
+        }
+        .app_sortcut{
+            padding: 15px;
+            text-align: center;
+
+            li{
+                display: inline-block;
+                vertical-align: top;
+                text-align: center;
+                height: 100px;
+                width: 120px;
+
+                a{
+                    @include border-radius(4px);
+                    color: $grey-800;
+                    display: block;
+                    p{
+                        font-size: $font-size + 2px;
+                    }
+                }
+            }
+        }
+        .tasks{
+            padding: 20px;
+            li{
+                margin-bottom: 15px;
+            }
+        }
+    }    
+}
+
+.label-count {
+    @include border-radius(3px);
+    background-color: $black;
+    font-size: $font-size - 2px;
+    position: absolute;
+    top: 2px;
+    right: 6px;
+    line-height: 15px;    
+    padding: 0 4px;    
+}
+
+@media only screen and (max-width: $break-large - 31px) {
+    .navbar-header{
+        width: auto;
+    }
+}
+
+@media only screen and (max-width: $break-small - 1px) {
+    .navbar {
+        .navbar-toggle {
+            position: relative;
+            margin-right: 12px;
+            margin-top: 10px;
+            &:before {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+    }    
+}

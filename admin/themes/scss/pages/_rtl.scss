@@ -1,0 +1,333 @@
+﻿.rtl{
+    direction: rtl;
+
+    &.ls-toggle-menu{
+        section.content{
+            margin-right: 50px;
+        }
+    }
+    &.right_icon_toggle{
+        section.content{
+            margin-left: 20px;
+        }
+        .navbar-right .navbar-nav{
+            left: -70px;
+        }
+    }
+    &.ls-closed{
+        section.content{
+            margin-right: 60px;
+            margin-left: 40px;
+            @media only screen and (max-width: $break-small - 1px){
+                margin: 0;
+            }
+        }
+        .navbar-right .navbar-nav{
+            left: -50px;
+        }
+    }
+    .mobile_menu,
+    .mobile-left{
+        left: 20px;
+        right: auto;
+    }
+    ul{
+        padding-right: 0;
+    }
+    .sidebar{
+        left: auto;
+        right: 0;
+        text-align: right;
+        @media only screen and (max-width: $break-small - 1px){
+            right: -250px;
+            &.open{
+                right: 0;
+            }            
+        }
+        .menu{
+            .list{
+                a{
+                    span{
+                        margin: 0 12px 0 0;
+                    }
+                }
+                .menu-toggle:after,
+                .menu-toggle:before{
+                    right: auto;
+                    left: 17px;
+                }
+                .ml-menu li a{
+                    padding: 7px 40px 7px 7px;
+                    &:before{
+                        right: 14px;
+                        left: auto;
+                        transform: scale(-1,1);
+                    }
+                }
+                li:hover{
+                    .ml-menu{
+                        right: 50px;
+                        left: 0;
+                    }
+                }
+            }
+        }        
+    }
+    .right-sidebar{
+        left: -300px;
+        right: auto;
+        text-align: right;
+        &.open{
+            left: 20px;
+        }
+    }
+    .navbar-right{
+        .navbar-nav{
+            right: auto;
+            left: 0;
+        }
+    }
+    section.content{
+        margin: 20px 260px 20px 70px;
+    }
+    .navbar-right{
+        .navbar-nav .dropdown-menu{
+            left: 60px !important;
+            right: auto !important;
+            text-align: right;
+            &:before{
+                right: auto;
+                left: -10px;
+                border-right: .6em solid;
+                border-left: 0;
+            }
+        }
+        .menu-info{
+            margin-left: 0;
+            margin-right: 15px;
+        }
+    }
+}
+
+// Bootstrap core css
+.rtl{
+    .float-right{
+        float: left !important;
+    }
+    .float-left{
+        float: right !important;
+    }
+    .text-right {
+        text-align: left !important;
+    }
+    .btn-group{
+        >.btn:first-child{
+            @include border-radius(0 .2875rem .2875rem 0);
+            margin-left: 0;
+        }
+        >.btn:last-child{
+            @include border-radius(.2875rem 0 0 .2875rem);
+        }        
+        >.btn{
+            @include border-radius(0);
+            margin-right: 0;
+            &.dropdown-toggle{
+                @include border-radius(.2875rem);
+            }
+        }
+    }
+    .ml-3{
+        margin-right: 1rem!important;
+    }
+    .mr-2{
+        margin-left: .5rem!important;
+    }
+    .m-r-5{
+        margin-left: 5px;
+        margin-right: 0;
+    }
+}
+
+// All widgets rtl scss
+.rtl{
+    .block-header h2{
+        text-align: right;
+    }
+    .progress-container .progress .progress-value{
+        right: auto;
+        left: 0;
+    }
+    .checkbox label,
+    .radio label{
+        padding-right: 33px;
+        padding-left: 0;
+        &::before,
+        &::after{
+            right: 3px;
+            left: auto;
+        }
+    }
+    .radio input[type="radio"]:checked+label::after{
+        right: 11px;
+        left: auto;
+    }
+    .m-r-10,
+    .right-sidebar .right_chat .media .media-object,    
+    .file_folder .icon{
+        margin-left: 10px;
+        margin-right: 0;
+    }
+    .right-sidebar .right_chat .media .status{
+        right: 23px;
+        left: auto;
+    }
+    .chat-widget ul{
+        margin-right: 10px;
+        margin-left: 0;
+    }
+    .card{
+        text-align: right;
+        .header{
+            h2{
+                text-align: right;
+            }
+            .header-dropdown{
+                left: 0;
+                right: auto;
+                li .dropdown-menu{
+                    left: 0 !important;
+                    right: auto !important;
+                }
+            }
+        }        
+    }
+    .mcard_4{
+        .header-dropdown{
+            text-align: left;
+        }
+    }
+    .big_icon:before{
+        left: 40px;
+        right: auto;
+    }
+    .w_data_1,
+    .info-box-2,
+    .mcard_3,
+    .pricing-item{
+        text-align: center;
+    }
+    .c3_chart,
+    .c3{
+        direction: ltr;
+    }
+    .inbox{
+        &.left{
+            padding-left: 20px;
+            padding-right: 0;
+            .mail-side .nav li a{
+                i{
+                    text-align: right;
+                }
+                .badge{
+                    margin-right: auto;
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+    .inbox_table{
+        text-align: right;
+    }
+    .chat_list{
+        .user_list{
+            img{
+                float: right;
+            }
+            .about{
+                float: right;
+                padding-right: 8px;
+                padding-left: 0;
+            }
+        }
+    }
+    .chat_window{
+        .chat-header{
+            .chat-about{
+                float: right;
+                padding-right: 10px;
+            }
+            img{
+                float: right;
+            }
+        }
+        .chat-history{
+            .my-message,
+            .message-data{
+                text-align: left;
+                width: auto;
+            }
+            .other-message{
+                float: right !important;
+            }
+        }
+    }
+    .contact .c_list .c_name{
+        margin-right: 10px;
+        margin-left: 0;
+    }
+    .table.c_table tr{
+        th:first-child,
+        td:first-child{
+            @include border-radius(0 .2875rem .2875rem 0);
+        }
+        th:last-child,
+        td:last-child{
+            @include border-radius(.2875rem 0 0 .2875rem);            
+        }
+    }
+    .comment-reply li .text-box .replybutton,
+    .file_manager .file .file-name small .date{
+        float: left;
+    }
+    .widget-recentpost li>a{
+        margin-left: 20px;
+        margin-right: 0;
+    }
+    .c_review .avatar{
+        float: right;
+    }
+    .comment-action{
+        .comment-date{
+            float: left !important;
+        }
+    }
+    .media .media-left{
+        margin-left: 20px;
+        margin-right: 0;
+    }
+    .inbox_widget{
+        .inbox-img{
+            margin-left: 15px;
+            margin-right: 0;
+        }
+        a small{
+            float: left;
+        }
+    }    
+    .activity{
+        li{
+            margin-right: 25px;
+            margin-left: 0;
+            &::before{
+                left: auto;
+                right: -29px;
+            }
+        }
+    }
+    .small_mcard_1 .user{
+        img{
+            margin-right: 0;
+            margin-left: 15px;
+        }
+    }
+}

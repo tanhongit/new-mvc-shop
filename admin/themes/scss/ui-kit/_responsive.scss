@@ -1,0 +1,66 @@
+@media only screen and (max-width: $break-medium){
+    .navbar-nav{
+        .nav-link{
+            &.profile-photo{
+                padding: 0;
+                margin: 7px $padding-base-horizontal;
+            }
+
+            &.btn:not(.btn-sm){
+                margin: 0;
+            }
+        }
+
+        .nav-item:not(:last-child){
+            margin-right: 5px;
+        }
+
+    }
+    .dropdown-menu .dropdown-item{
+        color: inherit;
+    }
+}
+@media only screen and (max-width: $break-medium - 1px){    
+    .button-dropdown{
+        display: none;
+    }
+    .navbar-nav{
+        .nav-link{
+            i.fa,
+            i.now-ui-icons{
+                opacity: .5;
+            }
+        }
+    }
+}
+@media only screen and (max-width: $break-small){
+    .nav-tabs{        
+        width: 100%;
+        text-align: center;
+
+        .nav-item > .nav-link{
+            margin-bottom: 5px;
+        }
+    }
+}
+@media only screen and (max-width: $break-xsmall - 64px){
+    .navbar[class*='navbar-expand-'] .container{
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+@media only screen and (max-width: $break-xsmall - 60px){
+    .alert{
+        button.close{
+            position: absolute;
+            right: 11px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}
+@media only screen and (max-width: $break-xsmall - 123px){
+    .alert .alert-icon{
+        margin-top: 10px;
+    }
+}

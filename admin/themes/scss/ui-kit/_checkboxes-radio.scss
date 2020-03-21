@@ -1,0 +1,171 @@
+.checkbox,
+.radio{
+    margin-bottom: 12px;
+    label {
+        @extend .m-b-0;
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        padding-left: 33px;
+        line-height: 27px;  
+    }
+}
+
+.checkbox{
+    label{
+        &::before,
+        &::after{
+            content: " ";
+            display: inline-block;
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            left: 0;
+            cursor: pointer;
+            border-radius: 3px;
+            top: 0;
+            background-color: $transparent-bg;
+            border: 1px solid $medium-gray;
+            -webkit-transition: opacity 0.3s linear;
+            -moz-transition: opacity 0.3s linear;
+            -o-transition: opacity 0.3s linear;
+            -ms-transition: opacity 0.3s linear;
+            transition: opacity 0.3s linear;
+        }
+        &:after{
+            color: $dark-background;
+            font-size: $font-size + 2px;
+            font-family: 'Material-Design-Iconic-Font';
+            content: "\f26b";
+            top: 0px;
+            text-align: center;
+            opacity: 0;            
+            border: 0;
+            background-color: inherit;
+        }
+    }
+    &.checkbox-circle{
+        label::before {
+            border-radius: 50%;
+        }
+    }
+    &.checkbox-inline {
+        margin-top: 0;
+    }
+}
+
+.checkbox input[type="checkbox"],
+.radio input[type="radio"]{
+    opacity: 0;
+    position: absolute;
+    visibility: hidden;
+}
+.checkbox input[type="checkbox"]:checked + label::after{
+  opacity: 1;
+}
+.checkbox input[type="checkbox"]:disabled + label,
+.radio input[type="radio"]:disabled + label  {
+    color: $dark-gray;
+    opacity: .5;
+}
+.checkbox input[type="checkbox"]:disabled + label::before,
+.checkbox input[type="checkbox"]:disabled + label::after{
+    cursor: not-allowed;
+}
+.checkbox input[type="checkbox"]:disabled + label,
+.radio input[type="radio"]:disabled + label{
+    cursor: not-allowed;
+}
+
+
+.checkbox-primary{
+    input[type="checkbox"]:checked + label::before {
+        background-color: $primary-color;
+        border-color: $primary-color;
+    }
+    input[type="checkbox"]:checked + label::after {
+        color: $white;
+    }
+}
+.checkbox-danger{
+    input[type="checkbox"]:checked + label::before {
+        background-color: $danger-color;
+        border-color: $danger-color;
+    }
+    input[type="checkbox"]:checked + label::after {
+        color: $white;
+    }
+}
+.checkbox-info{
+    input[type="checkbox"]:checked + label::before {
+        background-color: $info-color;
+        border-color: $info-color;
+    }
+    input[type="checkbox"]:checked + label::after {
+        color: $white;
+    }
+}
+.checkbox-warning{
+    input[type="checkbox"]:checked + label::before {
+        background-color: $warning-color;
+        border-color: $warning-color;
+    }
+    input[type="checkbox"]:checked + label::after {
+        color: $white;
+    }
+}
+.checkbox-success{
+    input[type="checkbox"]:checked + label::before {
+        background-color: $success-color;
+        border-color: $success-color;
+    }
+    input[type="checkbox"]:checked + label::after {
+        color: $white;
+    }
+}
+
+.radio{
+    label{
+        &::before,
+        &::after{
+            content: " ";
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid $medium-gray;
+            display: inline-block;
+            position: absolute;
+            left: 3px;
+            top: 3px;
+            padding: 1px;
+            -webkit-transition: opacity 0.3s linear;
+            -moz-transition: opacity 0.3s linear;
+            -o-transition: opacity 0.3s linear;
+            -ms-transition: opacity 0.3s linear;
+            transition: opacity 0.3s linear;
+        }
+    }
+    input[type="radio"] + label:after,
+    input[type="radio"] {
+        opacity: 0;
+    }
+    input[type="radio"]:checked + label::after{
+        width: 4px;
+        height: 4px;
+        background-color: $dark-background;
+        border-color: $dark-background;
+        top: 11px;
+        left: 11px;
+        opacity: 1;
+    }
+    input[type="radio"]:disabled + label {
+        color: $dark-gray;
+    }
+    input[type="radio"]:disabled + label::before,
+    input[type="radio"]:disabled + label::after {
+    color: $dark-gray;
+    }
+    &.radio-inline {
+        margin-top: 0;
+    }
+}

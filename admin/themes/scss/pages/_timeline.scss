@@ -1,0 +1,104 @@
+﻿.cbp_tmtimeline {
+	padding: 0;
+	list-style: none;
+	position: relative;
+    
+    &:before {
+        content: '';
+        background: $white;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 5px;        
+        left: 30px;
+        margin-left: -5px;
+
+        @media only screen and (max-width: $break-small - 1px){
+            left: 25px;
+        }
+    }
+    
+    > li {
+        position: relative;
+        
+        .empty{
+            .note-editable.panel-body{
+                height: 120px !important;
+            }
+        }        
+
+        .cbp_tmtime {
+            @include border-radius(3px);
+            background: $dark;
+            color: $white;
+            padding: 0px 7px;
+            position: absolute;
+            top: -10px;
+            right: 20px;
+
+            @media only screen and (max-width: $break-small - 1px){
+                left: 20px;
+                right: auto;
+            }
+
+            span {
+                font-size: $font-size;
+                color: $white;
+            }
+        }
+        
+        .cbp_tmlabel {
+            @include border-radius(5px);            
+            background: $white;
+            font-weight: $font-weight-300;
+            margin: 0 0 30px 80px;
+            padding: 20px;
+            line-height: 1.4;
+            position: relative;
+
+            @media only screen and (max-width: $break-small - 1px){
+                margin: 0 0 30px 50px;
+            }
+            
+            &:after {
+                right: 100%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+                border-right-color: $white;
+                border-width: 10px;
+                top: 10px;
+            }
+            
+            h5 {
+                font-size: $font-size + 5px;
+            }
+        }
+        
+        .cbp_tmicon {
+            @include border-radius(40px);
+            color: $white;
+            background: $primary-color;
+            box-shadow: 0 0 0 5px $white;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            position: absolute;
+            text-align: center;
+            left: 7px;
+            top: 0;
+
+            @media only screen and (max-width: $break-small - 1px){
+                width: 30px;
+                height: 30px;
+                line-height: 32px;
+                i{
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,196 @@
+﻿.bootstrap-select {
+    @include border-radius(0);
+    box-shadow: none !important;    
+
+    > .dropdown-toggle{
+        border: 1px solid #ced4da;
+        padding: .375rem .75rem;
+        height: calc(2.25rem + 2px);
+        font-size: 15px;
+        line-height: 26px;
+        margin: 0;
+        &:after{
+            right: 10px;
+            position: absolute;
+            top: 17px;
+        }
+    }
+
+    .dropdown-menu.show{
+        .dropdown-menu.inner{
+            display: block;
+        }
+        .hidden{
+            display: none;
+        }
+    }
+
+    .dropdown-toggle {
+        &:focus,
+        &:active {
+            outline: none !important;
+        }
+    }
+
+    .btn.btn-round.btn-simple{
+        .filter-option{
+            font-size: $font-size + 2px;
+        }
+    }
+
+    .bs-searchbox,
+    .bs-actionsbox,
+    .bs-donebutton {
+        padding: 0 0 5px 0;
+        border-bottom: 1px solid $grey-300;       
+    }
+
+    .bs-searchbox {
+        position: relative;
+        padding: 10px;
+
+        &:after {
+            font-size: $font-size + 8px;
+            content: '\f1c3';
+            font-family: 'Material-Design-Iconic-Font';
+            position: absolute;
+            top: 14px;
+            right: 20px;
+        }
+    }
+
+    ul.dropdown-menu {
+        margin-top: 0 !important;
+    }
+
+    .dropdown-menu {
+        li.selected {
+            a {
+                background-color: $grey-300 !important;
+                color: $grey-600 !important;
+            }
+        }
+        .active {
+            a {
+                background-color: $transparent-bg;
+                color: $grey-800 !important;
+            }
+        }
+        .notify {
+            background-color: $red !important;
+            color: $white !important;
+            border: none !important;
+        }
+    }
+
+}
+
+.select2-container{
+    .select2-choice{
+        border: none;
+        background-image: none;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        &:focus,
+        &:hover,
+        &:active{
+            box-shadow: none !important;
+            border: 0 !important;
+        }
+        .select2-arrow{
+            border-left:none;
+            background-image: none;
+            background: transparent;
+        }
+    }
+    &.select2-dropdown-open{
+        .select2-choice{
+            background: transparent;
+            box-shadow: none !important;
+        }
+    }
+}
+.select2-drop{
+    border-radius: 0;
+    border: 0 !important;
+}
+.select2-container-multi{
+    .select2-choices{
+        border: 0 !important;
+        padding: 0;
+        margin: 0;
+        background-image: none;
+        box-shadow: none !important;
+        &:focus,
+        &:hover,
+        &:active{
+            box-shadow: none !important;
+            border: none;
+            border: 0 !important;
+        }
+        .select2-search-field{
+            input{
+                padding: 0;
+            }
+        }
+    }
+}
+
+.rating {    
+    display: inline-block;
+    position: relative;
+
+    label {
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        cursor: pointer;
+
+        input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+
+            &:focus:not(:checked) ~ .icon:last-child {
+                color: $dark;
+                text-shadow: 0 0 5px $primary-color;
+            }
+        }
+        .icon {
+            color: transparent;
+            i{
+                font-size: $font-size + 20px;
+            }
+        }
+
+        &:last-child {
+            position: static;
+            .icon {
+                color: $dark;
+            }
+        }        
+        &:nth-child(1) {
+            z-index: 5;
+        }        
+        &:nth-child(2) {
+            z-index: 4;
+        }        
+        &:nth-child(3) {
+            z-index: 3;
+        }        
+        &:nth-child(4) {
+            z-index: 2;
+        }        
+        &:nth-child(5) {
+            z-index: 1;
+        }
+    }
+    &:not(:hover) label input:checked ~ .icon,
+    &:hover label:hover input ~ .icon {
+        color: $primary-color;
+    }
+}

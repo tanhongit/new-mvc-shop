@@ -1,0 +1,13 @@
+.invoice{
+    .nav-tabs{
+        @extend .p-l-0;
+        @extend .p-r-0;
+    }
+    .table{
+        tr{
+            td{
+                vertical-align: middle;
+            }
+        }
+    }
+}

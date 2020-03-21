@@ -1,0 +1,28 @@
+﻿@media only screen and (max-width: $break-small - 1px) {
+    .navbar {
+        .nav {
+            >li {
+                display: inline-block;
+            }
+        }
+        .navbar-nav {
+            .open {
+                .dropdown-menu {
+                    background-color: $white;
+                    position: absolute;
+                }
+            }
+        }
+        .dropdown-menu {
+            right: -85px;
+            &::before{
+                display: none;
+            }
+        }
+    }
+    .dt-buttons {
+        float: none !important;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+}

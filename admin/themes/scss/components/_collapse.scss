@@ -1,0 +1,14 @@
+﻿.collapse,
+.collapse.in,
+.collapsing {
+    .well {
+        @include border-radius(0);
+        margin-bottom: 0;
+    }
+}
+
+@media only screen and (min-width: 993px){
+    .collapse.collapse-sm, .collapse.collapse-xs {
+        display: block;
+    }
+}

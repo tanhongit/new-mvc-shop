@@ -1,0 +1,73 @@
+// import google fonts
+@import 'font/fonts';
+
+// UI Kit
+@import 'ui-kit';  // Material Kit
+
+/* Material Icons ============================== */
+@import 'icon/materialicons';
+@import 'icon/themify';
+
+// My variables, mixins and colors
+@import 'inc/mixins';
+@import 'inc/responsive';
+@import 'inc/general';
+
+// plugins
+@import 'plugins/waves';
+@import 'plugins/animate';
+
+// Sections
+@import 'components/pageloader';
+@import 'components/navbar';
+@import 'components/leftsidebaroverlay';
+@import 'components/helpers';
+@import 'components/demo';
+@import 'components/media';
+@import 'components/tagsinput';
+@import 'components/noUISlider';
+@import 'components/multiselect';
+@import 'components/card';
+@import 'components/infobox';
+@import 'components/alerts';
+@import 'components/dialogs';
+@import 'components/datetimepicker';
+@import 'components/bootstrapselect';
+@import 'components/tooltippopovers';
+@import 'components/collapse';
+@import 'components/panels';
+@import 'components/progressbars';
+@import 'components/ionrangeslider';
+@import 'components/colorpicker';
+@import 'components/dropzone';
+@import 'components/badgelistgroupitem';
+@import 'components/mediaobject';
+@import 'components/formwizard';
+@import 'components/waveseffect';
+@import 'components/dropdownmenu';
+@import 'components/jquerynestable';
+@import 'components/calendar';
+@import 'components/maps';
+@import 'components/charts';
+@import 'components/jquerydatatable';
+@import 'components/lightgallery';
+
+@import 'pages/widget';
+@import 'pages/chatapp';
+@import 'pages/contact';
+@import 'pages/profile';
+@import 'pages/pricing';
+@import 'pages/invoice';
+@import 'pages/ecommerce';
+@import 'pages/nestable';
+@import 'pages/inbox';
+@import 'pages/timeline';
+@import 'pages/authentication';
+@import 'pages/blog';
+@import 'pages/file_manager';
+
+@import 'pages/rtl';
+
+
+// Color Theme
+@import 'color_skins';

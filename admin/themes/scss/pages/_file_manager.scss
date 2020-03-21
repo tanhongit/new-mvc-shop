@@ -1,0 +1,103 @@
+.file_manager{
+    .file{
+        @extend .padding-0;        
+        border-radius: $border-radius-large;
+        background: $white;
+        display: block;        
+        position: relative;
+        overflow: hidden;
+
+        &:hover{
+            @include transition(all .5s);
+            box-shadow: 0 0 3px rgba($dark,0.1), 0 6px 20px rgba($dark,0.2);
+            .icon{
+                i{
+                    @include transform(rotate(-20deg));
+                }
+            }
+        }
+        .image, .icon{
+            min-height: 140px;
+            overflow: hidden;
+            background-size: cover;
+            background-position: top;
+        }
+        .hover{
+            @include transition(all .5s);
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            display: none;
+        }        
+        &:hover{
+            .hover{
+                @include transition(all .5s);
+                display: block;
+            }
+        }
+        .icon {
+            padding: 15px 10px;
+            display: table;
+            width: 100%;
+            text-align: center;
+
+            i {
+                @include transition(all .5s);
+                @include transform(rotate(20deg));
+                font-size: $font-size + 18px;
+                display: table-cell;
+                vertical-align: middle;                
+            }
+        }
+        .file-name {
+            padding: 10px 20px;
+            border-top:1px solid $blue-grey-50;
+            small{
+                @extend .displayblock;
+
+                .date{
+                    color: $grey-400;
+                    float: right;
+                }
+            }
+        }
+        .zmdi-collection-pdf{
+            color: $blush;
+        }
+        .zmdi-chart{
+            color: $green;
+        }
+        .zmdi-collection-folder-image{
+            color: $indigo;
+        }
+        .zmdi-playlist-audio{
+            color: $aqua;
+        }
+        .zmdi-file-text{
+            color: $orange;
+        }
+    }
+    .table{
+        tr{
+            td{
+                &:first-child{
+                    width: 60%;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $break-medium){     
+    .file_manager{
+        
+        .nav-tabs{
+            padding-left: 0;
+            padding-right: 0;
+    
+            .nav-item{
+                display: inline-block;
+            }
+        }
+    }
+}

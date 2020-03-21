@@ -1,0 +1,160 @@
+﻿/*           badges             */
+.badge{
+    @include border-radius(3px);
+    font-size: $font-size - 2px;
+    background-color: $transparent-bg;
+    border: $border;    
+    padding: 3px 7px;
+    margin-bottom: 3px;
+    line-height: 11px;    
+}
+.badge-icon{
+    padding: 0.4em 0.55em;
+    i{
+       font-size: 0.8em;
+    }
+}
+.badge-default{
+    @include badge-color($default-color);
+}
+.badge-primary{
+    @include badge-color($primary-color);
+}
+.badge-info{
+    @include badge-color($info-color);
+}
+.badge-success{
+    @include badge-color($success-color);
+}
+.badge-warning{
+    @include badge-color($warning-color);
+}
+.badge-danger{
+    @include badge-color($danger-color);
+}
+.badge-neutral{
+    @include badge-color($white-color);
+}
+
+.list-group-item {
+    @include border-radius(0);
+    @include transition(.5s);
+}
+
+.list-group {
+    .active {
+        background-color: $primary-color;
+        border-color: $primary-color;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: $primary-color;
+            border-color: $primary-color;
+        }
+
+        .list-group-item-text {
+            font-size: $font-size + 1px;
+            color: $blue-grey-100;
+
+            &:hover,
+            &:active,
+            &:focus {
+                color: $blue-grey-100;
+            }
+        }
+    }
+
+    .list-group-item.active {
+        &:hover,
+        &:focus,
+        &:active {
+            .list-group-item-text {
+                color: $blue-grey-100;
+            }
+        }
+    }
+
+    .list-group-item {
+        &:first-child,
+        &:last-child {
+            @include border-radius(0);
+        }
+
+        .list-group-item-heading {
+            font-size: $font-size + 5px;
+            font-weight: $font-weight-700;
+        }
+    }
+
+    .list-group-item-success {
+        background-color: $success-color;        
+        color: $white;
+        border: none;
+
+        &:hover,
+        &:focus {
+            background-color: $success-color;
+            color: $white;
+            opacity: 0.8;
+        }
+    }
+
+    .list-group-item-info {
+        background-color: $info-color;        
+        color: $white;
+        border: none;
+
+        &:hover,
+        &:focus {
+            background-color: $info-color;
+            color: $white;
+            opacity: 0.8;
+        }
+    }
+
+    .list-group-item-warning {
+        background-color: $warning-color;        
+        color: $white;
+        border: none;
+
+        &:hover,
+        &:focus {
+            background-color: $warning-color;
+            color: $white;
+            opacity: 0.8;
+        }
+    }
+
+    .list-group-item-danger {
+        background-color: $danger-color;
+        color: $white;
+        border: none;
+
+        &:hover,
+        &:focus {
+            background-color: $danger-color;
+            color: $white;
+            opacity: 0.8;
+        }
+    }
+
+    @each $key, $val in $colors {
+        .pl-#{$key} {
+            stroke: $val;
+        }
+
+        .list-group-bg-#{$key} {
+            background-color: $val !important;
+            border: none;
+            color: $white;
+
+            &:hover,
+            &:focus {
+                background-color: $val !important;
+                color: $white;
+                opacity: 0.8;
+            }
+        }
+    }
+}

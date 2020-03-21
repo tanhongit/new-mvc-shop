@@ -1,0 +1,136 @@
+﻿.theme-blush{
+
+    #search{
+        background-color: rgba($blush, 0.9);
+    }
+    .checkbox input[type="checkbox"]:checked+label::after{
+        background: $blush;
+        color: $white;
+    }
+    .radio{
+        input[type="radio"]:checked+label::before{
+            background: $blush;
+            color: $white;
+            border-color: $blush;
+        }
+        input[type="radio"]:checked+label::after{
+            background-color: $white;
+            border-color: $white;
+        }
+    }
+    .right-sidebar{
+        .nav-tabs{
+            background: $blush;
+            li{
+                a.nav-link{
+                    color: $white;
+                    &.active,
+                    &:hover{
+                        background: $white;
+                        color: $blush;
+                    }
+                }
+            }
+        }
+    }
+    .sidebar{
+        .menu{
+            .list{
+                li.active {
+                    background-color: $transparent-bg;
+
+                    >:first-child{
+
+                        i, span{
+                            color:$blush;
+                        }
+                    }
+                }
+                a:hover{
+                    color:$blush;
+                }
+            }
+        }
+    }
+    .table{
+        &.theme-color{
+            thead{
+                td, th{
+                    background: $blush;
+                }
+            }
+        }
+    }
+    .navbar-right .navbar-nav>li>a:hover{
+        background: $blush;
+    }
+    .inbox-widget{
+        .inbox-inner{
+            &:hover{
+                .inbox-img{
+                    img {
+                        border: 2px solid $blush;
+                        transition: all 150ms linear;
+                    }
+                }
+            }
+        }
+    }   
+    .nav-tabs{
+        .nav-link.active {
+            border: 1px solid $blush;
+            color: $blush;
+        }
+    }
+    .card{
+        .header{
+            h2{
+                &:before{
+                    background: $blush;
+                }
+                strong{
+                    color: $blush;
+                }
+            }
+        }
+    }
+    .input-group{
+        .input-group-append,
+        .input-group-prepend{
+            .btn-outline-secondary{
+                border-color: $blush;
+                background: $blush;
+            }
+        }
+    }
+
+    &.bbg-blush{
+        background: $blush;
+        .navbar-right .navbar-nav>li>a{
+            color: $white;
+            &:hover{
+                background: rgba($white, 0.1);
+            }
+        }
+        .navbar-brand{
+            border-color: rgba($white, 0.05);
+            span{
+                color: $white;
+            }
+        }
+        .sidebar{
+            .user-info{
+                color: $white;
+            }
+            .menu .list{
+                a{
+                    color: rgba($white, 0.7);
+                }
+                li.active>:first-child i,
+                li.active>:first-child span{
+                    color: $white;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+.footer{
+    padding: 20px 0;
+
+    &.footer-default{
+        background-color: $grey-100;
+    }
+
+    nav{
+        display: inline-block;
+    }
+
+    ul{
+        padding: 0;
+        list-style: none;
+
+        li{
+            display: inline-block;
+
+            a{                
+                padding: $padding-base-vertical;
+                font-size: $font-size-small;
+                text-transform: uppercase;
+                text-decoration: none;
+                color: inherit;
+
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    &:after{
+        display: table;
+        clear: both;
+        content: " ";
+    }
+}
+
+.copyright{
+    font-size: $font-size-small;
+}

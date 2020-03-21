@@ -1,0 +1,156 @@
+﻿.card {    
+    @include transition(all .5s);
+    @extend .m-b-30;
+    @extend .inlineblock;
+    border: 0;
+    position: relative;    
+    width: 100%;
+    box-shadow: none;
+    background: $transparent-bg;
+
+    .card-inside-title {
+        @extend .m-t-25;
+        @extend .m-b-15;
+        @extend .displayblock;
+        font-size: $font-size + 3px;
+        color: $black;
+
+        small {
+            @extend .displayblock;
+            @extend .m-t-5;
+            color: $grey-500;            
+            font-size: $font-size - 1px;
+
+            a {
+                color: $grey-600;
+                font-weight: $font-weight-700;
+            }
+        }
+    }
+    .card-inside-title:first-child {
+        @extend .m-t-0;
+    }
+    .bg-red,
+    .bg-pink,
+    .bg-purple,
+    .bg-deep-purple,
+    .bg-indigo,
+    .bg-blue,
+    .bg-light-blue,
+    .bg-cyan,
+    .bg-teal,
+    .bg-green,
+    .bg-light-green,
+    .bg-lime,
+    .bg-yellow,
+    .bg-amber,
+    .bg-orange,
+    .bg-deep-orange,
+    .bg-brown,
+    .bg-grey,
+    .bg-blue-grey,
+    .bg-blush,
+    .bg-black {
+
+        border-bottom: none !important;
+        color: $white !important;
+        h2,
+        small,        
+        .badge {
+            background-color: $white;
+            color: $grey-800;
+        }
+    }
+
+    .header {
+        @extend .m-b-0;
+        color: $grey-800;
+        padding: 20px 0 10px 0;
+        position: relative;       
+        box-shadow: none;        
+
+        .header-dropdown {
+            @extend .margin-0;
+            @extend .padding-0;
+            position: absolute;
+            top: 14px;
+            right:0;
+            list-style: none;            
+
+            li{
+                @extend .inlineblock;
+                a{
+                    @extend .displayblock;
+                    padding: 5px 10px;                    
+                }
+
+                .dropdown-menu {
+                    padding: 5px;
+                    right: 0 !important;
+                    left: auto !important;
+                    transform: none !important;  
+                    top: 30px !important; 
+                    li {
+                        display: block !important;
+    
+                        a {
+                            padding: 5px 10px;
+                        }
+                    }
+                }
+    
+            }            
+            i {
+                @include transition(all .5s);
+                font-size: $font-size + 8px;
+                color: $grey-500;
+
+                &:hover {
+                    color: $black;
+                }
+            }
+        }
+
+        h2 {
+            @extend .margin-0;
+            font-size: $font-size + 3px;
+            color: $grey-600;
+            text-transform: uppercase;
+            position: relative;
+            
+            @media only screen and (max-width: $break-xsmall){
+                max-width: 80%;
+            }
+
+            small {
+                @extend .displayblock;                
+                @extend .m-t-5;
+                font-size: $font-size + 1px;
+                color: $grey-500;
+                text-transform: initial;
+                line-height: 15px;
+
+                a {
+                    font-weight: $font-weight-700;
+                    color: $grey-600;
+                }
+            }
+        }
+    }
+
+    .p-15 {
+        padding: 15px !important;
+    }
+
+    .body {
+        font-weight: $font-weight-400;
+        border-radius: $border-radius-large;
+        background: $body;
+        font-size: $font-size + 2px;
+        color: $grey-900;
+        padding: 20px;
+        @media only screen and (max-width: $break-small - 1px){
+            padding: 15px;
+        }
+    }
+}

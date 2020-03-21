@@ -1,0 +1,197 @@
+﻿.wizard {
+
+    .content {
+        @include border-radius(4px);
+        @extend .margin-0;
+        min-height: 245px;        
+        overflow-y: auto;
+        background: transparent;
+        border: 1px solid $grey-200; 
+
+        .body {
+            padding: 15px;
+
+            label.error{
+                @extend .margin-0;
+                font-size: $font-size;
+                color: $danger-color;
+            }
+
+            input[type="checkbox"]{
+                display: none;
+            }
+        }
+    }
+
+    .actions {
+        @extend .displayblock;
+        @extend .align-right;
+        position: relative;
+        width: 100%;            
+        margin-top: 10px !important;      
+
+        ul{
+            @extend .inlineblock;
+            > li{
+                float: left;
+                margin: 0 !important;
+            }
+        }
+
+        a {
+            @extend .m-l-5;
+            @extend .displayblock;
+            background: $primary-color;
+            color: $white;
+            text-decoration: none;            
+
+            &:hover, &:active {
+                @extend .displayblock;
+                color: $white;                
+                text-decoration: none;                    
+            }
+        }
+
+        .disabled a {
+            background: $grey-200;
+            color: $grey-400;
+
+            &:hover, &:active {
+                background: $grey-200;
+                color: $grey-400;
+            }
+        }
+    }
+
+    .steps {
+        @extend .displayblock;
+        position: relative;        
+        width: 100%;
+        margin-bottom: 2px;
+
+        a {
+            @include border-radius(4px);
+            @extend .displayblock;            
+            width: auto;
+            margin: 0 2px 0 0;
+            padding: 10px;
+            text-decoration: none;
+
+            &:hover, &:active {
+                @include border-radius(4px);
+                @extend .displayblock;                
+                width: auto;
+                margin: 0 2px 0 0;
+                padding: 10px;
+                text-decoration: none;
+            }
+        }
+
+        .number{
+            font-size: $font-size + 3px;
+        }
+
+        .disabled a {
+            background: $grey-200;
+            color: $grey-400;
+            cursor: default;
+
+            &:hover, &:active {
+                background: $grey-200;
+                color: $grey-400;
+                cursor: default;
+            }
+        }
+
+        .current a {
+            background: $info-color;
+            color: $white;
+            cursor: default;
+
+            &:hover, &:active {
+                color: $white;
+                cursor: default;
+            }
+        }
+
+        .done a {
+            background: $info-color;
+            color: $white;
+            opacity: 0.5;
+
+            &:hover, &:active {
+                color: $white;
+                opacity: 0.7;
+            }
+        }
+
+        > ul > li {
+            width: 25%;
+            float: left;
+            &:last-child{
+                a{
+                    margin: 0;
+                }
+            }
+        }        
+    }
+
+    &.vertical {
+        > .steps {
+            @extend .p-r-5;
+            float: left;
+            width: 30%;            
+
+            > ul > li {
+                float: none;
+                width: 100%;
+
+                a{
+                    margin: 0 0 2px 0;
+                }
+            }
+        }
+
+        > .content {
+            float: left;            
+            width: 70%;
+            margin: 0;
+        }
+
+        > .actions {
+            float: right;
+            width: 100%;
+            margin: 0;
+        }        
+    }
+}
+
+.wizard_validation{
+    .wizard .steps>ul>li{
+        width: auto !important;
+    }
+}
+
+@include max-screen($break-small - 1px){
+    .wizard {
+        > .steps{
+            > ul > li{
+                width: 100%;
+                margin-bottom: 2px;
+            }
+            a{
+                margin: 0;
+            }
+        }
+        &.wizard.vertical{
+            >.content, >.steps{
+                width: 100%;
+                padding: 0;
+                
+            }
+        }
+    } 
+    .wizard_validation .wizard .steps>ul>li{
+        width: 100% !important;
+    }  
+}

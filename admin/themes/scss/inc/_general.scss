@@ -1,0 +1,352 @@
+﻿body {    
+    @include transition(all .5s);
+    font-family: $body-font-family;
+    background-color: $body;
+    font-weight: $font-weight-400;
+    font-size: $font-size + 3px;
+}
+
+button,
+input,
+select,
+a{
+    outline: none !important;
+
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+section {
+    &.content {
+        @include transition(all .5s);
+        @include border-radius(10px);
+        background: $grey-50;
+        border: 5px solid $white;
+        //height: calc(100vh - 40px);
+        //overflow: hidden;
+        padding: 10px;
+        position: relative;
+        margin: 20px 70px 20px 260px;
+        box-shadow: 0 0 16px rgba($dark,0.06), 0 6px 20px rgba($dark,0.02);
+    }
+}
+
+
+.ls-toggle-menu{
+    .slimScrollDiv{
+        overflow: visible !important;
+        .list{
+            overflow: visible !important;
+        }
+    }
+    .navbar-brand{
+        a{
+            display: none;
+        }
+    }
+    .sidebar {
+        width: 50px;
+
+        .user-info{
+            .image{
+                padding: 8px !important;
+                img{
+                    box-shadow: none;
+                }
+            }
+            .detail{
+                display: none;
+            }
+        }
+        .menu{
+            .list{
+                margin: 0;
+                a{
+                    padding: 10px 0;
+                    text-align: center;
+
+                    @media only screen and (max-width: $break-small){
+                        padding: 8px 0;
+                    }
+
+                    span{
+                        display: none;
+                    }
+                }
+                li{
+                    position: relative;
+                    &:hover{
+                        .ml-menu{
+                            display: block !important;
+                        }
+                    }
+                    &.open_top{
+                        .ml-menu{
+                            bottom: 0;
+                            top: auto;
+                        }                        
+                    } 
+                }
+                .menu-toggle:after,
+                .menu-toggle:before,
+                .progress-container{
+                    display: none;
+                }
+                .ml-menu{
+                    @include transition(all .5s);
+                    @include border-radius(10px);
+                    background: $white;
+                    min-width: 240px;
+                    display: none !important;
+                    position: absolute;
+                    top: 0;
+                    left: 50px;                    
+                    padding: 15px 15px 15px 5px;
+                    text-align: left;
+                    box-shadow: 0px 10px 50px 0px rgba($dark,0.2);
+
+                    li{
+                        a{
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+        }        
+    }
+    section.content {
+        margin-left: 50px;
+    }
+}
+.right_icon_toggle{
+    .right_icon_toggle_btn{
+        i::before{
+            content: '\f2ea';
+        }
+    }
+    .navbar-right{
+        .navbar-nav{
+            right: -70px;
+        }        
+    }
+    section.content{
+        margin-right: 20px;
+    }
+}
+.ls-closed {
+    .sidebar{
+        background: $white;
+        position: fixed;
+    }
+    section.content{
+        margin-left: 60px;
+        margin-right: 40px;
+
+        @media only screen and (max-width: $break-small){
+            margin-right: 10px;
+            padding: 0;
+            overflow: visible !important;
+            height: 100%;
+
+            > .slimScrollDiv{
+                height: auto !important;
+                overflow: visible !important;
+                .body_scroll{
+                    height: auto !important;
+                    overflow: visible !important;
+                }
+            }
+        }
+
+        @media only screen and (max-width: $break-small - 1px){
+            margin: 0;            
+        }
+    }
+    .navbar-right{
+        .navbar-nav{
+            width: 30px;
+            margin: 0 5px;
+            @media only screen and (max-width: $break-small){
+                right: -40px;
+            }
+            >li>a{
+                width: 30px;
+            }
+        }
+    }
+    &.right_icon_toggle{
+        section.content{
+            margin-right: 20px;
+        }   
+    }
+}
+
+
+#search {
+    @include transition(all .5s);
+    @include transform(translate(0px, -100%) scale(0, 0));
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;    
+    opacity: 0;
+    z-index: 9999;
+
+    input[type="search"] {
+        color: $white;
+        background: rgba($dark, 0);
+        font-weight: $font-weight-300;
+        position: absolute;
+        top: 50%;
+        width: 100%;        
+        font-size: 60px;        
+        text-align: center;
+        border: 0px;
+        margin: 0px auto;
+        margin-top: -51px;
+        padding-left: 30px;
+        padding-right: 30px;
+        outline: none;
+
+        &::placeholder{
+            color: rgba($white,0.6);
+        }
+    }
+    .btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: 61px;
+        margin-left: -45px;
+    }
+    .close {
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        left: auto;
+        margin: 0;
+        opacity: 1;
+        &:hover{
+            background: $white;
+        }
+        i{
+            width: 38px;
+            line-height: 38px;
+            text-shadow: none;
+        }
+    }
+    &.open {
+        @include transform(translate(0px, 0px) scale(1, 1));
+        opacity: 1;        
+    }
+}
+.mobile_menu{
+    display: none;
+    position: fixed !important;
+    top: 10px;
+    right: 20px;
+    z-index: 9999;
+
+    @media only screen and (max-width: $break-small - 1px){
+        display: block;
+    }
+}
+.table{
+    &.c_table{
+        border-collapse: separate !important;
+        border-spacing: 0 5px !important;
+        font-size: $font-size + 2px;
+        tr{
+            background: $white;
+            td, th{
+                border: 0;
+                vertical-align: middle;
+                white-space: nowrap;
+
+                @media only screen and (max-width: $break-small - 1px){
+                   // white-space: normal;
+                }
+                
+                &:first-child{
+                    border-radius: $border-radius-small 0 0 $border-radius-small;
+                }
+                &:last-child{
+                    border-radius: 0 $border-radius-small $border-radius-small 0;
+                }
+                .checkbox{
+                    @extend .m-b-0;
+                    position: relative;
+                    height: 24px;
+                    width: 24px;
+
+                    label{
+                        position: unset;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+    &.theme-color{
+        thead{
+            td, th{
+                color: $white;
+            }
+        }        
+    }
+}
+.search_page{
+    table-layout: fixed;
+    @media only screen and (max-width: $break-small - 1px){
+        table-layout: auto;
+    }
+
+    td,th{
+        white-space: nowrap;
+        vertical-align: middle;
+    }
+
+    .title{
+        @extend .m-b-0;
+        font-size: $font-size + 4px;
+    }
+    .link{
+        @extend .m-b-10;
+        font-size: $font-size + 1px;
+        color: $info-color;
+        display: block;
+    }
+    .max_ellipsis{
+        @include three-dots-overflow();
+    }
+}
+.blockquote{
+    @include border-radius(3px);
+    @include box-shadow(0 0 10px rgba($dark, 0.1));
+    font-size: $font-size + 6px;
+    border-left: 5px solid $cyan !important;
+    border-color: transparent;
+    line-height: 27px;
+    padding: 40px;
+    position: relative;
+    z-index: 1;
+}
+.checkbox{
+    &.simple{
+        position: relative;
+        margin: 0;
+        width: 24px;
+        height: 24px;
+        label{
+            position: unset;
+        }
+    }
+}
+
+@media only screen and (max-width: $break-medium){
+    .hidden-md-down{
+        display: none;
+    }
+}

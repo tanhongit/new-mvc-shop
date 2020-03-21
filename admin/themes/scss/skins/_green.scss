@@ -1,0 +1,99 @@
+.theme-green{
+
+    #search{
+        background-color: rgba($green, 0.9);
+    }
+
+    .checkbox input[type="checkbox"]:checked+label::after{
+        background: $green;
+        color: $white;
+    }
+    .radio{
+        input[type="radio"]:checked+label::before{
+            background: $green;
+            color: $white;
+            border-color: $green;
+        }
+        input[type="radio"]:checked+label::after{
+            background-color: $white;
+            border-color: $white;
+        }
+    }
+    .right-sidebar{
+        .nav-tabs{
+            background: $green;
+            li{
+                a.nav-link{
+                    color: $white;
+                    &.active,
+                    &:hover{
+                        background: $white;
+                        color: $green;
+                    }
+                }
+            }
+        }
+    }
+    .sidebar{
+        .menu{
+            .list{
+                li.active {
+                    background-color: $transparent-bg;
+
+                    >:first-child{
+
+                        i, span{
+                            color:$green;
+                        }
+                    }
+                }
+                a:hover{
+                    color:$green;
+                }
+            }
+        }
+    }
+    .table{
+        &.theme-color{
+            thead{
+                td, th{
+                    background: $green;
+                }
+            }
+        }
+    }
+    .navbar-right .navbar-nav>li>a:hover{
+        background: $green;
+    }  
+    .nav-tabs{
+        .nav-link.active {
+            border: 1px solid $green;
+            color: $green;
+        }
+    }
+    .card{
+        .header{
+            h2{
+                &:before{
+                    background: $green;
+                }
+                strong{
+                    color: $green;
+                }
+            }
+        }
+    }
+
+    .inbox-widget{
+        .inbox-inner{
+            &:hover{
+                .inbox-img{
+                    img {
+                        border: 2px solid $green;
+                        transition: all 150ms linear;
+                    }
+                }
+            }
+        }
+    }
+}

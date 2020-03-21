@@ -1,0 +1,40 @@
+﻿.progress {
+    @include border-radius(8px);
+    background: $grey-100;
+    height: auto;
+    overflow: visible;
+
+    .progress-bar {
+        @include box-shadow (0 10px 15px 0 rgba(0,0,0,0.1));        
+        background-color: $blue;
+        line-height: 8px;
+        height: 8px;
+        &.lg{
+            height: 15px;
+            line-height: 15px;
+            font-size: $font-size - 2px;
+        }
+        &.sm{
+            height: 5px;
+        }
+        &.xsm{
+            height: 2px;
+        }
+    }
+
+    .progress-bar-success {
+        background-color: $green;
+    }
+
+    .progress-bar-info {
+        background-color: $aqua;
+    }
+
+    .progress-bar-warning {
+        background-color: $orange;
+    }
+
+    .progress-bar-danger {
+        background-color: $red;
+    }
+}

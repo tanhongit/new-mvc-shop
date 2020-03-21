@@ -1,0 +1,60 @@
+﻿.authentication{   
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    @media only screen and (max-width: $break-medium){
+        height: auto;
+        .copyright{
+            margin-bottom: 20px;
+        }
+    }
+    .auth_form{
+        @include transition(all .5s);
+        @include border-radius(10px);
+        background: $grey-50;
+        border: 5px solid $white;;
+        box-shadow: 0 0 16px rgba($dark,0.06), 0 6px 20px rgba($dark,0.02);
+
+        @media only screen and (max-width: $break-medium){
+            margin: 20px 0;
+        }
+        .header{
+            text-align: center;            
+        }
+        h5{
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+        .body{
+            background: transparent;
+            .input-group-text{
+                justify-content: center;
+                min-width: 42px;
+            }
+        }
+        .checkbox{
+            label{
+                font-size: $font-size + 1px;
+            }
+        }
+    }
+    .logo,
+    .l_profile{
+        width: 100px;
+    }
+    .signin_with{
+        text-align: center;
+    }    
+}
+
+.btn{
+    &.google{
+        background: #d5472f;
+    }
+    &.facebook{
+        background: #3a579b;
+    }
+    &.twitter{
+        background: #3c94fe;
+    }
+}

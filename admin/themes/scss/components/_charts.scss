@@ -1,0 +1,70 @@
+﻿.c3_chart{
+    height: 20rem;
+
+    filter: drop-shadow(-4px 4px 2px rgba($dark, 0.2));
+
+    .c3-line{
+        stroke-width: 1px;        
+    }
+    .c3-grid{
+        line{
+            stroke: $dark;
+        }
+    }
+
+    &.d_sales{
+       height: 22rem;
+       width: auto;
+    }
+    &.d_browser{
+       height: 16rem;
+    }
+    &.d_traffic{
+        height: 12rem;
+    }
+    &.d_distribution{
+        height: 18rem;
+    }
+    @media only screen and (max-width: $break-small - 100px){
+        .c3-axis-x{
+            display: none;
+        }
+        .c3-legend-item{
+            text{
+                font-size: $font-size;
+            }
+        }
+    }    
+}
+
+
+
+
+/* Morris */
+.morris-hover {
+    &.morris-default-style {
+        @include border-radius(0);
+    }
+}
+
+/* Flot */
+.flot-chart {
+    width: 100%;
+    height: 320px;
+}
+
+
+#multiple_axis_chart {
+    .legendLabel {
+        width: 160px !important;
+    }
+}
+
+/* Sparkline */
+.sparkline {
+    text-align: center;
+}
+
+.chartjs_graph{
+    height: 150px;
+}

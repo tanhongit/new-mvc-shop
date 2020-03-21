@@ -5,7 +5,7 @@
 			<div class="col-md-12">
 				<div class="row">
 					<div class="col-md-12">
-						<h2>Sản Phẩm Đang <strong>Giảm Giá</strong></h2>
+						<h2><a href="type/3-san-pham-dang-giam-gia">Sản Phẩm Đang <strong>Giảm Giá</strong></a></h2>
 					</div>
 					<ul class="products product-thumb-info-list">
 						<?php if (empty($saleoff_products)) : ?>

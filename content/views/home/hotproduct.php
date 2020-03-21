@@ -5,7 +5,7 @@
 			<div class="col-md-12">
 				<div class="row">
 					<div class="col-md-12">
-						<h2>Sản Phẩm <strong>Nổi Bật</strong></h2>
+						<h2><a href="type/3-san-pham-hot">Sản Phẩm <strong>Nổi Bật</strong></a></h2>
 					</div>
 					<ul class="products product-thumb-info-list">
 						<?php if (empty($hot_products)) : ?>
@@ -28,7 +28,7 @@
 												<span class="product-thumb-info-act-left"><em>View</em></span>
 												<span class="product-thumb-info-act-right"><em><i class="fa fa-plus"></i> Details</em></span>
 											</span>
-											<img alt="" class="img-responsive" src="img/products/product-1.jpg">
+											<img alt="" class="img-responsive" src="public/upload/products/<?php echo $hot_product['img1']; ?>">
 										</span>
 									</a>
 									<span class="product-thumb-info-content">

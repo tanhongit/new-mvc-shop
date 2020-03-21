@@ -5,7 +5,7 @@
 			<div class="col-md-12">
 				<div class="row">
 					<div class="col-md-12">
-						<h2>Sản Phẩm <strong>Mới</strong></h2>
+						<h2><a href="type/2-san-pham-moi">Sản Phẩm <strong>Mới</strong></a></h2>
 					</div>
 					<ul class="products product-thumb-info-list">
 						<?php if (empty($new_products)) : ?>
@@ -15,7 +15,7 @@
 							<li class="col-sm-3 col-xs-12 product">
 								<?php if ($new_product['saleoff'] != 0) : ?>
 									<a href="shop-product-sidebar.html">
-										<span class="onsale">-<?php echo $new_product['percentoff'];?>%</span>
+										<span class="onsale">-<?php echo $new_product['percentoff']; ?>%</span>
 									</a>
 								<?php endif; ?>
 								<span class="product-thumb-info">
@@ -28,7 +28,7 @@
 												<span class="product-thumb-info-act-left"><em>View</em></span>
 												<span class="product-thumb-info-act-right"><em><i class="fa fa-plus"></i> Details</em></span>
 											</span>
-											<img alt="" class="img-responsive" src="img/products/product-1.jpg">
+											<img alt="" class="img-responsive" src="public/upload/products/<?php echo $new_product['img1']; ?>">
 										</span>
 									</a>
 									<span class="product-thumb-info-content">

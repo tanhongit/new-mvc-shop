@@ -60,9 +60,7 @@
                                     <ins><span class="amount"><?php echo number_format($product['product_price'], 0, ',', '.');  ?> VNĐ</span></ins>
                                 <?php } ?>
                             </p>
-
                             <p class="taller"><?php echo $product['product_description'] ?>. </p>
-
                             <form enctype="multipart/form-data" method="post" class="cart" action="cart/add/<?php echo $product['id']; ?>">
                                 <div class="quantity">
                                     <input type="button" class="minus" value="-">
@@ -71,16 +69,12 @@
                                 </div>
                                 <button class="btn btn-primary btn-icon" role="button" type="submit">Add to cart</button>
                             </form>
-
                             <div class="product_meta">
-                                <span class="posted_in">Categories: <a rel="tag" href="category/<?php echo $subcategories['id'] . '-' . $subcategories['slug']; ?>"><?php echo $breadCrumb ?></a></span>
+                                <span class="posted_in">Danh Mục: <a rel="tag" href="category/<?php echo $subcategories['id'] . '-' . $subcategories['slug']; ?>"><?php echo $breadCrumb ?></a></span>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-md-12">
                         <div class="tabs tabs-product">
@@ -178,22 +172,17 @@
                                                 </div>
                                             </form>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <hr class="tall" />
-
                 <div class="row">
-
                     <div class="col-md-12">
                         <h2>Related <strong>Products</strong></h2>
                     </div>
-
                     <ul class="products product-thumb-info-list">
                         <li class="col-sm-3 col-xs-12 product">
                             <a href="shop-product-sidebar.html">
@@ -296,16 +285,13 @@
                             </span>
                         </li>
                     </ul>
-
                 </div>
-
             </div>
             <div class="col-md-3">
                 <?php require('content/views/shared/sidebar.php'); ?>
             </div>
         </div>
     </div>
-
 </div>
 <?php
 require('content/views/shared/footer.php');

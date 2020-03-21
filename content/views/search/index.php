@@ -50,7 +50,7 @@
                                                 <span class="product-thumb-info-act-left"><em>View</em></span>
                                                 <span class="product-thumb-info-act-right"><em><i class="fa fa-plus"></i> Details</em></span>
                                             </span>
-                                            <img alt="" class="img-responsive" src="img/products/product-1.jpg">
+                                            <img alt="" class="img-responsive" src="public/upload/products/<?php echo $product['img1']; ?>">
                                         </span>
                                     </a>
                                     <span class="product-thumb-info-content">

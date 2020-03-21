@@ -4,8 +4,8 @@
         <hr class="tall">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="shorter"><strong>Checkout</strong></h2>
-                <p>Returning customer? <a href="shop-login.html">Click here to login.</a></p>
+                <h2 class="shorter"><strong>Thủ tục thanh toán và đặt hàng</strong></h2>
+                <p>Phản hồi của khách hàng? <a href="shop-login.html">Nhấn vào đây để đăng nhập.</a></p>
             </div>
         </div>
         <div class="row">
@@ -15,7 +15,7 @@
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                    Xem Lại & Thanh Toán
+                                    <strong>Xem Lại & Thanh Toán</strong>
                                 </a>
                             </h4>
                         </div>
@@ -75,31 +75,23 @@
 
                                 <hr class="tall">
 
-                                <h4>Cart Totals</h4>
+                                <h4>Thống kê tổng giỏ hàng</h4>
                                 <table cellspacing="0" class="cart-totals">
                                     <tbody>
                                         <tr class="cart-subtotal">
                                             <th>
-                                                <strong>Cart Subtotal</strong>
+                                                <strong>Tổng số sản phẩm</strong>
                                             </th>
                                             <td>
-                                                <strong><span class="amount">$431</span></strong>
-                                            </td>
-                                        </tr>
-                                        <tr class="shipping">
-                                            <th>
-                                                Shipping
-                                            </th>
-                                            <td>
-                                                Free Shipping<input type="hidden" value="free_shipping" id="shipping_method" name="shipping_method">
+                                                <strong><span class="amount"><?php echo cart_number(); ?></span></strong>
                                             </td>
                                         </tr>
                                         <tr class="total">
                                             <th>
-                                                <strong>Order Total</strong>
+                                                <strong>Tổng giá trị giỏ hàng</strong>
                                             </th>
                                             <td>
-                                                <strong><span class="amount">$431</span></strong>
+                                                <strong><span class="amount"><?php echo number_format(cart_total(), 0, ',', '.'); ?> VNĐ</span></strong>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -107,32 +99,15 @@
 
                                 <hr class="tall">
 
-                                <h4>Payment</h4>
-
+                                <h3 style="text-align: center;"><strong>Lưu ý đặt hàng và thanh toán</strong></h3>
+                                <p><strong>Quán mình chỉ hỗ trợ khách ăn uống tại quán và Free Shipping nằm trong phạm vi bán kính 10km</strong>, Nếu quý khách có đặt những sản phẩm nằm trong danh mục <strong>Ăn Uống</strong> mà có địa chỉ giao hàng <strong>vượt quá 10km</strong> thì xin quý khách có thể thông cảm và cho phép quán được chân thành xin lỗi vì không thể giao hàng tới được ạ!</p>
+                                <p>Đối với các sản phẩm về Làm đẹp và mĩ phẩm,...(Nằm ngoài danh mục <strong>Ăn Uống</strong>) thì Quán mình vẫn hỗ trợ Free Shipping nằm trong phạm vi bán kính 10km và Ship COD Toàn Quốc ạ!</p>
                                 <form action="" id="" method="post">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <span class="remember-box checkbox">
                                                 <label>
-                                                    <input type="checkbox" checked="checked">Direct Bank Transfer
-                                                </label>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <span class="remember-box checkbox">
-                                                <label>
-                                                    <input type="checkbox">Cheque Payment
-                                                </label>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <span class="remember-box checkbox">
-                                                <label>
-                                                    <input type="checkbox">Paypal
+                                                    <input type="checkbox" checked="checked">Chuyển tiền khi nhận hàng - Ship COD
                                                 </label>
                                             </span>
                                         </div>
@@ -145,11 +120,11 @@
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                    Billing Address
+                                    <strong>Địa chỉ giao hàng</strong>
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseTwo" class="accordion-body collapse">
+                        <div id="collapseTwo" class="accordion-body collapse in">
                             <div class="panel-body">
                                 <form action="" id="" method="post">
                                     <div class="row">
@@ -157,7 +132,7 @@
                                             <div class="col-md-12">
                                                 <label>Country</label>
                                                 <select class="form-control">
-                                                    <option value="">Select a country</option>
+                                                    <option value="">Việt Nam</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -165,86 +140,23 @@
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-md-6">
-                                                <label>First Name</label>
+                                                <label>Họ</label>
                                                 <input type="text" value="" class="form-control">
                                             </div>
                                             <div class="col-md-6">
-                                                <label>Last Name</label>
+                                                <label>Tên</label>
                                                 <input type="text" value="" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group">
-                                            <div class="col-md-12">
-                                                <label>Company Name</label>
-                                                <input type="text" value="" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group">
-                                            <div class="col-md-12">
-                                                <label>Address </label>
-                                                <input type="text" value="" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group">
-                                            <div class="col-md-12">
-                                                <label>City </label>
-                                                <input type="text" value="" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <input type="submit" value="Continue" class="btn btn-primary pull-right push-bottom" data-loading-text="Loading...">
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                    Shipping Address
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseThree" class="accordion-body collapse">
-                            <div class="panel-body">
-                                <form action="" id="" method="post">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <span class="remember-box checkbox">
-                                                <label>
-                                                    <input type="checkbox" checked="checked">Ship to billing address?
-                                                </label>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group">
-                                            <div class="col-md-12">
-                                                <label>Country</label>
-                                                <select class="form-control">
-                                                    <option value="">Select a country</option>
-                                                </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-md-6">
-                                                <label>First Name</label>
+                                                <label>Tình/ Thành Phố</label>
                                                 <input type="text" value="" class="form-control">
                                             </div>
                                             <div class="col-md-6">
-                                                <label>Last Name</label>
+                                                <label>SĐT để liên lạc</label>
                                                 <input type="text" value="" class="form-control">
                                             </div>
                                         </div>
@@ -252,30 +164,9 @@
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-md-12">
-                                                <label>Company Name</label>
-                                                <input type="text" value="" class="form-control">
+                                                <label>Địa chỉ </label>
+                                                <input type="text" value="" class="form-control" placeholder="Mong các bạn nhập chi tiết địa chỉ ạ...">
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group">
-                                            <div class="col-md-12">
-                                                <label>Address </label>
-                                                <input type="text" value="" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group">
-                                            <div class="col-md-12">
-                                                <label>City </label>
-                                                <input type="text" value="" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <input type="submit" value="Continue" class="btn btn-primary pull-right push-bottom" data-loading-text="Loading...">
                                         </div>
                                     </div>
                                 </form>
@@ -296,26 +187,18 @@
                     <tbody>
                         <tr class="cart-subtotal">
                             <th>
-                                <strong>Cart Subtotal</strong>
+                                <strong>Tổng số sản phẩm</strong>
                             </th>
                             <td>
-                                <strong><span class="amount">$431</span></strong>
-                            </td>
-                        </tr>
-                        <tr class="shipping">
-                            <th>
-                                Shipping
-                            </th>
-                            <td>
-                                Free Shipping<input type="hidden" value="free_shipping" id="shipping_method" name="shipping_method">
+                                <strong><span class="amount"><?php echo cart_number(); ?></span></strong>
                             </td>
                         </tr>
                         <tr class="total">
                             <th>
-                                <strong>Order Total</strong>
+                                <strong>Tổng giá trị giỏ hàng</strong>
                             </th>
                             <td>
-                                <strong><span class="amount">$431</span></strong>
+                                <strong><span class="amount"><?php echo number_format(cart_total(), 0, ',', '.'); ?> VNĐ</span></strong>
                             </td>
                         </tr>
                     </tbody>

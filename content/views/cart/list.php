@@ -50,7 +50,7 @@
                             <td class="product-quantity">
                                 <div class="quantity">
                                     <input type="button" class="minus" value="-">
-                                    <input type="text" class="input-text qty text" title="Qty" value="<?php echo $product['number']; ?>" name="number[<?php echo $product['id']; ?>]" min="1" step="1">
+                                    <input type="text" class="input-text qty text" title="Nhập Để Đổi Số Lượng" value="<?php echo $product['number']; ?>" name="number[<?php echo $product['id']; ?>]" min="1" step="1">
                                     <input type="button" class="plus" value="+">
                                 </div>
                             </td>
@@ -66,7 +66,7 @@
                     <tr>
                         <td class="actions" colspan="6">
                             <div class="actions-continue">
-                                <input type="submit" value="Cập Nhật Giỏ Hàng" class="btn btn-default">
+                                <input type="submit" value="Cập Nhật Giỏ Hàng" class="btn btn-default" title='Cập nhật nếu bạn có thay đổi số lượng'>
                             </div>
                         </td>
                     </tr>

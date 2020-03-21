@@ -42,10 +42,10 @@ function cart_total()
 {
     $total = 0;
     foreach ($_SESSION['cart'] as $product) {
-        if ($product["product_typeid"] == 3) {
-            $total += (($product['product_price']) - ($product['product_price']) * ($product['percentoff']) / 100) * $product['number'];
+        if ($product["typeid"] == 3) {
+            $total += (($product['price']) - ($product['price']) * ($product['percent_off']) / 100) * $product['number'];
         } else
-            $total += $product['product_price'] * $product['number'];
+            $total += $product['price'] * $product['number'];
     }
     return $total;
 }

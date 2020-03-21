@@ -1,59 +1,63 @@
 <?php
 // php.net
-function show_404(){
+function show_404()
+{
     header('HTTP/1.1 404 Not Found', true, 404);
     require('404.php');
     exit();
 }
-function escape($str) {
+function escape($str)
+{
     global $linkconnectDB;
-    return mysqli_real_escape_string($linkconnectDB,$str);
+    return mysqli_real_escape_string($linkconnectDB, $str);
 }
-function pagination($url, $page, $total){
+function pagination($url, $page, $total)
+{
     $adjacents = 2;
     $out = '<ul class="pagination pull-right">';
     //first
     if ($page == 1) {
-        $out.= '<li class="disabled"><span>Đầu</span></li>';
+        $out .= '<li class="disabled"><span>Đầu</span></li>';
     } else {
-        $out.='<li><a href="'.$url.'">Đầu</a></li>';
+        $out .= '<li><a href="' . $url . '">Đầu</a></li>';
     }
     // previous
     if ($page == 1) {
-        $out.= '<li class="disabled"><span><i class="fa fa-chevron-left"></i></span></li>';
+        $out .= '<li class="disabled"><span><i class="fa fa-chevron-left"></i></span></li>';
     } elseif ($page == 2) {
-        $out.='<li><a href="'.$url.'"><i class="fa fa-chevron-left"></i></a></li>';
+        $out .= '<li><a href="' . $url . '"><i class="fa fa-chevron-left"></i></a></li>';
     } else {
-        $out.='<li><a href="'.$url.'&amp;page='.($page - 1).'"><i class="fa fa-chevron-left"></i></a></li>';
+        $out .= '<li><a href="' . $url . '&amp;page=' . ($page - 1) . '"><i class="fa fa-chevron-left"></i></a></li>';
     }
-    $pmin=($page>$adjacents)?($page - $adjacents):1;
-    $pmax=($page<($total - $adjacents))?($page + $adjacents):$total;
+    $pmin = ($page > $adjacents) ? ($page - $adjacents) : 1;
+    $pmax = ($page < ($total - $adjacents)) ? ($page + $adjacents) : $total;
     for ($i = $pmin; $i <= $pmax; $i++) {
         if ($i == $page) {
-            $out.= '<li class="active"><span>'.$i.'</span></li>';
+            $out .= '<li class="active"><span>' . $i . '</span></li>';
         } elseif ($i == 1) {
-            $out.= '<li><a href="'.$url.'">'.$i.'</a></li>';
+            $out .= '<li><a href="' . $url . '">' . $i . '</a></li>';
         } else {
-            $out.= '<li><a href="'.$url. "&amp;page=".$i.'">'.$i. '</a></li>';
+            $out .= '<li><a href="' . $url . "&amp;page=" . $i . '">' . $i . '</a></li>';
         }
     }
     // next
     if ($page < $total) {
-        $out.= '<li><a href="'.$url.'&amp;page='.($page + 1).'"><i class="fa fa-chevron-right"></i></a></li>';
+        $out .= '<li><a href="' . $url . '&amp;page=' . ($page + 1) . '"><i class="fa fa-chevron-right"></i></a></li>';
     } else {
-        $out.= '<li class="disabled"><span><i class="fa fa-chevron-right"></i></span></li>';
+        $out .= '<li class="disabled"><span><i class="fa fa-chevron-right"></i></span></li>';
     }
     //last
     if ($page < $total) {
-        $out.= '<li><a href="'.$url.'&amp;page='.$total.'">Cuối</a></li>';
+        $out .= '<li><a href="' . $url . '&amp;page=' . $total . '">Cuối</a></li>';
     } else {
-        $out.= '<li class="disabled"><span>Cuối</span></li>';
+        $out .= '<li class="disabled"><span>Cuối</span></li>';
     }
 
-    $out.= '</ul>';
+    $out .= '</ul>';
     return $out;
 }
-function stringURL($str){
+function stringURL($str)
+{
     $str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
     $str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/", 'e', $str);
     $str = preg_replace("/(ì|í|ị|ỉ|ĩ)/", 'i', $str);
@@ -73,9 +77,42 @@ function stringURL($str){
     $str = trim($str);
     return $str;
 }
-function slug($str){
+function slug($str)
+{
     $str = stringURL($str);
     $str = strtolower($str);
     $str = str_replace(' ', '-', $str);
     return $str;
+}
+//only admin
+function upload($field, $config = array())
+{
+    $options = array(
+        'name' => '',
+        'upload_path'  => './',
+        'allowed_exts' => '*',
+        'overwrite'    => TRUE,
+        'max_size'     => 0
+    );
+    $options = array_merge($options, $config);//Hợp nhất một hoặc nhiều mảng
+    if (!isset($_FILES[$field])) return FALSE;
+    $file = $_FILES[$field];
+    if ($file['error'] != 0) return FALSE;
+    $temp = explode(".", $file["name"]);
+    $ext = end($temp);//Đặt con trỏ bên trong của một mảng thành phần tử cuối cùng của nó
+    if ($options['allowed_exts'] != '*') {
+        $allowedExts = explode('|', $options['allowed_exts']);
+        if (!in_array($ext, $allowedExts)) return FALSE;
+    }
+    $size = $file['size'] / 1024 / 1024;
+    if (($options['max_size'] > 0) && ($size > $options['max_size'])) return FALSE;
+
+    $name = empty($options['name']) ? $file["name"] : $options['name'] . '.' . $ext;
+    $file_path = $options['upload_path'] . $name;
+    if ($options['overwrite'] && file_exists($file_path)) {
+        unlink($file_path);
+    }
+
+    move_uploaded_file($file["tmp_name"], $file_path);
+    return $name;
 }

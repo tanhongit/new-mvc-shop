@@ -62,7 +62,7 @@
     <div class="footer-copyright">
         <div class="container">
             <div class="row">
-                    <p>© Copyright 2020 by <span><a href="https://tanhongit.com">TanHongIT</a></span>. All Rights Reserved.</p>
+                    <p>© Copyright <script>document.write(new Date().getFullYear())</script> by <span><a href="https://tanhongit.com">TanHongIT</a></span>. All Rights Reserved.</p>
             </div>
         </div>
     </div>

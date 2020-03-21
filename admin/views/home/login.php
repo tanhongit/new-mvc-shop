@@ -30,7 +30,7 @@
                                 </div>
                             </div>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Password" name="password" type="password" value="">
+                                <input type="password" class="form-control" placeholder="Password" name="password" type="password" value="">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><a href="forgot-password.html" class="forgot" title="Forgot Password"><i class="zmdi zmdi-lock"></i></a></span>
                                 </div>

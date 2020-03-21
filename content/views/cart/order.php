@@ -72,9 +72,7 @@
                                             </tr><?php } ?>
                                     </tbody>
                                 </table>
-
                                 <hr class="tall">
-
                                 <h4>Thống kê tổng giỏ hàng</h4>
                                 <table cellspacing="0" class="cart-totals">
                                     <tbody>
@@ -126,11 +124,11 @@
                         </div>
                         <div id="collapseTwo" class="accordion-body collapse in">
                             <div class="panel-body">
-                                <form action="" id="" method="post">
+                                <form action="index.php?controller=cart&amp;action=checkout" role="form" id="" method="post">
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-md-12">
-                                                <label>Country</label>
+                                                <label>Quốc gia</label>
                                                 <select class="form-control">
                                                     <option value="">Việt Nam</option>
                                                 </select>
@@ -139,13 +137,9 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group">
-                                            <div class="col-md-6">
-                                                <label>Họ</label>
-                                                <input type="text" value="" class="form-control">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label>Tên</label>
-                                                <input type="text" value="" class="form-control">
+                                            <div class="col-md-12">
+                                                <label>Họ & Tên</label>
+                                                <input type="text" name="name" class="form-control" required="required" placeholder="Nhập họ và tên thật ...">
                                             </div>
                                         </div>
                                     </div>
@@ -153,11 +147,11 @@
                                         <div class="form-group">
                                             <div class="col-md-6">
                                                 <label>Tình/ Thành Phố</label>
-                                                <input type="text" value="" class="form-control">
+                                                <input type="text" name="province" required="required" class="form-control">
                                             </div>
                                             <div class="col-md-6">
                                                 <label>SĐT để liên lạc</label>
-                                                <input type="text" value="" class="form-control">
+                                                <input type="text" name="phone" required="required" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -165,21 +159,19 @@
                                         <div class="form-group">
                                             <div class="col-md-12">
                                                 <label>Địa chỉ </label>
-                                                <input type="text" value="" class="form-control" placeholder="Mong các bạn nhập chi tiết địa chỉ ạ...">
+                                                <input type="text" name="address" required="required" class="form-control" placeholder="Mong các bạn nhập chi tiết địa chỉ ạ...">
                                             </div>
                                         </div>
+                                    </div>
+                                    <input name="cart_total" type="hidden" value="<?php echo cart_total() ? cart_total() : '0'; ?>"/>
+                                    <div class="form-group" style="text-align: center">
+                                        <button type="submit" class="btn btn-primary"><i class="fa  fa-check-square-o"></i> Đặt hàng</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
-                <div class="actions-continue">
-                    <input type="submit" value="Place Order" name="proceed" class="btn btn-lg btn-primary push-top">
-                </div>
-
             </div>
             <div class="col-md-3">
                 <h4>Cart Totals</h4>
@@ -205,8 +197,6 @@
                 </table>
             </div>
         </div>
-
     </div>
-
 </div>
 <?php require('content/views/shared/footer.php');

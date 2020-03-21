@@ -9,10 +9,4 @@ if (isset($_POST['producct_id'])) {
 }
 $title = 'Sản phẩm khuyến mại';
 $user = $_SESSION['user'];
-$options = array(
-    'where' => 'product_typeid = 3',
-    'order_by' => 'createDate'
-);
-$products = get_all('products', $options);
-//load view
 require('admin/views/product/saleproduct.php');

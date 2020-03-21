@@ -5,7 +5,6 @@
 <?php require('admin/views/shared/formsearch.php'); ?>
 <?php require('admin/views/shared/rightnavbar.php'); ?>
 <?php require('admin/views/shared/leftnavbar.php'); ?>
-
 <section class="content">
     <div class="body_scroll">
         <div class="block-header">
@@ -25,11 +24,11 @@
         </div>
         <div class="container-fluid">
             <?php require('admin/views/product/tableofNewproduct.php'); ?>
+            <?php require('admin/views/product/tableofHotproduct.php'); ?>
+            <?php require('admin/views/product/tableofSaleproduct.php'); ?>
         </div>
     </div>
 </section>
-
-
 <script src="admin/themes/bundles/libscripts.bundle.js"></script>
 <script src="admin/themes/bundles/vendorscripts.bundle.js"></script>
 <script src="admin/themes/bundles/datatablescripts.bundle.js"></script>

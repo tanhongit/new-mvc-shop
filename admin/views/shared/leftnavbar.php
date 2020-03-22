@@ -15,7 +15,7 @@
                     </div>
                 </div>
             </li>
-            <li class="open"><a href="<?=PATH_URL?>home" target="_blank"><i class="zmdi zmdi-home"></i><span>Quay lại SHOP</span></a></li>
+            <li class="open"><a href="<?= PATH_URL ?>home" target="_blank"><i class="zmdi zmdi-home"></i><span>Quay lại SHOP</span></a></li>
             <li class="active open"><a href="admin.php"><i class="zmdi zmdi-view-dashboard"></i><span>Bảng điều khiển</span></a></li>
             <li><a href="my-profile.html"><i class="zmdi zmdi-account"></i><span>Profile</span></a></li>
             <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Quản lý sản phẩm</span></a>
@@ -24,15 +24,15 @@
                     <li><a href="admin.php?controller=product&action=newproduct">Sản phẩm mới</a></li>
                     <li><a href="admin.php?controller=product&action=saleproduct">Sản phẩm khuyến mại</a></li>
                     <li><a href="admin.php?controller=product&action=hotproduct">Sản phẩm hot</a></li>
-                    <li><a href="ticket-detail.html">Add sản phẩm mới</a></li>
+                    <li><a href="admin.php?controller=product&amp;action=edit">Add sản phẩm mới</a></li>
                 </ul>
             </li>
             <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-folder"></i><span>Quản lý danh mục</span></a>
                 <ul class="ml-menu">
-                    <li><a href="file-dashboard.html">Nhóm danh mục</a></li>
-                    <li><a href="file-documents.html">Danh mục con</a></li>
-                    <li><a href="ticket-detail.html">Add nhóm danh mục mới</a></li>
-                    <li><a href="ticket-detail.html">Add danh mục mới</a></li>
+                    <li><a href="admin.php?controller=shop">1. Nhóm danh mục</a></li>
+                    <li><a href="admin.php?controller=shop&amp;action=edit">2. Add nhóm danh mục mới</a></li>
+                    <li><a href="file-documents.html">3. Danh mục con</a></li>
+                    <li><a href="ticket-detail.html">4. Add danh mục con mới</a></li>
                 </ul>
             </li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-shopping-cart"></i><span>Quản lý đơn hàng</span></a>

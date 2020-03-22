@@ -5,9 +5,9 @@
                 <div class="col-lg-7 col-md-6 col-sm-12">
                     <h2><? ?></h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Forms</a></li>
-                        <li class="breadcrumb-item active">Basic Form</li>
+                        <li class="breadcrumb-item"><a href="<?= PATH_URL . 'home' ?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
+                        <li class="breadcrumb-item"><a href="admin.php?controller=product">Product</a></li>
+                        <li class="breadcrumb-item active"><?php echo $product ? 'Cập nhật sản phẩm: ' . $product['product_name']  : 'Thêm sản phẩm mới'; ?></li>
                     </ul>
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">
@@ -21,15 +21,15 @@
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="alert alert-warning" role="alert">
-                        <strong>Bootstrap</strong> Better check yourself, <a target="_blank" href="https://getbootstrap.com/docs/4.2/components/input-group/">View More</a>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true"><i class="zmdi zmdi-close"></i></span>
-                        </button>
+                        <strong><?php echo $product ? 'Cảnh Báo: </strong> Bạn đang trong trang chỉnh sửa của sản phẩm "'.$product['product_name'].'", Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>' : 'Cảnh Báo: </strong> Bạn đang trong trang tạo một sản phẩm mới, Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>'; ?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true"><i class="zmdi zmdi-close"></i></span>
+                            </button>
                     </div>
                     <div class="card">
                         <div class="body">
                             <form id="product-form" class="form-horizontal" method="post" action="admin.php?controller=product&amp;action=edit" enctype="multipart/form-data" role="form">
-                                <input name="id" type="hidden" value="<?php echo $product ? $product['id'] : '0'; ?>" />
+                                <input name="product_id" type="hidden" value="<?php echo $product ? $product['id'] : '0'; ?>" />
                                 <h2 class="card-inside-title">Tên Sản Phẩm</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
@@ -39,10 +39,11 @@
                                     </div>
                                 </div>
                                 <h2 class="card-inside-title">Slug (Đường dẫn link product)</h2>
+                                <p>Đường dẫn link sẽ tự động được tạo giống với tên danh mục...</p>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="slug" type="text" value="<?php echo $product ? $product['slug'] : ''; ?>" class="form-control" id="slug" placeholder="Nhập đường dẫn link sản phẩm..." required="" />
+                                            <input disabled name="slug" type="text" value="<?php echo $product ? $product['slug'] : ''; ?>" class="form-control" id="slug" placeholder="Nhập đường dẫn link sản phẩm..." required="" />
                                         </div>
                                     </div>
                                 </div>

@@ -3,7 +3,7 @@ $options = array(
     'where' => 'product_typeid = 2',
     'order_by' => 'createDate'
 );
-$products = get_all('products', $options);?>
+$products = get_all('products', $options); ?>
 <!-- Basic Examples -->
 <div class="row clearfix">
     <div class="col-lg-12">
@@ -34,6 +34,7 @@ $products = get_all('products', $options);?>
                                 <th>Ngày Tạo</th>
                                 <th>Ảnh Đại Diện</th>
                                 <th>Tổng Lượt View</th>
+                                <th>Hành Động</th>
                             </tr>
                         </thead>
                         <tfoot>
@@ -44,6 +45,7 @@ $products = get_all('products', $options);?>
                                 <th>Ngày Tạo</th>
                                 <th>Ảnh Đại Diện</th>
                                 <th>Tổng Lượt View</th>
+                                <th>Hành Động</th>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -55,6 +57,8 @@ $products = get_all('products', $options);?>
                                     <td><?php echo $product['createDate'] ?></td>
                                     <td><?php echo '<image src="public/upload/products/' . $product['img1'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
                                     <td><?php echo $product['totalView'] ?></td>
+                                    <td><a href="admin.php?controller=product&amp;action=edit&amp;product_id=<?php echo $product['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
+                                        <a href="admin.php?controller=product&amp;action=delete&amp;product_id=<?= $product['id'] ?>" class="btn btn-default waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

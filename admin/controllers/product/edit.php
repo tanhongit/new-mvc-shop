@@ -4,7 +4,7 @@ require_once('admin/models/products.php');
 if (!empty($_POST)) {
     $name = escape($_POST['name']);
     $product = array(
-        'id' => intval($_POST['id']),
+        'id' => intval($_POST['product_id']),
         'category_id' => intval($_POST['category_id']),
         'sub_category_id' => intval($_POST['subcategory_id']),
         'product_name' => $name,
@@ -18,11 +18,11 @@ if (!empty($_POST)) {
         'saleoff' => intval($_POST['status']),
         'percentoff' => intval($_POST['percent_off']),
         'totalView' => intval($_POST['totalview']),
-        'product_description' => ($_POST['description'])
+        // 'product_description' => ($_POST['description'])
     );
-    $producct_id = save('products', $product);
+    $product_id = save('products', $product);
     //upload ảnh 1 của product
-    $image_name1 = slug($name).'-'.$producct_id.'img1';
+    $image_name1 = slug($name).'-'.$product_id.'img1';
     $config1 = array(
         'name' => $image_name1,
         'upload_path'  => 'public/upload/products/',
@@ -32,13 +32,13 @@ if (!empty($_POST)) {
     //cập nhật ảnh mới lên database 
     if($image1){
         $product = array(
-            'id' => $producct_id,
+            'id' => $product_id,
             'img1' => $image1
         );
         save('products', $product);
     }
     //upload ảnh 2 của product
-    $image_name2 = slug($name).'-'.$producct_id.'img2';
+    $image_name2 = slug($name).'-'.$product_id.'img2';
     $config2 = array(
         'name' => $image_name2,
         'upload_path'  => 'public/upload/products/',
@@ -48,13 +48,13 @@ if (!empty($_POST)) {
     //cập nhật ảnh mới lên database
     if($image2){
         $product = array(
-            'id' => $producct_id,
+            'id' => $product_id,
             'img2' => $image2
         );
         save('products', $product);
     }
     //upload ảnh 3 của product
-    $image_name3 = slug($name).'-'.$producct_id.'img3';
+    $image_name3 = slug($name).'-'.$product_id.'img3';
     $config3 = array(
         'name' => $image_name3,
         'upload_path'  => 'public/upload/products/',
@@ -64,13 +64,13 @@ if (!empty($_POST)) {
     //cập nhật ảnh mới lên database 
     if($image3){
         $product = array(
-            'id' => $producct_id,
+            'id' => $product_id,
             'img3' => $image3
         );
         save('products', $product);
     }
     //upload ảnh 4 của product
-    $image_name4 = slug($name).'-'.$producct_id.'img4';
+    $image_name4 = slug($name).'-'.$product_id.'img4';
     $config4 = array(
         'name' => $image_name4,
         'upload_path'  => 'public/upload/products/',
@@ -80,7 +80,7 @@ if (!empty($_POST)) {
     //cập nhật ảnh mới lên database 
     if($image4){
         $product = array(
-            'id' => $producct_id,
+            'id' => $product_id,
             'img4' => $image4
         );
         save('products', $product);
@@ -89,10 +89,14 @@ if (!empty($_POST)) {
     header('location:admin.php?controller=product');
 }
 
-if (isset($_GET['producct_id'])) $producct_id = intval($_GET['producct_id']); else $producct_id=0;
-$title = ($producct_id==0) ? 'Thêm sản phẩm' : 'Sửa sản phẩm';
+if (isset($_GET['product_id'])) $product_id = intval($_GET['product_id']); else $product_id=0;
+$title = ($product_id==0) ? 'Thêm sản phẩm' : 'Sửa sản phẩm';
 $user = $_SESSION['user'];
-$product = get_a_record('products', $producct_id);
+$product = get_a_record('products', $product_id);
+$options = array(
+    'order_by' => 'createDate'
+);
+$products = get_all('products', $options);
 $categories = get_all('categories', array(
     'select'=>'id,category_name',
     'order_by' => 'id'

@@ -1,10 +1,10 @@
 <?php
 //load model
 require_once('admin/models/products.php');
-if (isset($_POST['pid'])) {
-    foreach ($_POST['pid'] as $pid) {
-        $pid = intval($pid);
-        products_delete($pid);
+if (isset($_POST['product_id'])) {
+    foreach ($_POST['product_id'] as $product_id) {
+        $product_id = intval($product_id);
+        products_delete($product_id);
     }
 }
 $title = 'Sản phẩm mới - Quản trị Quán Chị Kòi';

@@ -9,7 +9,6 @@ if (!empty($_POST)) {
     );
     save('categories', $category);
     header('location:admin.php?controller=shop');
-} else {
 }
 if (isset($_GET['cate_id'])) $cate_id = intval($_GET['cate_id']);
 else $cate_id = 0;

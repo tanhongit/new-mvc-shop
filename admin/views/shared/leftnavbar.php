@@ -31,8 +31,8 @@
                 <ul class="ml-menu">
                     <li><a href="admin.php?controller=shop">1. Nhóm danh mục</a></li>
                     <li><a href="admin.php?controller=shop&amp;action=edit">2. Add nhóm danh mục mới</a></li>
-                    <li><a href="file-documents.html">3. Danh mục con</a></li>
-                    <li><a href="ticket-detail.html">4. Add danh mục con mới</a></li>
+                    <li><a href="admin.php?controller=category">3. Danh mục con</a></li>
+                    <li><a href="admin.php?controller=category&amp;action=edit">4. Add danh mục con mới</a></li>
                 </ul>
             </li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-shopping-cart"></i><span>Quản lý đơn hàng</span></a>

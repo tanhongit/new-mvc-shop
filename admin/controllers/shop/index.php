@@ -9,7 +9,7 @@ if (isset($_POST['cate_id'])) {
 $options = array(
     'order_by' => 'id'
 );
-$title = 'Danh mục sản phẩm';
+$title = 'Nhóm Danh mục sản phẩm';
 $user = $_SESSION['user'];
 $categories = get_all('categories', $options);
 //load view

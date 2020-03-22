@@ -30,7 +30,7 @@
                         <div class="body">
                             <form id="product-form" class="form-horizontal" method="post" action="admin.php?controller=product&amp;action=edit" enctype="multipart/form-data" role="form">
                                 <input name="product_id" type="hidden" value="<?php echo $product ? $product['id'] : '0'; ?>" />
-                                <h2 class="card-inside-title">Tên Sản Phẩm</h2>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Tên Sản Phẩm:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
@@ -38,7 +38,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h2 class="card-inside-title">Slug (Đường dẫn link product)</h2>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Slug (Đường dẫn link product):</h2>
                                 <p>Đường dẫn link sẽ tự động được tạo giống với tên danh mục...</p>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
@@ -47,7 +47,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h2 class="card-inside-title">Loại Sản Phẩm</h2>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Loại Sản Phẩm:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <select name="type_id" class="form-control show-tick">
@@ -59,7 +59,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <h2 class="card-inside-title">Nhóm Danh Mục</h2>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Nhóm Danh Mục:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <select name="category_id" class="form-control show-tick">
@@ -71,7 +71,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <h2 class="card-inside-title">Danh Mục Con</h2>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Danh Mục Con:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <select name="subcategory_id" class="form-control show-tick">
@@ -83,7 +83,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <h2 class="card-inside-title">Giá Sản Phẩm</h2>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Giá Sản Phẩm:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
@@ -91,7 +91,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h2 class="card-inside-title">Màu cho sản phẩm</h2>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Màu cho sản phẩm:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
@@ -99,7 +99,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h2 class="card-inside-title">Kích cỡ cho sản phẩm</h2>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Kích cỡ cho sản phẩm:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
@@ -107,7 +107,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h2 class="card-inside-title">Chất liệu của sản phẩm</h2>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Chất liệu của sản phẩm:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
@@ -115,7 +115,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h2 class="card-inside-title">Lượt xem sản phẩm</h2>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Lượt xem sản phẩm:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
@@ -123,7 +123,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h2 class="card-inside-title">Lựa chọn giảm giá (Sale off)</h2>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Lựa chọn giảm giá (Sale off):</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
@@ -138,7 +138,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h2 class="card-inside-title">Số % giảm giá sản phẩm</h2>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Số % giảm giá sản phẩm:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
@@ -146,6 +146,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Chọn ngày tạo mới sản phẩm (bắt buộc):</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-4">
                                         <input name="createdate" id="createdate" type="date" value="<?php echo $product ? $product['createDate'] : ''; ?>" class="form-control" placeholder="Please choose date & time...">
@@ -183,7 +184,8 @@
                                         <input name="img4" type="file" class="form-control dropify">
                                     </div>
                                 </div>-->
-                                <div class="form-group">
+                                <br><br>
+                                <div class="form-group" style="text-align: center;">
                                     <button class="btn btn-primary waves-effect" type="submit"><?php echo $product ? 'Cập nhật sản phẩm' : 'Thêm sản phẩm mới'; ?></button>
                                     <a class="btn btn-warning waves-effect" href="admin.php?controller=product">Trở về</a>
                                 </div>

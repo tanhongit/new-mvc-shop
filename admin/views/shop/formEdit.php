@@ -30,7 +30,7 @@
                         <div class="body">
                             <form id="product-form" class="form-horizontal" method="post" enctype="multipart/form-data" role="form">
                                 <input name="cate_id" type="hidden" value="<?php echo $category ? $category['id'] : '0'; ?>" />
-                                <h2 class="card-inside-title">Tên nhóm danh mục</h2>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Tên nhóm danh mục:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
@@ -38,7 +38,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h2 class="card-inside-title">Slug (Đường dẫn của nhóm danh mục)</h2>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Slug (Đường dẫn của nhóm danh mục):</h2>
                                 <p>Đường dẫn link sẽ tự động được tạo giống với tên danh mục...</p>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
@@ -47,7 +47,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h2 class="card-inside-title">Thứ tự vị trí</h2>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Thứ tự vị trí:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
@@ -55,7 +55,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <br><br>
+                                <div class="form-group" style="text-align: center;">
                                     <button class="btn btn-primary waves-effect" type="submit"><?php echo $category ? 'Cập nhật nhóm danh mục trên' : 'Thêm nhóm danh mục mới'; ?></button>
                                     <a class="btn btn-warning waves-effect" href="admin.php?controller=shop">Trở về</a>
                                 </div>

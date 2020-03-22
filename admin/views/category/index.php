@@ -13,8 +13,8 @@
                     <h2>Sản phẩm mới</h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?= PATH_URL . 'home' ?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
-                        <li class="breadcrumb-item"><a href="admin.php?controller=shop">Nhóm danh mục</a></li>
-                        <li class="breadcrumb-item active">Danh sách nhóm danh mục</li>
+                        <li class="breadcrumb-item"><a href="admin.php?controller=category">Danh mục con</a></li>
+                        <li class="breadcrumb-item active">Danh sách sub category</li>
                     </ul>
                     <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
                 </div>
@@ -29,7 +29,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2><strong>Truy Xuất Dữ Liệu</strong> "Nhóm Danh Mục" </h2>
+                            <h2><strong>Truy Xuất Dữ Liệu</strong> "Danh mục con" </h2>
                             <ul class="header-dropdown">
                                 <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                                     <ul class="dropdown-menu dropdown-menu-right slideUp">
@@ -49,9 +49,9 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Tên Nhóm danh mục</th>
+                                            <th>Tên danh mục</th>
                                             <th>Đường dẫn (Link)</th>
-                                            <th>Thứ tự - vị trí</th>
+                                            <th>Thuộc nhóm danh mục cha</th>
                                             <th>Hành Động</th>
                                         </tr>
                                     </thead>
@@ -60,19 +60,23 @@
                                             <th>ID</th>
                                             <th>Tên Nhóm danh mục</th>
                                             <th>Đường dẫn (Link)</th>
-                                            <th>Thứ tự - vị trí</th>
+                                            <th>Thuộc nhóm danh mục cha</th>
                                             <th>Hành Động</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <?php foreach ($categories as $category) : ?>
+                                        <?php foreach ($subcategories as $subcategory) : ?>
                                             <tr>
-                                                <td><?php echo $category['id'] ?></td>
-                                                <td><a href="admin.php?controller=shop&amp;action=edit&amp;cate_id=<?php echo $category['id']; ?>"><?php echo $category['category_name']; ?></a></td>
-                                                <td><?php echo $category['slug'] ?></td>
-                                                <td><?php echo $category['category_position'] ?></td>
-                                                <td><a href="admin.php?controller=shop&amp;action=edit&amp;cate_id=<?php echo $category['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
-                                                    <a href="admin.php?controller=shop&amp;action=delete&amp;cate_id=<?= $category['id'] ?>" class="btn btn-default waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
+                                                <td><?php echo $subcategory['id'] ?></td>
+                                                <td><a href="admin.php?controller=category&amp;action=edit&amp;subcate_id=<?php echo $subcategory['id']; ?>"><?php echo $subcategory['subcategory_name']; ?></a></td>
+                                                <td><?php echo $subcategory['slug'] ?></td>
+                                                <td><?php $category = get_a_record('categories', $subcategory['category_id']);
+                                                    if ($category['id'] != 0) {
+                                                        echo $category['category_name'];
+                                                    }
+                                                    ?></td>
+                                                <td><a href="admin.php?controller=category&amp;action=edit&amp;subcate_id=<?php echo $subcategory['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
+                                                    <a href="admin.php?controller=category&amp;action=delete&amp;subcate_id=<?= $subcategory['id'] ?>" class="btn btn-default waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

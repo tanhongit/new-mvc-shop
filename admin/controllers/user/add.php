@@ -2,7 +2,7 @@
 require_once('admin/models/users.php');
 if (!empty($_POST)) {
     $user_add = array(
-        'id' => intval($_POST['id']),
+        'id' => intval($_POST['user_id']),
         'user_username' => escape($_POST['username']),
         'user_password' => md5($_POST['password']),
         'user_email' => escape($_POST['email']),

@@ -1,0 +1,6 @@
+Tính năng thiếu: 
+    -Admin:
+        +Xác nhận delete tại tất cả các mục
+        +Upload ảnh product, user
+        +ngày add và edit product
+        +kiểm tra username khi add user

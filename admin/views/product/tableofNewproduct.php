@@ -31,6 +31,7 @@ $products = get_all('products', $options); ?>
                                 <th>ID</th>
                                 <th>Tên SP</th>
                                 <th>Giá</th>
+                                <th>Giá khuyến mãi</th>
                                 <th>Ngày Tạo</th>
                                 <th>Ảnh Đại Diện</th>
                                 <th>Tổng Lượt View</th>
@@ -42,6 +43,7 @@ $products = get_all('products', $options); ?>
                                 <th>ID</th>
                                 <th>Tên SP</th>
                                 <th>Giá</th>
+                                <th>Giá khuyến mãi</th>
                                 <th>Ngày Tạo</th>
                                 <th>Ảnh Đại Diện</th>
                                 <th>Tổng Lượt View</th>
@@ -54,6 +56,7 @@ $products = get_all('products', $options); ?>
                                     <td><?php echo $product['id'] ?></td>
                                     <td><a href="admin.php?controller=product&amp;action=edit&amp;product_id=<?php echo $product['id']; ?>"><?php echo $product['product_name']; ?></a></td>
                                     <td><?php echo $product ? number_format($product['product_price'], 0, ',', '.') : 0; ?></td>
+                                    <td><?php if ($product["saleoff"] == 1) echo number_format(($product['product_price'] - (($product['product_price']) * ($product['percentoff']) / 100)), 0, ',', '.'); ?></td>
                                     <td><?php echo $product['createDate'] ?></td>
                                     <td><?php echo '<image src="public/upload/products/' . $product['img1'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
                                     <td><?php echo $product['totalView'] ?></td>

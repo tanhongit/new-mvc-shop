@@ -5,13 +5,12 @@
 <?php require('admin/views/shared/formsearch.php'); ?>
 <?php require('admin/views/shared/rightnavbar.php'); ?>
 <?php require('admin/views/shared/leftnavbar.php'); ?>
-
 <section class="content">
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2>Sản phẩm mới</h2>
+                    <h2>Sản phẩm khuyến mãi</h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?=PATH_URL.'home'?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
                         <li class="breadcrumb-item"><a href="admin.php?controller=product">Product</a></li>
@@ -29,8 +28,6 @@
         </div>
     </div>
 </section>
-
-
 <script src="admin/themes/bundles/libscripts.bundle.js"></script>
 <script src="admin/themes/bundles/vendorscripts.bundle.js"></script>
 <script src="admin/themes/bundles/datatablescripts.bundle.js"></script>

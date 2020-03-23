@@ -138,7 +138,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h2 class="card-inside-title" style="font-weight:bold;">Số % giảm giá sản phẩm:</h2>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Số % giảm giá sản phẩm (chỉ nhập nếu chọn "bật giảm giá"):</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
@@ -186,7 +186,7 @@
                                 </div>-->
                                 <br><br>
                                 <div class="form-group" style="text-align: center;">
-                                    <button class="btn btn-primary waves-effect" type="submit"><?php echo $product ? 'Cập nhật sản phẩm' : 'Thêm sản phẩm mới'; ?></button>
+                                    <button class="btn btn-primary waves-effect" type="submit"><?php echo $product ? 'Cập nhật sản phẩm trên' : 'Thêm sản phẩm mới'; ?></button>
                                     <a class="btn btn-warning waves-effect" href="admin.php?controller=product">Trở về</a>
                                 </div>
                             </form>

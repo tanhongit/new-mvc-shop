@@ -10,11 +10,11 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2>Nhóm dnh mục</h2>
+                    <h2>Danh sách đơn hàng</h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?= PATH_URL . 'home' ?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
-                        <li class="breadcrumb-item"><a href="admin.php?controller=shop">Nhóm danh mục</a></li>
-                        <li class="breadcrumb-item active">Danh sách nhóm danh mục</li>
+                        <li class="breadcrumb-item"><a href="admin.php?controller=order">Đơn hàng</a></li>
+                        <li class="breadcrumb-item active">Danh sách tất cả các đơn hàng</li>
                     </ul>
                     <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
                 </div>
@@ -29,7 +29,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2><strong>Truy Xuất Dữ Liệu</strong> "Nhóm Danh Mục" </h2>
+                            <h2><strong>Truy Xuất Dữ Liệu</strong> "Tất cả các đơn hàng" </h2>
                             <ul class="header-dropdown">
                                 <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                                     <ul class="dropdown-menu dropdown-menu-right slideUp">
@@ -49,30 +49,32 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Tên Nhóm danh mục</th>
-                                            <th>Đường dẫn (Link)</th>
-                                            <th>Thứ tự - vị trí</th>
+                                            <th>Tên khách hàng</th>
+                                            <th>Ngày đặt đơn</th>
+                                            <th>Tổng giá trị đơn hàng</th>
+                                            <th>Tình trạng</th>
                                             <th>Hành Động</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Tên Nhóm danh mục</th>
-                                            <th>Đường dẫn (Link)</th>
-                                            <th>Thứ tự - vị trí</th>
+                                            <th>Tên khách hàng</th>
+                                            <th>Ngày đặt đơn</th>
+                                            <th>Tổng giá trị đơn hàng</th>
+                                            <th>Tình trạng</th>
                                             <th>Hành Động</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <?php foreach ($categories as $category) : ?>
+                                        <?php foreach ($orders as $order) : ?>
                                             <tr>
-                                                <td><?php echo $category['id'] ?></td>
-                                                <td><a href="admin.php?controller=shop&amp;action=edit&amp;cate_id=<?php echo $category['id']; ?>"><?php echo $category['category_name']; ?></a></td>
-                                                <td><?php echo $category['slug'] ?></td>
-                                                <td><?php echo $category['category_position'] ?></td>
-                                                <td><a href="admin.php?controller=shop&amp;action=edit&amp;cate_id=<?php echo $category['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
-                                                    <a href="admin.php?controller=shop&amp;action=delete&amp;cate_id=<?= $category['id'] ?>" class="btn btn-default waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
+                                                <td><?php echo $order['id'] ?></td>
+                                                <td><a href="admin.php?controller=order&amp;action=view&amp;order_id=<?php echo $order['id']; ?>"><?php echo $order['customer']; ?></a></td>
+                                                <td><?php echo $order['createtime'] ?></td>
+                                                <td><?php echo $order['cart_total'] ?></td>
+                                                <td><?php echo $status[$order['status']];?></td>
+                                                <td><a href="admin.php?controller=order&amp;action=view&amp;order_id=<?php echo $order['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-<?php if($order['status']==0){echo 'eyedropper';} elseif($order['status']==1){echo 'eye';}else{echo 'assignment-check';}?>"></i></a></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

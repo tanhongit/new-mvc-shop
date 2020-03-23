@@ -10,11 +10,11 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2>Sản phẩm mới</h2>
+                    <h2>Đơn hàng đã xử lý xong</h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?=PATH_URL.'home'?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
-                        <li class="breadcrumb-item"><a href="admin.php?controller=product">Product</a></li>
-                        <li class="breadcrumb-item active">New Product</li>
+                        <li class="breadcrumb-item"><a href="admin.php?controller=order">Đơn hàng</a></li>
+                        <li class="breadcrumb-item active">Đơn hàng đã xử lý</li>
                     </ul>
                     <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
                 </div>
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="container-fluid">
-            <?php require('admin/views/product/tableofNewproduct.php'); ?>
+            <?php require('admin/views/order/tableOrderComplete.php'); ?>
         </div>
     </div>
 </section>

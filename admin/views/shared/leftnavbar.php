@@ -37,9 +37,10 @@
             </li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-shopping-cart"></i><span>Quản lý đơn hàng</span></a>
                 <ul class="ml-menu">
-                    <li><a href="ec-dashboard.html">Danh sách đơn hàng</a></li>
-                    <li><a href="ec-product.html">Đơn hàng đã xử lý</a></li>
-                    <li><a href="ec-product-List.html">Đơn hàng chưa xử lý</a></li>
+                    <li><a href="admin.php?controller=order">Danh sách All đơn hàng</a></li>
+                    <li><a href="admin.php?controller=order&amp;action=order-noprocess">Đơn hàng chưa xử lý</a></li>
+                    <li><a href="admin.php?controller=order&amp;action=order-inprocess">Đơn hàng đang xử lý</a></li>
+                    <li><a href="admin.php?controller=order&amp;action=order-complete">Đơn hàng đã xử lý</a></li>
                 </ul>
             </li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>User</span></a>

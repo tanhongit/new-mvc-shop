@@ -1,0 +1,6 @@
+<?php
+//load model
+require_once('admin/models/order.php');
+$order_id = intval($_GET['order_id']);
+order_delete($order_id);
+header('location:admin.php?controller=order');

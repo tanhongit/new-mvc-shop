@@ -43,7 +43,7 @@
                     <li><a href="admin.php?controller=order&amp;action=order-complete">Đơn hàng đã xử lý</a></li>
                 </ul>
             </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>User</span></a>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>User</span></a>
                 <ul class="ml-menu">
                     <li><a href="mail-inbox.html">Your Profile</a></li>
                     <li><a href="chat.html">All Profile</a></li>

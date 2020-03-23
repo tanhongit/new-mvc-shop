@@ -2,7 +2,6 @@
 if (isset($_POST['order_id'])) {
     foreach ($_POST['order_id'] as $order_id) {
         $order_id = intval($order_id);
-        orders_delete($order_id);
     }
 }
 $options = array(

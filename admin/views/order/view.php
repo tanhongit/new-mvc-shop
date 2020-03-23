@@ -96,23 +96,23 @@
                         <h3>Thông tin khách hàng</h3>
                         <table id="info" class="table">
                             <tr>
-                                <td>Họ và tên</td>
+                                <td><strong>Họ và tên</strong></td>
                                 <td><?php echo $order['customer']; ?></td>
                             </tr>
                             <tr>
-                                <td>Tỉnh/ Thành phố</td>
+                                <td><strong>Tỉnh/ Thành phố</strong> </td>
                                 <td><?php echo $order['province']; ?></td>
                             </tr>
                             <tr>
-                                <td>Địa chỉ</td>
+                                <td><strong>Địa chỉ</strong> </td>
                                 <td><?php echo $order['address']; ?></td>
                             </tr>
                             <tr>
-                                <td>Di động</td>
+                                <td><strong>Di động</strong> </td>
                                 <td><?php echo $order['phone']; ?></td>
                             </tr>
                             <tr>
-                                <td>Thời gian</td>
+                                <td><strong>Thời gian</strong> </td>
                                 <td><?php echo $order['createtime']; ?></td>
                             </tr>
                         </table>

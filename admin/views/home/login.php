@@ -37,7 +37,7 @@
                             </div>
                             <button type="submit" class="btn btn-primary btn-block waves-effect waves-light">LOG IN</button>
                             <div class="signin_with mt-3">
-                                <p class="mb-0">or Sign Up using</p>
+                                <p class="mb-0">hoặc <a href="register">Đăng ký</a> để sử dụng</p>
                                 <button class="btn btn-primary btn-icon btn-icon-mini btn-round facebook"><i class="zmdi zmdi-facebook"></i></button>
                                 <button class="btn btn-primary btn-icon btn-icon-mini btn-round twitter"><i class="zmdi zmdi-twitter"></i></button>
                                 <button class="btn btn-primary btn-icon btn-icon-mini btn-round google"><i class="zmdi zmdi-google-plus"></i></button>

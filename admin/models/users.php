@@ -12,6 +12,11 @@ function user_login($email, $password)
 }
 function user_delete($id)
 {
+    $user = get_a_record('users', $id);
+    $image = 'public/upload/images/' . $user['user_avatar'];
+    if (is_file($image)) {
+        unlink($image);
+    }
     global $linkconnectDB;
     $id = intval($id);
     $sql = "DELETE FROM users WHERE id=$id";

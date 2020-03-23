@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h2 class="shorter"><strong>Thủ tục thanh toán và đặt hàng</strong></h2>
-                <p>Phản hồi của khách hàng? <a href="shop-login.html">Nhấn vào đây để đăng nhập.</a></p>
+                <p>Phản hồi của khách hàng? <a href="admin.php">Nhấn vào đây để đăng nhập.</a></p>
             </div>
         </div>
         <div class="row">

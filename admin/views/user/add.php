@@ -99,38 +99,12 @@
                                         <input name="createDate" id="createDate" type="date" value="<?php echo $user_info ? $user_info['createDate'] : date('d/m/Y'); ?>" class="form-control" placeholder="Please choose date & time...">
                                     </div>
                                 </div>
-                                <!-- <div class="card col-md-2">
-                                    <div class="header">
-                                        <h2 style="text-align: center;">Ảnh Đại Diện</h2>
-                                    </div>
-                                    <div class="body">
-                                        <input name="img1" type="file" class="form-control dropify" accept="image/*">
+                                <h2 class="card-inside-title" style="font-weight:bold;">Chọn ảnh Avatar:</h2>
+                                <div class="row clearfix">
+                                    <div class="col-sm-4">
+                                        <input name="imagee" type="file" class="form-control dropify">
                                     </div>
                                 </div>
-                                <div class="card col-md-2">
-                                    <div class="header">
-                                        <h2 style="text-align: center;">Ảnh 2</h2>
-                                    </div>
-                                    <div class="body">
-                                        <input name="img2" type="file" class="form-control dropify">
-                                    </div>
-                                </div>
-                                <div class="card col-md-2">
-                                    <div class="header">
-                                        <h2 style="text-align: center;">Ảnh 3</h2>
-                                    </div>
-                                    <div class="body">
-                                        <input name="img3" type="file" class="form-control dropify">
-                                    </div>
-                                </div>
-                                <div class="card col-md-2">
-                                    <div class="header">
-                                        <h2 style="text-align: center;">Ảnh 4</h2>
-                                    </div>
-                                    <div class="body">
-                                        <input name="img4" type="file" class="form-control dropify">
-                                    </div>
-                                </div>-->
                                 <br><br>
                                 <div class="form-group" style="text-align: center;">
                                     <button class="btn btn-primary waves-effect" type="submit">Thêm người dùng mới</button>

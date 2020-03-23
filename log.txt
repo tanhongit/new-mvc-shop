@@ -4,3 +4,10 @@ Tính năng thiếu:
         +Upload ảnh product, user
         +ngày add và edit product
         +kiểm tra username khi add user
+        +desc product
+        x=ràng buộc username & email trong user add
+        view từng thành phần
+        
+    public:
+        +Register
+        +phân quyền

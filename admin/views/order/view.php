@@ -29,7 +29,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2><strong>Truy Xuất Dữ Liệu</strong> "Tất cả các sản phẩm của đơn hàng" </h2>
+                            <h2><strong>Truy Xuất Dữ Liệu</strong> "Tất cả các sản phẩm trong đơn hàng" </h2>
                             <ul class="header-dropdown">
                                 <li class="dropdown"> <a href="javascript:vorder_id(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                                     <ul class="dropdown-menu dropdown-menu-right slideUp">
@@ -54,6 +54,7 @@
                                             <th>Giá gốc</th>
                                             <th>Giá khuyến mãi</th>
                                             <th>Số lượng</th>
+                                            <th>Giá Tổng SL</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -64,6 +65,7 @@
                                             <th>Giá gốc</th>
                                             <th>Giá khuyến mãi</th>
                                             <th>Số lượng</th>
+                                            <th>Giá Tổng SL</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -81,9 +83,13 @@
                                                 <td><?= $stt; ?></td>
                                                 <td><a href="index.php?controller=product&id=<?php echo $product['id']; ?>"><?php echo $product['product_name']; ?></a></td>
                                                 <td><?php if (is_file("public/upload/products/" . $product['img1'])) echo '<image src="public/upload/products/' . $product['img1'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
-                                                <td><?= $product['product_price'] ?></td>
+                                                <td><?= number_format($product['product_price'], 0, ',', '.') ?></td>
                                                 <td><? if ($product['saleoff'] == 1) echo ($product['product_price'] - (($product['product_price']) * ($product['percentoff']) / 100)); ?></td>
                                                 <td><?= $product['quantity'] ?></td>
+                                                <td><?php if ($product["product_typeid"] == 3) {
+                                                        echo number_format((($product['product_price'] - (($product['product_price']) * ($product['percentoff']) / 100)) * $product['quantity']), 0, ',', '.');
+                                                    } else
+                                                        echo number_format($product['product_price'] * $product['quantity'], 0, ',', '.'); ?></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

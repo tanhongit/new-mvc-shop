@@ -23,7 +23,7 @@ if (!empty($_POST)) {
     if ($avatar) {
         $user_add = array(
             'id' => $user_id,
-            'user_avartar' => $avatar
+            'user_avatar' => $avatar
         );
         save('users', $user_add);
     }

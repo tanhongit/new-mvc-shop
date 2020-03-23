@@ -21,7 +21,7 @@
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="alert alert-warning" role="alert">
-                        <strong><?php echo $product ? 'Cảnh Báo: </strong> Bạn đang trong trang chỉnh sửa của sản phẩm "'.$product['product_name'].'", Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>' : 'Cảnh Báo: </strong> Bạn đang trong trang tạo một sản phẩm mới, Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>'; ?>
+                        <strong><?php echo $product ? 'Cảnh Báo: </strong> Bạn đang trong trang chỉnh sửa của sản phẩm "' . $product['product_name'] . '", Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>' : 'Cảnh Báo: </strong> Bạn đang trong trang tạo một sản phẩm mới, Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>'; ?>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true"><i class="zmdi zmdi-close"></i></span>
                             </button>
@@ -127,14 +127,25 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <div class="radio inlineblock m-r-20">
-                                                <input type="radio" name="status" id="male" class="with-gap" value="1" <?php if (isset($product) && $product['saleoff'] == "1") echo "checked"; ?>>
-                                                <label for="male">Bật giảm giá</label>
-                                            </div>
-                                            <div class="radio inlineblock">
-                                                <input type="radio" name="status" id="Female" class="with-gap" <?php if (isset($product) && $product['saleoff'] == "0") echo "checked"; ?> value="0">
-                                                <label for="Female">Không giảm giá</label>
-                                            </div>
+                                            <?php if (isset($product)) : ?>
+                                                <div class="radio inlineblock m-r-20">
+                                                    <input type="radio" name="status" id="male" class="with-gap" value="1" <?php if ($product['saleoff'] == "1") echo "checked"; ?>>
+                                                    <label for="male">Bật giảm giá</label>
+                                                </div>
+                                                <div class="radio inlineblock">
+                                                    <input type="radio" name="status" id="Female" class="with-gap" <?php if ($product['saleoff'] == "0") echo "checked"; ?> value="0">
+                                                    <label for="Female">Không giảm giá</label>
+                                                </div>
+                                            <?php else : ?>
+                                                <div class="radio inlineblock m-r-20">
+                                                    <input type="radio" name="status" id="male" class="with-gap" value="1" ?>
+                                                    <label for="male">Bật giảm giá</label>
+                                                </div>
+                                                <div class="radio inlineblock">
+                                                    <input type="radio" name="status" id="Female" class="with-gap" checked value="0">
+                                                    <label for="Female">Không giảm giá</label>
+                                                </div>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
                                 </div>
@@ -146,7 +157,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h2 class="card-inside-title" style="font-weight:bold;">Chọn ngày tạo mới sản phẩm (bắt buộc):</h2>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Chọn ngày tạo mới sản phẩm:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-4">
                                         <input name="createdate" id="createdate" type="date" value="<?php echo $product ? $product['createDate'] : date('d/m/Y'); ?>" class="form-control" placeholder="Please choose date & time...">

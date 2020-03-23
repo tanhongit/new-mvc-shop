@@ -75,14 +75,15 @@
                                             <tr>
                                                 <td><?php echo $user['id'] ?></td>
                                                 <td><a href="admin.php?controller=user&amp;action=edit&amp;user_id=<?php echo $user['id']; ?>"><?php echo $user['user_name']; ?></a></td>
-                                                <td><?php echo '<image src="public/upload/images/' . $user['user_avartar'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
+                                                <td><?php echo '<image src="public/upload/images/' . $user['user_avatar'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
                                                 <td><?php if ($user['role_id'] == 1) echo 'Admin';
                                                     elseif ($user['role_id'] == 2) echo 'Moderator';
                                                     else echo 'User' ?></td>
-                                                <td><?php $user['createDate'] ?></td>
-                                                <td><?php $user['user_phone'] ?></td>
-                                                <td><?php $user['user_email'] ?></td>
-                                                <td><a href="admin.php?controller=user&amp;action=edit&amp;user_id=<?php echo $user['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
+                                                <td><?= $user['createDate'] ?></td>
+                                                <td><?= $user['user_phone'] ?></td>
+                                                <td><?php echo $user['user_email'] ?></td>
+                                                <td><a href="admin.php?controller=user&amp;action=info&amp;user_id=<?php echo $user['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-eye"></i></a>
+                                                    <a href="admin.php?controller=user&amp;action=edit&amp;user_id=<?php echo $user['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
                                                     <a href="admin.php?controller=user&amp;action=delete&amp;user_id=<?php echo $user['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
                                             </tr>
                                         <?php endforeach; ?>

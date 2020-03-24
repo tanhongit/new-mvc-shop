@@ -68,11 +68,10 @@
                                                 <td><?php echo $role['id'] ?></td>
                                                 <td><a href="admin.php?controller=role&amp;action=edit&amp;role_id=<?php echo $role['id']; ?>"><?php echo $role['role_name']; ?></a></td>
                                                 <td><?= $role['role_desc'] ?></td>
-                                                <td><?php if ($role['id'] == 1) { ?>
-                                                        <a href="admin.php?controller=role&amp;action=admin" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-eye"></i></a>
-                                                        <?php } else { ?><?php } ?>
-                                                        <a href="admin.php?controller=role&amp;action=edit&amp;role_id=<?php echo $role['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
-                                                        <a href="admin.php?controller=role&amp;action=delete&amp;role_id=<?php echo $role['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
+                                                <td>
+                                                    <a href="admin.php?controller=role&amp;action=admin" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-eye"></i></a>
+                                                    <a href="admin.php?controller=role&amp;action=edit&amp;role_id=<?php echo $role['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
+                                                    <a href="admin.php?controller=role&amp;action=delete&amp;role_id=<?php echo $role['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

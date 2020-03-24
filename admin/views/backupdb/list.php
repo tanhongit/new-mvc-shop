@@ -10,11 +10,11 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2>Media</h2>
+                    <h2>User</h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?= PATH_URL . 'home' ?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
-                        <li class="breadcrumb-item"><a href="admin.php?controller=media">Media</a></li>
-                        <li class="breadcrumb-item active">Danh sách Ảnh - Media</li>
+                        <li class="breadcrumb-item"><a href="admin.php?controller=backupdb">BackUp</a></li>
+                        <li class="breadcrumb-item active">Backup database</li>
                     </ul>
                     <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
                 </div>
@@ -29,7 +29,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2><strong>Truy Xuất Dữ Liệu</strong> "All Media" </h2>
+                            <h2><strong>Truy Xuất Dữ Liệu</strong> "Backup dâtbase" </h2>
                             <ul class="header-dropdown">
                                 <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                                     <ul class="dropdown-menu dropdown-menu-right slideUp">
@@ -48,38 +48,24 @@
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Hình ảnh</th>
-                                            <th>Media Name</th>
-                                            <th>Slug</th>
-                                            <th>Ngày upload</th>
-                                            <th>Phần mở rộng</th>
-                                            <th>Hành Động</th>
+                                            <th>STT</th>
+                                            <th>Tên file CSDL đã backup</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Hình ảnh</th>
-                                            <th>Media Name</th>
-                                            <th>Slug</th>
-                                            <th>Ngày upload</th>
-                                            <th>Phần mở rộng</th>
-                                            <th>Hành Động</th>
+                                            <th>STT</th>
+                                            <th>Tên file CSDL đã backup</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <?php foreach ($list_media as $media) : ?>
+                                        <?php $stt = 0; //https://xuanthulab.net/lay-thong-tin-he-thong-file-thu-muc-trong-php-cung-directoryiterator.html
+                                        foreach (new DirectoryIterator('admin/database') as $filename) :
+                                            if ($filename->isDot()) continue;
+                                            $stt++; ?>
                                             <tr>
-                                                <td><?php echo $media['id'] ?></td>
-                                                <td><?php echo '<image src="public/upload/media/' . $media['slug'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
-                                                <td><a href="admin.php?controller=media&amp;action=edit&amp;media_id=<?php echo $media['id']; ?>"><?php echo $media['media_name']; ?></a></td>
-                                                <td><?= $media['slug'] ?></td>
-                                                <td><?php echo $media['createDate']; ?></td>
-                                                <td><?php echo pathinfo('public/upload/media/' . $media['slug'], PATHINFO_EXTENSION); ?></td>
-                                                <td><a href="admin.php?controller=media&amp;action=edit&amp;media_id=<?php echo $media['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
-                                                    <a href="admin.php?controller=media&amp;action=delete&amp;media_id=<?php echo $media['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a>
-                                                    <a href="public/upload/media/<?php echo $media['slug']; ?>" target="_blank" class="btn btn-default waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-square-right"></i></a></td>
+                                                <td><?php echo $stt ?></td>
+                                                <td><?= $filename ?></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

@@ -6,6 +6,5 @@ if (!$order) {
     show_404();
 }
 $title = 'Chi tiết đơn hàng';
-$user = $_SESSION['user'];
 $order_detail = order_detail($order_id);
 require('admin/views/order/view.php');

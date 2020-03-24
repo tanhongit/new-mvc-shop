@@ -8,5 +8,4 @@ if (isset($_POST['product_id'])) {
     }
 }
 $title = 'Sản phẩm mới - Quản trị Quán Chị Kòi';
-$user = $_SESSION['user'];
 require('admin/views/product/newproduct.php');

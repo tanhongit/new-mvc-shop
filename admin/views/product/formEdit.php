@@ -248,25 +248,25 @@
                                         <div style="text-align: center;" class="col-lg-3 col-md-4">
                                             <div>
                                                 <h4>Ảnh đại diện</h4>
-                                                <img src="public/upload/products/<?php echo $product['img1']; ?>">
+                                                <img style="max-width:250px;" src="public/upload/products/<?php echo $product['img1']; ?>">
                                             </div>
                                         </div>
                                         <div style="text-align: center;" class="col-lg-3 col-md-4">
                                             <div>
                                                 <h4>Ảnh 2</h4>
-                                                <img src="public/upload/products/<?php echo $product['img2']; ?>">
+                                                <img style="max-width:250px;" src="public/upload/products/<?php echo $product['img2']; ?>">
                                             </div>
                                         </div>
                                         <div style="text-align: center;" class="col-lg-3 col-md-4">
                                             <div>
                                                 <h4>Ảnh 3</h4>
-                                                <img src="public/upload/products/<?php echo $product['img3']; ?>">
+                                                <img style="max-width:250px;" src="public/upload/products/<?php echo $product['img3']; ?>">
                                             </div>
                                         </div>
                                         <div style="text-align: center;" class="col-lg-3 col-md-4">
                                             <div>
                                                 <h4>Ảnh 4</h4>
-                                                <img src="public/upload/products/<?php echo $product['img4']; ?>">
+                                                <img style="max-width:250px;" src="public/upload/products/<?php echo $product['img4']; ?>">
                                             </div>
                                         </div>
                                     </div>

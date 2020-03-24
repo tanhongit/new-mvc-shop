@@ -10,7 +10,6 @@ $options = array(
     'order_by' => 'id'
 );
 $title = 'Nhóm Danh mục sản phẩm';
-$user = $_SESSION['user'];
 $categories = get_all('categories', $options);
 //load view
 require('admin/views/shop/index.php');

@@ -22,7 +22,6 @@
                 </div>
             </div>
         </div>
-
         <div class="container-fluid">
             <!-- Input -->
             <div class="row clearfix">
@@ -35,7 +34,11 @@
                     </div>
                     <div class="card">
                         <div class="body">
-                            
+                            <h1 style="text-align: center; font-weight:bold;">Đã tạo bản backup CSDL thành công. Còn chần chờ gì mà không tự tìm đến nơi chưa file sql để tải về đi chứ! (Đặc quyền cho Admin vào được host)</h1>
+                            <hr>
+                            <div style="text-align: center;">
+                                <a class="btn btn-primary waves-effect" href="admin.php?controller=backupdb&action=list">Xem lịch sử backup CSDL</a>
+                            </div>
                         </div>
                     </div>
                 </div>

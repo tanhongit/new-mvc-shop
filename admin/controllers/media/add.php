@@ -26,6 +26,5 @@ if (!empty($_POST)) {
 if (isset($_GET['media_id'])) $media_id = intval($_GET['media_id']);
 else $media_id = 0;
 $title = ($media_id == 0) ? 'Thêm Ảnh mới' : 'Cập nhật ảnh';
-$user = $_SESSION['user'];
 $media_info = get_a_record('media', $media_id);
 require('admin/views/media/add.php');

@@ -57,7 +57,7 @@
                             </tr>
                             <tr>
                                 <td><strong>Avatar</strong> </td>
-                                <td><img src="public/upload/images/<?php echo $user_info['user_avatar']; ?>" alt="<?php echo $user_info['user_name']; ?>"> </td>
+                                <td><img style="max-width:250px;" src="public/upload/images/<?php echo $user_info['user_avatar']; ?>" alt="<?php echo $user_info['user_name']; ?>"> </td>
                             </tr>
                         </table>
                     </div>

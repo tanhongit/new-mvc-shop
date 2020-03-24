@@ -25,12 +25,10 @@ if (!empty($_POST)) {
         );
         save('users', $user_edit);
     }
-    $_SESSION['user'] = get_a_record('users', $user_id);
     header('location:admin.php?controller=user&action=info&user_id=' . intval($_POST['user_id']));
 }
 if (isset($_GET['user_id'])) $user_id = intval($_GET['user_id']);
 else $user_id = 0;
 $title = ($user_id == 0) ? 'Thêm thông tin' : 'Cập nhật thông tin tài khoản';
-$user = $_SESSION['user'];
 $user_info = get_a_record('users', $user_id);
 require('admin/views/user/edit.php');

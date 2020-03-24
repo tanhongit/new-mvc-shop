@@ -16,6 +16,5 @@ $categories = get_all('categories', array(
 if (isset($_GET['subcate_id'])) $subcate_id = intval($_GET['subcate_id']);
 else $subcate_id = 0;
 $title = ($subcate_id == 0) ? 'Thêm danh mục con' : 'Sửa danh mục con';
-$user = $_SESSION['user'];
 $subcategory = get_a_record('subcategory', $subcate_id);
 require('admin/views/category/edit.php');

@@ -16,6 +16,4 @@ if (isset($_GET['search'])) {
     $url = 'admin.php?controller=product&search='.$_GET['search'];
 }
 $title = 'Tổng Danh Sách Các Sản phẩm';
-$user = $_SESSION['user'];
-//load view
 require('admin/views/product/index.php');

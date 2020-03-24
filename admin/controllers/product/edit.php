@@ -96,7 +96,6 @@ if (!empty($_POST)) {
 if (isset($_GET['product_id'])) $product_id = intval($_GET['product_id']);
 else $product_id = 0;
 $title = ($product_id == 0) ? 'Thêm sản phẩm' : 'Sửa sản phẩm';
-$user = $_SESSION['user'];
 $product = get_a_record('products', $product_id);
 $options = array(
     'order_by' => 'createDate'

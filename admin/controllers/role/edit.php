@@ -11,6 +11,5 @@ if (!empty($_POST)) {
 }
 if (isset($_GET['role_id'])) $role_id = intval($_GET['role_id']); else $role_id=0;
 $title = ($role_id==0) ? 'Thêm quyền truy cập' : 'Sửa quyền truy cập';
-$user = $_SESSION['user'];
 $role = get_a_record('roles', $role_id);
 require('admin/views/role/edit.php');

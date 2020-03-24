@@ -10,7 +10,6 @@ $options = array(
 $url = 'admin.php?controller=order';
 $total_rows = get_total('orders', $options);
 $title = 'Đơn hàng';
-$user = $_SESSION['user'];
 $orders = get_all('orders', $options);
 $status = array(
     0 => 'Chưa xử lý',

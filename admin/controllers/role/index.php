@@ -11,6 +11,5 @@ $options = array(
     'order_by' => 'id ASC'
 );
 $title = 'Danh sách quyền truy cập website';
-$user = $_SESSION['user'];
 $roles = get_all('roles', $options);
 require('admin/views/role/index.php');

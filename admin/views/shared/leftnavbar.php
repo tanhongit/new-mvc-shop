@@ -4,7 +4,7 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
 <aside id="leftsidebar" class="sidebar">
     <div class="navbar-brand">
         <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
-        <a href="index.html"><img src="assets/images/logo.svg" width="25" alt="Aero"><span class="m-l-10">ChiKoi</span></a>
+        <a href="index.php"><img src="admin/themes/images/logo.svg" width="25" alt="Aero"><span class="m-l-10">ChiKoi</span></a>
     </div>
     <div class="menu">
         <ul class="list">
@@ -50,8 +50,23 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>User</span></a>
                 <ul class="ml-menu">
                     <li><a href="admin.php?controller=user&action=info&user_id=<?= $user_nav ?>">Your Profile</a></li>
-                    <li><a href="admin.php?controller=user&action=listall">All Profile</a></li>
-                    <li><a href="admin.php?controller=user&action=add">Add New Profile</a></li>
+                    <li><a href="admin.php?controller=user&action=listall">List Profile</a></li>
+                    <li><a href="admin.php?controller=user&action=add">Add New User</a></li>
+                </ul>
+            </li>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Admin</span></a>
+                <ul class="ml-menu">
+                    <li><a href="admin.php?controller=user&action=info&user_id=<?= $user_nav ?>">Your Profile</a></li>
+                    <li><a href="admin.php?controller=role">List Role</a></li>
+                    <li><a href="admin.php?controller=role&action=admin">List Admin</a></li>
+                    <li><a href="admin.php?controller=user&action=add">Add New User Or Admin</a></li>
+                </ul>
+            </li>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Media</span></a>
+                <ul class="ml-menu">
+                    <li><a href="admin.php?controller=user&action=info&user_id=<?= $user_nav ?>">Library</a></li>
+                    <li><a href="admin.php?controller=role">Add New</a></li>
+                    <li><a href="admin.php?controller=user&action=add">Add New User Or Admin</a></li>
                 </ul>
             </li>
             <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-blogger"></i><span>Blog</span></a>

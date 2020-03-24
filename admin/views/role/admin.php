@@ -10,11 +10,11 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2>User</h2>
+                    <h2>Admin</h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?= PATH_URL . 'home' ?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
                         <li class="breadcrumb-item"><a href="admin.php?controller=user">User</a></li>
-                        <li class="breadcrumb-item active">Danh sách All User</li>
+                        <li class="breadcrumb-item active">Danh sách Admin</li>
                     </ul>
                     <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
                 </div>
@@ -29,7 +29,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2><strong>Truy Xuất Dữ Liệu</strong> "All User" </h2>
+                            <h2><strong>Truy Xuất Dữ Liệu</strong> "All Admin" </h2>
                             <ul class="header-dropdown">
                                 <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                                     <ul class="dropdown-menu dropdown-menu-right slideUp">
@@ -73,23 +73,24 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <?php foreach ($list_user as $user) : ?>
-                                            <tr>
-                                                <td><?php echo $user['id'] ?></td>
-                                                <td><a href="admin.php?controller=user&amp;action=edit&amp;user_id=<?php echo $user['id']; ?>"><?php echo $user['user_name']; ?></a></td>
-                                                <td><?= $user['user_username'] ?></td>
-                                                <td><?php echo '<image src="public/upload/images/' . $user['user_avatar'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
-                                                <td><?php if ($user['role_id'] == 1) echo 'Admin';
-                                                    elseif ($user['role_id'] == 2) echo 'Moderator';
-                                                    else echo 'User' ?></td>
-                                                <td><?= $user['createDate'] ?></td>
-                                                <td><?= $user['user_phone'] ?></td>
-                                                <td><?php echo $user['user_email'] ?></td>
-                                                <td><a href="admin.php?controller=user&amp;action=info&amp;user_id=<?php echo $user['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-eye"></i></a>
-                                                    <a href="admin.php?controller=user&amp;action=edit&amp;user_id=<?php echo $user['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
-                                                    <a href="admin.php?controller=user&amp;action=delete&amp;user_id=<?php echo $user['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
-                                            </tr>
-                                        <?php endforeach; ?>
+                                        <?php foreach ($list_user as $user) : if ($user['role_id'] != 0) : ?>
+                                                <tr>
+                                                    <td><?php echo $user['id'] ?></td>
+                                                    <td><a href="admin.php?controller=user&amp;action=edit&amp;user_id=<?php echo $user['id']; ?>"><?php echo $user['user_name']; ?></a></td>
+                                                    <td><?= $user['user_username'] ?></td>
+                                                    <td><?php echo '<image src="public/upload/images/' . $user['user_avatar'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
+                                                    <td><?php if ($user['role_id'] == 1) echo 'Admin';
+                                                        elseif ($user['role_id'] == 2) echo 'Moderator';
+                                                        else echo 'User' ?></td>
+                                                    <td><?= $user['createDate'] ?></td>
+                                                    <td><?= $user['user_phone'] ?></td>
+                                                    <td><?php echo $user['user_email'] ?></td>
+                                                    <td><a href="admin.php?controller=user&amp;action=info&amp;user_id=<?php echo $user['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-eye"></i></a>
+                                                        <a href="admin.php?controller=user&amp;action=edit&amp;user_id=<?php echo $user['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
+                                                        <a href="admin.php?controller=role&amp;action=deleteAdmin&amp;user_id=<?php echo $user['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
+                                                </tr>
+                                        <?php endif;
+                                        endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>

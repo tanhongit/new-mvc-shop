@@ -4,9 +4,9 @@ Tính năng thiếu:
         +ngày add và edit product
         +kiểm tra username khi add user
         +desc product
-        x=ràng buộc username & email trong user add
+        ràng buộc username & email trong user add
         view từng thành phần
-        
+        create by admin in product
     public:
         +Register
         +phân quyền

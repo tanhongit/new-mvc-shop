@@ -1,0 +1,16 @@
+<?php
+require_once('admin/models/roles.php');
+if (isset($_POST['role_id'])) {
+    foreach ($_POST['role_id'] as $role_id) {
+        $role_id = intval($role_id);
+        role_delete($role_id);
+    }
+}
+$url = 'admin.php?controller=role';
+$options = array(
+    'order_by' => 'id ASC'
+);
+$title = 'Danh sách quyền truy cập website';
+$user = $_SESSION['user'];
+$roles = get_all('roles', $options);
+require('admin/views/role/index.php');

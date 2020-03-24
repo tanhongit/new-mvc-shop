@@ -15,7 +15,6 @@
                 </div>
             </div>
         </div>
-
         <div class="container-fluid">
             <!-- Input -->
             <div class="row clearfix">
@@ -26,7 +25,7 @@
                                 <span aria-hidden="true"><i class="zmdi zmdi-close"></i></span>
                             </button>
                     </div>
-                    <?php if (isset($product)) : ?>
+                    <?php if (isset($product)) { ?>
                         <div class="col-lg-12">
                             <div class="card col-md-12">
                                 <h3>Thông tin về sản phẩm</h3>
@@ -66,13 +65,13 @@
                                     </tr>
                                     <tr>
                                         <td><strong>Total View</strong> </td>
-                                        <td><?php echo $product['createDate']; ?></td>
+                                        <td><?php echo $product['totalView']; ?></td>
                                     </tr>
                                     <tr>
                                         <td><strong>Price</strong> </td>
                                         <td><?php echo $product['product_price']; ?> VNĐ</td>
                                     </tr>
-                                    <?php if ($product['saleoff'] == 1) : ?>
+                                    <?php if ($product['saleoff'] == 1) { ?>
                                         <tr>
                                             <td><strong>Percent Off</strong> </td>
                                             <td><?php echo $product['percentoff']; ?> %</td>
@@ -81,15 +80,20 @@
                                             <td><strong>Price (Sale)</strong> </td>
                                             <td><?php echo $product['product_price'] - $product['product_price'] * $product['percentoff'] / 100; ?> VNĐ</td>
                                         </tr>
-                                    <?php endif; ?>
+                                    <?php } ?>
                                 </table>
                             </div>
                         </div>
-                    <?php endif; ?>
+                    <?php } ?>
                     <div class="card">
                         <div class="body">
                             <form id="product-form" class="form-horizontal" method="post" action="admin.php?controller=product&amp;action=edit" enctype="multipart/form-data" role="form">
                                 <input name="product_id" type="hidden" value="<?php echo $product ? $product['id'] : '0'; ?>" />
+                                <?php global $user_nav;
+                                $get_user_by = get_a_record('users', $user_nav) ?>
+                                <?php if (isset($product)) : ?>
+                                    <input name="editby" type="hidden" value="<?php echo $get_user_by['user_name']; ?>" /><?php else : ?>
+                                    <input name="createby" type="hidden" value="<?php echo $get_user_by['user_name']; ?>" /><?php endif; ?>
                                 <h2 class="card-inside-title" style="font-weight:bold;">Tên Sản Phẩm:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
@@ -209,7 +213,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h2 class="card-inside-title" style="font-weight:bold;">Số % giảm giá sản phẩm (chỉ nhập nếu chọn "bật giảm giá"):</h2>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Số % giảm giá sản phẩm (từ 0 -> 100 và chỉ nhập nếu chọn "bật giảm giá"):</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
@@ -239,6 +243,36 @@
                                         </div>
                                     </div>
                                 </div>
+                                <?php if (isset($product)) : ?>
+                                    <div class="row clearfix">
+                                        <div style="text-align: center;" class="col-lg-3 col-md-4">
+                                            <div>
+                                                <h4>Ảnh đại diện</h4>
+                                                <img src="public/upload/products/<?php echo $product['img1']; ?>">
+                                            </div>
+                                        </div>
+                                        <div style="text-align: center;" class="col-lg-3 col-md-4">
+                                            <div>
+                                                <h4>Ảnh 2</h4>
+                                                <img src="public/upload/products/<?php echo $product['img2']; ?>">
+                                            </div>
+                                        </div>
+                                        <div style="text-align: center;" class="col-lg-3 col-md-4">
+                                            <div>
+                                                <h4>Ảnh 3</h4>
+                                                <img src="public/upload/products/<?php echo $product['img3']; ?>">
+                                            </div>
+                                        </div>
+                                        <div style="text-align: center;" class="col-lg-3 col-md-4">
+                                            <div>
+                                                <h4>Ảnh 4</h4>
+                                                <img src="public/upload/products/<?php echo $product['img4']; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                                <hr>
+                                <h2>Thay đổi ảnh tuỳ thích</h2>
                                 <div class="card col-md-2">
                                     <div class="header">
                                         <h2 style="text-align: center;">Ảnh Đại Diện</h2>

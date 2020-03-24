@@ -1,13 +1,13 @@
 Tính năng thiếu: 
     -Admin:
         +Xác nhận delete tại tất cả các mục
-        +ngày add và edit product
         +kiểm tra username khi add user
         ràng buộc username & email trong user add
         view từng thành phần
-        create by admin in product
     public:
         +Register
         +phân quyền
         +slide 
         + sl sản phẩm cart
+        phản hồi khách hàng
+        chú thích cảu khách hàng

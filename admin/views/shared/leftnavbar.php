@@ -64,9 +64,9 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
             </li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-collection-folder-image"></i><span>Media</span></a>
                 <ul class="ml-menu">
-                    <li><a href="admin.php?controller=user&action=info&user_id=<?= $user_nav ?>">Library</a></li>
-                    <li><a href="admin.php?controller=media&action=image-gallery">Image Gallery</a></li>
-                    <li><a href="admin.php?controller=role">Add New</a></li>
+                    <li><a href="admin.php?controller=media&action=image-gallery">Product Image Gallery</a></li>
+                    <li><a href="admin.php?controller=media">Library Media Upload</a></li>
+                    <li><a href="admin.php?controller=media&action=add">Add New Media</a></li>
                 </ul>
             </li>
         </ul>

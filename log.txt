@@ -7,6 +7,9 @@ Tính năng thiếu:
         ràng buộc username & email trong user add
         view từng thành phần
         create by admin in product
+        active class leftnavbar
     public:
         +Register
         +phân quyền
+        +slide 
+        + sl sản phẩm cart

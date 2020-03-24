@@ -32,7 +32,7 @@
                                 <td><?php echo $user_info['user_username']; ?></td>
                             </tr>
                             <tr>
-                                <td><strong>Quyền lực</strong> </td>
+                                <td><strong>Quyền hạn</strong> </td>
                                 <td><strong><?php if ($user_info['role_id'] == 0) {
                                                 echo 'Người đăng ký';
                                             } elseif ($user_info['role_id'] == 1) {

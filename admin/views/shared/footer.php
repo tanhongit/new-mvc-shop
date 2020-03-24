@@ -9,6 +9,7 @@
 <script src="admin/themes/bundles/c3.bundle.js"></script>
 <script src="admin/themes/plugins/dropify/js/dropify.min.js"></script>
 <script src="admin/themes/bundles/mainscripts.bundle.js"></script>
+<script src="admin/themes/js/pages/forms/editors.js"></script>
 <script src="admin/themes/js/pages/index.js"></script>
 <script src="admin/themes/js/pages/forms/basic-form-elements.js"></script>
 <script src="admin/themes/js/pages/tables/jquery-datatable.js"></script>

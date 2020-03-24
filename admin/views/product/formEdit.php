@@ -223,6 +223,22 @@
                                         <input name="createdate" id="createdate" type="date" value="<?php echo $product ? $product['createDate'] : date('d/m/Y'); ?>" class="form-control" placeholder="Please choose date & time...">
                                     </div>
                                 </div>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Thông tin sơ sơ về sản phẩm:</h2>
+                                <div class="row clearfix">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <textarea class="form-control" name="description" placeholder="Thông tin sản phẩm..."><?php echo $product ? $product['product_description'] : ''; ?></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Chi tiết về sản phẩm:</h2>
+                                <div class="row clearfix">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <textarea class="form-control" name="detail" id="ckeditor" placeholder="Chi tiết sản phẩm..."><?php echo $product ? $product['product_detail'] : ''; ?></textarea>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="card col-md-2">
                                     <div class="header">
                                         <h2 style="text-align: center;">Ảnh Đại Diện</h2>
@@ -268,3 +284,13 @@
         </div>
     </div>
 </section>
+<script src="admin/themes/plugins/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="admin/themes/plugins/ckfinder/ckfinder.js"></script>
+<script type="text/javascript">
+    CKEDITOR.replace('description', {
+        height: '800px'
+    });
+    CKEDITOR.replace('detail', {
+        height: '800px'
+    });
+</script>

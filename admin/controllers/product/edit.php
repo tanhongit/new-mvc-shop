@@ -18,7 +18,8 @@ if (!empty($_POST)) {
         'saleoff' => intval($_POST['status']),
         'percentoff' => intval($_POST['percent_off']),
         'totalView' => intval($_POST['totalview']),
-        // 'product_description' => ($_POST['description'])
+        'product_description' => ($_POST['description']),
+        'product_detail' => ($_POST['detail'])
     );
     $product_id = save('products', $product);
     //upload ảnh 1 của product

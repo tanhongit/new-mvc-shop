@@ -69,6 +69,11 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                     <li><a href="admin.php?controller=media&action=add">Add New Media</a></li>
                 </ul>
             </li>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-collection-folder-image"></i><span>Backup</span></a>
+                <ul class="ml-menu">
+                    <li><a href="admin.php?controller=backupdb">Backup CSDL</a></li>
+                </ul>
+            </li>
         </ul>
     </div>
 </aside>

@@ -26,6 +26,66 @@
                                 <span aria-hidden="true"><i class="zmdi zmdi-close"></i></span>
                             </button>
                     </div>
+                    <?php if (isset($product)) : ?>
+                        <div class="col-lg-12">
+                            <div class="card col-md-12">
+                                <h3>Thông tin về sản phẩm</h3>
+                                <table id="info" class="table">
+                                    <tr>
+                                        <td><strong>Tên sản phẩm</strong></td>
+                                        <td><?php echo $product['product_name']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Loại sản phẩm</strong></td>
+                                        <td><?php foreach ($types as $type) {
+                                                if ($product && ($product['product_typeid'] == $type['id']))  echo  $type['type_name'];
+                                            } ?></td>
+                                    <tr></tr>
+                                    <td><strong>Thuộc nhóm danh mục</strong> </td>
+                                    <td><?php foreach ($categories as $category) {
+                                            if ($product && ($product['category_id'] == $category['id']))  echo  $category['category_name'];
+                                        } ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Thuộc danh mục con</strong> </td>
+                                        <td><?php foreach ($subcategories as $subcategory) {
+                                                if ($product && ($product['sub_category_id'] == $subcategory['id'])) echo $subcategory['subcategory_name'];
+                                            } ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Color</strong> </td>
+                                        <td><?php echo $product['product_color']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Size</strong> </td>
+                                        <td><?php echo $product['product_size']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Material</strong> </td>
+                                        <td><?php echo $product['product_material']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Total View</strong> </td>
+                                        <td><?php echo $product['createDate']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Price</strong> </td>
+                                        <td><?php echo $product['product_price']; ?> VNĐ</td>
+                                    </tr>
+                                    <?php if ($product['saleoff'] == 1) : ?>
+                                        <tr>
+                                            <td><strong>Percent Off</strong> </td>
+                                            <td><?php echo $product['percentoff']; ?> %</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Price (Sale)</strong> </td>
+                                            <td><?php echo $product['product_price'] - $product['product_price'] * $product['percentoff'] / 100; ?> VNĐ</td>
+                                        </tr>
+                                    <?php endif; ?>
+                                </table>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                     <div class="card">
                         <div class="body">
                             <form id="product-form" class="form-horizontal" method="post" action="admin.php?controller=product&amp;action=edit" enctype="multipart/form-data" role="form">
@@ -163,7 +223,7 @@
                                         <input name="createdate" id="createdate" type="date" value="<?php echo $product ? $product['createDate'] : date('d/m/Y'); ?>" class="form-control" placeholder="Please choose date & time...">
                                     </div>
                                 </div>
-                                <!-- <div class="card col-md-2">
+                                <div class="card col-md-2">
                                     <div class="header">
                                         <h2 style="text-align: center;">Ảnh Đại Diện</h2>
                                     </div>
@@ -194,7 +254,7 @@
                                     <div class="body">
                                         <input name="img4" type="file" class="form-control dropify">
                                     </div>
-                                </div>-->
+                                </div>
                                 <br><br>
                                 <div class="form-group" style="text-align: center;">
                                     <button class="btn btn-primary waves-effect" type="submit"><?php echo $product ? 'Cập nhật sản phẩm trên' : 'Thêm sản phẩm mới'; ?></button>

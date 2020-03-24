@@ -1,4 +1,6 @@
 <!-- Left Sidebar -->
+<?php global $user_nav;
+$user_info_nav = get_a_record('users', $user_nav) ?>
 <aside id="leftsidebar" class="sidebar">
     <div class="navbar-brand">
         <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
@@ -8,16 +10,18 @@
         <ul class="list">
             <li>
                 <div class="user-info">
-                    <a class="image" href="profile.html"><img src="assets/images/profile_av.jpg" alt="User"></a>
+                    <a class="image" href="admin.php?controller=user&action=info&user_id=<?= $user_nav ?>"><img src="public/upload/images/<?= $user_info_nav['user_avatar'] ?>" alt="User"></a>
                     <div class="detail">
-                        <h4>Michael</h4>
-                        <small>Super Admin</small>
+                        <h4><?= $user_info_nav['user_name'] ?></h4>
+                        <small><?php if ($user_info_nav['role_id'] == 1) echo 'Admin';
+                                elseif ($user_info_nav['role_id'] == 3) echo 'Moderator';
+                                else echo "User"; ?></small>
                     </div>
                 </div>
             </li>
             <li class="open"><a href="<?= PATH_URL ?>home" target="_blank"><i class="zmdi zmdi-home"></i><span>Quay lại SHOP</span></a></li>
             <li class="active open"><a href="admin.php"><i class="zmdi zmdi-view-dashboard"></i><span>Bảng điều khiển</span></a></li>
-            <li><a href="my-profile.html"><i class="zmdi zmdi-account"></i><span>Profile</span></a></li>
+            <li><a href="admin.php?controller=user&action=info&user_id=<?= $user_nav ?>"><i class="zmdi zmdi-account"></i><span>Profile</span></a></li>
             <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Quản lý sản phẩm</span></a>
                 <ul class="ml-menu">
                     <li><a href="admin.php?controller=product">Danh sách sản phẩm</a></li>
@@ -45,7 +49,7 @@
             </li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>User</span></a>
                 <ul class="ml-menu">
-                    <li><a href="admin.php?controller=user&action=info">Your Profile</a></li>
+                    <li><a href="admin.php?controller=user&action=info&user_id=<?= $user_nav ?>">Your Profile</a></li>
                     <li><a href="admin.php?controller=user&action=listall">All Profile</a></li>
                     <li><a href="admin.php?controller=user&action=add">Add New Profile</a></li>
                 </ul>

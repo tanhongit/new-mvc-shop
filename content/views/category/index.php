@@ -1,26 +1,22 @@
 <?php require('content/views/shared/header.php'); ?>
 <div role="main" class="main shop">
     <div class="container">
-
         <hr class="tall">
-
         <div class="row">
             <div class="col-md-9">
-
                 <div class="row">
                     <div class="col-md-6">
-                        <h1 class="shorter"><strong><?php echo $category['subcategory_name'];?></strong></h1>
-                        <p>Hiển thị <?php if($total_rows>=9) echo '1–9 trong ';?><?php echo $total_rows;?> kết quả.</p>
+                        <h1 class="shorter"><strong><?php echo $category['subcategory_name']; ?></strong></h1>
+                        <p>Hiển thị <?php if ($total_rows >= 9) echo '1–9 trong '; ?><?php echo $total_rows; ?> kết quả.</p>
                     </div>
                 </div>
-
                 <div class="row">
                     <ul class="products product-thumb-info-list" data-plugin-masonry data-plugin-options='{"layoutMode": "fitRows"}'>
                         <?php
                         foreach ($products as $product) : ?>
                             <li class="col-md-4 col-sm-6 col-xs-12 product">
                                 <?php if ($product['saleoff'] != 0) : ?>
-                                    <a href="shop-product-sidebar.html">
+                                    <a href="type/3-san-pham-dang-giam-gia">
                                         <span class="onsale">-<?php echo $product['percentoff']; ?>%</span>
                                     </a>
                                 <?php endif; ?>
@@ -54,9 +50,7 @@
                             </li>
                         <?php endforeach; ?>
                     </ul>
-
                 </div>
-
                 <div class="row">
                     <div class="col-md-12">
                         <?php echo $pagination; ?>

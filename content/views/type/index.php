@@ -9,8 +9,8 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <h1 class="shorter"><strong><?php echo $type['type_name']?></strong></h1>
-                        <p>Hiển thị <?php if($total_rows>=9) echo '1–9 trong ';?><?php echo $total_rows;?> kết quả.</p>                     
+                        <h1 class="shorter"><strong><?php echo $type['type_name'] ?></strong></h1>
+                        <p>Hiển thị <?php if ($total_rows >= 9) echo '1–9 trong '; ?><?php echo $total_rows; ?> kết quả.</p>
                     </div>
                 </div>
 
@@ -20,7 +20,7 @@
                         foreach ($products as $product) : ?>
                             <li class="col-md-4 col-sm-6 col-xs-12 product">
                                 <?php if ($product['saleoff'] != 0) : ?>
-                                    <a href="shop-product-sidebar.html">
+                                    <a href="type/3-san-pham-dang-giam-gia">
                                         <span class="onsale">-<?php echo $product['percentoff']; ?>%</span>
                                     </a>
                                 <?php endif; ?>

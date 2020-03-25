@@ -14,7 +14,7 @@
 						<?php foreach ($hot_products as $hot_product) : ?>
 							<li class="col-sm-3 col-xs-12 product">
 								<?php if ($hot_product['saleoff'] != 0) : ?>
-									<a href="shop-product-sidebar.html">
+									<a href="type/3-san-pham-dang-giam-gia">
 										<span class="onsale">-<?php echo $hot_product['percentoff'];?>%</span>
 									</a>
 								<?php endif; ?>

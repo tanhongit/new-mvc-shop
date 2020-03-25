@@ -4,10 +4,14 @@ $get_id = array(
 );
 $sub_cate = get_all('subcategory', $get_id);
 $shops = get_all('categories', $get_id);
+$product_top = get_all('products', array(
+    'limit' => '6',
+    'offset' => '0',
+    'order_by' => 'totalView DESC'
+));
 ?>
 <aside class="sidebar">
-
-    <form action="<?php echo PATH_URL;?>search/" method="get">
+    <form action="<?php echo PATH_URL; ?>search/" method="get">
         <div class="input-group input-group-lg">
             <input class="form-control" placeholder="Search..." name="keyword" id="s" type="text">
             <span class="input-group-btn">
@@ -15,9 +19,7 @@ $shops = get_all('categories', $get_id);
             </span>
         </div>
     </form>
-
     <hr />
-
     <h5>Categoryes</h5>
     <?php foreach ($sub_cate as $cate) { ?>
         <a href="category/<?php echo $cate['id'] . '-' . $cate['slug']; ?>"><span class="label label-dark"><?php echo $cate['subcategory_name'] ?></span></a>
@@ -26,53 +28,25 @@ $shops = get_all('categories', $get_id);
         <a href="shop/<?php echo $shop['id'] . '-' . $shop['slug']; ?>"><span class="label label-dark"><?php echo $shop['category_name'] ?></span></a>
     <?php } ?>
     <hr />
-    <h5>Top Rated Products</h5>
+    <h5>SẢN PHẨM HÀNG ĐẦU</h5>
     <ul class="simple-post-list">
-        <li>
-            <div class="post-image">
-                <div class="img-thumbnail">
-                    <a href="shop-product-sidebar.html">
-                        <img alt="" width="60" height="60" class="img-responsive" src="img/products/product-1.jpg">
-                    </a>
+        <?php foreach ($product_top as $topview_product) : ?>
+            <li>
+                <div class="post-image">
+                    <div class="img-thumbnail">
+                        <a href="product/<?= $topview_product['id'] . '-' . slug($topview_product['product_name']) ?>">
+                            <img alt="<?= $topview_product['product_name'] ?>" width="60" height="60" class="img-responsive" src="public/upload/products/<?= $topview_product['img1'] ?>">
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="post-info">
-                <a href="shop-product-sidebar.html">Photo Camera</a>
-                <div class="post-meta">
-                    $299
+                <div class="post-info">
+                    <a href="product/<?= $topview_product['id'] . '-' . slug($topview_product['product_name']) ?>"><?= $topview_product['product_name'] ?></a>
+                    <div class="post-meta">
+                        <?php if ($topview_product['saleoff'] != 0) echo number_format(($topview_product['product_price']) - (($topview_product['product_price'] * $topview_product['percentoff']) / 100), 0, ',', '.') . ' VNĐ';
+                        else echo number_format($topview_product['product_price'], 0, ',', '.') . ' VNĐ'; ?>
+                    </div>
                 </div>
-            </div>
-        </li>
-        <li>
-            <div class="post-image">
-                <div class="img-thumbnail">
-                    <a href="shop-product-sidebar.html">
-                        <img alt="" width="60" height="60" class="img-responsive" src="img/products/product-2.jpg">
-                    </a>
-                </div>
-            </div>
-            <div class="post-info">
-                <a href="shop-product-sidebar.html">Golf Bag</a>
-                <div class="post-meta">
-                    $72
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="post-image">
-                <div class="img-thumbnail">
-                    <a href="shop-product-sidebar.html">
-                        <img alt="" width="60" height="60" class="img-responsive" src="img/products/product-3.jpg">
-                    </a>
-                </div>
-            </div>
-            <div class="post-info">
-                <a href="shop-product-sidebar.html">Workout</a>
-                <div class="post-meta">
-                    $60
-                </div>
-            </div>
-        </li>
+            </li>
+        <?php endforeach; ?>
     </ul>
-
 </aside>

@@ -21,7 +21,7 @@
             <div class="row clearfix">
                 <div class="col-lg-12">
                     <div class="card">
-                        <h3>Thông tin tải khoản các nhân</h3>
+                        <h3>Thông tin tải khoản cá nhân</h3>
                         <table id="info" class="table">
                             <tr>
                                 <td><strong>Họ và tên</strong></td>

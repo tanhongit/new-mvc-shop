@@ -163,6 +163,14 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label>Lời nhắn: </label>
+                                                <textarea name="message" id="message" class="form-control" cols="30" rows="10" placeholder="Ghi lưu ý dành cho người bán...(Bạn có thể thêm thông tin số lượng, kích cỡ,...về các sản phẩm bạn muốn đặt hàng đến cho mình để mình sắp xếp giao hàng cho bạn.)"></textarea>                                              
+                                            </div>
+                                        </div>
+                                    </div>
                                     <input name="cart_total" type="hidden" value="<?php echo cart_total() ? cart_total() : '0'; ?>"/>
                                     <div class="form-group" style="text-align: center">
                                         <button type="submit" class="btn btn-primary"><i class="fa  fa-check-square-o"></i> Đặt hàng</button>

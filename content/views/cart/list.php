@@ -49,9 +49,7 @@
                             </td>
                             <td class="product-quantity">
                                 <div class="quantity">
-                                    <input type="button" class="minus" value="-">
-                                    <input type="text" class="input-text qty text" title="Nhập Để Đổi Số Lượng" value="<?php echo $product['number']; ?>" name="number[<?php echo $product['id']; ?>]" min="1" step="1">
-                                    <input type="button" class="plus" value="+">
+                                    <input type="number" class="input-text qty text" title="Nhập Để Đổi Số Lượng" value="<?php echo $product['number']; ?>" name="number[<?php echo $product['id']; ?>]" min="1" step="1" max="100">
                                 </div>
                             </td>
                             <td class="product-subtotal">
@@ -74,4 +72,9 @@
             </table>
         </form>
     </div>
+</div>
+<div class="featured-box featured-box-secundary featured-box-cart">
+    <form method="post" action="index.php?controller=cart&action=destroy" role="form">
+        <div class="box-content"><strong>Nếu bạn muốn làm sạch giỏ hàng hãy nhấn</strong> <input type="submit" value="Xoá giỏ hàng" class="btn btn-default" title='Xoá giỏ hàng nếu bạn muốn làm sạch'></div>
+    </form>
 </div>

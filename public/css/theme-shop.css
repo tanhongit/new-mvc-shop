@@ -479,7 +479,7 @@
 	margin: 0 15px 25px 0;
 	overflow: hidden;
 	position: relative;
-	width: 125px;
+	width: 100;
 	height: 35px;
 	float: left;
 }
@@ -539,17 +539,11 @@
 	box-shadow: none;
 	float: left;
 	height: 35px;
-	padding: 0 39px;
+	padding: 0 10px;
 	text-align: center;
-	width: 125px;
+	width: 70px;
 	font-size: 1em;
 }
-
-.shop .quantity .qty::-webkit-inner-spin-button, .shop .quantity .qty::-webkit-outer-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-}
-
 .shop .quantity .qty::-ms-clear {
 	display: none;
 }
@@ -810,7 +804,7 @@
 		float: none;
 	}
 
-	.shop table.cart th.product-price, .shop table.cart td.product-price, .shop table.cart th.product-quantity, .shop table.cart td.product-quantity {
+	.shop table.cart th.product-price, .shop table.cart td.product-price, .shop table.cart th.product-subtotal, .shop table.cart td.product-subtotal {
 		display: none;
 	}
 

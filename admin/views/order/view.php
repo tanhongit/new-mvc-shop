@@ -121,6 +121,10 @@
                                 <td><strong>Thời gian</strong> </td>
                                 <td><?php echo $order['createtime']; ?></td>
                             </tr>
+                            <tr>
+                                <td><strong>Tin nhắn từ khách hàng</strong> </td>
+                                <td><?php echo $order['message']; ?></td>
+                            </tr>
                         </table>
                         <?php if ($order['status'] == 0) { ?>
                             <form id="order_form" method="post" action="admin.php?controller=order&amp;action=inprocess" role="form">

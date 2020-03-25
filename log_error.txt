@@ -5,10 +5,10 @@ Tính năng thiếu:
         ràng buộc username & email trong user add
         view từng thành phần
         đổi mật khẩu
+        download databse 
     public:
         +Register
         +phân quyền
         +slide 
         + sl sản phẩm cart
         phản hồi khách hàng
-        chú thích cảu khách hàng

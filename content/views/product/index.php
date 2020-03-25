@@ -63,7 +63,7 @@
                                 <button class="btn btn-primary btn-icon" role="button" type="submit">Add to cart</button>
                             </form>
                             <div class="product_meta">
-                                <span class="posted_in">Danh Mục: <a rel="tag" href="category/<?php echo $subcategories['id'] . '-' . $subcategories['slug']; ?>"><?php echo $breadCrumb ?></a></span>
+                                <span class="posted_in">Danh Mục Con: <a rel="tag" href="category/<?php echo $subcategories['id'] . '-' . $subcategories['slug']; ?>"><?php echo $breadCrumb ?></a></span>
                             </div>
                         </div>
                     </div>
@@ -105,6 +105,23 @@
                                                 </th>
                                                 <td>
                                                     <?php echo $product['product_material'] ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    Total View
+                                                </th>
+                                                <td>
+                                                    <?php echo $product['totalView'] ?> View
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    Giảm giá
+                                                </th>
+                                                <td>
+                                                    <?php if ($product['saleoff'] != 0) echo $product['percentoff'];
+                                                    else echo '0'; ?> %
                                                 </td>
                                             </tr>
                                         </tbody>

@@ -22,5 +22,16 @@ $subcategories = get_a_record('subcategory', $product['sub_category_id']);
 if ($product['sub_category_id'] != 0) {
     $breadCrumb = $subcategories['subcategory_name'];
 }
+$comment_option = array(
+    'where' => 'product_id=' . $product['id'],
+    'limit' => 9,
+    'offset' => 0,
+    'order_by' => 'id desc'
+);
+$comment_total_option = array(
+    'where' => 'product_id=' . $product['id']
+);
+$comments = get_all('comments', $comment_option);
+$comments_total = get_total('comments', $comment_total_option);
 //load view
 require('content/views/product/index.php');

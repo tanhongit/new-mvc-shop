@@ -39,12 +39,6 @@
                     <div class="col-md-6">
                         <div class="summary entry-summary">
                             <h1 class="shorter"><strong><?php echo $product['product_name'] ?></strong></h1>
-                            <div class="review_num">
-                                <span class="count" itemprop="ratingCount">2</span> reviews
-                            </div>
-                            <div title="Rated 5.00 out of 5" class="star-rating">
-                                <span style="width:100%"><strong class="rating">5.00</strong> out of 5</span>
-                            </div>
                             <p class="price">
                                 <?php if ($product['saleoff'] != 0) { ?>
                                     <del><span class="amount"><?php echo number_format($product['product_price'], 0, ',', '.');  ?></span></del>
@@ -74,7 +68,7 @@
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#productDetail" data-toggle="tab">Chi tiết về sản phẩm</a></li>
                                 <li><a href="#productInfo" data-toggle="tab">Thông tin khác</a></li>
-                                <li><a href="#productReviews" data-toggle="tab">Reviews (2)</a></li>
+                                <li><a href="#productReviews" data-toggle="tab">Bình luận (<?= $comments_total ?>)</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="productDetail">
@@ -129,54 +123,51 @@
                                 </div>
                                 <div class="tab-pane" id="productReviews">
                                     <ul class="comments">
-                                        <li>
-                                            <div class="comment">
-                                                <div class="img-thumbnail">
-                                                    <img class="avatar" alt="" src="img/avatar-2.jpg">
-                                                </div>
-                                                <div class="comment-block">
-                                                    <div class="comment-arrow"></div>
-                                                    <span class="comment-by">
-                                                        <strong>John Doe</strong>
-                                                        <span class="pull-right">
-                                                            <div title="Rated 5.00 out of 5" class="star-rating">
-                                                                <span style="width:100%"><strong class="rating">5.00</strong> out of 5</span>
-                                                            </div>
+                                        <?php foreach ($comments as $comment) : ?>
+                                            <li>
+                                                <div class="comment">
+                                                    <div class="img-thumbnail">
+                                                        <img class="avatar" alt="" src="public/upload/media/author-comment.png">
+                                                    </div>
+                                                    <div class="comment-block">
+                                                        <div class="comment-arrow"></div>
+                                                        <span class="comment-by">
+                                                            <strong><?= $comment['author'] ?></strong>
                                                         </span>
-                                                    </span>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.</p>
+                                                        <p><?= $comment['content'] ?></p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </li>
+                                            </li><?php endforeach; ?>
                                     </ul>
                                     <hr class="tall">
-                                    <h4>Add a review</h4>
+                                    <h4>Add a Comment</h4>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <form action="" id="submitReview" method="post">
+                                            <form action="index.php?controller=comment" id="submitReview" method="post">
+                                                <input name="product_id" type="hidden" value="<?= $product['id'] ?>">
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-6">
-                                                            <label>Your name *</label>
-                                                            <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" id="name">
+                                                            <label>Tên bạn *</label>
+                                                            <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="author" id="author" placeholder="Please enter your name..">
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <label>Your email address *</label>
-                                                            <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email">
+                                                            <label>Email của bạn *</label>
+                                                            <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email" placeholder="Please enter your email...">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-12">
-                                                            <label>Review *</label>
-                                                            <textarea maxlength="5000" data-msg-required="Please enter your message." rows="10" class="form-control" name="message" id="message"></textarea>
+                                                            <label>Nhận xét, bình luận của bạn *</label>
+                                                            <textarea maxlength="5000" data-msg-required="Please enter your message." rows="10" class="form-control" name="content" id="message" placeholder="Nhập nhận xét hoặc tin nhắn hoặc bình luận của bạn về sản phẩm ....."></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <input type="submit" value="Submit Review" class="btn btn-primary" data-loading-text="Loading...">
+                                                        <input type="submit" value="Submit Send" class="btn btn-primary" data-loading-text="Loading...">
                                                     </div>
                                                 </div>
                                             </form>

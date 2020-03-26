@@ -10,3 +10,5 @@ Tính năng thiếu:
         bình luận
         đánh giá
         about, contack header footer
+        privacy-policy
+        dcma

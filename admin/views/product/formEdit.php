@@ -151,7 +151,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="price" type="text" value="<?php echo $product ? number_format($product['product_price'], 0, ',', '.') : 0; ?>" class="form-control" id="price" placeholder="0" pattern="[0-9\.]+" required="" />
+                                            <input name="price" type="text" value="<?php echo $product ? $product['product_price'] : 0; ?>" class="form-control" id="price" placeholder="0" pattern="[0-9\.]+" required="" />
                                         </div>
                                     </div>
                                 </div>

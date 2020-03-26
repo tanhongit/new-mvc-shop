@@ -123,6 +123,7 @@
                         <br><br>
                         <div class="form-group" style="text-align: center;">
                             <button class="btn btn-primary waves-effect" type="submit">Update lại thông tin User</button>
+                            <a class="btn btn-primary waves-effect" href="admin.php?controller=user&action=change-password&amp;user_id=<?php echo $user_info['id']; ?>">Đổi mật khẩu</a>
                             <a class="btn btn-warning waves-effect" href="admin.php?controller=user&action=listall">Trở về</a>
                         </div>
                     </form>

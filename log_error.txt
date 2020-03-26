@@ -1,6 +1,5 @@
 Tính năng thiếu: 
     -Admin:
-        thêm view từng thành phần
         download databse 
     public:
         +Register

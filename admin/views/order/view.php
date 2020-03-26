@@ -144,7 +144,7 @@
                             </form>
                         <?php } else { ?>
                             <div style="text-align: center;">
-                                <a class="btn btn-primary waves-effect" href="admin.php?controller=order&amp;action=delete&amp;order_id=<?= $order['id'] ?>">Xoá đơn hàng này</a>
+                                <a onclick="return confirm('Are you sure to delete?')" class="btn btn-primary waves-effect" href="admin.php?controller=order&amp;action=delete&amp;order_id=<?= $order['id'] ?>">Xoá đơn hàng này</a>
                                 <a href="admin.php?controller=order" class="btn btn-warning waves-effect">Quay lại</a>
                             </div>
                         <?php } ?>

@@ -1,5 +1,6 @@
 <?php
 require_once('lib/model.php');
+$title = 'Error 404 Not Found - Quán Chị Kòi';
 require('content/views/shared/header.php'); ?>
 <div role="main" class="main">
     <section class="page-top">

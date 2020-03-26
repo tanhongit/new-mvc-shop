@@ -321,9 +321,6 @@
 <script src="admin/themes/plugins/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="admin/themes/plugins/ckfinder/ckfinder.js"></script>
 <script type="text/javascript">
-    CKEDITOR.replace('description', {
-        height: '800px'
-    });
     CKEDITOR.replace('detail', {
         height: '800px'
     });

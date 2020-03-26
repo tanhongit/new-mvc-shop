@@ -3,7 +3,6 @@ Tính năng thiếu:
         +Xác nhận delete tại tất cả các mục
         ràng buộc username & email trong user add
         thêm view từng thành phần
-        đổi mật khẩu
         download databse 
     public:
         +Register

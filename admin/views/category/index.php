@@ -76,7 +76,7 @@
                                                     }
                                                     ?></td>
                                                 <td><a href="admin.php?controller=category&amp;action=edit&amp;subcate_id=<?php echo $subcategory['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
-                                                    <a href="admin.php?controller=category&amp;action=delete&amp;subcate_id=<?= $subcategory['id'] ?>" class="btn btn-default waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
+                                                    <a onclick="return confirm('Are you sure to delete?')" href="admin.php?controller=category&amp;action=delete&amp;subcate_id=<?= $subcategory['id'] ?>" class="btn btn-default waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

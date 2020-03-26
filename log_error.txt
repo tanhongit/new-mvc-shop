@@ -1,7 +1,5 @@
 Tính năng thiếu: 
     -Admin:
-        +Xác nhận delete tại tất cả các mục
-        ràng buộc username & email trong user add
         thêm view từng thành phần
         download databse 
     public:

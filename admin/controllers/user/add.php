@@ -12,22 +12,41 @@ if (!empty($_POST)) {
         'createDate' => gmdate('Y-m-d H:i:s', time() + 7 * 3600),
         'user_phone' => escape($_POST['phone'])
     );
-    $user_id =  save('users', $user_add);
-    $avatar_name = 'avatar-user' . $user_id . '-' . slug($_POST['username']);
-    $config = array(
-        'name' => $avatar_name,
-        'upload_path'  => 'public/upload/images/',
-        'allowed_exts' => 'jpg|jpeg|png|gif',
-    );
-    $avatar = upload('imagee', $config);
-    if ($avatar) {
-        $user_add = array(
-            'id' => $user_id,
-            'user_avatar' => $avatar
+    global $linkconnectDB;
+    $username = addslashes($_POST['username']);
+    $email = addslashes($_POST['email']);
+    //https://freetuts.net/xay-dung-chuc-nang-dang-nhap-va-dang-ky-voi-php-va-mysql-85.html
+    if (mysqli_num_rows(mysqli_query($linkconnectDB, "SELECT user_username FROM users WHERE user_username='$username'")) > 0) {
+        echo "";
+        "<div class='alert alert-danger'><strong>NO!</strong> Tên đăng nhập này đã có người dùng. Vui lòng chọn tên đăng nhập khác. <a href='javascript: history.go(-1)'>Trở lại</a></div>";
+        require('admin/views/user/addresult.php');
+        exit;
+    } elseif (!preg_match("/([a-z0-9_]+|[a-z0-9_]+\.[a-z0-9_]+)@(([a-z0-9]|[a-z0-9]+\.[a-z0-9]+)+\.([a-z]{2,4}))/i", $email)) {
+        echo "<div class='alert alert-danger'><strong>NO!</strong>Email này không hợp lệ. Vui long nhập email khác. <a href='javascript: history.go(-1)'>Trở lại</a></div>";
+        require('admin/views/user/addresult.php');
+        exit;
+    } elseif (mysqli_num_rows(mysqli_query($linkconnectDB, "SELECT user_email FROM users WHERE user_email='$email'")) > 0) {
+        echo "<div class='alert alert-danger'><strong>NO!</strong>Email này đã có người dùng. Vui lòng chọn Email khác. <a href='javascript: history.go(-1)'>Trở lại</a></div>";
+        require('admin/views/user/addresult.php');
+        exit;
+    } else {
+        $user_id =  save('users', $user_add);
+        $avatar_name = 'avatar-user' . $user_id . '-' . slug($_POST['username']);
+        $config = array(
+            'name' => $avatar_name,
+            'upload_path'  => 'public/upload/images/',
+            'allowed_exts' => 'jpg|jpeg|png|gif',
         );
-        save('users', $user_add);
+        $avatar = upload('imagee', $config);
+        if ($avatar) {
+            $user_add = array(
+                'id' => $user_id,
+                'user_avatar' => $avatar
+            );
+            save('users', $user_add);
+        }
+        header('location:admin.php?controller=user&action=info&user_id=' . $user_id);
     }
-    header('location:admin.php?controller=user&action=info&user_id=' . $user_id);
 }
 if (isset($_GET['user_id'])) $user_id = intval($_GET['user_id']);
 else $user_id = 0;

@@ -9,6 +9,11 @@ $product_top = get_all('products', array(
     'offset' => '0',
     'order_by' => 'totalView DESC'
 ));
+$product_new = get_all('products', array(
+    'limit' => '5',
+    'offset' => '0',
+    'order_by' => 'id DESC'
+));
 ?>
 <aside class="sidebar">
     <h3 style="font-weight: bold;">Tìm kiếm</h3>
@@ -50,4 +55,27 @@ $product_top = get_all('products', array(
             </li>
         <?php endforeach; ?>
     </ul>
+    <?php if (isset($get_sidebar_with_only_product)) { ?>
+        <h4 style="font-weight: bold;">SẢN PHẨM MỚI NHẤT</h4>
+        <ul class="simple-post-list">
+            <?php foreach ($product_new as $topview_product) : ?>
+                <li>
+                    <div class="post-image">
+                        <div class="img-thumbnail">
+                            <a href="product/<?= $topview_product['id'] . '-' . slug($topview_product['product_name']) ?>">
+                                <img alt="<?= $topview_product['product_name'] ?>" width="60" height="60" class="img-responsive" src="public/upload/products/<?= $topview_product['img1'] ?>">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="post-info">
+                        <a href="product/<?= $topview_product['id'] . '-' . slug($topview_product['product_name']) ?>"><?= $topview_product['product_name'] ?></a>
+                        <div class="post-meta">
+                            <?php if ($topview_product['saleoff'] != 0) echo number_format(($topview_product['product_price']) - (($topview_product['product_price'] * $topview_product['percentoff']) / 100), 0, ',', '.') . ' VNĐ';
+                            else echo number_format($topview_product['product_price'], 0, ',', '.') . ' VNĐ'; ?>
+                        </div>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php } ?>
 </aside>

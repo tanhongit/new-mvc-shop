@@ -242,7 +242,8 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <?php require('content/views/shared/sidebar.php'); ?>
+                <?php $get_sidebar_with_only_product = 0;
+                require('content/views/shared/sidebar.php'); ?>
             </div>
         </div>
     </div>

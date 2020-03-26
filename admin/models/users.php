@@ -24,3 +24,13 @@ function user_delete($id)
     $sql = "DELETE FROM users WHERE id=$id";
     mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
 }
+function changePassword($id, $newpassword, $currentPassword)
+{
+    global $linkconnectDB;
+    $sql = "Update users SET user_password='$newpassword' WHERE id='$id' AND user_password = '$currentPassword'";
+    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    $rows =  mysqli_affected_rows($linkconnectDB); //Gets the number of affected rows in a previous MySQL operation
+    if ($rows <> 1) {
+        return  '<div class="alert alert-danger"><strong>NO!</strong> Việc thay đổi mật khẩu có vấn đề. "Mật khẩu hiện tại" của bạn không đúng! <br>Quay lại hoặc <a href="admin.php">Đến Dashboard</a></div>' . mysqli_error($linkconnectDB);
+    } else return '<div class="alert alert-success"><strong>Tốt!</strong> Bạn đã thay đổi mật khẩu thành công. Hãy <a href="admin.php?controller=home&action=logout">Đăng xuất</a> và đăng nhập lại.!!</div>';
+}

@@ -1,6 +1,7 @@
 <?php
 require('config/database.php');
 require('config/config.php');
+//lấy giá trị bảng theo id
 function get_a_record($table, $id, $select = '*')
 {
     $id = intval($id);
@@ -14,6 +15,7 @@ function get_a_record($table, $id, $select = '*')
     }
     return $data;
 }
+//lấy giá trị bảng theo yêu cầu tuỳ ý của option
 function get_all($table, $options = array())
 {
     $select = isset($options['select']) ? $options['select'] : '*';
@@ -60,6 +62,7 @@ function save($table, $data = array())
     return $id;
 }
 //for admin
+//lựa chọn bảng theo một mảng
 function select_a_record($table, $options = array(), $select = '*')
 {
     $select = isset($options['select']) ? $options['select'] : '*';

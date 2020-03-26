@@ -15,7 +15,7 @@ $ccategories = get_all('categories', $options);
 	<title><?php echo isset($title) ? $title : 'Quán Chị Kòi'; ?></title>
 	<meta name="keywords" content="Quán Chị Kòi - Phát Triển Bởi TanHongIT" />
 	<meta name="description" content="Quán Chị Kòi">
-	<meta name="author" content="chikoi.com">
+	<meta name="author" content="chikoiquan.com">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="public/vendor/bootstrap/bootstrap.css">

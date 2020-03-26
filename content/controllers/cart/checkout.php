@@ -24,7 +24,7 @@ if (!empty($_POST)) {
 		);
 		save('order_detail', $order_detail);
 	}
-	cart_destroy();
+	cart_destroy();//xoá cart sau khi save db
 	$title = 'Đặt hàng thành công - Quán Chị Kòi';
 	header("refresh:15;url=" . PATH_URL . "home");
 	echo '<div style="text-align: center;padding: 20px 10px;">Đã đặt hàng thành công</div><div style="text-align: center;padding: 20px 10px;">Cảm ơn bạn đã đặt hàng của Quán Chị Kòi. Quán sẽ gọi điện từ số điện thoại bạn đã cung cấp để Confirm (Xác nhận) lại với bạn trong thời gian sớm nhất để xác nhận đơn hàng.<br>

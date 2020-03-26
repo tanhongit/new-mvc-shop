@@ -11,6 +11,7 @@ $product_top = get_all('products', array(
 ));
 ?>
 <aside class="sidebar">
+    <h3 style="font-weight: bold;">Tìm kiếm</h3>
     <form action="<?php echo PATH_URL; ?>search/" method="get">
         <div class="input-group input-group-lg">
             <input class="form-control" placeholder="Search..." name="keyword" id="s" type="text">
@@ -20,7 +21,7 @@ $product_top = get_all('products', array(
         </div>
     </form>
     <hr />
-    <h5>Categoryes</h5>
+    <h3 style="font-weight: bold;">Categoryes</h3>
     <?php foreach ($sub_cate as $cate) { ?>
         <a href="category/<?php echo $cate['id'] . '-' . $cate['slug']; ?>"><span class="label label-dark"><?php echo $cate['subcategory_name'] ?></span></a>
     <?php } ?>
@@ -28,7 +29,7 @@ $product_top = get_all('products', array(
         <a href="shop/<?php echo $shop['id'] . '-' . $shop['slug']; ?>"><span class="label label-dark"><?php echo $shop['category_name'] ?></span></a>
     <?php } ?>
     <hr />
-    <h5>SẢN PHẨM HÀNG ĐẦU</h5>
+    <h4 style="font-weight: bold;">SẢN PHẨM HÀNG ĐẦU</h4>
     <ul class="simple-post-list">
         <?php foreach ($product_top as $topview_product) : ?>
             <li>

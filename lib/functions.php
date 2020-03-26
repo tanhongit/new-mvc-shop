@@ -6,6 +6,7 @@ function show_404()
     require('404.php');
     exit();
 }
+//Thoát các ký tự đặc biệt trong chuỗi
 function escape($str)
 {
     global $linkconnectDB;
@@ -56,6 +57,8 @@ function pagination($url, $page, $total)
     $out .= '</ul>';
     return $out;
 }
+
+//chuyển đổi name sang slug
 function stringURL($str)
 {
     $str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
@@ -84,6 +87,7 @@ function slug($str)
     $str = str_replace(' ', '-', $str);
     return $str;
 }
+
 //only admin
 function upload($field, $config = array())
 {

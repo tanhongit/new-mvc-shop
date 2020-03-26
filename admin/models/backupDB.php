@@ -45,7 +45,7 @@ function backup_db()
         mkdir($folder, 0777, true);
     chmod($folder, 0777);
     // Đặt tên file
-    $date = date('m-d-Y-H-i-s', time());
+    $date = date('Y-m-d-H-i-s', time() + 7 * 3600);
     $filename = $folder . "db-backup-tanhongit-" . $date;
     //Tạo file .sql
     $handle = fopen($filename . '.sql', 'w+');

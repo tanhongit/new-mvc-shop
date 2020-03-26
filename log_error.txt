@@ -1,14 +1,16 @@
 Tính năng thiếu: 
     -Admin:
         +Xác nhận delete tại tất cả các mục
-        +kiểm tra username khi add user
         ràng buộc username & email trong user add
-        view từng thành phần
+        thêm view từng thành phần
         đổi mật khẩu
         download databse 
     public:
         +Register
         +phân quyền
         +slide 
-        + sl sản phẩm cart
+        + sl sản phẩm product
         phản hồi khách hàng
+        bình luận
+        đánh giá
+        about, contack header footer

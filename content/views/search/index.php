@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h1 class="shorter"><strong>Search</strong></h1>
-                        <p>Hiển thị <?php if($total_rows>=9) echo '1–9 trong ';?><?php echo $total_rows;?> kết quả.</p>
+                        <p>Hiển thị <?php if ($total_rows >= 9) echo '1–9 trong '; ?><?php echo $total_rows; ?> kết quả.</p>
                     </div>
                 </div>
 
@@ -41,9 +41,12 @@
                                     </a>
                                 <?php endif; ?>
                                 <span class="product-thumb-info">
-                                    <a href="cart/add/<?php echo $product['id']; ?>" class="add-to-cart-product">
-                                        <span><i class="fa fa-shopping-cart"></i> Add to Cart</span>
-                                    </a>
+                                    <form action="cart/add/<?php echo $product['id']; ?>" method="post">
+                                        <input type="hidden" name="number_cart" value="1">
+                                        <button type="submit" href="cart/add/<?php echo $product['id']; ?>" class="add-to-cart-product">
+                                            <span><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</span>
+                                        </button>
+                                    </form>
                                     <a href="product/<?php echo $product['id']; ?>-<?php echo $product['slug']; ?>">
                                         <span class="product-thumb-info-image">
                                             <span class="product-thumb-info-act">

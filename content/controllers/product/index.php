@@ -24,7 +24,7 @@ if ($product['sub_category_id'] != 0) {
 }
 $comment_option = array(
     'where' => 'product_id=' . $product['id'],
-    'limit' => 9,
+    'limit' => 10,
     'offset' => 0,
     'order_by' => 'id desc'
 );

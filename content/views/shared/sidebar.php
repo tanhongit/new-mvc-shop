@@ -26,7 +26,7 @@ $product_new = get_all('products', array(
         </div>
     </form>
     <hr />
-    <h3 style="font-weight: bold;">Categoryes</h3>
+    <h3 style="font-weight: bold;">Danh mục</h3>
     <?php foreach ($sub_cate as $cate) { ?>
         <a href="category/<?php echo $cate['id'] . '-' . $cate['slug']; ?>"><span class="label label-dark"><?php echo $cate['subcategory_name'] ?></span></a>
     <?php } ?>

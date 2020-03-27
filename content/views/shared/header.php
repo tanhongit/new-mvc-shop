@@ -82,7 +82,7 @@ $ccategories = get_all('categories', $options);
 						<ul class="nav nav-pills nav-main" id="mainMenu">
 							<li class="dropdown active">
 								<a class="dropdown-toggle" href="index.php">
-									Home
+									Trang Chủ
 									<i class="fa fa-angle-down"></i>
 								</a>
 								<ul class="dropdown-menu">
@@ -122,7 +122,7 @@ $ccategories = get_all('categories', $options);
 							<?php endforeach; ?>
 							<li class="dropdown mega-menu-item mega-menu-shop">
 								<a class="dropdown-toggle mobile-redirect" href="cart">
-									<i class="fa fa-shopping-cart"></i> Cart (<?php echo cart_number(); ?>)
+									<i class="fa fa-shopping-cart" style="font-size: 2em;"></i> Giỏ Hàng (<?php echo cart_number(); ?>)
 									<i class="fa fa-angle-down"></i>
 								</a>
 								<ul class="dropdown-menu">
@@ -152,7 +152,7 @@ $ccategories = get_all('categories', $options);
 															<tr>
 																<td class="actions" colspan="6">
 																	<div class="actions-continue">
-																		<form action="cart"><input type="submit" value="View All" class="btn pull-right btn-primary"></form>
+																		<form action="cart"><input type="submit" value="Xem tất cả" class="btn pull-right btn-primary"></form>
 																	</div>
 																</td>
 															</tr>

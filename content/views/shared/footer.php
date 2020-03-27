@@ -10,7 +10,7 @@
                     <div class="col-md-3">
                         <h5>Blog</h5>
                         <ul class="list icons list-unstyled">
-                            <li><i class="fa fa-caret-right"></i> <a href="#">Not available</a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="/#">Not available</a></li>
                             <li><i class="fa fa-caret-right"></i> <a href="#">Not available</a></li>
                             <li><i class="fa fa-caret-right"></i> <a href="#">Not available</a></li>
                         </ul>

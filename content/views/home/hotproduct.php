@@ -15,13 +15,16 @@
 							<li class="col-sm-3 col-xs-12 product">
 								<?php if ($hot_product['saleoff'] != 0) : ?>
 									<a href="type/3-san-pham-dang-giam-gia">
-										<span class="onsale">-<?php echo $hot_product['percentoff'];?>%</span>
+										<span class="onsale">-<?php echo $hot_product['percentoff']; ?>%</span>
 									</a>
 								<?php endif; ?>
 								<span class="product-thumb-info">
-									<a href="cart/add/<?php echo $hot_product['id']; ?>" class="add-to-cart-product">
-										<span><i class="fa fa-shopping-cart"></i> Add to Cart</span>
-									</a>
+									<form action="cart/add/<?php echo $hot_product['id']; ?>" method="post">
+										<input type="hidden" name="number_cart" value="1">
+										<button type="submit" href="cart/add/<?php echo $hot_product['id']; ?>" class="add-to-cart-product">
+											<span><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</span>
+										</button>
+									</form>
 									<a href="product/<?php echo $hot_product['id']; ?>-<?php echo $hot_product['slug']; ?>">
 										<span class="product-thumb-info-image">
 											<span class="product-thumb-info-act">

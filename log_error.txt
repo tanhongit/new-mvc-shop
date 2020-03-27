@@ -5,10 +5,7 @@ Tính năng thiếu:
         +Register
         +phân quyền
         +slide 
-        + sl sản phẩm product
         phản hồi khách hàng
-        bình luận
-        đánh giá
         about, contack header footer
         privacy-policy
         dcma

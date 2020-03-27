@@ -2,11 +2,11 @@
 //khởi tạo giỏ hàng
 if (!isset($_SESSION['cart'])) $_SESSION['cart'] = array();
 //thêm giỏ hàng
-function cart_add($product_id)
+function cart_add($product_id, $number)
 {
     if (isset($_SESSION['cart'][$product_id])) {
-        //nếu đã có sp trong giỏ hàng thì số lượng lên 1
-        $_SESSION['cart'][$product_id]['number']++;
+        //nếu đã có sp trong giỏ hàng thì số lượng công thêm $number
+        $_SESSION['cart'][$product_id]['number'] += $number;
     } else {
         //lấy thông tin sản phẩm từ CSDL và lưu vào giỏ hàng
         $product = get_a_record('products', $product_id);
@@ -15,7 +15,7 @@ function cart_add($product_id)
             'id' => $product_id,
             'name' => $product['product_name'],
             'image' => $product['img1'],
-            'number' => 1,
+            'number' => $number,
             'typeid' => $product['product_typeid'],
             'percent_off' => $product['percentoff'],
             'price' => $product['product_price']

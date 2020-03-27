@@ -50,9 +50,7 @@
                             <p class="taller"><?php echo $product['product_description'] ?>. </p>
                             <form enctype="multipart/form-data" method="post" class="cart" action="cart/add/<?php echo $product['id']; ?>">
                                 <div class="quantity">
-                                    <input type="button" class="minus" value="-">
-                                    <input type="text" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
-                                    <input type="button" class="plus" value="+">
+                                    <input type="number" class="input-text qty text" title="Nhập Để Đổi Số Lượng" value="1" name="number_cart" min="1" step="1" max="100">
                                 </div>
                                 <button class="btn btn-primary btn-icon" role="button" type="submit">Add to cart</button>
                             </form>

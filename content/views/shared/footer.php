@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-9">
                 <h4>About</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu pulvinar magna. Phasellus semper scelerisque purus, et semper nisl lacinia sit amet. Praesent venenatis turpis vitae purus semper, eget sagittis velit venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos... <a href="#" class="btn-flat btn-xs">View More <i class="fa fa-arrow-right"></i></a></p>
+                <p><?= $about_footer ?><a href="<?= $link_about ?>" class="btn-flat btn-xs">View More <i class="fa fa-arrow-right"></i></a></p>
                 <hr class="light">
                 <div class="row">
                     <div class="col-md-3">
@@ -42,18 +42,18 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <h5 class="short">Contact Us</h5>
-                <span class="phone">000-123-4567</span>
-                <p class="short">International: 122 456-6670</p>
+                <h5 class="short">LIÊN HỆ CHÚNG TÔI</h5>
+                <span class="phone"><?= $phone ?></span>
+                <p class="short">SĐT Phụ: <?= $phone2 ?></p>
                 <ul class="list icons list-unstyled push-top">
-                    <li><i class="fa fa-map-marker"></i> <strong>Address:</strong> 16, Trần Quyang Diệu, TT Gia Ray, Xuân Lộc, Đồng Nai</li>
-                    <li><i class="fa fa-envelope"></i> <strong>Email:</strong> <a href="mailto:mail@example.com">mail@example.com</a></li>
+                    <li><i class="fa fa-map-marker"></i> <strong>Địa chỉ:</strong> <?= $address_contact ?></li>
+                    <li><i class="fa fa-envelope"></i> <strong>Email:</strong> <a href="mailto:mail@example.com"><?= $email_contact ?></a></li>
                 </ul>
                 <div class="social-icons push-top">
                     <ul class="social-icons">
-                        <li class="facebook"><a href="http://www.facebook.com/" target="_blank" data-placement="bottom" data-tooltip title="Facebook">Facebook</a></li>
-                        <li class="twitter"><a href="http://www.twitter.com/" target="_blank" data-placement="bottom" data-tooltip title="Twitter">Twitter</a></li>
-                        <li class="linkedin"><a href="http://www.linkedin.com/" target="_blank" data-placement="bottom" data-tooltip title="Linkedin">Linkedin</a></li>
+                        <li class="facebook"><a href="<?= $link_Facebook ?>" target="_blank" data-placement="bottom" data-tooltip title="Facebook">Facebook</a></li>
+                        <li class="twitter"><a href="<?= $link_Twitter ?>" target="_blank" data-placement="bottom" data-tooltip title="Twitter">Twitter</a></li>
+                        <li class="linkedin"><a href="<?= $linkedin_contact ?>" target="_blank" data-placement="bottom" data-tooltip title="Linkedin">Linkedin</a></li>
                     </ul>
                 </div>
             </div>
@@ -62,7 +62,9 @@
     <div class="footer-copyright">
         <div class="container">
             <div class="row">
-                    <p>© Copyright <script>document.write(new Date().getFullYear())</script> by <span><a href="https://tanhongit.com">TanHongIT</a></span>. All Rights Reserved.</p>
+                <p>© Copyright <script>
+                        document.write(new Date().getFullYear())
+                    </script> by <span><a href="https://tanhongit.com">TanHongIT</a></span>. All Rights Reserved.</p>
             </div>
         </div>
     </div>
@@ -90,4 +92,5 @@
 <script src="public/js/custom.js"></script>
 <script src="public/js/theme.init.js"></script>
 </body>
+
 </html>

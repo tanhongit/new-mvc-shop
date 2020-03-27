@@ -5,6 +5,27 @@ $options = array(
 	'order_by' => 'id'
 );
 $ccategories = get_all('categories', $options);
+$contact_option = array(
+	'where' => 'id=1'
+);
+$contacts = get_all('contacts', $contact_option);
+foreach ($contacts as $contact) {
+	$phone = preg_replace("/([0-9]{3})([0-9]{4})/", "$1-$2", $contact['phone']);
+	$phone2 = preg_replace("/([0-9]{3})([0-9]{4})/", "$1-$2", $contact['phone_2']);
+	$link_contact = $contact['link_Contact'];
+	$email_contact = $contact['email'];
+	$link_Facebook = $contact['link_Facebook'];
+	$link_Twitter = $contact['link_Twitter'];
+	$address_contact = $contact['address'];
+	$zalo_contact = $contact['zalo'];
+	$linkedin_contact = $contact['link_linkedin'];
+	$link_about = $contact['link_about'];
+	$about_footer = $contact['about_footer'];
+}
+$options_menu_footer = array(
+    'order_by' => 'id'
+);
+$menu_footers = get_all('menu_footers', $options_menu_footer);
 ?>
 <!DOCTYPE html>
 <html>
@@ -60,10 +81,10 @@ $ccategories = get_all('categories', $options);
 							<a href="about-us.html"><i class="fa fa-angle-right"></i>About Us</a>
 						</li>
 						<li>
-							<a href="contact-us.html"><i class="fa fa-angle-right"></i>Contact Us</a>
+							<a href="<?= $link_contact ?>"><i class="fa fa-angle-right"></i>Contact Us</a>
 						</li>
 						<li class="phone">
-							<span><i class="fa fa-phone"></i>123-456-7890</span>
+							<span><i class="fa fa-phone"></i><?= $phone ?></span>
 						</li>
 					</ul>
 				</nav>
@@ -74,9 +95,9 @@ $ccategories = get_all('categories', $options);
 			<div class="navbar-collapse nav-main-collapse collapse">
 				<div class="container">
 					<ul class="social-icons">
-						<li class="facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook">Facebook</a></li>
-						<li class="twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter">Twitter</a></li>
-						<li class="linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin">Linkedin</a></li>
+						<li class="facebook"><a href="<?= $link_Facebook ?>" target="_blank" title="Facebook">Facebook</a></li>
+						<li class="twitter"><a href="<?= $link_Twitter ?>" target="_blank" title="Twitter">Twitter</a></li>
+						<li class="linkedin"><a href="<?= $linkedin_contact ?>" target="_blank" title="Linkedin">Linkedin</a></li>
 					</ul>
 					<nav class="nav-main mega-menu">
 						<ul class="nav nav-pills nav-main" id="mainMenu">

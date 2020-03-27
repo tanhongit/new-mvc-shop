@@ -54,7 +54,7 @@
                                 <div class="quantity">
                                     <input type="number" class="input-text qty text" title="Nhập Để Đổi Số Lượng" value="1" name="number_cart" min="1" step="1" max="100">
                                 </div>
-                                <button class="btn btn-primary btn-icon" role="button" type="submit">Thêm vào giỏ hàng</button>
+                                <button class="btn btn-primary btn-icon" role="button" type="submit"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
                             </form>
                             <div class="product_meta">
                                 <span class="posted_in">Danh Mục Con: <a rel="tag" href="category/<?php echo $subcategories['id'] . '-' . $subcategories['slug']; ?>"><?php echo $breadCrumb ?></a></span>

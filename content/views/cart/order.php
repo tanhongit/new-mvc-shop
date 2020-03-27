@@ -182,7 +182,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <h4>Cart Totals</h4>
+                <h4>Tổng số giỏ hàng</h4>
                 <table cellspacing="0" class="cart-totals">
                     <tbody>
                         <tr class="cart-subtotal">

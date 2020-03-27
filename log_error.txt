@@ -9,3 +9,4 @@ Tính năng thiếu:
         about, contack header footer
         privacy-policy
         dcma
+        view all

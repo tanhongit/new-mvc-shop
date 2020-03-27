@@ -1,0 +1,8 @@
+MohinhMVC:
+    - https://giacongweb.com/bai-viet/phan-3-to-chuc-cau-truc-va-mo-hinh-mvc-cho-php-framework.html
+Permission :
+    - PHP Rbac
+    - https://www.tonymarston.net/php-mysql/role-based-access-control.html
+        + https://www.tonymarston.net/php-mysql/radicore-security.html
+        + https://www.wdb24.com/simple-role-based-access-control-example-using-php-and-mysqli/
+

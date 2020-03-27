@@ -6,3 +6,5 @@ Permission :
         + https://www.tonymarston.net/php-mysql/radicore-security.html
         + https://www.wdb24.com/simple-role-based-access-control-example-using-php-and-mysqli/
 
+Source code shop : https://www.youtube.com/watch?v=KpPfAriM3BU&list=PLWTu87GngvNwRxrFZ_wbxfvHHed14H5RC&index=64
+

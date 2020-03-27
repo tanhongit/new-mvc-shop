@@ -21,9 +21,7 @@
 								<span class="product-thumb-info">
 									<form action="cart/add/<?php echo $hot_product['id']; ?>" method="post">
 										<input type="hidden" name="number_cart" value="1">
-										<button type="submit" href="cart/add/<?php echo $hot_product['id']; ?>" class="add-to-cart-product">
-											<span><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</span>
-										</button>
+										<a class="add-to-cart-product"><button type="submit" href="cart/add/<?php echo $hot_product['id']; ?>"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button></a>
 									</form>
 									<a href="product/<?php echo $hot_product['id']; ?>-<?php echo $hot_product['slug']; ?>">
 										<span class="product-thumb-info-image">

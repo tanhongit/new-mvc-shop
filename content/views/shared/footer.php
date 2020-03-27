@@ -8,35 +8,35 @@
                 <hr class="light">
                 <div class="row">
                     <div class="col-md-3">
-                        <h5>Blog</h5>
+                        <h5><?=$menu_footers[12]['menu_name']?></h5>
                         <ul class="list icons list-unstyled">
-                            <li><i class="fa fa-caret-right"></i> <a href="/#">Not available</a></li>
-                            <li><i class="fa fa-caret-right"></i> <a href="#">Not available</a></li>
-                            <li><i class="fa fa-caret-right"></i> <a href="#">Not available</a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[0]['menu_url']?>"><?=$menu_footers[0]['menu_name']?></a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[1]['menu_url']?>"><?=$menu_footers[1]['menu_name']?></a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[2]['menu_url']?>"><?=$menu_footers[2]['menu_name']?></a></li>
                         </ul>
                     </div>
                     <div class="col-md-3">
-                        <h5>Pages</h5>
+                        <h5><?=$menu_footers[13]['menu_name']?></h5>
                         <ul class="list icons list-unstyled">
-                            <li><i class="fa fa-caret-right"></i> <a href="#">Not available</a></li>
-                            <li><i class="fa fa-caret-right"></i> <a href="#">Not available</a></li>
-                            <li><i class="fa fa-caret-right"></i> <a href="#">Not available</a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[3]['menu_url']?>"><?=$menu_footers[3]['menu_name']?></a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[4]['menu_url']?>"><?=$menu_footers[4]['menu_name']?></a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[5]['menu_url']?>"><?=$menu_footers[5]['menu_name']?></a></li>
                         </ul>
                     </div>
                     <div class="col-md-3">
-                        <h5>BLOG</h5>
+                        <h5><?=$menu_footers[14]['menu_name']?></h5>
                         <ul class="list icons list-unstyled">
-                            <li><i class="fa fa-caret-right"></i> <a href="#">Not available</a></li>
-                            <li><i class="fa fa-caret-right"></i> <a href="#">Not available</a></li>
-                            <li><i class="fa fa-caret-right"></i> <a href="#">Not available</a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[6]['menu_url']?>"><?=$menu_footers[6]['menu_name']?></a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[7]['menu_url']?>"><?=$menu_footers[7]['menu_name']?></a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[8]['menu_url']?>"><?=$menu_footers[8]['menu_name']?></a></li>
                         </ul>
                     </div>
                     <div class="col-md-3">
-                        <h5>Extra Pages</h5>
+                        <h5><?=$menu_footers[15]['menu_name']?></h5>
                         <ul class="list icons list-unstyled">
-                            <li><i class="fa fa-caret-right"></i> <a href="#">Not available</a></li>
-                            <li><i class="fa fa-caret-right"></i> <a href="#">Not available</a></li>
-                            <li><i class="fa fa-caret-right"></i> <a href="#">Not available</a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[9]['menu_url']?>"><?=$menu_footers[9]['menu_name']?></a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[10]['menu_url']?>"><?=$menu_footers[10]['menu_name']?></a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[11]['menu_url']?>"><?=$menu_footers[11]['menu_name']?></a></li>
                         </ul>
                     </div>
                 </div>

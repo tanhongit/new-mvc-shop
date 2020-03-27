@@ -23,7 +23,9 @@ foreach ($contacts as $contact) {
 	$about_footer = $contact['about_footer'];
 }
 $options_menu_footer = array(
-    'order_by' => 'id'
+	'order_by' => 'id',
+
+	'offset' => 15
 );
 $menu_footers = get_all('menu_footers', $options_menu_footer);
 ?>

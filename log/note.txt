@@ -1,1 +1,3 @@
 28/3: 
+    Send mail + register :
+        Cài đặt  phpmailer vào https://github.com/PHPMailer/PHPMailer sau đó vào config tạo các define về HOST. Add use thư viện và include autoload vào và Code 54 -> 95 tại register/index.php

@@ -47,21 +47,21 @@ if (!empty($_POST)) {
         exit;
     } else {
         // Load Composer's autoloader
+        $user_id = save('users', $user_add);
         require 'vendor/autoload.php';
         include 'lib/config/sendmail.php';
         $mail = new PHPMailer(true);
         try {
             $verificationCode = md5(uniqid("Emsel của bạn chưa active. Nhấn vào đây để active nhé!", true)); //https://www.php.net/manual/en/function.uniqid
-            $verificationLink = "index.php?controller=register&action=activate?id=" . $verificationCode;
-            $name = "Chikoiquan.com";
+            $verificationLink = PATH_URL . "index.php?controller=register&action=activate&code=" . $verificationCode;
             //content
             $htmlStr = "";
             $htmlStr .= "Xin chào " . $email . ",<br /><br />";
-            $htmlStr .= "Vui lòng nhấp vào nút bên dưới để xác minh đăng ký của bạn và có quyền truy cập vào trang quản trị của Chị Kòi Shop.<br /><br /><br />";
+            $htmlStr .= "Vui lòng nhấp vào nút bên dưới để xác minh đăng ký của bạn và có quyền truy cập vào trang quản trị của Chị Kòi Quán.<br /><br /><br />";
             $htmlStr .= "<a href='{$verificationLink}' target='_blank' style='padding:1em; font-weight:bold; background-color:blue; color:#fff;'>VERIFY EMAIL</a><br /><br /><br />";
+            $htmlStr .= "Cảm ơn bạn đã tham gia thành một thành viên mới trong website bán hàng của quán Chị Kòi.<br><br>";
             $htmlStr .= "Trân trọng,<br />";
             $htmlStr .= "<a href='https://tanhongit.com/' target='_blank'>By Tân Hồng IT</a><br />";
-
             //Server settings
             $mail->CharSet = "UTF-8";
             $mail->SMTPDebug = 0; // Enable verbose debug output (0 : ko hiện debug, 1 hiện)
@@ -89,7 +89,6 @@ if (!empty($_POST)) {
         } catch (Exception $e) {
             echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
         }
-        $user_id = save('users', $user_add);
         $verificationCode_add = array(
             'id' => $user_id,
             'verificationCode' => $verificationCode

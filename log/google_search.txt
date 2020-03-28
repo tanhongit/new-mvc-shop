@@ -9,4 +9,8 @@ Permission :
     - https://www.youtube.com/watch?v=4N1ufhv4kzQ&list=PLfdtiltiRHWGKUvioJly40RJZchSG2-34&index=2
 
 
+send mail:
+    - https://www.hoangweb.com/develop/php/gui-ma-kich-hoat-tai-khoan-qua-email-php
+    - https://github.com/PHPMailer/PHPMailer
+    - https://www.youtube.com/watch?v=fyCh7ygWfvE
 

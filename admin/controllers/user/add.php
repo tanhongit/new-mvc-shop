@@ -22,11 +22,11 @@ if (!empty($_POST)) {
         require('admin/views/user/addresult.php');
         exit;
     } elseif (!preg_match("/([a-z0-9_]+|[a-z0-9_]+\.[a-z0-9_]+)@(([a-z0-9]|[a-z0-9]+\.[a-z0-9]+)+\.([a-z]{2,4}))/i", $email)) {
-        echo "<div class='alert alert-danger'><strong>NO!</strong>Email này không hợp lệ. Vui long nhập email khác. <a href='javascript: history.go(-1)'>Trở lại</a></div>";
+        echo "<div class='alert alert-danger'><strong>NO!</strong> Email này không hợp lệ. Vui long nhập email khác. <a href='javascript: history.go(-1)'>Trở lại</a></div>";
         require('admin/views/user/addresult.php');
         exit;
     } elseif (mysqli_num_rows(mysqli_query($linkconnectDB, "SELECT user_email FROM users WHERE user_email='$email'")) > 0) {
-        echo "<div class='alert alert-danger'><strong>NO!</strong>Email này đã có người dùng. Vui lòng chọn Email khác. <a href='javascript: history.go(-1)'>Trở lại</a></div>";
+        echo "<div class='alert alert-danger'><strong>NO!</strong> Email này đã có người dùng. Vui lòng chọn Email khác. <a href='javascript: history.go(-1)'>Trở lại</a></div>";
         require('admin/views/user/addresult.php');
         exit;
     } else {

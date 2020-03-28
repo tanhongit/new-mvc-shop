@@ -57,7 +57,7 @@ if (!empty($_POST)) {
             $verificationLink = PATH_URL . "index.php?controller=register&action=activate&code=" . $verificationCode;
             //content
             $htmlStr = "";
-            $htmlStr .= "Xin chào " . $email . ",<br /><br />";
+            $htmlStr .= "Xin chào " . $username . ' (' . $email . "),<br /><br />";
             $htmlStr .= "Vui lòng nhấp vào nút bên dưới để xác minh đăng ký của bạn và có quyền truy cập vào trang quản trị của Chị Kòi Quán.<br /><br /><br />";
             $htmlStr .= "<a href='{$verificationLink}' target='_blank' style='padding:1em; font-weight:bold; background-color:blue; color:#fff;'>VERIFY EMAIL</a><br /><br /><br />";
             $htmlStr .= "Cảm ơn bạn đã tham gia thành một thành viên mới trong website bán hàng của quán Chị Kòi.<br><br>";

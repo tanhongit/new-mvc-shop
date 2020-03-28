@@ -1,12 +1,11 @@
 Tính năng thiếu: 
-    -Admin:
-        download databse 
+    Admin:
+        header footer
     public:
         +Register
         +phân quyền
         +slide 
         phản hồi khách hàng
-        about, contack header footer
         privacy-policy
         dcma
         view all

@@ -1,10 +1,12 @@
 MohinhMVC:
     - https://giacongweb.com/bai-viet/phan-3-to-chuc-cau-truc-va-mo-hinh-mvc-cho-php-framework.html
+    - Source code shop : https://www.youtube.com/watch?v=KpPfAriM3BU&list=PLWTu87GngvNwRxrFZ_wbxfvHHed14H5RC&index=64
 Permission :
     - PHP Rbac
     - https://www.tonymarston.net/php-mysql/role-based-access-control.html
         + https://www.tonymarston.net/php-mysql/radicore-security.html
         + https://www.wdb24.com/simple-role-based-access-control-example-using-php-and-mysqli/
+    - https://www.youtube.com/watch?v=4N1ufhv4kzQ&list=PLfdtiltiRHWGKUvioJly40RJZchSG2-34&index=2
 
-Source code shop : https://www.youtube.com/watch?v=KpPfAriM3BU&list=PLWTu87GngvNwRxrFZ_wbxfvHHed14H5RC&index=64
+
 

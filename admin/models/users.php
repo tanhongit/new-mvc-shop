@@ -48,7 +48,7 @@ function changePassword($id, $newpassword, $currentPassword)
             $htmlStr = "";
             $htmlStr .= "Xin chào " . $user['user_username'] . ' (' . $email . "),<br /><br />";
             $htmlStr .= "Mật khẩu của bạn hiện đã được thay đổi cách đây không lâu...<br /><br />";
-            $htmlStr .= "Vui lòng kiểm tra và <a href='admin.php'>Đăng nhập</a></div> lại với mật khẩu mới của bạn.<br><br>";
+            $htmlStr .= "Vui lòng kiểm tra và <a href='".PATH_URL."admin.php'>Đăng nhập</a></div> lại với mật khẩu mới của bạn.<br><br>";
             $htmlStr .= "Trân trọng,<br />";
             $htmlStr .= "<a href='https://tanhongit.com/' target='_blank'>By Tân Hồng IT</a><br />";
             //Server settings
@@ -78,6 +78,6 @@ function changePassword($id, $newpassword, $currentPassword)
         } catch (Exception $e) {
             echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
         }
-        return '<div class="alert alert-success"><strong>Tốt!</strong> Bạn đã thay đổi mật khẩu thành công. Hãy <a href="admin.php?controller=home&action=logout">Đăng xuất</a> và đăng nhập lại.!!</div>';
+        return '<div class="alert alert-success"><strong>Tốt!</strong> Bạn đã thay đổi mật khẩu thành công. Và một tin nhắn thông báo đã được gửi đến Email của người dùng này. Hãy <a href="admin.php?controller=home&action=logout">Đăng xuất</a> và đăng nhập lại.!!</div>';
     }
 }

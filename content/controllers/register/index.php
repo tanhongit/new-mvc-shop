@@ -35,7 +35,7 @@ if (!empty($_POST)) {
         require('content/views/register/result.php');
         exit;
     } elseif (!preg_match("/([a-z0-9_]+|[a-z0-9_]+\.[a-z0-9_]+)@(([a-z0-9]|[a-z0-9]+\.[a-z0-9]+)+\.([a-z]{2,4}))/i", $email)) {
-        echo "<div style='padding-top: 200' class='container'><div style='text-align: center;' class='alert alert-danger'><strong>NO!</strong>Email này không hợp lệ. Vui long nhập email khác. <a href='javascript: history.go(-1)'>Trở lại</a> hoặc <a href='index.php'>Đến Trang chủ</a></div></div>";
+        echo "<div style='padding-top: 200' class='container'><div style='text-align: center;' class='alert alert-danger'><strong>NO!</strong> Email này không hợp lệ. Vui long nhập email khác. <a href='javascript: history.go(-1)'>Trở lại</a> hoặc <a href='index.php'>Đến Trang chủ</a></div></div>";
         require('content/views/register/result.php');
         exit;
     } elseif (mysqli_num_rows(mysqli_query($linkconnectDB, "SELECT user_email FROM users WHERE user_email='$email' and verified = 0")) > 0) {
@@ -49,6 +49,7 @@ if (!empty($_POST)) {
     } else {
         // Load Composer's autoloader
         $user_id = save('users', $user_add);
+        //send mail
         require 'vendor/autoload.php';
         include 'lib/config/sendmail.php';
         $mail = new PHPMailer(true);

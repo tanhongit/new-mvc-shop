@@ -16,6 +16,7 @@ if (!empty($_GET['id'])) {
             $verification_Code = $user['verificationCode'];
         }
     }
+    //send mail
     require 'vendor/autoload.php';
     include 'lib/config/sendmail.php';
     $mail = new PHPMailer(true);

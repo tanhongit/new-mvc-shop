@@ -96,11 +96,6 @@ $menu_footers = get_all('menu_footers', $options_menu_footer);
 			</div>
 			<div class="navbar-collapse nav-main-collapse collapse">
 				<div class="container">
-					<ul class="social-icons">
-						<li class="facebook"><a href="<?= $link_Facebook ?>" target="_blank" title="Facebook">Facebook</a></li>
-						<li class="twitter"><a href="<?= $link_Twitter ?>" target="_blank" title="Twitter">Twitter</a></li>
-						<li class="linkedin"><a href="<?= $linkedin_contact ?>" target="_blank" title="Linkedin">Linkedin</a></li>
-					</ul>
 					<nav class="nav-main mega-menu">
 						<ul class="nav nav-pills nav-main" id="mainMenu">
 							<li class="dropdown active">
@@ -187,6 +182,16 @@ $menu_footers = get_all('menu_footers', $options_menu_footer);
 									</li>
 								</ul>
 							</li>
+							<div class="search">
+								<form id="searchForm" action="<?php echo PATH_URL; ?>search/" method="get">
+									<div class="input-group">
+										<input type="text" class="form-control search" name="keyword" id="q" placeholder="Search..." required>
+										<span class="input-group-btn">
+											<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+										</span>
+									</div>
+								</form>
+							</div>
 						</ul>
 					</nav>
 				</div>

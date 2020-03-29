@@ -106,7 +106,7 @@ body {
 	-moz-transition: width 0.2s ease-in 0.2s;
 	transition: width 0.2s ease-in 0.2s;
 	border-radius: 20px;
-	width: 170px;
+	width: 100px;
 	font-size: 0.9em;
 	padding: 6px 12px;
 	height: 34px;
@@ -1147,7 +1147,7 @@ body #header nav.mega-menu .mega-menu-signin ul.dropdown-menu li a, body #header
 	}
 
 	#header .header-top, #header .social-icons, #header .search {
-		display: none;
+		width: 300px;
 	}
 
 	#header .nav-collapse {

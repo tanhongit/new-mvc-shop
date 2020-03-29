@@ -22,7 +22,6 @@
                 </div>
             </div>
         </div>
-
         <div class="container-fluid">
             <!-- Input -->
             <div class="row clearfix">
@@ -45,7 +44,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                
                                 <h2 class="card-inside-title" style="font-weight:bold;">Chọn ngày tạo mới sản phẩm (bắt buộc):</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-4">

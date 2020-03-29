@@ -34,7 +34,8 @@
 									</a>
 									<span class="product-thumb-info-content">
 										<a href="product/<?php echo $saleoff_product['id']; ?>-<?php echo $saleoff_product['slug']; ?>/">
-											<h4><?php echo $saleoff_product['product_name']; ?></h4>
+										<h4 title="<?php echo $saleoff_product['product_name']; ?>"><?php if (strlen($saleoff_product['product_name']) > 50) echo substr($saleoff_product['product_name'], 0, 57) . '...';
+																									else echo $saleoff_product['product_name'];  ?></h4>
 											<span class="price">
 												<?php if ($saleoff_product['saleoff'] != 0) { ?>
 													<del><span class="amount"><?php echo number_format($saleoff_product['product_price'], 0, ',', '.');  ?></span></del>

@@ -110,7 +110,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="phone" type="text" value="<?php echo $user_info ? $user_info['user_phone'] : ''; ?>" class="form-control" id="totalview" placeholder="0123456789..." />
+                                    <input name="phone" type="text" value="<?php echo $user_info ? $user_info['user_phone'] : ''; ?>" class="form-control" id="totalview" required placeholder="0123456789..." />
                                 </div>
                             </div>
                         </div>

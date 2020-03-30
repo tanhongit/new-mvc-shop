@@ -20,6 +20,9 @@
             <!-- Basic Examples -->
             <div class="row clearfix">
                 <div class="col-lg-12">
+                    <?php if ($user_info['verified'] == 0) : ?>
+                        <div class='alert alert-danger' style='text-align: center;'><strong>Chú ý!</strong> Có vẻ tài khoản của bạn vẫn chưa xác nhận link gửi đến Email của bạn hoặc đã được thay đổi Email mới. Vui lòng kiểm tra hộp thư và nhấn vào link xác nhận ở Email để kích hoạt Email, tài khoản của bạn và giúp tăng bảo mật tài khoản hơn !! </div>
+                    <?php endif; ?>
                     <div class="card">
                         <h3>Thông tin tải khoản cá nhân</h3>
                         <table id="info" class="table">

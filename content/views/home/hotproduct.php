@@ -5,7 +5,7 @@
 			<div class="col-md-12">
 				<div class="row">
 					<div class="col-md-12">
-						<h2><a href="type/3-san-pham-hot">Sản Phẩm <strong>Nổi Bật</strong></a></h2>
+						<h2><a href="type/1-san-pham-hot">Sản Phẩm <strong>Nổi Bật</strong></a></h2>
 					</div>
 					<ul class="products product-thumb-info-list">
 						<?php if (empty($hot_products)) : ?>
@@ -50,6 +50,9 @@
 							</li>
 						<?php endforeach; ?>
 					</ul>
+					<div style="text-align: center; padding-bottom: 30px" class="col-md-12">
+						<a href="type/1-san-pham-hot" class="btn btn-primary">Xem thêm →</a>
+					</div>
 				</div>
 			</div>
 		</div>

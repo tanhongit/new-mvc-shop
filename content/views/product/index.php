@@ -19,21 +19,27 @@
                                     <img alt="" class="img-responsive img-rounded" src="public/upload/products/<?php echo $product['img1'] ?>">
                                 </div>
                             </div>
-                            <div>
-                                <div class="thumbnail">
-                                    <img alt="" class="img-responsive img-rounded" src="public/upload/products/<?php echo $product['img2'] ?>">
+                            <?php if (strlen($product['img2']) > 1) { ?>
+                                <div>
+                                    <div class="thumbnail">
+                                        <img alt="" class="img-responsive img-rounded" src="public/upload/products/<?php echo $product['img2'] ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <div>
-                                <div class="thumbnail">
-                                    <img alt="" class="img-responsive img-rounded" src="public/upload/products/<?php echo $product['img3'] ?>">
+                            <?php }
+                            if (strlen($product['img3']) > 1) { ?>
+                                <div>
+                                    <div class="thumbnail">
+                                        <img alt="" class="img-responsive img-rounded" src="public/upload/products/<?php echo $product['img3'] ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <div>
-                                <div class="thumbnail">
-                                    <img alt="" class="img-responsive img-rounded" src="public/upload/products/<?php echo $product['img4'] ?>">
+                            <?php }
+                            if (strlen($product['img4']) > 1) : ?>
+                                <div>
+                                    <div class="thumbnail">
+                                        <img alt="" class="img-responsive img-rounded" src="public/upload/products/<?php echo $product['img4'] ?>">
+                                    </div>
                                 </div>
-                            </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -215,8 +221,8 @@
                                     </a>
                                     <span class="product-thumb-info-content">
                                         <a href="product/<?php echo $related_product['id']; ?>-<?php echo $related_product['slug']; ?>">
-                                        <h4 title="<?php echo $related_product['product_name']; ?>"><?php if (strlen($related_product['product_name']) > 50) echo substr($related_product['product_name'], 0, 57) . '...';
-																									else echo $related_product['product_name'];  ?></h4>
+                                            <h4 title="<?php echo $related_product['product_name']; ?>"><?php if (strlen($related_product['product_name']) > 50) echo substr($related_product['product_name'], 0, 57) . '...';
+                                                                                                        else echo $related_product['product_name'];  ?></h4>
                                             <span class="price">
                                                 <?php if ($related_product['saleoff'] != 0) { ?>
                                                     <del><span class="amount"><?php echo number_format($related_product['product_price'], 0, ',', '.');  ?></span></del>

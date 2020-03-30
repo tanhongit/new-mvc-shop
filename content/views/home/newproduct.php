@@ -50,6 +50,9 @@
 							</li>
 						<?php endforeach; ?>
 					</ul>
+					<div style="text-align: center;" class="col-md-12">
+						<a href="type/2-san-pham-moi" class="btn btn-primary">Xem thêm →</a>
+					</div>
 				</div>
 			</div>
 		</div>

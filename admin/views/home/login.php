@@ -1,5 +1,6 @@
 <!doctype html>
 <html class="no-js " lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="admin/themes/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="admin/themes/css/style.min.css">
 </head>
+
 <body class="theme-blush">
     <div class="authentication">
         <div class="container">
@@ -35,6 +37,7 @@
                             </div>
                             <button type="submit" class="btn btn-primary btn-block waves-effect waves-light">LOG IN</button>
                             <div class="signin_with mt-3">
+                                <p class="mb-0"><a href="index.php?controller=forgot-password"><i class="zmdi zmdi-lock"></i> Quên mật khẩu ?</a></a></p>
                                 <p class="mb-0">hoặc <a href="register">Đăng ký</a> để sử dụng</p>
                                 <button class="btn btn-primary btn-icon btn-icon-mini btn-round facebook"><i class="zmdi zmdi-facebook"></i></button>
                                 <button class="btn btn-primary btn-icon btn-icon-mini btn-round twitter"><i class="zmdi zmdi-twitter"></i></button>
@@ -62,4 +65,5 @@
     <script src="admin/themes/bundles/libscripts.bundle.js"></script>
     <script src="admin/themes/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
 </body>
+
 </html>

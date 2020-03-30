@@ -4,6 +4,7 @@ $get_id = array(
 );
 $sub_cate = get_all('subcategory', $get_id);
 $shops = get_all('categories', $get_id);
+$types = get_all('types', $get_id);
 $product_top = get_all('products', array(
     'limit' => '6',
     'offset' => '0',
@@ -27,6 +28,9 @@ $product_new = get_all('products', array(
     </form>
     <hr />
     <h3 style="font-weight: bold;">Danh mục</h3>
+    <?php foreach ($types as $type) { ?>
+        <a href="type/<?php echo $type['id'] . '-' . $type['slug']; ?>"><span class="label label-dark"><?php echo $type['type_name'] ?></span></a>
+    <?php } ?><br>
     <?php foreach ($sub_cate as $cate) { ?>
         <a href="category/<?php echo $cate['id'] . '-' . $cate['slug']; ?>"><span class="label label-dark"><?php echo $cate['subcategory_name'] ?></span></a>
     <?php } ?>

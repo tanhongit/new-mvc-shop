@@ -8,35 +8,35 @@
                 <hr class="light">
                 <div class="row">
                     <div class="col-md-3">
-                        <h5><?=$menu_footers[12]['menu_name']?></h5>
+                        <h5><?= $menu_footers[12]['menu_name'] ?></h5>
                         <ul class="list icons list-unstyled">
-                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[0]['menu_url']?>"><?=$menu_footers[0]['menu_name']?></a></li>
-                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[1]['menu_url']?>"><?=$menu_footers[1]['menu_name']?></a></li>
-                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[2]['menu_url']?>"><?=$menu_footers[2]['menu_name']?></a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?= $menu_footers[0]['menu_url'] ?>"><?= $menu_footers[0]['menu_name'] ?></a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?= $menu_footers[1]['menu_url'] ?>"><?= $menu_footers[1]['menu_name'] ?></a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?= $menu_footers[2]['menu_url'] ?>"><?= $menu_footers[2]['menu_name'] ?></a></li>
                         </ul>
                     </div>
                     <div class="col-md-3">
-                        <h5><?=$menu_footers[13]['menu_name']?></h5>
+                        <h5><?= $menu_footers[13]['menu_name'] ?></h5>
                         <ul class="list icons list-unstyled">
-                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[3]['menu_url']?>"><?=$menu_footers[3]['menu_name']?></a></li>
-                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[4]['menu_url']?>"><?=$menu_footers[4]['menu_name']?></a></li>
-                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[5]['menu_url']?>"><?=$menu_footers[5]['menu_name']?></a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?= $menu_footers[3]['menu_url'] ?>"><?= $menu_footers[3]['menu_name'] ?></a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?= $menu_footers[4]['menu_url'] ?>"><?= $menu_footers[4]['menu_name'] ?></a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?= $menu_footers[5]['menu_url'] ?>"><?= $menu_footers[5]['menu_name'] ?></a></li>
                         </ul>
                     </div>
                     <div class="col-md-3">
-                        <h5><?=$menu_footers[14]['menu_name']?></h5>
+                        <h5><?= $menu_footers[14]['menu_name'] ?></h5>
                         <ul class="list icons list-unstyled">
-                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[6]['menu_url']?>"><?=$menu_footers[6]['menu_name']?></a></li>
-                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[7]['menu_url']?>"><?=$menu_footers[7]['menu_name']?></a></li>
-                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[8]['menu_url']?>"><?=$menu_footers[8]['menu_name']?></a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?= $menu_footers[6]['menu_url'] ?>"><?= $menu_footers[6]['menu_name'] ?></a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?= $menu_footers[7]['menu_url'] ?>"><?= $menu_footers[7]['menu_name'] ?></a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?= $menu_footers[8]['menu_url'] ?>"><?= $menu_footers[8]['menu_name'] ?></a></li>
                         </ul>
                     </div>
                     <div class="col-md-3">
-                        <h5><?=$menu_footers[15]['menu_name']?></h5>
+                        <h5><?= $menu_footers[15]['menu_name'] ?></h5>
                         <ul class="list icons list-unstyled">
-                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[9]['menu_url']?>"><?=$menu_footers[9]['menu_name']?></a></li>
-                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[10]['menu_url']?>"><?=$menu_footers[10]['menu_name']?></a></li>
-                            <li><i class="fa fa-caret-right"></i> <a href="<?=$menu_footers[11]['menu_url']?>"><?=$menu_footers[11]['menu_name']?></a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?= $menu_footers[9]['menu_url'] ?>"><?= $menu_footers[9]['menu_name'] ?></a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?= $menu_footers[10]['menu_url'] ?>"><?= $menu_footers[10]['menu_name'] ?></a></li>
+                            <li><i class="fa fa-caret-right"></i> <a href="<?= $menu_footers[11]['menu_url'] ?>"><?= $menu_footers[11]['menu_name'] ?></a></li>
                         </ul>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                 <p class="short">SĐT Phụ: <?= $phone2 ?></p>
                 <ul class="list icons list-unstyled push-top">
                     <li><i class="fa fa-map-marker"></i> <strong>Địa chỉ:</strong> <?= $address_contact ?></li>
-                    <li><i class="fa fa-envelope"></i> <strong>Email:</strong> <a href="mailto:mail@example.com"><?= $email_contact ?></a></li>
+                    <li><i class="fa fa-envelope"></i> <strong>Email:</strong> <a href="mailto:<?= $email_contact ?>"><?= $email_contact ?></a></li>
                 </ul>
                 <div class="social-icons push-top">
                     <ul class="social-icons">

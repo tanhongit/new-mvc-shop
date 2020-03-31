@@ -14,3 +14,9 @@ send mail:
     - https://github.com/PHPMailer/PHPMailer
     - https://www.youtube.com/watch?v=fyCh7ygWfvE
 
+
+Validation form:
+    - https://codewithawa.com/posts/form-validation-with-javascript
+
+None:
+    - https://codewithawa.com/posts/admin-and-user-login-in-php-and-mysql-database

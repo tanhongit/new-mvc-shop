@@ -132,7 +132,7 @@
                                             <li>
                                                 <div class="comment">
                                                     <div class="img-thumbnail">
-                                                        <img class="avatar" alt="" src="public/upload/media/author-comment.png">
+                                                        <image style="max-width: 80px;" alt="" src="public/upload/images/<?= $comment['link_image'] ?>"></image>
                                                     </div>
                                                     <div class="comment-block">
                                                         <div class="comment-arrow"></div>
@@ -150,22 +150,29 @@
                                         <div class="col-md-12">
                                             <form action="index.php?controller=comment" id="submitReview" method="post">
                                                 <input name="product_id" type="hidden" value="<?= $product['id'] ?>">
+                                                <input name="user_id" type="hidden" value="<?php echo $user_nav ? $user_nav : '0'; ?> ">
                                                 <div class="row">
-                                                    <div class="form-group">
-                                                        <div class="col-md-6">
-                                                            <label>Tên bạn *</label>
-                                                            <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="author" id="author" placeholder="Please enter your name.." required>
+                                                    <?php if (!isset($user_nav)) : ?>
+                                                        <div class="form-group">
+                                                            <div class="col-md-6">
+                                                                <label>Tên bạn *</label>
+                                                                <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="author" id="author" placeholder="Please enter your name.." required>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label>Email của bạn *</label>
+                                                                <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email" placeholder="Please enter your email..." required>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <label>Email của bạn *</label>
-                                                            <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email" placeholder="Please enter your email..." required>
-                                                        </div>
-                                                    </div>
+                                                    <?php else : ?>
+                                                        <input name="author" type="hidden" value="<?= $user_login['user_name'] ?>">
+                                                        <input name="email" type="hidden" value="<?= $user_login['user_email'] ?>">
+                                                        <input name="link_image" type="hidden" value="<?= $user_login['user_avatar'] ?>">
+                                                    <?php endif; ?>
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-12">
-                                                            <label>Nhận xét, bình luận của bạn *</label>
+                                                            <label>Bạn đang đăng nhập với tài khoản <strong><?= $user_login['user_name'] ?></strong>. Bạn muốn <a href="admin.php?controller=home&action=logout">đăng xuất</a> ?</label>
                                                             <textarea maxlength="5000" data-msg-required="Please enter your message." rows="10" class="form-control" name="content" id="message" placeholder="Nhập nhận xét hoặc tin nhắn hoặc bình luận của bạn về sản phẩm ....."></textarea>
                                                         </div>
                                                     </div>

@@ -114,7 +114,7 @@ body {
 }
 
 #header .search input.search:focus {
-	width: 220px;
+	width: 80px;
 	border-color: #CCC;
 }
 
@@ -1147,7 +1147,7 @@ body #header nav.mega-menu .mega-menu-signin ul.dropdown-menu li a, body #header
 	}
 
 	#header .header-top, #header .social-icons, #header .search {
-		width: 300px;
+		width: 150px;
 	}
 
 	#header .nav-collapse {

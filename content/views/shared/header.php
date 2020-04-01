@@ -68,18 +68,8 @@ $user_login = get_a_record('users', $user_nav);
 				<div class="logo">
 					<a href="home">
 						<?php if (isset($link_logo)) : ?>
-							<!-- <img alt="Porto" width="111" height="54" data-sticky-width="82" data-sticky-height="40" src="public/img/<?= $link_logo ?>"><?php endif; ?> -->
+							<img alt="Porto" width="111" height="54" data-sticky-width="82" data-sticky-height="40" src="public/img/<?= $link_logo ?>"><?php endif; ?>
 					</a>
-				</div>
-				<div class="search">
-					<form id="searchForm" action="<?php echo PATH_URL; ?>search/" method="get">
-						<div class="input-group">
-							<input type="text" class="form-control search" name="keyword" id="q" placeholder="Search..." required>
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-							</span>
-						</div>
-					</form>
 				</div>
 				<nav>
 					<ul class="nav nav-pills nav-top">
@@ -267,7 +257,8 @@ $user_login = get_a_record('users', $user_nav);
 							<?php else : ?>
 								<li class="dropdown mega-menu-item mega-menu-signin signin logged" id="headerAccount">
 									<a class="dropdown-toggle" href="admin.php">
-										<i class="fa fa-user"></i> <?= $user_login['user_name'] ?>
+										<?php if (!isset($user_login['user_avatar'])) echo '<i class="fa fa-user"></i>';
+										else echo '<img style="max-width: 25px;  border-radius: 15px 15px 15px 15px;" src="public/upload/images/' . $user_login['user_avatar'] . '" alt="' . $user_login['user_name'] . '">'; ?> <?= $user_login['user_username'] ?>
 										<i class="fa fa-angle-down"></i>
 									</a>
 									<ul class="dropdown-menu">

@@ -172,7 +172,11 @@
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-12">
-                                                            <label>Bạn đang đăng nhập với tài khoản <strong><?= $user_login['user_name'] ?></strong>. Bạn muốn <a href="admin.php?controller=home&action=logout">đăng xuất</a> ?</label>
+                                                            <?php if (isset($user_nav)) : ?>
+                                                                <label>Bạn đang đăng nhập với tài khoản <strong><?= $user_login['user_name'] ?></strong>. Bạn muốn <a href="admin.php?controller=home&action=logout">đăng xuất</a> ?</label>
+                                                            <?php else : ?>
+                                                                <label>Bạn có muốn <strong><a href="admin.php?controller=home&action=login">đăng nhập</a></strong> để bình luận bằng tài khoản của bạn.!</label>
+                                                            <?php endif; ?>
                                                             <textarea maxlength="5000" data-msg-required="Please enter your message." rows="10" class="form-control" name="content" id="message" placeholder="Nhập nhận xét hoặc tin nhắn hoặc bình luận của bạn về sản phẩm ....."></textarea>
                                                         </div>
                                                     </div>

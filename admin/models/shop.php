@@ -15,3 +15,14 @@ function categories_delete($id)
     $sql = "DELETE FROM categories WHERE id=$id";
     mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
 }
+function category_uodate()
+{
+    $category = array(
+        'id' => intval($_POST['cate_id']),
+        'category_name' => escape($_POST['name']),
+        'slug' => slug($_POST['name']),
+        'category_position' => intval($_POST['position'])
+    );
+    save('categories', $category);
+    header('location:admin.php?controller=shop');
+}

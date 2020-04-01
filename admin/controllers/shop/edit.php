@@ -2,14 +2,7 @@
 permission_user();
 require_once('admin/models/shop.php');
 if (!empty($_POST)) {
-    $category = array(
-        'id' => intval($_POST['cate_id']),
-        'category_name' => escape($_POST['name']),
-        'slug' => slug($_POST['name']),
-        'category_position' => intval($_POST['position'])
-    );
-    save('categories', $category);
-    header('location:admin.php?controller=shop');
+    category_uodate();
 }
 if (isset($_GET['cate_id'])) $cate_id = intval($_GET['cate_id']);
 else $cate_id = 0;

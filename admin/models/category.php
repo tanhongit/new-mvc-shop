@@ -15,3 +15,14 @@ function subcategories_delete($id)
     $sql = "DELETE FROM subcategory WHERE id=$id";
     mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
 }
+function subcategory_update()
+{
+    $subcategory = array(
+        'id' => intval($_POST['subcate_id']),
+        'subcategory_name' => escape($_POST['name']),
+        'slug' => slug($_POST['name']),
+        'category_id' => intval($_POST['category_id'])
+    );
+    save('subcategory', $subcategory);
+    header('location:admin.php?controller=category');
+}

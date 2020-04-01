@@ -1,14 +1,8 @@
 <?php
 permission_user();
+require_once('admin/models/category.php');
 if (!empty($_POST)) {
-    $subcategory = array(
-        'id' => intval($_POST['subcate_id']),
-        'subcategory_name' => escape($_POST['name']),
-        'slug' => slug($_POST['name']),
-        'category_id' => intval($_POST['category_id'])
-    );
-    save('subcategory', $subcategory);
-    header('location:admin.php?controller=category');
+    subcategory_update();
 }
 $categories = get_all('categories', array(
     'select' => 'id,category_name',

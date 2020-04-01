@@ -169,7 +169,7 @@
                                 </div>
                                 <div class="form-group" style="text-align: center;">
                                     <button class="btn btn-primary waves-effect" type="submit"><?php echo $contact ? 'Cập nhật lại header footer' : ''; ?></button>
-                                    <a class="btn btn-warning waves-effect" href="admin.php?controller=contact">Trở về</a>
+                                    <a class="btn btn-warning waves-effect" href="admin.php">Trở về</a>
                                 </div>
                             </form>
                         </div>

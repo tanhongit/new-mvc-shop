@@ -93,7 +93,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h2 class="card-inside-title" style="font-weight:bold;">Chọn ngày tạo mới sản phẩm (bắt buộc):</h2>
+                                <h2 class="card-inside-title" style="font-weight:bold;">Chọn ngày tạo mới thành viên (bắt buộc):</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-4">
                                         <input name="createDate" id="createDate" type="date" value="<?php echo $user_info ? $user_info['createDate'] : date('d/m/Y'); ?>" class="form-control" placeholder="Please choose date & time...">

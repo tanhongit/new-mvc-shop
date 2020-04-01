@@ -4,8 +4,10 @@ $title = 'Thông tin cá nhân';
 if (isset($_GET['user_id'])) $user_id = intval($_GET['user_id']);
 else $user_id = 0;
 global $user_nav;
-if ($user_id != $user_nav) {
+$login_user = get_a_record('users', $user_nav);
+if ($user_id != $user_nav && $login_user['role_id'] == 0) {
     header('location:index.php');
+    exit;
 }
 $user_info = get_a_record('users', $user_id);
 require('admin/views/user/info.php');

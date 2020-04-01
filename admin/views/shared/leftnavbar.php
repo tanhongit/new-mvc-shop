@@ -14,7 +14,7 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                     <div class="detail">
                         <h4><?= $user_info_nav['user_name'] ?></h4>
                         <small><?php if ($user_info_nav['role_id'] == 1) echo 'Admin';
-                                elseif ($user_info_nav['role_id'] == 3) echo 'Moderator';
+                                elseif ($user_info_nav['role_id'] == 2) echo 'Moderator';
                                 else echo "User"; ?></small>
                     </div>
                 </div>
@@ -27,65 +27,67 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                     <li><a href="admin.php?controller=user&action=change-password&user_id=<?= $user_info_nav['id'] ?>">Change your Password</a></li>
                 </ul>
             </li>
-            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Quản lý sản phẩm</span></a>
-                <ul class="ml-menu">
-                    <li><a href="admin.php?controller=product">Danh sách sản phẩm</a></li>
-                    <li><a href="admin.php?controller=product&action=newproduct">Sản phẩm mới</a></li>
-                    <li><a href="admin.php?controller=product&action=saleproduct">Sản phẩm khuyến mại</a></li>
-                    <li><a href="admin.php?controller=product&action=hotproduct">Sản phẩm hot</a></li>
-                    <li><a href="admin.php?controller=product&amp;action=edit">Add sản phẩm mới</a></li>
-                </ul>
-            </li>
-            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-folder"></i><span>Quản lý danh mục</span></a>
-                <ul class="ml-menu">
-                    <li><a href="admin.php?controller=shop">1. Nhóm danh mục</a></li>
-                    <li><a href="admin.php?controller=shop&amp;action=edit">2. Add nhóm danh mục mới</a></li>
-                    <li><a href="admin.php?controller=category">3. Danh mục con</a></li>
-                    <li><a href="admin.php?controller=category&amp;action=edit">4. Add danh mục con mới</a></li>
-                </ul>
-            </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-shopping-cart"></i><span>Quản lý đơn hàng</span></a>
-                <ul class="ml-menu">
-                    <li><a href="admin.php?controller=order">Danh sách All đơn hàng</a></li>
-                    <li><a href="admin.php?controller=order&amp;action=order-noprocess">Đơn hàng chưa xử lý</a></li>
-                    <li><a href="admin.php?controller=order&amp;action=order-inprocess">Đơn hàng đang xử lý</a></li>
-                    <li><a href="admin.php?controller=order&amp;action=order-complete">Đơn hàng đã xử lý</a></li>
-                </ul>
-            </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>User</span></a>
-                <ul class="ml-menu">
-                    <li><a href="admin.php?controller=user&action=info&user_id=<?= $user_nav ?>">Your Profile</a></li>
-                    <li><a href="admin.php?controller=user&action=listall">List Profile</a></li>
-                    <li><a href="admin.php?controller=user&action=add">Add New User</a></li>
-                </ul>
-            </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Admin</span></a>
-                <ul class="ml-menu">
-                    <li><a href="admin.php?controller=user&action=info&user_id=<?= $user_nav ?>">Your Profile</a></li>
-                    <li><a href="admin.php?controller=role">List Role</a></li>
-                    <li><a href="admin.php?controller=role&action=admin">List Admin</a></li>
-                    <li><a href="admin.php?controller=user&action=add">Add New User Or Admin</a></li>
-                </ul>
-            </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-collection-folder-image"></i><span>Media</span></a>
-                <ul class="ml-menu">
-                    <li><a href="admin.php?controller=media&action=image-gallery">Product Image Gallery</a></li>
-                    <li><a href="admin.php?controller=media">Library Media Upload</a></li>
-                    <li><a href="admin.php?controller=media&action=add">Add New Media</a></li>
-                </ul>
-            </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-dns"></i><span>Backup</span></a>
-                <ul class="ml-menu">
-                    <li><a href="admin.php?controller=backupdb">Backup CSDL</a></li>
-                    <li><a href="admin.php?controller=backupdb&action=list">List Backup CSDL</a></li>
-                </ul>
-            </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-view-web"></i><span>Setup View Web</span></a>
-                <ul class="ml-menu">
-                    <li><a href="admin.php?controller=slide">Slide HomePage</a></li>
-                    <li><a href="admin.php?controller=backupdb&action=list">List Backup CSDL</a></li>
-                </ul>
-            </li>
+            <?php if ($user_info_nav['role_id'] != 0) : ?>
+                <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Quản lý sản phẩm</span></a>
+                    <ul class="ml-menu">
+                        <li><a href="admin.php?controller=product">Danh sách sản phẩm</a></li>
+                        <li><a href="admin.php?controller=product&action=newproduct">Sản phẩm mới</a></li>
+                        <li><a href="admin.php?controller=product&action=saleproduct">Sản phẩm khuyến mại</a></li>
+                        <li><a href="admin.php?controller=product&action=hotproduct">Sản phẩm hot</a></li>
+                        <li><a href="admin.php?controller=product&amp;action=edit">Add sản phẩm mới</a></li>
+                    </ul>
+                </li>
+                <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-folder"></i><span>Quản lý danh mục</span></a>
+                    <ul class="ml-menu">
+                        <li><a href="admin.php?controller=shop">1. Nhóm danh mục</a></li>
+                        <li><a href="admin.php?controller=shop&amp;action=edit">2. Add nhóm danh mục mới</a></li>
+                        <li><a href="admin.php?controller=category">3. Danh mục con</a></li>
+                        <li><a href="admin.php?controller=category&amp;action=edit">4. Add danh mục con mới</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-shopping-cart"></i><span>Quản lý đơn hàng</span></a>
+                    <ul class="ml-menu">
+                        <li><a href="admin.php?controller=order">Danh sách All đơn hàng</a></li>
+                        <li><a href="admin.php?controller=order&amp;action=order-noprocess">Đơn hàng chưa xử lý</a></li>
+                        <li><a href="admin.php?controller=order&amp;action=order-inprocess">Đơn hàng đang xử lý</a></li>
+                        <li><a href="admin.php?controller=order&amp;action=order-complete">Đơn hàng đã xử lý</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>User</span></a>
+                    <ul class="ml-menu">
+                        <li><a href="admin.php?controller=user&action=info&user_id=<?= $user_nav ?>">Your Profile</a></li>
+                        <li><a href="admin.php?controller=user&action=listall">List Profile</a></li>
+                        <li><a href="admin.php?controller=user&action=add">Add New User</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Admin</span></a>
+                    <ul class="ml-menu">
+                        <li><a href="admin.php?controller=user&action=info&user_id=<?= $user_nav ?>">Your Profile</a></li>
+                        <li><a href="admin.php?controller=role">List Role</a></li>
+                        <li><a href="admin.php?controller=role&action=admin">List Admin</a></li>
+                        <li><a href="admin.php?controller=user&action=add">Add New User Or Admin</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-collection-folder-image"></i><span>Media</span></a>
+                    <ul class="ml-menu">
+                        <li><a href="admin.php?controller=media&action=image-gallery">Product Image Gallery</a></li>
+                        <li><a href="admin.php?controller=media">Library Media Upload</a></li>
+                        <li><a href="admin.php?controller=media&action=add">Add New Media</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-dns"></i><span>Backup</span></a>
+                    <ul class="ml-menu">
+                        <li><a href="admin.php?controller=backupdb">Backup CSDL</a></li>
+                        <li><a href="admin.php?controller=backupdb&action=list">List Backup CSDL</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-view-web"></i><span>Setup View Web</span></a>
+                    <ul class="ml-menu">
+                        <li><a href="admin.php?controller=slide">Slide HomePage</a></li>
+                        <li><a href="admin.php?controller=backupdb&action=list">List Backup CSDL</a></li>
+                    </ul>
+                </li>
+            <?php endif; ?>
         </ul>
     </div>
 </aside>

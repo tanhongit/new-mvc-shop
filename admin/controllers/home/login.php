@@ -8,8 +8,10 @@ if (!empty($_POST)) {
 
 if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
-    if ($user['role_id']==1||$user['role_id']==2){
-    header('location:admin.php');
+    if ($user['role_id'] == 1 || $user['role_id'] == 2) {
+        header('location:admin.php');
+    } elseif ($user['role_id'] == 0) {
+        header('location:index.php');
     }
 }
 $title = 'Administrator - Login Quản Trị Shop';

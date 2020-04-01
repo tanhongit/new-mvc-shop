@@ -1,4 +1,5 @@
 <?php
+permission_user();
 require_once('admin/models/users.php');
 if (!empty($_POST)) {
     $user_add = array(

@@ -6,6 +6,10 @@ use PHPMailer\PHPMailer\Exception;
 
 require_once('admin/models/users.php');
 if (!empty($_POST)) {
+    global $user_nav;
+    if ($_POST['user_id'] != $user_nav) {
+        header('location:index.php');
+    }
     $user_edit = array(
         'id' => intval($_POST['user_id']),
         'user_email' => escape($_POST['email']),
@@ -88,6 +92,10 @@ if (!empty($_POST)) {
 }
 if (isset($_GET['user_id'])) $user_id = intval($_GET['user_id']);
 else $user_id = 0;
+global $user_nav;
+if ($user_id != $user_nav) {
+    header('location:index.php');
+}
 $title = ($user_id == 0) ? 'Thêm thông tin' : 'Cập nhật thông tin tài khoản';
 $user_info = get_a_record('users', $user_id);
 require('admin/views/user/edit.php');

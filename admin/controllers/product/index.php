@@ -1,5 +1,6 @@
 <?php
 require_once('admin/models/products.php');
+permission_user();
 if (isset($_POST['search'])) {
     header('location:admin.php?controller=product&search='.$_POST['search']);
 }

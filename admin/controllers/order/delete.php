@@ -1,4 +1,5 @@
 <?php
+permission_user();
 //load model
 require_once('admin/models/order.php');
 $order_id = intval($_GET['order_id']);

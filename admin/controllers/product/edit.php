@@ -1,4 +1,5 @@
 <?php
+permission_user();
 //load model
 require_once('admin/models/products.php');
 if (!empty($_POST)) {

@@ -1,4 +1,5 @@
 <?php
+permission_user();
 require_once('admin/models/slides.php');
 if (!empty($_POST)) {
     $name = escape($_POST['name']);

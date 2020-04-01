@@ -1,4 +1,5 @@
 <?php
+permission_user();
 require_once('admin/models/shop.php');
 if (isset($_POST['cate_id'])) {
     foreach ($_POST['cate_id'] as $cate_id) {

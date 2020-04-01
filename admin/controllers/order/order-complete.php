@@ -1,4 +1,5 @@
 <?php
+permission_user();
 $options = array(
     'where' => 'status = 1',
     'order_by' => 'createtime DESC'

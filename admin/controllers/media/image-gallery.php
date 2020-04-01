@@ -1,4 +1,5 @@
 <?php
+permission_user();
 $options = array(
     'order_by' => 'id ASC'
 );

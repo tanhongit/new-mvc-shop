@@ -1,4 +1,5 @@
 <?php
+permission_user();
 require_once('admin/models/backupDB.php');
 if(isset($_POST['back_u_P_Data_base'])) {
     backup_db();

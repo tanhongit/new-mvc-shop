@@ -28,6 +28,8 @@ $options_menu_footer = array(
 	'offset' => 15
 );
 $menu_footers = get_all('menu_footers', $options_menu_footer);
+global $user_nav;
+$user_login = get_a_record('users', $user_nav);
 ?>
 <!DOCTYPE html>
 <html>
@@ -56,6 +58,16 @@ $menu_footers = get_all('menu_footers', $options_menu_footer);
 	<link rel="stylesheet" href="public/css/skins/default.css">
 	<link rel="stylesheet" href="public/css/custom.css">
 	<script src="public/vendor/modernizr/modernizr.js"></script>
+	<style>
+		img {
+			max-width: 30px;
+		}
+
+		img {
+			max-width: 30px;
+			border-radius: 30px 30px 30px 30px;
+		}
+	</style>
 </head>
 
 <body>
@@ -77,13 +89,36 @@ $menu_footers = get_all('menu_footers', $options_menu_footer);
 						</div>
 					</form>
 				</div>
+				<?php if (!isset($user_login)) : ?>
+					<nav>
+						<ul class="nav nav-pills nav-top">
+							<li>
+								<a href="register.php"><strong><i class="fa fa-sign-in"></i>Đăng ký</strong></a>
+							</li>
+							<li>
+								<a href="admin.php"><strong><i class="fa fa-user"></i>Đăng nhập</strong></a>
+							</li>
+						</ul>
+					</nav>
+				<?php else : ?>
+					<nav>
+						<ul class="nav nav-pills nav-top">
+							<li>
+								<a href="admin.php"><strong><img src="public/upload/images/<?php echo $user_login['user_avatar']; ?>" alt="<?= $user_login['user_name'] ?>"> <?= $user_login['user_username'] ?></a></strong></a>
+							</li>
+							<li>
+								<a onclick="return confirm('Bạn có chắc muốn đăng xuất?')" href="admin.php?controller=home&action=logout"><strong><i class="fa fa-sign-out"></i>Đăng xuất</strong></a>
+							</li>
+						</ul>
+					</nav>
+				<?php endif; ?>
 				<nav>
 					<ul class="nav nav-pills nav-top">
 						<li>
 							<a href="about-us.html"><i class="fa fa-angle-right"></i>About Us</a>
 						</li>
 						<li>
-							<a href="<?= $link_contact ?>"><i class="fa fa-angle-right"></i>Contact Us</a>
+							<a href="<?= $link_contact ?>"><i class="fa fa-headphones"></i>Contact Us</a>
 						</li>
 						<li class="phone">
 							<span><i class="fa fa-phone"></i><?= $phone ?></span>
@@ -104,7 +139,7 @@ $menu_footers = get_all('menu_footers', $options_menu_footer);
 									<i class="fa fa-angle-down"></i>
 								</a>
 								<ul class="dropdown-menu">
-									<li><a href="#">Home - Default</a></li>
+									<li><a href="#">Hiện tất cả sản phẩm</a></li>
 									<li><a href="#">Home - Corporate <span class="tip">hot</span></a></li>
 									<li><a href="#">Home - Color</a></li>
 									<li><a href="#">Home - Light</a></li>

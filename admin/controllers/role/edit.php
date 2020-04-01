@@ -1,4 +1,5 @@
 <?php
+permission_user();
 require_once('admin/models/roles.php');
 if (!empty($_POST)) {
     $role = array(

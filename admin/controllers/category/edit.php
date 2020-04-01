@@ -1,4 +1,5 @@
 <?php
+permission_user();
 if (!empty($_POST)) {
     $subcategory = array(
         'id' => intval($_POST['subcate_id']),

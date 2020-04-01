@@ -1,4 +1,5 @@
 <?php
+permission_user();
 require_once('admin/models/roles.php');
 if (isset($_POST['role_id'])) {
     foreach ($_POST['role_id'] as $role_id) {

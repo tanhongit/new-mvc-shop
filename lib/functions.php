@@ -98,12 +98,12 @@ function upload($field, $config = array())
         'overwrite'    => TRUE,
         'max_size'     => 0
     );
-    $options = array_merge($options, $config);//Hợp nhất một hoặc nhiều mảng
+    $options = array_merge($options, $config); //Hợp nhất một hoặc nhiều mảng
     if (!isset($_FILES[$field])) return FALSE;
     $file = $_FILES[$field];
     if ($file['error'] != 0) return FALSE;
     $temp = explode(".", $file["name"]);
-    $ext = end($temp);//Đặt con trỏ bên trong của một mảng thành phần tử cuối cùng của nó
+    $ext = end($temp); //Đặt con trỏ bên trong của một mảng thành phần tử cuối cùng của nó
     if ($options['allowed_exts'] != '*') {
         $allowedExts = explode('|', $options['allowed_exts']);
         if (!in_array($ext, $allowedExts)) return FALSE;
@@ -119,4 +119,13 @@ function upload($field, $config = array())
 
     move_uploaded_file($file["tmp_name"], $file_path);
     return $name;
+}
+//permission 
+function permission_user()
+{
+    global $user_nav;
+    $user_login = get_a_record('users', $user_nav);
+    if ($user_login['role_id'] == 0) {
+        header('location:index.php');
+    }
 }

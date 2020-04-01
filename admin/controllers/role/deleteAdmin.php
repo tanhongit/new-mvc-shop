@@ -1,4 +1,5 @@
 <?php
+permission_user();
 require_once('admin/models/users.php');
 $role_id = intval($_GET['user_id']);
 user_delete($role_id);

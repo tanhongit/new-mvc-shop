@@ -1,4 +1,5 @@
 <?php
+permission_user();
 require_once('admin/models/users.php');
 $options = array(
     'order_by' => 'id ASC'

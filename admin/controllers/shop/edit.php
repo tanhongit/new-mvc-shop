@@ -1,4 +1,5 @@
 <?php
+permission_user();
 require_once('admin/models/shop.php');
 if (!empty($_POST)) {
     $category = array(

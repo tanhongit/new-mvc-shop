@@ -1,4 +1,5 @@
 <?php
+permission_user();
 require_once('admin/models/media.php');
 if (!empty($_POST)) {
     $media_edit = array(

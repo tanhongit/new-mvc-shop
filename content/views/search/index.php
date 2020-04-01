@@ -1,19 +1,15 @@
 <?php require('content/views/shared/header.php'); ?>
 <div role="main" class="main shop">
     <div class="container">
-
         <hr class="tall">
-
         <div class="row">
             <div class="col-md-9">
-
                 <div class="row">
                     <div class="col-md-6">
                         <h1 class="shorter"><strong>Search</strong></h1>
                         <p>Hiển thị <?php if ($total_rows >= 9) echo '1–9 trong '; ?><?php echo $total_rows; ?> kết quả.</p>
                     </div>
                 </div>
-
                 <div class="row">
                     <div>
                         <form action="<?php echo PATH_URL; ?>search/" method="get">
@@ -72,9 +68,7 @@
                             </li>
                         <?php endforeach; ?>
                     </ul>
-
                 </div>
-
                 <div class="row">
                     <div class="col-md-12">
                         <?php echo $pagination; ?>

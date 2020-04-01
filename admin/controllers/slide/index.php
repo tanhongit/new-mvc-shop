@@ -1,4 +1,5 @@
 <?php
+permission_user();
 require_once('admin/models/slides.php');
 if (isset($_POST['slide_id'])) {
     foreach ($_POST['slide_id'] as $slide_id) {

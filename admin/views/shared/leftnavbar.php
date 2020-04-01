@@ -84,7 +84,7 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-view-web"></i><span>Setup View Web</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=slide">Slide HomePage</a></li>
-                        <li><a href="admin.php?controller=backupdb&action=list">List Backup CSDL</a></li>
+                        <li><a href="admin.php?controller=header-footer">Edit Header Footer</a></li>
                     </ul>
                 </li>
             <?php endif; ?>

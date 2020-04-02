@@ -1,6 +1,5 @@
 <?php
 if (!empty($_GET['code'])) {
-
     $select_user_option = array(
         'order_by' => 'id'
     );

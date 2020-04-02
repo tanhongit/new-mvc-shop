@@ -1,0 +1,5 @@
+user :
+    test@gmail.com : 12345678
+
+Mod :
+    moderator@gmail.com : 12345678

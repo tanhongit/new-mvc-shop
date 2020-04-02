@@ -114,7 +114,7 @@
                                 </div>
                             </div>
                         </div>
-                        <h4 class="card-inside-title" style="font-weight:bold;">Chọn ảnh Avatar:</h4>
+                        <h4 class="card-inside-title" style="font-weight:bold;">Chọn ảnh Avatar Mới:</h4>
                         <div class="row clearfix">
                             <div class="col-sm-4">
                                 <input name="imagee" type="file" class="form-control dropify">

@@ -5,7 +5,8 @@
         <div class="row">
             <div class="col-md-12">
                 <h2 class="shorter"><strong>Thủ tục thanh toán và đặt hàng</strong></h2>
-                <p>Phản hồi của khách hàng? <a href="admin.php">Nhấn vào đây để đăng nhập.</a></p>
+                <?php if (!isset($user_nav)) echo '<p>Phản hồi của khách hàng? <a href="admin.php">Nhấn vào đây để đăng nhập.</a></p>';
+                else echo '<p>Phản hồi của Bạn? <a href="index.php&controller=feedback">Nhấn vào đây để gửi phản hồi.</a></p>' ?>
             </div>
         </div>
         <div class="row">
@@ -94,9 +95,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-
                                 <hr class="tall">
-
                                 <h3 style="text-align: center;"><strong>Lưu ý đặt hàng và thanh toán</strong></h3>
                                 <p><strong>Quán mình chỉ hỗ trợ khách ăn uống tại quán và Free Shipping nằm trong phạm vi bán kính 10km</strong>, Nếu quý khách có đặt những sản phẩm nằm trong danh mục <strong>Ăn Uống</strong> mà có địa chỉ giao hàng <strong>vượt quá 10km</strong> thì xin quý khách có thể thông cảm và cho phép quán được chân thành xin lỗi vì không thể giao hàng tới được ạ!</p>
                                 <p>Đối với các sản phẩm về Làm đẹp và mĩ phẩm,...(Nằm ngoài danh mục <strong>Ăn Uống</strong>) thì Quán mình vẫn hỗ trợ Free Shipping nằm trong phạm vi bán kính 10km và Ship COD Toàn Quốc ạ!</p>
@@ -135,43 +134,77 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="form-group">
-                                            <div class="col-md-12">
-                                                <label>Họ & Tên</label>
-                                                <input type="text" name="name" class="form-control" required="required" placeholder="Nhập họ và tên thật ...">
+                                    <?php if (!isset($user_nav)) : ?>
+                                        <input type="hidden" name="user_id" value="0">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <label>Họ & Tên</label>
+                                                    <input type="text" name="name" class="form-control" required="required" placeholder="Nhập họ và tên thật ...">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group">
-                                            <div class="col-md-6">
-                                                <label>Tình/ Thành Phố</label>
-                                                <input type="text" name="province" required="required" class="form-control">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label>SĐT để liên lạc</label>
-                                                <input type="text" name="phone" required="required" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group">
-                                            <div class="col-md-12">
-                                                <label>Địa chỉ </label>
-                                                <input type="text" name="address" required="required" class="form-control" placeholder="Mong các bạn nhập chi tiết địa chỉ ạ...">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-md-6">
+                                                    <label>Tình/ Thành Phố</label>
+                                                    <input type="text" name="province" required="required" class="form-control">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>SĐT để liên lạc</label>
+                                                    <input type="text" name="phone" required="required" class="form-control">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <label>Địa chỉ </label>
+                                                    <input type="text" name="address" required="required" class="form-control" placeholder="Mong các bạn nhập chi tiết địa chỉ ạ...">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php else : ?>
+                                        <input type="hidden" name="user_id" value="<?= $user_nav ?>">
+                                        <h3>Thông tin dưới đây tự động được thêm từ tài khoản của bạn. Bạn có thể chỉnh sửa nếu thông tin bị sai lệch!</h3>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <label>Họ & Tên</label>
+                                                    <input type="text" name="name" value="<?= $user_login['user_name'] ?>" class="form-control" required="required" placeholder="Nhập họ và tên thật ...">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-md-6">
+                                                    <label>Tình/ Thành Phố</label>
+                                                    <input type="text" name="province" required="required" class="form-control">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>SĐT để liên lạc</label>
+                                                    <input type="text" value="<?= $user_login['user_phone'] ?>" name="phone" required="required" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <label>Địa chỉ </label>
+                                                    <input type="text" name="address" value="<?= $user_login['user_address'] ?>" required="required" class="form-control" placeholder="Mong các bạn nhập chi tiết địa chỉ ạ...">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-md-12">
                                                 <label>Lời nhắn: </label>
-                                                <textarea name="message" id="message" class="form-control" cols="30" rows="10" placeholder="Ghi lưu ý dành cho người bán...(Bạn có thể thêm thông tin số lượng, kích cỡ,...về các sản phẩm bạn muốn đặt hàng đến cho mình để mình sắp xếp giao hàng cho bạn.)"></textarea>                                              
+                                                <textarea name="message" id="message" class="form-control" cols="30" rows="10" placeholder="Ghi lưu ý dành cho người bán...(Bạn có thể thêm thông tin số lượng, kích cỡ,...về các sản phẩm bạn muốn đặt hàng đến cho mình để mình sắp xếp giao hàng cho bạn.)"></textarea>
                                             </div>
                                         </div>
                                     </div>
-                                    <input name="cart_total" type="hidden" value="<?php echo cart_total() ? cart_total() : '0'; ?>"/>
+                                    <input name="cart_total" type="hidden" value="<?php echo cart_total() ? cart_total() : '0'; ?>" />
                                     <div class="form-group" style="text-align: center">
                                         <button type="submit" class="btn btn-primary"><i class="fa  fa-check-square-o"></i> Đặt hàng</button>
                                     </div>

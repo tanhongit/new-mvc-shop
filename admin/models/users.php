@@ -215,6 +215,54 @@ function user_add()
             );
             save('users', $user_add);
         }
+        //send mail
+        require 'vendor/autoload.php';
+        include 'lib/config/sendmail.php';
+        $mail = new PHPMailer(true);
+        try {
+            $verificationCode = md5(uniqid("Email của bạn vừa mới đổi đó và chưa active đâu. Nhấn vào đây để active nhé! Yêu bạn 3 nghìn", true)); //https://www.php.net/manual/en/function.uniqid
+            $verificationLink = PATH_URL . "index.php?controller=register&action=activate&code=" . $verificationCode;
+            //content
+            $htmlStr = "";
+            $htmlStr .= "Xin chào ". $email . "),<br /><br />";
+            $htmlStr .= "Vui lòng nhấp vào nút bên dưới để xác minh đăng ký của bạn và có quyền truy cập vào trang quản trị của Chị Kòi Quán.<br /><br /><br />";
+            $htmlStr .= "<a href='{$verificationLink}' target='_blank' style='padding:1em; font-weight:bold; background-color:blue; color:#fff;'>VERIFY EMAIL</a><br /><br /><br />";
+            $htmlStr .= "Cảm ơn bạn đã tham gia thành một thành viên mới trong website bán hàng của quán Chị Kòi.<br><br>";
+            $htmlStr .= "Trân trọng,<br />";
+            $htmlStr .= "<a href='https://tanhongit.com/' target='_blank'>By Tân Hồng IT</a><br />";
+            //Server settings
+            $mail->CharSet = "UTF-8";
+            $mail->SMTPDebug = 0; // Enable verbose debug output (0 : ko hiện debug, 1 hiện)
+            $mail->isSMTP(); // Set mailer to use SMTP
+            $mail->Host = SMTP_HOST;  // Specify main and backup SMTP servers
+            $mail->SMTPAuth = true; // Enable SMTP authentication
+            $mail->Username = SMTP_UNAME; // SMTP username
+            $mail->Password = SMTP_PWORD; // SMTP password
+            $mail->SMTPSecure = 'ssl'; // Enable TLS encryption, `ssl` also accepted
+            $mail->Port = SMTP_PORT; // TCP port to connect to
+            //Recipients
+            $mail->setFrom(SMTP_UNAME, "Chị Kòi Quán");
+            $mail->addAddress($email, $email);     // Add a recipient | name is option tên người nhận
+            $mail->addReplyTo(SMTP_UNAME, 'Tên người trả lời');
+            //$mail->addCC('CCemail@gmail.com');
+            //$mail->addBCC('BCCemail@gmail.com');
+            $mail->isHTML(true); // Set email format to HTML
+            $mail->Subject = 'Verification Users | Quán Chị Kòi | Subscription | By Tân Hồng IT';
+            $mail->Body = $htmlStr;
+            $mail->AltBody = $htmlStr; //None HTML
+            $result = $mail->send();
+            if (!$result) {
+                $error = "Có lỗi xảy ra trong quá trình gửi mail";
+            }
+        } catch (Exception $e) {
+            echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+        }
+        $verificationCode_add = array(
+            'id' => $user_id,
+            'verificationCode' => $verificationCode,
+            'verified' => 0
+        );
+        save('users', $verificationCode_add);
         header('location:admin.php?controller=user&action=info&user_id=' . $user_id);
     }
 }

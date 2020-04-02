@@ -9,7 +9,8 @@ if (!empty($_POST)) {
 		'phone' => escape($_POST['phone']),
 		'cart_total' => $_POST['cart_total'],
 		'createtime' => gmdate('Y-m-d H:i:s', time() + 7 * 3600),
-		'message' => escape($_POST['message'])
+		'message' => escape($_POST['message']),
+		'user_id' => intval($_POST['user_id'])
 	);
 	$order_id = save('orders', $order);
 

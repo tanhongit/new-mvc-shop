@@ -73,7 +73,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="roleid" type="text" value="<?php echo $user_info ? $user_info['role_id'] : ''; ?>" class="form-control" id="size" placeholder="( 0=User , 1=Admin, 2=Mod)" />
+                                            <input name="roleid" type="text" required value="<?php echo $user_info ? $user_info['role_id'] : ''; ?>" class="form-control" id="size" placeholder="( 0=User , 1=Admin, 2=Mod)" />
                                         </div>
                                     </div>
                                 </div>

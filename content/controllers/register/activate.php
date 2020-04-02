@@ -10,6 +10,10 @@ if (!empty($_GET['code'])) {
             $verifi_id_user = $user['id'];
         }
     }
+    if (!isset($verifi_id_user)) {
+        show_404();
+        exit;
+    }
     $user_edit = array(
         'id' => $verifi_id_user,
         'verified' => 1

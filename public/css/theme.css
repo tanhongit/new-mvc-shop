@@ -114,7 +114,7 @@ body {
 }
 
 #header .search input.search:focus {
-	width: 80px;
+	width: 150px;
 	border-color: #CCC;
 }
 

@@ -99,9 +99,11 @@ function user_update()
     );
     global $linkconnectDB;
     $email_check = addslashes($_POST['email']);
-    if (mysqli_num_rows(mysqli_query($linkconnectDB, "SELECT user_email FROM users WHERE user_email='$email_check'")) > 0) {
+    $id_check = intval($_POST['user_id']);
+    if (mysqli_num_rows(mysqli_query($linkconnectDB, "SELECT user_email FROM users WHERE user_email='$email_check'")) != 0 && mysqli_num_rows(mysqli_query($linkconnectDB, "SELECT user_email FROM users WHERE id='$id_check' AND user_email='$email_check'")) <> 1) {
         echo "<div style='padding-top: 200' class='container'><div class='alert alert-danger' style='text-align: center;'><strong>NO!</strong> Email này đã có người dùng. Vui lòng chọn Email khác. <a href='javascript: history.go(-1)'>Trở lại</a></div></div>";
         require('admin/views/user/result.php');
+        exit;
     } else {
         $get_currentEmail_user = get_a_record('users', $_POST['user_id']);
         $currentEmail = $get_currentEmail_user['user_email'];

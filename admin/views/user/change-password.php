@@ -67,7 +67,7 @@
                                 <br><br>
                                 <div class="form-group" style="text-align: center;">
                                     <button class="btn btn-primary waves-effect" type="submit">Xác nhận đổi mật khẩu mới</button>
-                                    <a class="btn btn-warning waves-effect" href="admin.php?controller=user&action=listall">Trở về</a>
+                                    <a class="btn btn-warning waves-effect" href="admin.php?controller=user&action=info&amp;user_id=<?php echo $user_info['id']; ?>">Trở về</a>
                                 </div>
                             </form>
                         </div>

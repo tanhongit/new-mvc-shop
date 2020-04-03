@@ -6,7 +6,7 @@
                     <h2><? ?></h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?= PATH_URL . 'home' ?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
-                        <li class="breadcrumb-item"><a href="admin.php?controller=contact">Contact</a></li>
+                        <li class="breadcrumb-item"><a href="admin.php?controller=header-footer">Contact</a></li>
                         <li class="breadcrumb-item active"><?php echo $contact ? '' . $contact['contact_name']  : ''; ?></li>
                     </ul>
                 </div>

@@ -1378,6 +1378,7 @@ body #header nav.mega-menu .mega-menu-signin ul.dropdown-menu li a, body #header
 	}
 
 	#header .social-icons {
+		text-align: center;
 		display: none;
 	}
 
@@ -2327,6 +2328,11 @@ aside ul.nav-list > li > a {
 	padding-top: 0;
 	margin-top: 0;
 }
+@media (max-width: 991px) {
+	#footer.short {
+		text-align: center;
+	}
+}
 
 #footer.light {
 	padding-top: 60px;
@@ -2386,6 +2392,7 @@ aside ul.nav-list > li > a {
 @media (max-width: 991px) {
 	#footer .phone {
 		font-size: 20px;
+		text-align: center;
 	}
 }
 
@@ -2393,6 +2400,7 @@ aside ul.nav-list > li > a {
 	/* Footer */
 	#footer .phone {
 		font-size: 20px;
+		text-align: center;
 	}
 }
 /* Dark Version */

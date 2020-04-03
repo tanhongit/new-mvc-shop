@@ -85,7 +85,7 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=slide">Slide HomePage</a></li>
                         <li><a href="admin.php?controller=header-footer">Edit Header Footer</a></li>
-                        <li><a href="admin.php?controller=header-footer&action=linkFooter">Edit Link Of Footer</a></li>
+                        <li><a href="admin.php?controller=header-footer&action=listMenuFooter">Link Menu Footer</a></li>
                     </ul>
                 </li>
             <?php endif; ?>

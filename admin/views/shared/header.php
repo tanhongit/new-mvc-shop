@@ -6,6 +6,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
     <title><?php echo isset($title) ? $title : 'Quản Trị - Quán Chị Kòi'; ?></title>
+    <link rel=icon href="<?=PATH_URL?>public/img/favicon-chikoi-quan.png" sizes="32x32">
     <link rel="stylesheet" href="admin/themes/plugins/bootstrap/css/bootstrap.min.css">
     <!-- JQuery DataTable Css -->
     <link rel="stylesheet" href="admin/themes/plugins/jquery-datatable/dataTables.bootstrap4.min.css">

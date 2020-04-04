@@ -43,6 +43,7 @@ $user_login = get_a_record('users', $user_nav);
 	<meta name="description" content="Quán Chị Kòi">
 	<meta name="author" content="chikoiquan.com">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel=icon href="<?=PATH_URL?>public/img/favicon-chikoi-quan.png" sizes="32x32">
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="public/vendor/bootstrap/bootstrap.css">
 	<link rel="stylesheet" href="public/vendor/fontawesome/css/font-awesome.css">
@@ -63,7 +64,7 @@ $user_login = get_a_record('users', $user_nav);
 	<meta property="og:url" content="https://chikoiquan.com" />
 	<meta property="og:title" content="Chị Kòi Quán" />
 	<meta property="og:description" content="Buôn bán các loại đồ an thức uống, hàng mỹ phẩm, làm đẹp" />
-	<meta property="og:image" content="URL_IMAGE" />
+	<meta property="og:image" content="<?=PATH_URL?>public/img/favicon-chikoi-quan.png" />
 	<meta property="og:locale" content="vi_VN" />
 	<meta property="fb:app_id" content="517386205818335" />
 	<script>

@@ -20,6 +20,14 @@
 				<div class="tp-caption main-label sft stb" data-x="485" data-y="160" data-speed="300" data-start="900" data-easing="easeOutExpo">TRÀ SỮA ĐỦ LOẠI!</div>
 				<div class="tp-caption bottom-label sft stb" data-x="585" data-y="250" data-speed="500" data-start="2000" data-easing="easeOutExpo"><?= $slide['slide_text2'] ?></div>
 			</li>
+			<li data-transition="fade" data-slotamount="5" data-masterspeed="1700">
+				<img src="public/upload/slides/<?= $slide['slide_img3'] ?>" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+				<div class="tp-caption blackboard-text sft stb" data-x="220" data-y="180" data-speed="900" data-start="1000" data-easing="easeOutExpo" style="font-size: 30px;">Ca vien chien</div>
+				<div class="tp-caption blackboard-text sft stb" data-x="220" data-y="220" data-speed="900" data-start="1200" data-easing="easeOutExpo" style="font-size: 40px;">Dau hu</div>
+				<div class="tp-caption blackboard-text sft stb" data-x="220" data-y="260" data-speed="900" data-start="1600" data-easing="easeOutExpo" style="font-size: 40px;">Banh Plan</div>
+				<div class="tp-caption main-label sft stb" data-x="485" data-y="160" data-speed="300" data-start="900" data-easing="easeOutExpo">CÁC MÓN ĂN VẶT!</div>
+				<div class="tp-caption bottom-label sft stb" data-x="585" data-y="250" data-speed="500" data-start="2000" data-easing="easeOutExpo"><?= $slide['slide_text3'] ?></div>
+			</li>
 		</ul>
 	</div>
 </div>

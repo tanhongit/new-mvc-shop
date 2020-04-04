@@ -17,12 +17,16 @@ function user_login($input, $password)
     // } 
     // $sql = "SELECT * FROM users WHERE $type='$input' AND user_password='$password' LIMIT 0,1";
 
-    //cách 2
-    if (stripos($input, '@') !== FALSE) {
-        $sql = "SELECT * FROM users WHERE user_email = '$input' AND user_password='$password' LIMIT 0,1";
-    } else {
-        $sql = "SELECT * FROM users WHERE user_username = '$input' AND user_password='$password' LIMIT 0,1";
-    }
+    // //cách 2
+    // if (stripos($input, '@') !== FALSE) {
+    //     $sql = "SELECT * FROM users WHERE user_email = '$input' AND user_password='$password' LIMIT 0,1";
+    // } else {
+    //     $sql = "SELECT * FROM users WHERE user_username = '$input' AND user_password='$password' LIMIT 0,1";
+    // }
+
+    //cách 3
+    $sql = "SELECT * FROM `users` WHERE (LOWER(`user_username`)='" . strtolower($input) . "' OR
+    LOWER(`user_email`)='" . strtolower($input) . "') AND `user_password`='" . $password . "'";
 
     $query = mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
     if (mysqli_num_rows($query) > 0) {

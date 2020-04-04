@@ -1,10 +1,9 @@
 <?php require('content/views/shared/header.php'); ?>
 <div role="main" class="main">
     <?php
-   
+    require 'slide.php';
     require 'newproduct.php';
     require 'hotproduct.php';
-    require 'slide.php';
     require 'saleproduct.php';
     ?>
 </div>

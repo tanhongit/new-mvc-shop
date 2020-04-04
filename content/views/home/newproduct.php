@@ -1,6 +1,5 @@
 <div role="main" class="main shop">
 	<div class="container">
-		<hr class="tall">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="row">

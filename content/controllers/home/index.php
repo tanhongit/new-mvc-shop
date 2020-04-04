@@ -21,4 +21,5 @@ $options_saleproduct = array(
 );
 $saleoff_products = get_all('products',$options_saleproduct);
 $title = 'Trang chủ - Quán Chị Kòi';
+$slide = get_a_record('slides',1);
 require('content/views/home/index.php');

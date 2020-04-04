@@ -139,7 +139,7 @@
                                         <div class="row">
                                             <div class="form-group">
                                                 <div class="col-md-12">
-                                                    <label>Họ & Tên</label>
+                                                    <label><strong>Họ & Tên</strong></label>
                                                     <input type="text" name="name" class="form-control" required="required" placeholder="Nhập họ và tên thật ...">
                                                 </div>
                                             </div>
@@ -147,11 +147,11 @@
                                         <div class="row">
                                             <div class="form-group">
                                                 <div class="col-md-6">
-                                                    <label>Tình/ Thành Phố</label>
+                                                    <label><strong>Tỉnh/ Thành Phố</strong></label>
                                                     <input type="text" name="province" required="required" class="form-control">
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label>SĐT để liên lạc</label>
+                                                    <label><strong>SĐT để liên lạc</strong></label>
                                                     <input type="text" name="phone" required="required" class="form-control">
                                                 </div>
                                             </div>
@@ -159,7 +159,7 @@
                                         <div class="row">
                                             <div class="form-group">
                                                 <div class="col-md-12">
-                                                    <label>Địa chỉ </label>
+                                                    <label><strong>Địa chỉ</strong> </label>
                                                     <input type="text" name="address" required="required" class="form-control" placeholder="Mong các bạn nhập chi tiết địa chỉ ạ...">
                                                 </div>
                                             </div>
@@ -170,7 +170,7 @@
                                         <div class="row">
                                             <div class="form-group">
                                                 <div class="col-md-12">
-                                                    <label>Họ & Tên</label>
+                                                    <label><strong>Họ & Tên</strong></label>
                                                     <input type="text" name="name" value="<?= $user_login['user_name'] ?>" class="form-control" required="required" placeholder="Nhập họ và tên thật ...">
                                                 </div>
                                             </div>
@@ -178,11 +178,11 @@
                                         <div class="row">
                                             <div class="form-group">
                                                 <div class="col-md-6">
-                                                    <label>Tình/ Thành Phố</label>
+                                                    <label><strong>Tỉnh/ Thành Phố</strong></label>
                                                     <input type="text" name="province" required="required" class="form-control">
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label>SĐT để liên lạc</label>
+                                                    <label><strong>SĐT để liên lạc</strong></label>
                                                     <input type="text" value="<?= $user_login['user_phone'] ?>" name="phone" required="required" class="form-control">
                                                 </div>
                                             </div>
@@ -190,7 +190,7 @@
                                         <div class="row">
                                             <div class="form-group">
                                                 <div class="col-md-12">
-                                                    <label>Địa chỉ </label>
+                                                    <label><strong>Địa chỉ </strong></label>
                                                     <input type="text" name="address" value="<?= $user_login['user_address'] ?>" required="required" class="form-control" placeholder="Mong các bạn nhập chi tiết địa chỉ ạ...">
                                                 </div>
                                             </div>
@@ -199,7 +199,7 @@
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-md-12">
-                                                <label>Lời nhắn: </label>
+                                                <label><strong>Lời nhắn - ghi chú đơn hàng: </strong></label>
                                                 <textarea name="message" id="message" class="form-control" cols="30" rows="10" placeholder="Ghi lưu ý dành cho người bán...(Bạn có thể thêm thông tin số lượng, kích cỡ,...về các sản phẩm bạn muốn đặt hàng đến cho mình để mình sắp xếp giao hàng cho bạn.)"></textarea>
                                             </div>
                                         </div>

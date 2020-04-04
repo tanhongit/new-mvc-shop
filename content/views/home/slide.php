@@ -3,7 +3,7 @@
 		<ul>
 			<li data-transition="fade" data-slotamount="13" data-masterspeed="300">
 
-				<img src="public/img/slides/slide-bg.jpg" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+				<img src="public/upload/slides/<?=$slide['slide_img1']?>" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
 
 				<div class="tp-caption sft stb visible-lg" data-x="177" data-y="180" data-speed="300" data-start="1000" data-easing="easeOutExpo"><img src="public/img/slides/slide-title-border.png" alt=""></div>
 

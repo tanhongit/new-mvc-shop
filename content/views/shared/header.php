@@ -59,6 +59,34 @@ $user_login = get_a_record('users', $user_nav);
 	<link rel="stylesheet" href="public/css/skins/default.css">
 	<link rel="stylesheet" href="public/css/custom.css">
 	<script src="public/vendor/modernizr/modernizr.js"></script>
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://chikoiquan.com" />
+	<meta property="og:title" content="Chị Kòi Quán" />
+	<meta property="og:description" content="Buôn bán các loại đồ an thức uống, hàng mỹ phẩm, làm đẹp" />
+	<meta property="og:image" content="URL_IMAGE" />
+	<meta property="og:locale" content="vi_VN" />
+	<meta property="fb:app_id" content="517386205818335" />
+	<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId: '517386205818335',
+				xfbml: true,
+				version: 'v6.0'
+			});
+			FB.AppEvents.logPageView();
+		};
+
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {
+				return;
+			}
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "https://connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
 </head>
 
 <body>

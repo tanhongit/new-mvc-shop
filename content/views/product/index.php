@@ -194,6 +194,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="fb-comments" data-href="<?php echo PATH_URL . 'product/' . $product['id'] . '-' . $product['slug'] ;?>" data-width="100%" data-numposts="5"></div>
                 <hr class="tall" />
                 <div class="row">
                     <div class="col-md-12">

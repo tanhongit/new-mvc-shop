@@ -64,7 +64,7 @@
                     <tr>
                         <td class="actions" colspan="6">
                             <div class="actions-continue">
-                                <input type="submit" value="Cập Nhật Giỏ Hàng" class="btn btn-default" title='Cập nhật nếu bạn có thay đổi số lượng'>
+                                <input type="submit" value="Cập Nhật Lại Giỏ Hàng" class="btn btn-default" title='Cập nhật nếu bạn có thay đổi số lượng'>
                             </div>
                         </td>
                     </tr>

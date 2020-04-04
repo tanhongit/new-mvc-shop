@@ -83,7 +83,7 @@ $user_login = get_a_record('users', $user_nav);
 			}
 			js = d.createElement(s);
 			js.id = id;
-			js.src = "https://connect.facebook.net/en_US/sdk.js";
+			js.src = "https://connect.facebook.net/vi_VN/sdk.js";
 			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
 	</script>
@@ -193,7 +193,7 @@ $user_login = get_a_record('users', $user_nav);
 																	<div class="form-group">
 																		<div class="col-md-12">
 																			<label>Nhập Email của bạn</label>
-																			<input autofocus type="text" name="email" value="" class="form-control input-lg" required placeholder="Nhập email...">
+																			<input autofocus type="text" name="email" value="" class="form-control input-lg" required placeholder="Nhập email hoặc username...">
 																		</div>
 																	</div>
 																</div>

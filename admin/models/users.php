@@ -4,10 +4,26 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-function user_login($email, $password)
+function user_login($input, $password)
 {
     global $linkconnectDB;
-    $sql = "SELECT * FROM users WHERE user_email='$email' AND user_password='$password' LIMIT 0,1";
+    //autoselect login with username or email : https://stackoverflow.com/questions/16436704/login-with-username-or-email
+
+    // //cách 1
+    // if (filter_var($input, FILTER_VALIDATE_EMAIL)) { //https://www.php.net/manual/pt_BR/function.filter-var.php
+    //     $type = "user_email";
+    // } else {
+    //     $type = "user_username";
+    // } 
+    // $sql = "SELECT * FROM users WHERE $type='$input' AND user_password='$password' LIMIT 0,1";
+
+    //cách 2
+    if (stripos($input, '@') !== FALSE) {
+        $sql = "SELECT * FROM users WHERE user_email = '$input' AND user_password='$password' LIMIT 0,1";
+    } else {
+        $sql = "SELECT * FROM users WHERE user_username = '$input' AND user_password='$password' LIMIT 0,1";
+    }
+
     $query = mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
     if (mysqli_num_rows($query) > 0) {
         $_SESSION['user'] = mysqli_fetch_assoc($query);

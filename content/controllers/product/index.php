@@ -1,14 +1,10 @@
 <?php
+require_once('content/models/products.php');
 if (isset($_GET['id'])) {
     $product_id = intval($_GET['id']);
 } else show_404();
 $product = get_a_record('products', $product_id);
-function updateCountView($id)
-{
-    global $linkconnectDB;
-    $sql = "Update products set totalView = totalView + 1 WHERE id =$id";
-    return mysqli_query($linkconnectDB, $sql);
-}
+
 if (!$product) {
     show_404();
 } else   updateCountView($product_id);

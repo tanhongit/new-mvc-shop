@@ -20,3 +20,6 @@ Validation form:
 
 None:
     - https://codewithawa.com/posts/admin-and-user-login-in-php-and-mysql-database
+
+User online:
+    - http://laptrinhphp.info/du-an-thuc-te/Xay-dung-module-dem-so-nguoi-dang-online-bang-PHP-MySQL.html

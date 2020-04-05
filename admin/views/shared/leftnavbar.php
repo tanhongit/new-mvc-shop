@@ -27,6 +27,15 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                     <li><a href="admin.php?controller=user&action=change-password&user_id=<?= $user_info_nav['id'] ?>">Change your Password</a></li>
                 </ul>
             </li>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-collection-text"></i><span>Purchase</span></a>
+                <ul class="ml-menu">
+                    <li><a href="admin.php?controller=purchase">Tất cả</a></li>
+                    <li><a href="admin.php?controller=purchase&action=confirmed">Đơn đã xác thực</a></li>
+                    <li><a href="admin.php?controller=purchase&action=delivery">Đơn đang vận chuyển</a></li>
+                    <li><a href="admin.php?controller=purchase&action=receied">Đơn hàng đã nhận</a></li>
+                    <li><a href="admin.php?controller=purchase&action=cancelled">Đơn hàng đã hủy</a></li>
+                </ul>
+            </li>
             <?php if ($user_info_nav['role_id'] != 0) : ?>
                 <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Quản lý sản phẩm</span></a>
                     <ul class="ml-menu">

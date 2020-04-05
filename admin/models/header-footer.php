@@ -32,6 +32,20 @@ function header_footer_update()
         );
         save('contacts', $contacts);
     }
+    $image_name2 = 'favicon-chikoiquan-' . slug($_POST['name']);
+    $config2 = array(
+        'name' => $image_name2,
+        'upload_path' => 'public/img/',
+        'allowed_exts' => 'jpg|jpeg|png|gif',
+    );
+    $image2 = upload('favicon', $config2); //$field = name of input 
+    if ($image2) {
+        $contacts = array(
+            'id' => $contact_id,
+            'favicon' => $image2
+        );
+        save('contacts', $contacts);
+    }
     header('location:admin.php?controller=header-footer');
 }
 function menu_footer_update()

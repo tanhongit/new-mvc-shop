@@ -42,6 +42,24 @@
                                 <div class="row clearfix">
                                     <div class="card col-md-6">
                                         <div class="header">
+                                            <h2 style="text-align: center;">Change Icon Favicon Web</h2>
+                                        </div>
+                                        <div class="body">
+                                            <input name="favicon" type="file" class="form-control dropify">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="header">
+                                            <h2 style="text-align: center;">Icon Favicon Hiện tại</h2>
+                                        </div>
+                                        <div style="text-align: center;" class="body">
+                                            <img style="max-width:320px;" src="public/img/<?php echo $contact['favicon']; ?>">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="card col-md-6">
+                                        <div class="header">
                                             <h2 style="text-align: center;">Change Image Logo Web</h2>
                                         </div>
                                         <div class="body">

@@ -141,11 +141,7 @@ $user_login = get_a_record('users', $user_nav);
 								<ul class="dropdown-menu">
 									<li><a href="#">Hiện tất cả sản phẩm</a></li>
 									<li><a href="#">Home - Corporate <span class="tip">hot</span></a></li>
-									<li><a href="#">Home - Color</a></li>
-									<li><a href="#">Home - Light</a></li>
-									<li><a href="#">Home - Video</a></li>
-									<li><a href="#">Home - Video - Light</a></li>
-									<li><a href="#">One Page Website</a></li>
+									<li><a href="feedback">Gửi phản hồi</a></li>
 									<li class="dropdown-submenu">
 										<a href="#">Sliders</a>
 										<ul class="dropdown-menu">

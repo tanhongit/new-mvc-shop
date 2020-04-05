@@ -63,6 +63,9 @@
                             </form>
                             <div class="product_meta">
                                 <span class="posted_in">Danh Mục Con: <a rel="tag" href="category/<?php echo $subcategories['id'] . '-' . $subcategories['slug']; ?>"><?php echo $breadCrumb ?></a></span>
+                            </div><hr class="tall">
+                            <div class="feedback">
+                                <a href="index.php?controller=feedback&action=index&product_id=<?=$product['id']?>">Nhấn vào đây</a> để gửi phản hồi về sản phẩm này.
                             </div>
                         </div>
                     </div>

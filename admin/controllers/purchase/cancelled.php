@@ -16,4 +16,4 @@ if (!empty($user_nav)) {
         3 => 'Đơn hàng đã hủy'
     );
 }
-require('admin/views/purchase/index.php');
+require('admin/views/purchase/cancelled.php');

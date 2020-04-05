@@ -15,4 +15,4 @@ if (!empty($user_nav)) {
         1 => 'Đã giao hàng'
     );
 }
-require('admin/views/purchase/index.php');
+require('admin/views/purchase/confirmed.php');

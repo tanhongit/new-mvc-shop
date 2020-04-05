@@ -49,7 +49,7 @@
                                     <?php endforeach; ?>
                                     <span style="font-size: 1.2em; float: right;"><b><i class="zmdi zmdi-money"></i> Tổng tiền: <?= $order['cart_total'] ?></b></span><br>
                                     <span><a href="#" style="text-decoration: none;" class='alert alert-info'>Xem chi tiết đơn hàng này</a></span>
-                                    <span> <a href="#" style="text-decoration: none;" class='alert alert-danger'>Hủy đơn hàng này</a>
+                                    <span> <a href="#" style="text-decoration: none;" class='alert alert-danger'>Phản hồi về đơn hàng này</a>
                                     </span>
                                 </ul>
                             </div>

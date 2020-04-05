@@ -23,6 +23,7 @@
                 </div>
             </div>
         </div>
+        <h2><?= $title ?></h2>
         <div class="container-fluid">
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12">
@@ -41,13 +42,14 @@
                                                 <span style="float: right;">
                                                     <form enctype="multipart/form-data" action="cart/add/<?= $product['product_id'] ?>" method="post"><input type="hidden" value="1" name="number_cart"><button type="submit" class='replybutton alert alert-success' style="padding-top: 7px; padding-bottom: 7px;">Mua lần nữa</button></form>
                                                 </span>
-                                                <p><?= substr($product['product_description'],0,200) ?></p>
+                                                <p><?= substr($product['product_description'], 0, 200) ?></p>
                                             </div>
                                         </li>
                                         <hr>
                                     <?php endforeach; ?>
-                                    <span style="font-size: 1.2em;"><b><i class="zmdi zmdi-money"></i> Tổng tiền: <?= $order['cart_total'] ?></b></span><br><span style="float: right;">
-                                        <a href="#" style="text-decoration: none;" class='alert alert-info'>Xem chi tiết đơn hàng này</a>
+                                    <span style="font-size: 1.2em; float: right;"><b><i class="zmdi zmdi-money"></i> Tổng tiền: <?= $order['cart_total'] ?></b></span><br>
+                                    <span><a href="#" style="text-decoration: none;" class='alert alert-info'>Xem chi tiết đơn hàng này</a></span>
+                                    <span> <a href="#" style="text-decoration: none;" class='alert alert-success'>Phản hồi về đơn hàng này</a>
                                     </span>
                                 </ul>
                             </div>

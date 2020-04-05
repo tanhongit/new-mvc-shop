@@ -71,7 +71,7 @@ if ($count == "0") { //Truy cập lần đầu
 $sql3 = "SELECT * FROM users_online";
 $result3 = mysqli_query($linkconnectDB, $sql3);
 $count_user_online = mysqli_num_rows($result3);
-echo "Số người đang online : $count_user_online ";
+//echo "Số người đang online : $count_user_online ";
 // Nếu quá 10 phút, xóa bỏ session
 $sql4 = "DELETE FROM users_online WHERE time<$time_check";
 $result4 = mysqli_query($linkconnectDB, $sql4);

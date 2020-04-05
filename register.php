@@ -7,6 +7,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
     <title>Đăng ký thành viên</title>
+    <link rel=icon href="<?=PATH_URL?>public/img/favicon-chikoi-quan.png" sizes="32x32">
     <!-- Custom Css -->
     <link rel="stylesheet" href="admin/themes/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="admin/themes/css/style.min.css">

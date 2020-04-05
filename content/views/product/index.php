@@ -16,27 +16,27 @@
                         <div class="owl-carousel" data-plugin-options='{"items": 1}'>
                             <div>
                                 <div class="thumbnail">
-                                    <img alt="" class="img-responsive img-rounded" src="public/upload/products/<?php echo $product['img1'] ?>">
+                                    <img alt="" class="img-responsive img-rounded img-fluid" src="public/upload/products/<?php echo $product['img1'] ?>">
                                 </div>
                             </div>
                             <?php if (strlen($product['img2']) > 1) { ?>
                                 <div>
                                     <div class="thumbnail">
-                                        <img alt="" class="img-responsive img-rounded" src="public/upload/products/<?php echo $product['img2'] ?>">
+                                        <img alt="" class="img-responsive img-rounded img-fluid" src="public/upload/products/<?php echo $product['img2'] ?>">
                                     </div>
                                 </div>
                             <?php }
                             if (strlen($product['img3']) > 1) { ?>
                                 <div>
                                     <div class="thumbnail">
-                                        <img alt="" class="img-responsive img-rounded" src="public/upload/products/<?php echo $product['img3'] ?>">
+                                        <img alt="" class="img-responsive img-rounded img-fluid" src="public/upload/products/<?php echo $product['img3'] ?>">
                                     </div>
                                 </div>
                             <?php }
                             if (strlen($product['img4']) > 1) : ?>
                                 <div>
                                     <div class="thumbnail">
-                                        <img alt="" class="img-responsive img-rounded" src="public/upload/products/<?php echo $product['img4'] ?>">
+                                        <img alt="" class="img-responsive img-rounded img-fluid" src="public/upload/products/<?php echo $product['img4'] ?>">
                                     </div>
                                 </div>
                             <?php endif; ?>

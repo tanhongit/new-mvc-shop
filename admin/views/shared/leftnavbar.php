@@ -60,6 +60,7 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                         <li><a href="admin.php?controller=order&amp;action=order-noprocess">Đơn hàng chưa xử lý</a></li>
                         <li><a href="admin.php?controller=order&amp;action=order-inprocess">Đơn hàng đang xử lý</a></li>
                         <li><a href="admin.php?controller=order&amp;action=order-complete">Đơn hàng đã xử lý</a></li>
+                        <li><a href="admin.php?controller=order&amp;action=order-cancell">Đơn hàng đã bị hủy</a></li>
                     </ul>
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>User</span></a>

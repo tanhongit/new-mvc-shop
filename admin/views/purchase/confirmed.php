@@ -49,7 +49,9 @@
                                         <hr>
                                     <?php endforeach; ?>
                                     <span style="font-size: 1.2em; float: right; padding-left: 20px;"><b><i class="zmdi zmdi-money"></i> Tổng tiền: <?= $order['cart_total'] ?></b></span>
-                                    <span><a href="#" style="text-decoration: none; float: right;" class='alert alert-info'>Xem chi tiết đơn hàng này</a></span>
+                                    <span>
+                                        <form enctype="multipart/form-data" action="admin.php?controller=purchase&action=view&order_id=<?= $order['id'] ?>" method="post"><button type="submit" style="float: right;" class='alert alert-info'>Xem chi tiết đơn hàng này</button></form>
+                                    </span>
                                     <span>
                                         <form enctype="multipart/form-data" action="admin.php?controller=purchase&action=cancell-action&order_id=<?= $order['id'] ?>" method="post">
                                             <button onclick="return confirm('Bạn có chắc chắn muốn hủy đơn hàng này?')" type="submit" class='alert alert-danger'>Hủy đơn hàng này</button></form>

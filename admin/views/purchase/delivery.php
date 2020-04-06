@@ -48,8 +48,9 @@
                                         </li>
                                         <hr>
                                     <?php endforeach; ?>
-                                    <span style="font-size: 1.2em;"><b><i class="zmdi zmdi-money"></i> Tổng tiền: <?= $order['cart_total'] ?></b></span><br><span style="float: right;">
-                                        <a href="#" style="text-decoration: none;" class='alert alert-info'>Xem chi tiết đơn hàng này</a>
+                                    <span style="font-size: 1.2em; float: right; padding-left: 20px;"><b><i class="zmdi zmdi-money"></i> Tổng tiền: <?= $order['cart_total'] ?></b></span>
+                                    <span>
+                                        <form enctype="multipart/form-data" action="admin.php?controller=purchase&action=view&order_id=<?= $order['id'] ?>" method="post"><button type="submit" style="float: right;" class='alert alert-info'>Xem chi tiết đơn hàng này</button></form>
                                     </span>
                                 </ul>
                             </div>

@@ -7,7 +7,6 @@ if (!empty($user_nav)) {
         'order_by' => 'createtime DESC'
     );
     $order_receied  = get_all('orders', $options);
-
     $title = 'Đơn hàng đã nhận';
     $status = array(
         0 => 'Đã xác nhận đơn hàng',

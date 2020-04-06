@@ -27,7 +27,7 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                     <li><a href="admin.php?controller=user&action=change-password&user_id=<?= $user_info_nav['id'] ?>">Change your Password</a></li>
                 </ul>
             </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-collection-text"></i><span>Purchase</span></a>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Your Purchase</span></a>
                 <ul class="ml-menu">
                     <li><a href="admin.php?controller=purchase">Tất cả</a></li>
                     <li><a href="admin.php?controller=purchase&action=confirmed">Đơn đã xác thực</a></li>
@@ -37,7 +37,7 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                 </ul>
             </li>
             <?php if ($user_info_nav['role_id'] != 0) : ?>
-                <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Quản lý sản phẩm</span></a>
+                <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-collection-text"></i><span>Quản lý sản phẩm</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=product">Danh sách sản phẩm</a></li>
                         <li><a href="admin.php?controller=product&action=newproduct">Sản phẩm mới</a></li>

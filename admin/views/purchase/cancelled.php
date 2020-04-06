@@ -12,9 +12,9 @@
                 <div class="col-lg-7 col-md-6 col-sm-12">
                     <h2>Purchase</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i>Purchase</a></li>
-                        <li class="breadcrumb-item">Order</li>
-                        <li class="breadcrumb-item">Receied</li>
+                        <li class="breadcrumb-item"><a href="admin.php"><i class="zmdi zmdi-home"></i>Order</a></li>
+                        <li class="breadcrumb-item"><a href="admin.php?controller=purchase">Purchase</a></li>
+                        <li class="breadcrumb-item"><a href="admin.php?controller=purchase&action=cancelled">cancelleds</a></li>
                     </ul>
                     <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
                 </div>
@@ -27,7 +27,7 @@
         <div class="container-fluid">
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12">
-                    <?php foreach ($order_receied as $order) :
+                    <?php foreach ($order_cancelled as $order) :
                         $order_detail = purchase_order_detail($order['id']); ?>
                         <div class="card">
                             <div class="body">
@@ -36,7 +36,7 @@
                                         <li>
                                             <div class="icon-box"><a href="product/<?php echo $product['product_id']; ?>-<?php echo $product['slug']; ?>"><img class="img-fluid img-thumbnail" src="public/upload/products/<?= $product['img1'] ?>" style="max-width:80px;" alt="Awesome Image"></a></div>
                                             <div class="text-box">
-                                                <h5><a style="color: #000;" href="product/<?php echo $product['product_id']; ?>-<?php echo $product['slug']; ?>"><?= $product['product_name'] ?></a></h5>
+                                                <h5><a style="color: #000;" href="product/<?php echo $product['product_id']; ?>-<?php echo $product['slug']; ?>"><?= $product['product_name'] ?></a></a><span style="float: right;"><?=$status[3]?></span></h5>
                                                 <span class="comment-date">Số Lượng: <?= $product['quantity'] ?>.</span>
                                                 <a style="padding-left: 20px;" href="product/<?php echo $product['product_id']; ?>-<?php echo $product['slug']; ?>">Giá sản phẩm: <?= $product['product_price'] ?></a>
                                                 <span style="float: right;">

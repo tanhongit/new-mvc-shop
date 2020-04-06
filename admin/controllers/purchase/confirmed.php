@@ -6,8 +6,7 @@ if (!empty($user_nav)) {
         'where' => 'status = 0 and user_id =' . $user_nav,
         'order_by' => 'createtime DESC'
     );
-    $order_receied  = get_all('orders', $options);
-
+    $order_confirmed  = get_all('orders', $options);
     $title = 'Đơn hàng đã xác nhận';
     $status = array(
         0 => 'Đã xác nhận đơn hàng',

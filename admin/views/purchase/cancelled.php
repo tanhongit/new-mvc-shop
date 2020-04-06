@@ -27,6 +27,7 @@
         <div class="container-fluid">
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12">
+                    <?php if (empty($order_cancelled)) echo '<h2 style="text-align: center;">Chưa có đơn hàng nào</h2>'; ?>
                     <?php foreach ($order_cancelled as $order) :
                         $order_detail = purchase_order_detail($order['id']); ?>
                         <div class="card">
@@ -36,7 +37,7 @@
                                         <li>
                                             <div class="icon-box"><a href="product/<?php echo $product['product_id']; ?>-<?php echo $product['slug']; ?>"><img class="img-fluid img-thumbnail" src="public/upload/products/<?= $product['img1'] ?>" style="max-width:80px;" alt="Awesome Image"></a></div>
                                             <div class="text-box">
-                                                <h5><a style="color: #000;" href="product/<?php echo $product['product_id']; ?>-<?php echo $product['slug']; ?>"><?= $product['product_name'] ?></a></a><span style="float: right;"><?=$status[3]?></span></h5>
+                                                <h5><a style="color: #000;" href="product/<?php echo $product['product_id']; ?>-<?php echo $product['slug']; ?>"><?= $product['product_name'] ?></a></a><span style="float: right;"><?= $status[3] ?></span></h5>
                                                 <span class="comment-date">Số Lượng: <?= $product['quantity'] ?>.</span>
                                                 <a style="padding-left: 20px;" href="product/<?php echo $product['product_id']; ?>-<?php echo $product['slug']; ?>">Giá sản phẩm: <?= $product['product_price'] ?></a>
                                                 <span style="float: right;">

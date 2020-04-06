@@ -12,9 +12,9 @@
                 <div class="col-lg-7 col-md-6 col-sm-12">
                     <h2>Purchase</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i>Purchase</a></li>
+                        <li class="breadcrumb-item"><a href="admin.php"><i class="zmdi zmdi-home"></i>Purchase</a></li>
                         <li class="breadcrumb-item">Order</li>
-                        <li class="breadcrumb-item">Receied</li>
+                        <li class="breadcrumb-item">All</li>
                     </ul>
                     <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
                 </div>
@@ -27,7 +27,8 @@
         <div class="container-fluid">
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12">
-                    <?php foreach ($order_receied as $order) :
+                    <?php if (empty($order_all)) echo '<h2 style="text-align: center;">Chưa có đơn hàng nào</h2>'; ?>
+                    <?php foreach ($order_all as $order) :
                         $order_detail = purchase_order_detail($order['id']); ?>
                         <div class="card">
                             <div class="body">

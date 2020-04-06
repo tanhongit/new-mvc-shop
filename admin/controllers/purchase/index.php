@@ -6,13 +6,7 @@ if (!empty($user_nav)) {
         'where' => 'user_id =' . $user_nav,
         'order_by' => 'createtime DESC'
     );
-    $order_receied  = get_all('orders', $options);
+    $order_all  = get_all('orders', $options);
     $title = 'Tất cả đơn hàng của bạn';
-    $status = array(
-        0 => 'Đã xác nhận đơn hàng',
-        2 => 'Đang giao hàng',
-        1 => 'Đã giao hàng',
-        3 => 'Đơn hàng đã hủy'
-    );
 }
 require('admin/views/purchase/index.php');

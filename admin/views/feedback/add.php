@@ -81,7 +81,7 @@
                                         ?>
                                             <tr>
                                                 <td><?= $stt; ?></td>
-                                                <td><a href="product/<?php echo $product['id']; ?>-<?=$product['slug']?>"><?php echo $product['product_name']; ?></a></td>
+                                                <td><a href="product/<?php echo $product['id']; ?>-<?= $product['slug'] ?>"><?php echo $product['product_name']; ?></a></td>
                                                 <td><?php if (is_file("public/upload/products/" . $product['img1'])) echo '<image src="public/upload/products/' . $product['img1'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
                                                 <td><?= number_format($product['product_price'], 0, ',', '.') ?></td>
                                                 <td><? if ($product['saleoff'] == 1) echo ($product['product_price'] - (($product['product_price']) * ($product['percentoff']) / 100)); ?></td>
@@ -95,60 +95,23 @@
                                     </tbody>
                                 </table>
                                 <h3 style="font-weight: bold;text-align: center;">Thành tổng tiền : <?php echo number_format($order_total, 0, ',', '.'); ?> VNĐ</h3>
-                                <h3 style="font-weight: bold; color: red; text-align: center;"><b> <?=$status[$order['status']]?></b></h3>
+                                <h3 style="font-weight: bold; color: red; text-align: center;"><b> <?= $status[$order['status']] ?></b></h3>
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-12">
-                        <h3>Thông tin khách hàng</h3>
-                        <table id="info" class="table">
-                            <tr>
-                                <td><strong>Họ và tên</strong></td>
-                                <td><?php echo $order['customer']; ?></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Tỉnh/ Thành phố</strong> </td>
-                                <td><?php echo $order['province']; ?></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Địa chỉ</strong> </td>
-                                <td><?php echo $order['address']; ?></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Di động</strong> </td>
-                                <td><?php echo $order['phone']; ?></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Thời gian</strong> </td>
-                                <td><?php echo $order['createtime']; ?></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Tin nhắn từ khách hàng</strong> </td>
-                                <td><?php echo $order['message']; ?></td>
-                            </tr>
-                        </table>
-                        <?php if ($order['status'] == 0) { ?>
-                            <form id="order_form" method="post" action="admin.php?controller=order&amp;action=inprocess" role="form">
-                                <div style="text-align: center;" class="form-group">
-                                    <input name="order_id" type="hidden" value="<?php echo $order['id']; ?>" />
-                                    <button class="btn btn-primary waves-effect" type="submit">Tiến hành xử lý đơn hàng</button>
-                                    <a href="admin.php?controller=order" class="btn btn-warning waves-effect">Quay lại</a>
-                                </div>
-                            </form>
-                        <?php } elseif ($order['status'] == 2) { ?>
-                            <form id="order_form" method="post" action="admin.php?controller=order&amp;action=complete" role="form">
-                                <div style="text-align: center;" class="form-group">
-                                    <input name="order_id" type="hidden" value="<?php echo $order['id']; ?>" />
-                                    <button class="btn btn-primary waves-effect" type="submit">Xác nhận đã xử lý thành công đơn hàng này</button>
-                                    <a href="admin.php?controller=order" class="btn btn-warning waves-effect">Quay lại</a>
-                                </div>
-                            </form>
-                        <?php } else { ?>
-                            <div style="text-align: center;">
-                                <a onclick="return confirm('Are you sure to delete?')" class="btn btn-primary waves-effect" href="admin.php?controller=order&amp;action=delete&amp;order_id=<?= $order['id'] ?>">Xoá đơn hàng này</a>
-                                <a href="admin.php?controller=order" class="btn btn-warning waves-effect">Quay lại</a>
-                            </div>
-                        <?php } ?>
+                        <h3>Thông tin Phản hồi</h3>
+                        <form action="admin.php?controller=feedback&action=add&order_id=<?= $order['id'] ?>" method="post">
+                            <input type="hidden" name="feedback_id" value="0">
+                            <input type="hidden" class="form-control" name="user_id" value="<?= $user_nav ?>">
+                            <input type="hidden" name="name" value="<?= $user_action['user_name'] ?>" class="form-control">
+                            <input type="hidden" name="email" value="<?= $user_action['user_email'] ?>" class="form-control">
+                            <input type="hidden" value="<?= $user_action['user_phone'] ?>" name="phone" class="form-control">
+                            <input type="hidden" value="<?= $order['id'] ?>" name="order_id" class="form-control">
+                            <h4>Nhập dòng tin phản hồi về đơn hàng này</h4>
+                            <textarea name="message" placeholder="Nhập phản hồi của bạn" required style="width: 100%;" rows="10"></textarea>
+                            <button class="btn btn-primary waves-effect" type="submit">Xác nhận và gửi phản hồi</button>
+                        </form>
                     </div>
                 </div>
             </div>

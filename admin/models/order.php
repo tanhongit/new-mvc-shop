@@ -2,7 +2,7 @@
 function order_detail($order_id)
 {
     global $linkconnectDB;
-    $sql = "SELECT products.id, products.product_name,products.img1, products.product_price,products.product_typeid, products.percentoff, products.saleoff, order_detail.quantity
+    $sql = "SELECT products.id, products.product_name,products.img1, products.product_price,products.product_typeid, products.percentoff, products.saleoff, order_detail.quantity, products.slug
 			FROM order_detail
 			INNER JOIN products ON products.id=order_detail.product_id
 			WHERE order_detail.order_id=$order_id";

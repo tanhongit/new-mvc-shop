@@ -37,7 +37,7 @@
                                         <li>
                                             <div class="icon-box"><a href="product/<?php echo $product['product_id']; ?>-<?php echo $product['slug']; ?>"><img class="img-fluid img-thumbnail" src="public/upload/products/<?= $product['img1'] ?>" style="max-width:80px;" alt="Awesome Image"></a></div>
                                             <div class="text-box">
-                                                <h5><a style="color: #000;" href="product/<?php echo $product['product_id']; ?>-<?php echo $product['slug']; ?>"><?= $product['product_name'] ?></a></a><span style="float: right;"><?= $status[0] ?></span></h5>
+                                                <h5><a style="color: #000;" href="product/<?php echo $product['product_id']; ?>-<?php echo $product['slug']; ?>"><?= $product['product_name'] ?></a></a><span style="float: right;"><?= $status[$order['status']] ?></span></h5>
                                                 <span class="comment-date">Số Lượng: <?= $product['quantity'] ?>.</span>
                                                 <a style="padding-left: 20px;" href="product/<?php echo $product['product_id']; ?>-<?php echo $product['slug']; ?>">Giá sản phẩm: <?= $product['product_price'] ?></a>
                                                 <span style="float: right;">

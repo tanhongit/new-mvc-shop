@@ -95,6 +95,7 @@
                                     </tbody>
                                 </table>
                                 <h3 style="font-weight: bold;text-align: center;">Thành tổng tiền : <?php echo number_format($order_total, 0, ',', '.'); ?> VNĐ</h3>
+                                <h3 style="font-weight: bold; color: red; text-align: center;"><b> <?=$status[$order['status']]?></b></h3>
                             </div>
                         </div>
                     </div>

@@ -8,5 +8,11 @@ if (!empty($user_nav)) {
     );
     $order_all  = get_all('orders', $options);
     $title = 'Tất cả đơn hàng của bạn';
+    $status = array(
+        0 => 'Đã xác nhận đơn hàng',
+        2 => 'Đang giao hàng',
+        1 => 'Đã giao hàng',
+        3 => 'Đơn hàng đã hủy'
+    );
 }
 require('admin/views/purchase/index.php');

@@ -8,4 +8,10 @@ if (!$order) {
 }
 $title = 'Chi tiết đơn hàng';
 $order_detail = order_detail($order_id);
+$status = array(
+    0 => 'Đã xác nhận đơn hàng',
+    2 => 'Đang giao hàng',
+    1 => 'Đã giao hàng',
+    3 => 'Đơn hàng đã hủy'
+);
 require('admin/views/order/view.php');

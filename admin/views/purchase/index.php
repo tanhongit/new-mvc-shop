@@ -48,15 +48,7 @@
                                         </li>
                                         <hr>
                                     <?php endforeach; ?>
-                                    <?php if ($order['status'] == 3) { ?>
-                                        <span style="font-size: 1.2em; float: right; color: red;"><b> Đã hủy đơn</b></span>
-                                    <?php } elseif ($order['status'] == 0) { ?>
-                                        <span style="font-size: 1.2em; float: right; color: red;"><b> Đã được xác nhận</b></span>
-                                    <?php } elseif ($order['status'] == 1) { ?>
-                                        <span style="font-size: 1.2em; float: right; color: red;"><b> Đã nhận</b></span>
-                                    <?php } elseif ($order['status'] == 2) { ?>
-                                        <span style="font-size: 1.2em; float: right; color: red;"><b> Đang chuyển hàng</b></span>
-                                    <?php } ?>
+                                    <span style="font-size: 1.2em; float: right; color: red;"><b> <?=$status[$order['status']]?></b></span>
                                     <span style="font-size: 1.2em; float: right; padding-left: 25px; padding-right: 25px;"><b><i class="zmdi zmdi-money"></i> Tổng tiền: <?= $order['cart_total'] ?></b></span>
                                     <span>
                                         <form enctype="multipart/form-data" action="admin.php?controller=purchase&action=view&order_id=<?= $order['id'] ?>" method="post"><button type="submit" style="float: right;" class='alert alert-info'>Xem chi tiết đơn hàng này</button></form>

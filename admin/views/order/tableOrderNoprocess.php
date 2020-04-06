@@ -35,6 +35,7 @@ $status = array(
                             <tr>
                                 <th>ID</th>
                                 <th>Tên khách hàng</th>
+                                <th>UserName | ID (User)</th>
                                 <th>Ngày đặt đơn</th>
                                 <th>Tổng giá trị đơn hàng</th>
                                 <th>Tình trạng</th>
@@ -45,6 +46,7 @@ $status = array(
                             <tr>
                                 <th>ID</th>
                                 <th>Tên khách hàng</th>
+                                <th>UserName | ID (User)</th>
                                 <th>Ngày đặt đơn</th>
                                 <th>Tổng giá trị đơn hàng</th>
                                 <th>Tình trạng</th>
@@ -56,6 +58,8 @@ $status = array(
                                 <tr>
                                     <td><?php echo $order['id'] ?></td>
                                     <td><a href="admin.php?controller=order&amp;action=view&amp;order_id=<?php echo $order['id']; ?>"><?php echo $order['customer']; ?></a></td>
+                                    <?php $user_order = get_a_record('users', $order['user_id']) ?>
+                                    <td><?= $user_order['user_username'] ?> | <?= $user_order['id'] ?></td>
                                     <td><?php echo $order['createtime'] ?></td>
                                     <td><?php echo $order['cart_total'] ?></td>
                                     <td><?php echo $status[$order['status']]; ?></td>

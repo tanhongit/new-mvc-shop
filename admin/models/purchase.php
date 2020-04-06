@@ -1,11 +1,11 @@
 <?php
-function purchase_delete($id)
+function order_cancell($id)
 {
     if (isset($_GET['order_id'])) {
         $id = intval($_GET['order_id']);
     } else show_404();
     global $linkconnectDB;
-    $sql = "DELETE FROM orders WHERE id=$id";
+    $sql = "UPDATE orders SET status=3 where id=" . $id;
     mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
 }
 function purchase_order_detail($order_id)

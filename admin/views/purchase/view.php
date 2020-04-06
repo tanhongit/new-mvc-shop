@@ -81,7 +81,7 @@
                                         ?>
                                             <tr>
                                                 <td><?= $stt; ?></td>
-                                                <td><a href="product/<?php echo $product['id']; ?>-<?= $product['slug'] ?>"><?php echo $product['product_name']; ?></a></td>
+                                                <td><a href="product/<?php echo $product['id']; ?>-<?= $product['slug'] ?>"><?php echo number_format($product['product_price'], 0, ',', '.') ?>đ</a></td>
                                                 <td><?php if (is_file("public/upload/products/" . $product['img1'])) echo '<image src="public/upload/products/' . $product['img1'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
                                                 <td><?= number_format($product['product_price'], 0, ',', '.') ?></td>
                                                 <td><? if ($product['saleoff'] == 1) echo ($product['product_price'] - (($product['product_price']) * ($product['percentoff']) / 100)); ?></td>

@@ -39,7 +39,7 @@
                                             <div class="text-box">
                                                 <h5><a style="color: #000;" href="product/<?php echo $product['product_id']; ?>-<?php echo $product['slug']; ?>"><?= $product['product_name'] ?></a></h5>
                                                 <span class="comment-date">Số Lượng: <?= $product['quantity'] ?>.</span>
-                                                <a style="padding-left: 20px;" href="product/<?php echo $product['product_id']; ?>-<?php echo $product['slug']; ?>">Giá sản phẩm: <?= $product['product_price'] ?></a>
+                                                <a style="padding-left: 20px;" href="product/<?php echo $product['product_id']; ?>-<?php echo $product['slug']; ?>">Giá sản phẩm: <?= number_format($product['product_price'], 0, ',', '.') ?>đ</a>
                                                 <span style="float: right;">
                                                     <form enctype="multipart/form-data" action="cart/add/<?= $product['product_id'] ?>" method="post"><input type="hidden" value="1" name="number_cart"><button type="submit" class='replybutton btn btn-success waves-effect' style="padding-top: 7px; padding-bottom: 7px;">Mua lần nữa</button></form>
                                                 </span>
@@ -48,8 +48,8 @@
                                         </li>
                                         <hr>
                                     <?php endforeach; ?>
-                                    <span style="font-size: 1.2em; float: right; color: red;"><b> <?=$status[$order['status']]?></b></span>
-                                    <span style="font-size: 1.2em; float: right; padding-left: 25px; padding-right: 25px;"><b><i class="zmdi zmdi-money"></i> Tổng tiền: <?= $order['cart_total'] ?></b></span>
+                                    <span style="font-size: 1.2em; float: right; color: red;"><b> <?= $status[$order['status']] ?></b></span>
+                                    <span style="font-size: 1.2em; float: right; padding-left: 25px; padding-right: 25px;"><b><i class="zmdi zmdi-money"></i> Tổng tiền: <?= number_format($order['cart_total'], 0, ',', '.') ?>đ</b></span>
                                     <span>
                                         <form enctype="multipart/form-data" action="admin.php?controller=purchase&action=view&order_id=<?= $order['id'] ?>" method="post"><button type="submit" style="float: right;" class='btn btn-info waves-effect'>Xem chi tiết đơn hàng này</button></form>
                                     </span>

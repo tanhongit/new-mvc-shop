@@ -18,7 +18,8 @@ function cart_add($product_id, $number)
             'number' => $number,
             'typeid' => $product['product_typeid'],
             'percent_off' => $product['percentoff'],
-            'price' => $product['product_price']
+            'price' => $product['product_price'],
+            'saleoff' => $product['saleoff']
         );
     }
 }

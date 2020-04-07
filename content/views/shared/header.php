@@ -104,7 +104,7 @@ $user_login = get_a_record('users', $user_nav);
 				<nav>
 					<ul class="nav nav-pills nav-top">
 						<li>
-							<a href="about-us.html"><i class="fa fa-angle-right"></i>About Us</a>
+							<a href="<?= $link_about ?>"><i class="fa fa-angle-right"></i>About Us</a>
 						</li>
 						<li>
 							<a href="<?= $link_contact ?>"><i class="fa fa-headphones"></i>Contact Us</a>
@@ -141,13 +141,12 @@ $user_login = get_a_record('users', $user_nav);
 								</a>
 								<ul class="dropdown-menu">
 									<li><a href="#">Hiện tất cả sản phẩm</a></li>
-									<li><a href="#">Home - Corporate <span class="tip">hot</span></a></li>
-									<li><a href="feedback">Gửi phản hồi</a></li>
+									<li><a href="feedback">Gửi phản hồi <span class="tip">Send</span></a></li>
 									<li class="dropdown-submenu">
-										<a href="#">Sliders</a>
+										<a href="#">Về Chị Kòi Quán</a>
 										<ul class="dropdown-menu">
-											<li><a href="#">Revolution Slider</a></li>
-											<li><a href="#">Nivo Slider</a></li>
+											<li><a href="<?= $link_contact ?>">Liên hệ</a></li>
+											<li><a href="<?= $link_about ?>">Thông tin về quán</a></li>
 										</ul>
 									</li>
 								</ul>
@@ -181,11 +180,8 @@ $user_login = get_a_record('users', $user_nav);
 											<div class="mega-menu-content">
 												<div class="row">
 													<div class="col-md-12">
-
 														<div class="signin-form">
-
 															<span class="mega-menu-sub-title">Đăng nhập tài khoản</span>
-
 															<form action="admin.php?controller=home&action=login" id="" role="form" method="post">
 																<div class="row">
 																	<div class="form-group">
@@ -247,14 +243,11 @@ $user_login = get_a_record('users', $user_nav);
 																	</div>
 																</div>
 															</form>
-
 															<p class="log-in-info">Bạn đã có tài khoản? <a href="#" id="headerSignIn">Đăng nhập</a></p>
 														</div>
-
 														<div class="recover-form">
 															<span class="mega-menu-sub-title">Đặt lại mật khẩu</span>
 															<p>Hoàn thành mẫu dưới đây để nhận email với mã ủy quyền cần thiết để đặt lại mật khẩu của bạn.</p>
-
 															<form action="index.php?controller=forgot-password&amp;action=request" id="" method="post">
 																<div class="row">
 																	<div class="form-group">
@@ -303,12 +296,9 @@ $user_login = get_a_record('users', $user_nav);
 													</div>
 													<div class="col-md-6">
 														<ul class="list-account-options">
-															<li>
-																<a href="admin.php?controller=user&action=info&user_id=<?= $user_nav ?>">Tài khoản của tôi</a>
-															</li>
-															<li>
-																<a href="admin.php?controller=home&action=logout">Đăng xuất</a>
-															</li>
+															<li><a href="admin.php?controller=user&action=info&user_id=<?= $user_nav ?>">Tài khoản của tôi</a></li>
+															<li><a href="admin.php?controller=purchase">Đơn mua của tôi</a></li>
+															<li><a href="admin.php?controller=home&action=logout">Đăng xuất</a></li>
 														</ul>
 													</div>
 												</div>
@@ -337,7 +327,10 @@ $user_login = get_a_record('users', $user_nav);
 																		</a>
 																	</td>
 																	<td class="product-name">
-																		<a href="product/<?php echo $product_cart['id'] . '-' . slug($product_cart['name']); ?>"><?php echo $product_cart['name'] ?><br><span class="amount"><strong><?php echo $product_cart['price'] ?> VNĐ</strong> - SLượng: <?php echo $product_cart['number'] ?> </span></a>
+																		<a href="product/<?php echo $product_cart['id'] . '-' . slug($product_cart['name']); ?>"><?php echo $product_cart['name'] ?><br><span class="amount"><strong>
+																					<?php if ($product_cart['saleoff'] != 0) echo number_format(($product_cart['price']) - (($product_cart['price'] * $product_cart['percent_off']) / 100), 0, ',', '.');
+																					else echo number_format($product_cart['price'], 0, ',', '.'); ?>
+																					VNĐ</strong> - SLượng: <?php echo $product_cart['number'] ?> </span></a>
 																	</td>
 																	<td class="product-actions">
 																		<a title="Remove this item" class="remove" href="cart/delete/<?php echo $product_cart['id']; ?>">

@@ -17,6 +17,15 @@ function post_restore($id)
     $sql = "UPDATE posts SET post_status='Draft' where id=" . $id;
     mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
 }
+function post_draft($id)
+{
+    if (isset($_GET['post_id'])) {
+        $id = intval($_GET['post_id']);
+    } else show_404();
+    global $linkconnectDB;
+    $sql = "UPDATE posts SET post_status='Draft' where id=" . $id;
+    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+}
 function post_delete($id)
 {
     $id = intval($id);

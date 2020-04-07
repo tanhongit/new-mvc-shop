@@ -69,7 +69,7 @@
                                             <td><span class="badge badge-info"></span></td>
                                             <td>
                                                 <a onclick="return confirm('Are you sure to delete?')" title="Move Trash" class="btn btn-danger btn-round" href="admin.php?controller=page&action=delete&page_id=<?= $page['id'] ?>"> <i class="zmdi zmdi-delete"></i> Xóa vĩnh viễn</a>
-                                                <a title="Restore" class="btn btn-success btn-round" href=""> <i class="zmdi zmdi-refresh-sync"></i> Phục hồi</a>
+                                                <a title="Restore" class="btn btn-success btn-round" href="admin.php?controller=page&action=restore&post_id=<?= $page['id'] ?>"> <i class="zmdi zmdi-refresh-sync"></i> Phục hồi</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

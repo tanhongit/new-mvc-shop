@@ -30,7 +30,7 @@ require('content/views/shared/header.php'); ?>
                                                 Shipping
                                             </th>
                                             <td>
-                                                Free Shipping 10KM & Ship COD Toàn Quốc (Trừ sản phẩm thuộc danh  mục ăn uống)<input type="hidden" value="free_shipping" id="shipping_method" name="shipping_method">
+                                                Free Shipping 5KM Mọi loại sản phẩm & Ship COD Toàn Quốc (Trừ sản phẩm thuộc danh mục ăn uống)<input type="hidden" value="free_shipping" id="shipping_method" name="shipping_method">
                                             </td>
                                         </tr>
                                         <tr class="total">

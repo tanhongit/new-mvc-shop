@@ -6,7 +6,7 @@
 				<div class="tp-caption sft stb visible-lg" data-x="177" data-y="100" data-speed="300" data-start="1000" data-easing="easeOutExpo"><img src="public/img/slides/slide-title-border.png" alt=""></div>
 				<div class="tp-caption top-label lfl stl" data-x="227" data-y="100" data-speed="300" data-start="500" data-easing="easeOutExpo">Món ăn đặc sản Chứa Chan</div>
 				<div class="tp-caption sft stb visible-lg" data-x="530" data-y="100" data-speed="300" data-start="1000" data-easing="easeOutExpo"><img src="public/img/slides/slide-title-border.png" alt=""></div>
-				<div class="tp-caption main-label sft stb" data-x="135" data-y="170" data-speed="300" data-start="1000" data-easing="easeOutExpo">BÁNH XÈO RAU RỪNG</div>
+				<div class="tp-caption main-label sft stb" data-x="135" data-y="170" data-speed="300" data-start="1000" data-easing="easeOutExpo">BÁNH XÈO CHẢO TO THƠM NGON</div>
 				<div class="tp-caption bottom-label sft stb" data-x="185" data-y="240" data-speed="500" data-start="2000" data-easing="easeOutExpo"><?= $slide['slide_text1'] ?></div>
 				<div class="tp-caption blackboard-text lfb " data-x="635" data-y="300" data-speed="500" data-start="2450" data-easing="easeOutExpo" style="font-size: 37px;">Rau rung hap dan</div>
 				<div class="tp-caption blackboard-text lfb " data-x="660" data-y="350" data-speed="500" data-start="2850" data-easing="easeOutExpo" style="font-size: 47px;">Nuoc mam ngon</div>
@@ -43,7 +43,7 @@
 			<div class="col-md-4">
 				<div class="get-started">
 					<a href="search" class="btn btn-lg btn-primary">Đi đến trang tìm kiếm!</a>
-					<div class="learn-more">hoặc đến <a href="#">Thông tin.</a></div>
+					<div class="learn-more">hoặc đến <a href="<?=$link_about?>">Thông tin quán.</a></div>
 				</div>
 			</div>
 		</div>

@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <h2 class="shorter"><strong>Thủ tục thanh toán và đặt hàng</strong></h2>
                 <?php if (!isset($user_nav)) echo '<p>Phản hồi của khách hàng? <a href="admin.php">Nhấn vào đây để đăng nhập.</a></p>';
-                else echo '<p>Phản hồi của Bạn? <a href="index.php&controller=feedback">Nhấn vào đây để gửi phản hồi.</a></p>' ?>
+                else echo '<p>Phản hồi của Bạn? <strong><a href="index.php&controller=feedback">Nhấn vào đây để gửi phản hồi.</a></strong></p>' ?>
             </div>
         </div>
         <div class="row">
@@ -97,7 +97,7 @@
                                 </table>
                                 <hr class="tall">
                                 <h3 style="text-align: center;"><strong>Lưu ý đặt hàng và thanh toán</strong></h3>
-                                <p><strong>Quán mình chỉ hỗ trợ khách ăn uống tại quán và Free Shipping nằm trong phạm vi bán kính 10km</strong>, Nếu quý khách có đặt những sản phẩm nằm trong danh mục <strong>Ăn Uống</strong> mà có địa chỉ giao hàng <strong>vượt quá 10km</strong> thì xin quý khách có thể thông cảm và cho phép quán được chân thành xin lỗi vì không thể giao hàng tới được ạ!</p>
+                                <p><strong>Quán mình chỉ hỗ trợ khách ăn uống tại quán và Free Shipping nằm trong phạm vi bán kính 5km</strong>, Nếu quý khách có đặt những sản phẩm nằm trong danh mục <strong>Ăn Uống</strong> mà có địa chỉ giao hàng <strong>vượt quá 10km</strong> thì xin quý khách có thể thông cảm và cho phép quán được chân thành xin lỗi vì không thể giao hàng tới được ạ!</p>
                                 <p>Đối với các sản phẩm về Làm đẹp và mĩ phẩm,...(Nằm ngoài danh mục <strong>Ăn Uống</strong>) thì Quán mình vẫn hỗ trợ Free Shipping nằm trong phạm vi bán kính 10km và Ship COD Toàn Quốc ạ!</p>
                                 <form action="" id="" method="post">
                                     <div class="row">

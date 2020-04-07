@@ -75,5 +75,7 @@
 </div>
 <div class="featured-box featured-box-secundary featured-box-cart">
     <form method="post" action="index.php?controller=cart&action=destroy" role="form">
-        <div class="box-content"><strong>Nếu bạn muốn làm sạch giỏ hàng hãy nhấn</strong> <button onclick="return confirm('Are you sure to delete?')" class='alert alert-danger' type="submit" value="Xoá giỏ hàng" class="btn btn-default" title='Xoá giỏ hàng nếu bạn muốn làm sạch'><b>Xoá giỏ hàng</b>
-                <button</div> </form> </div>
+        <div class="box-content"><span style="float: left;"><button class="btn btn-success"><i class="fa fa-hand-o-left"></i> Quay lại và tiếp tục mua sắm</button></span><span style="float: right;"><strong>Nếu bạn muốn làm sạch giỏ hàng hãy nhấn</strong> <button onclick="return confirm('Are you sure to delete?')" type="submit" value="Xoá giỏ hàng" class="btn btn-danger" title='Xoá giỏ hàng nếu bạn muốn làm sạch'><b><i class="fa fa-refresh"></i> Xoá giỏ hàng</b>
+            </button></span></div>
+    </form>
+</div>

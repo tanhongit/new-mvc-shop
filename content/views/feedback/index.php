@@ -92,8 +92,8 @@
                                     <a href="product/<?php echo $product['id']; ?>-<?php echo $product['slug']; ?>">
                                         <span class="product-thumb-info-image">
                                             <span class="product-thumb-info-act">
-                                                <span class="product-thumb-info-act-left"><em>View</em></span>
-                                                <span class="product-thumb-info-act-right"><em><i class="fa fa-plus"></i> Details</em></span>
+                                                <span class="product-thumb-info-act-left"><em>Lượt xem</em></span>
+                                                <span class="product-thumb-info-act-right"><em><i class="fa fa-plus"></i> Chi tiết</em></span>
                                             </span>
                                             <img alt="" class="img-responsive" src="public/upload/products/<?php echo $product['img1']; ?>">
                                         </span>

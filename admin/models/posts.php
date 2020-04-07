@@ -26,6 +26,15 @@ function post_draft($id)
     $sql = "UPDATE posts SET post_status='Draft' where id=" . $id;
     mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
 }
+function post_public($id)
+{
+    if (isset($_GET['post_id'])) {
+        $id = intval($_GET['post_id']);
+    } else show_404();
+    global $linkconnectDB;
+    $sql = 'UPDATE posts SET post_status="Publiced", post_date="' . gmdate('Y-m-d H:i:s', time() + 7 * 3600) . '" where id=' . $id;
+    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+}
 function post_delete($id)
 {
     $id = intval($id);
@@ -74,11 +83,10 @@ function page_add()
         'post_title' => $name,
         'post_slug' => slug($name),
         'post_content' => ($_POST['detailpost']), //ckeditor
-        'post_modified' => gmdate('Y-m-d H:i:s', time() + 7 * 3600),
         'post_author' => intval($_POST['createby']),
         'totalview' => intval($_POST['totalview']),
         'post_type' => 2,
-        'post_status' => 'Publiced'
+        'post_status' => 'Draft'
     );
     $post_id = save('posts', $post);
     //upload ảnh 1 của post
@@ -97,6 +105,6 @@ function page_add()
         );
         save('posts', $post);
     }
-    //chuyển hướng nếu có cập nhật
-    header('location:admin.php?controller=page');
+    //chuyển hướng nếu có thêm mới
+    header('location:admin.php?controller=page&action=viewdraft');
 }

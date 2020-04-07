@@ -92,7 +92,6 @@
                                             </div>
                                         </div>
                                         <div class="form-group" style="text-align: center;">
-                                            <a title="Move Trash" class="btn btn-danger btn-round" href="admin.php?controller=page&action=trash&post_id=<?= $post['id'] ?>"> <i class="zmdi zmdi-assignment-o"></i> Save Draft</a>
                                             <button class="btn btn-primary waves-effect" type="submit"><?php echo $post ? 'Cập nhật lại trang' : 'Thêm trang mới'; ?></button>
                                             <a class="btn btn-warning waves-effect" href="admin.php?controller=page">Trở về</a>
                                         </div>

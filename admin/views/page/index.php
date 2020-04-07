@@ -1,0 +1,83 @@
+<?php require('admin/views/shared/header.php'); ?>
+<?php require('admin/views/shared/loader.php'); ?>
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+<?php require('admin/views/shared/formsearch.php'); ?>
+<?php require('admin/views/shared/rightnavbar.php'); ?>
+<?php require('admin/views/shared/leftnavbar.php'); ?>
+<section class="content">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Project list</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
+                        <li class="breadcrumb-item">Posts</li>
+                        <li class="breadcrumb-item active">Pages</li>
+                    </ul>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                    <button class="btn btn-success btn-icon float-right" type="button"><i class="zmdi zmdi-plus"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="card project_list">
+                        <div class="table-responsive">
+                            <table class="table table-hover c_table theme-color">
+                                <thead>
+                                    <tr>
+                                        <th style="width:50px;">Title</th>
+                                        <th class="hidden-md-down">Date</th>
+                                        <th>Comment</th>
+                                        <th>Post Author</th>
+                                        <th class="hidden-md-down" width="150px">View</th>
+                                        <th style="width:50px;">Slug</th>
+                                        <th class="hidden-md-down">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php if (empty($pages)) {
+                                        echo '<h3><strong>Hiện không có trang nào trong hệ thống.</strong></h3>';
+                                    }
+                                    foreach ($pages as $page) : ?>
+                                        <tr>
+                                            <td>
+                                                <strong><?= $page['post_title'] ?></strong>
+                                            </td>
+                                            <td>
+                                                <strong><?= $page['post_date'] ?></strong><br>
+                                                <small><?= $page['post_status'] ?></small>
+                                            </td>
+                                            <td>
+                                            </td>
+                                            <td class="hidden-md-down">
+                                                <?php $user = get_a_record('users', $page['post_author']); ?>
+                                                <ul class="list-unstyled team-info margin-0">
+                                                    <li><?= $user['user_name'] ?> </li>
+                                                    <li><img src="public/upload/images/<?= $user['user_avatar'] ?>" alt="Avatar"></li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <strong><?= $page['totalView'] ?></strong>
+                                            </td>
+                                            <td><span class="badge badge-info"><?= $page['post_slug'] ?></span></td>
+                                            <td></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <?php echo $pagination; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<?php require('admin/views/shared/footer.php'); ?>

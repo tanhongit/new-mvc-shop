@@ -34,10 +34,10 @@
                                     <tr>
                                         <th style="width:50px;">Title</th>
                                         <th class="hidden-md-down">Date</th>
-                                        <th>Comment</th>
+                                        <th>Slug</th>
                                         <th>Post Author</th>
                                         <th class="hidden-md-down" width="150px">View</th>
-                                        <th style="width:50px;">Slug</th>
+                                        <th style="width:50px;">Comment</th>
                                         <th class="hidden-md-down">Action</th>
                                     </tr>
                                 </thead>
@@ -54,8 +54,7 @@
                                                 <strong><?= $page['post_date'] ?></strong><br>
                                                 <small><?= $page['post_status'] ?></small>
                                             </td>
-                                            <td>
-                                            </td>
+                                            <td><?= $page['post_slug'] ?></td>
                                             <td class="hidden-md-down">
                                                 <?php $user = get_a_record('users', $page['post_author']); ?>
                                                 <ul class="list-unstyled team-info margin-0">
@@ -66,8 +65,12 @@
                                             <td>
                                                 <strong><?= $page['totalView'] ?></strong>
                                             </td>
-                                            <td><span class="badge badge-info"><?= $page['post_slug'] ?></span></td>
-                                            <td></td>
+                                            <td><span class="badge badge-info"></span></td>
+                                            <td>
+                                                <a title="Add Trash" class="btn btn-danger btn-icon btn-icon-mini btn-round" href="admin.php?controller=page&action=trash&post_id=<?= $page['id'] ?>"> <i class="zmdi zmdi-delete"></i> </a>
+                                                <a title="Add Trash" class="btn btn-warning btn-icon btn-icon-mini btn-round" href="admin.php?controller=page&action=edit&post_id=<?= $page['id'] ?>"> <i class="zmdi zmdi-edit"></i> </a>
+                                                <a title="Add Trash" class="btn btn-success btn-icon btn-icon-mini btn-round" href="page/<?= $page['post_slug'] ?>"> <i class="zmdi zmdi-eye"></i> </a>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

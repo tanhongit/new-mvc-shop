@@ -8,7 +8,7 @@
                         <li class="breadcrumb-item"><a href="<?= PATH_URL . 'home' ?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
                         <li class="breadcrumb-item"><a href="admin.php">Blog</a></li>
                         <li class="breadcrumb-item"><a href="admin.php?controller=page">Page</a></li>
-                        <li class="breadcrumb-item active">Chỉnh sửa Trang</li>
+                        <li class="breadcrumb-item active">Thêm trang mới</li>
                     </ul>
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">
@@ -21,14 +21,14 @@
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="alert alert-warning" role="alert">
-                        <strong><?php echo $post ? 'Cảnh Báo: </strong> Bạn đang trong trang chỉnh sửa của trang "' . $post['post_title'] . '", Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>' : 'Cảnh Báo: </strong> Bạn đang trong trang tạo một trang mới, Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>'; ?>
+                        <strong><?php echo 'Cảnh Báo: </strong> Bạn đang trong trang thêm trang mới, Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>'; ?>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true"><i class="zmdi zmdi-close"></i></span>
                             </button>
                     </div>
                     <div class="card">
                         <div class="body">
-                            <form id="post-form" class="form-horizontal" method="post" action="admin.php?controller=page&amp;action=edit" enctype="multipart/form-data" role="form">
+                            <form id="post-form" class="form-horizontal" method="post" action="admin.php?controller=page&amp;action=add" enctype="multipart/form-data" role="form">
                                 <div class="row clearfix">
                                     <div class="col-sm-8">
                                         <input name="post_id" type="hidden" value="<?php echo $post ? $post['id'] : '0'; ?>" />
@@ -74,7 +74,7 @@
                                             </div>
                                         <?php endif; ?>
                                         <hr>
-                                        <h2 style="text-align: center;">Thay đổi ảnh mới</h2>
+                                        <h2 style="text-align: center;">Thêm ảnh mới</h2>
                                         <div class="card col-md-12">
                                             <div class="header" style="text-align: center;">
                                                 <h2 style="text-align: center;">Ảnh Đại Diện</h2>
@@ -87,12 +87,12 @@
                                         <div class="row clearfix">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <input name="totalview" type="text" value="<?php echo $post ? $post['totalView'] : ''; ?>" class="form-control" id="totalview" placeholder="Lượt view..." />
+                                                    <input name="totalview" type="text" value="<?php echo $post ? $post['totalView'] : 0; ?>" class="form-control" id="totalview" placeholder="Lượt view..." />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group" style="text-align: center;">
-                                            <a title="Move Trash" class="btn btn-danger btn-round" href="admin.php?controller=page&action=trash&post_id=<?= $post['id'] ?>"> <i class="zmdi zmdi-delete"></i> Move Trash</a>
+                                            <a title="Move Trash" class="btn btn-danger btn-round" href="admin.php?controller=page&action=trash&post_id=<?= $post['id'] ?>"> <i class="zmdi zmdi-assignment-o"></i> Save Draft</a>
                                             <button class="btn btn-primary waves-effect" type="submit"><?php echo $post ? 'Cập nhật lại trang' : 'Thêm trang mới'; ?></button>
                                             <a class="btn btn-warning waves-effect" href="admin.php?controller=page">Trở về</a>
                                         </div>

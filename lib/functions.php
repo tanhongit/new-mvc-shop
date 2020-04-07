@@ -120,7 +120,7 @@ function upload($field, $config = array())
     move_uploaded_file($file["tmp_name"], $file_path);
     return $name;
 }
-//permission 
+//permission users
 function permission_user()
 {
     global $user_nav;
@@ -128,4 +128,49 @@ function permission_user()
     if ($user_login['role_id'] == 0) {
         header('location:index.php');
     }
+}
+//pagination admin
+function pagination_admin($url, $page, $total)
+{
+    $adjacents = 2;
+    $out = '<ul class="pagination pagination-primary mt-4">';
+    //first
+    if ($page == 1) {
+        $out .= '<li class="page-item disabled"><span class="page-link">Đầu</span></li>';
+    } else {
+        $out .= '<li class="page-item"><a style="color: blueviolet" class="page-link" href="' . $url . '">Đầu</a></li>';
+    }
+    // previous
+    if ($page == 1) {
+        $out .= '<li class="page-item disabled"><span class="page-link"><i class="zmdi zmdi-arrow-left"></i></span></li>';
+    } elseif ($page == 2) {
+        $out .= '<li class="page-item"><a class="page-link" href="' . $url . '"><i class="zmdi zmdi-arrow-left"></i></a></li>';
+    } else {
+        $out .= '<li class="page-item"><a class="page-link" href="' . $url . '&amp;page=' . ($page - 1) . '"><i class="zmdi zmdi-arrow-left"></i></a></li>';
+    }
+    $pmin = ($page > $adjacents) ? ($page - $adjacents) : 1;
+    $pmax = ($page < ($total - $adjacents)) ? ($page + $adjacents) : $total;
+    for ($i = $pmin; $i <= $pmax; $i++) {
+        if ($i == $page) {
+            $out .= '<li class="page-item active"><span class="page-link">' . $i . '</span></li>';
+        } elseif ($i == 1) {
+            $out .= '<li class="page-item"><a class="page-link" href="' . $url . '">' . $i . '</a></li>';
+        } else {
+            $out .= '<li class="page-item"><a class="page-link" href="' . $url . "&amp;page=" . $i . '">' . $i . '</a></li>';
+        }
+    }
+    // next
+    if ($page < $total) {
+        $out .= '<li class="page-item"><a class="page-link" href="' . $url . '&amp;page=' . ($page + 1) . '"><i class="zmdi zmdi-arrow-right"></i></a></li>';
+    } else {
+        $out .= '<li class="page-item disabled"><span class="page-link"><i class="zmdi zmdi-arrow-right"></i></span></li>';
+    }
+    //last
+    if ($page < $total) {
+        $out .= '<li class="page-item"><a style="color: blueviolet" class="page-link" href="' . $url . '&amp;page=' . $total . '">Cuối</a></li>';
+    } else {
+        $out .= '<li class="page-item disabled"><span class="page-link">Cuối</span></li>';
+    }
+    $out .= '</ul>';
+    return $out;
 }

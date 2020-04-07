@@ -37,10 +37,16 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                 </ul>
             </li>
             <?php if ($user_info_nav['role_id'] != 0) : ?>
-                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-blogger"></i><span>Blog</span></a>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-blogger"></i><span>Blog -> Page</span></a>
                     <ul class="ml-menu">
-                        <li><a href="admin.php?controller=page">Page</a></li>
+                        <li><a href="admin.php?controller=page">All Page</a></li>
+                        <li><a href="admin.php?controller=page&action=viewtrash">Thùng rác</a></li>
+                        <li><a href="admin.php?controller=page&action=viewdraft">Các bản nháp</a></li>
                         <li><a href="admin.php?controller=page&action=add">ADD New Page</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-blogger"></i><span>Blog -> Post</span></a>
+                    <ul class="ml-menu">
                         <li><a href="admin.php?controller=post">Post</a></li>
                         <li><a href="admin.php?controller=post&action=add">ADD New Post</a></li>
                     </ul>

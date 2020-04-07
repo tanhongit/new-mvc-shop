@@ -65,16 +65,16 @@
                                     <div class="col-sm-4">
                                         <?php if (isset($post)) : ?>
                                             <div class="row clearfix">
-                                                <div style="text-align: center;">
-                                                    <div style="text-align: center;">
-                                                        <h4>Ảnh đại diện hiện tại</h4>
-                                                        <img style="max-width:250px;" src="public/upload/ckeditorimages/<?php echo $post['post_avatar']; ?>">
+                                                <div>
+                                                    <div>
+                                                        <h4 style="text-align: center;">Ảnh đại diện hiện tại</h4>
+                                                        <img style="text-align: center;" style="max-width:250px;" src="public/upload/ckeditorimages/<?php echo $post['post_avatar']; ?>">
                                                     </div>
                                                 </div>
                                             </div>
                                         <?php endif; ?>
                                         <hr>
-                                        <h2 style="text-align: center;">Thay đổi ảnh tuỳ thích</h2>
+                                        <h2 style="text-align: center;">Thay đổi ảnh mới</h2>
                                         <div class="card col-md-12">
                                             <div class="header" style="text-align: center;">
                                                 <h2 style="text-align: center;">Ảnh Đại Diện</h2>
@@ -92,6 +92,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group" style="text-align: center;">
+                                            <a title="Move Trash" class="btn btn-danger btn-round" href="admin.php?controller=page&action=trash&post_id=<?= $post['id'] ?>"> <i class="zmdi zmdi-delete"></i> Move Trash</a>
                                             <button class="btn btn-primary waves-effect" type="submit"><?php echo $post ? 'Cập nhật lại trang' : 'Thêm sản phẩm mới'; ?></button>
                                             <a class="btn btn-warning waves-effect" href="admin.php?controller=page">Trở về</a>
                                         </div>

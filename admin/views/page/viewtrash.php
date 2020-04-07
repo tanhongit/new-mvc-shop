@@ -14,7 +14,8 @@
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="admin.php"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
                         <li class="breadcrumb-item">Blog</li>
-                        <li class="breadcrumb-item active">Pages</li>
+                        <li class="breadcrumb-item active"><a href="admin.php?controller=page">Pages</a></li>
+                        <li class="breadcrumb-item active">Thùng rác</li>
                     </ul>
                     <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
                 </div>
@@ -67,9 +68,8 @@
                                             </td>
                                             <td><span class="badge badge-info"></span></td>
                                             <td>
-                                                <a title="Move Trash" class="btn btn-danger btn-round" href="admin.php?controller=page&action=trash&post_id=<?= $page['id'] ?>"> <i class="zmdi zmdi-delete"></i> Move Trash</a>
-                                                <a title="Edit" class="btn btn-warning btn-icon btn-icon-mini btn-round" href="admin.php?controller=page&action=edit&post_id=<?= $page['id'] ?>"> <i class="zmdi zmdi-edit"></i> </a>
-                                                <a title="View" class="btn btn-success btn-icon btn-icon-mini btn-round" href="page/<?= $page['id'] . '-' . $page['post_slug'] ?>"> <i class="zmdi zmdi-eye"></i> </a>
+                                                <a onclick="return confirm('Are you sure to delete?')" title="Move Trash" class="btn btn-danger btn-round" href="admin.php?controller=page&action=delete&page_id=<?= $page['id'] ?>"> <i class="zmdi zmdi-delete"></i> Xóa vĩnh viễn</a>
+                                                <a title="Restore" class="btn btn-success btn-round" href=""> <i class="zmdi zmdi-refresh-sync"></i> Phục hồi</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

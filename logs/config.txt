@@ -1,0 +1,2 @@
+chỉnh sửa Ckeditor config: admin/themes/plugin/Ckeditor/config.js
+                            admin/themes/plugin/ckfinder/config.php

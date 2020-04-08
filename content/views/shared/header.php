@@ -68,27 +68,6 @@ $user_login = get_a_record('users', $user_nav);
 	<meta property="og:image" content="<?= PATH_URL ?>public/img/<?= $favicon ?>" />
 	<meta property="og:locale" content="vi_VN" />
 	<meta property="fb:app_id" content="517386205818335" />
-	<script>
-		window.fbAsyncInit = function() {
-			FB.init({
-				appId: '517386205818335',
-				xfbml: true,
-				version: 'v6.0'
-			});
-			FB.AppEvents.logPageView();
-		};
-
-		(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) {
-				return;
-			}
-			js = d.createElement(s);
-			js.id = id;
-			js.src = "https://connect.facebook.net/vi_VN/sdk.js";
-			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-	</script>
 </head>
 
 <body>

@@ -69,6 +69,27 @@
         </div>
     </div>
 </footer>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '517386205818335',
+            xfbml: true,
+            version: 'v6.0'
+        });
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/vi_VN/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 <script src="public/vendor/jquery/jquery.js"></script>
 <script src="public/vendor/jquery.appear/jquery.appear.js"></script>
 <script src="public/vendor/jquery.easing/jquery.easing.js"></script>

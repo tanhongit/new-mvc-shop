@@ -70,7 +70,7 @@
                                                 <a title="Move Trash" class="btn btn-danger btn-round" href="admin.php?controller=page&action=trash&post_id=<?= $page['id'] ?>"> <i class="zmdi zmdi-delete"></i> Move Trash</a>
                                                 <a title="Edit" class="btn btn-warning btn-icon btn-icon-mini btn-round" href="admin.php?controller=page&action=edit&post_id=<?= $page['id'] ?>"> <i class="zmdi zmdi-edit"></i> </a>
                                                 <?php if ($page['post_status'] <> 'Draft') : ?>
-                                                    <a title="View" class="btn btn-success btn-icon btn-icon-mini btn-round" href="page/<?= $page['id'] . '-' . $page['post_slug'] ?>"> <i class="zmdi zmdi-eye"></i> </a>
+                                                    <a title="View" class="btn btn-success btn-icon btn-icon-mini btn-round" target="_blank" href="page/<?= $page['id'] . '-' . $page['post_slug'] ?>"> <i class="zmdi zmdi-eye"></i> </a>
                                                 <?php else : ?>
                                                     <a title="Public" class="btn btn-success btn-round" href="admin.php?controller=page&action=public&post_id=<?= $page['id'] ?>"> <i class="zmdi zmdi-sun"></i> Công khai</a>
                                                 <?php endif; ?>

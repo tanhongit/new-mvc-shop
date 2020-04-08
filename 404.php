@@ -26,17 +26,17 @@ require('content/views/shared/header.php'); ?>
                 <div class="col-md-6 col-md-offset-1">
                     <div class="page-not-found-main">
                         <h2>404 <i class="fa fa-file"></i></h2>
-                        <p>We're sorry, but the page you were looking for doesn't exist.</p>
+                        <p>We're sorry, but the page you were looking for doesn't exist. <br> Chúng tôi xin lỗi, nhưng trang bạn đang tìm kiếm không tồn tại.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <h4>Here are some useful links</h4>
+                    <h4>Dưới đây là một số liên kết hữu ích</h4>
                     <ul class="nav nav-list primary">
-                        <li><a href="<?php echo PATH_URL; ?>home">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">FAQ's</a></li>
-                        <li><a href="#">Sitemap</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="<?php echo PATH_URL; ?>home">Trang chủ</a></li>
+                        <li><a href="<?= $link_about ?>">Về chúng tôi</a></li>
+                        <li><a href="<?= $link_contact ?>">Liên hệ</a></li>
+                        <!-- <li><a href="#">FAQ's</a></li>
+                        <li><a href="#">Sitemap</a></li> -->
                     </ul>
                 </div>
             </div>

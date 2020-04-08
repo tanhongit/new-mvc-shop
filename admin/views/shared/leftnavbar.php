@@ -47,7 +47,9 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-blogger"></i><span>Blog -> Post</span></a>
                     <ul class="ml-menu">
-                        <li><a href="admin.php?controller=post">Post</a></li>
+                        <li><a href="admin.php?controller=post">All Post</a></li>
+                        <li><a href="admin.php?controller=post&action=viewtrash">Thùng rác</a></li>
+                        <li><a href="admin.php?controller=post&action=viewdraft">Các bản nháp</a></li>
                         <li><a href="admin.php?controller=post&action=add">ADD New Post</a></li>
                     </ul>
                 </li>

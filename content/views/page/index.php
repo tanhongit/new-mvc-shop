@@ -51,8 +51,8 @@
                                     <a class="addthis_counter addthis_pill_style"></a>
                                 </div>
                                 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-50faf75173aadc53"></script>
-                                <!-- AddThis Button END -->
                             </div>
+                            <div class="fb-comments" data-href="<?php echo PATH_URL . 'post/' . $page['id'] . '-' . $page['post_slug']; ?>" data-width="100%" data-numposts="5"></div>
                             <!-- <div class="post-block post-author clearfix">
                                 <h3><i class="fa fa-user"></i>Author</h3>
                                 <div class="img-thumbnail">

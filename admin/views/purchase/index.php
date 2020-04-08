@@ -49,11 +49,11 @@
                                         <hr>
                                     <?php endforeach; ?>
                                     <span style="font-size: 1.2em; float: right; color: red;"><b> <?= $status[$order['status']] ?></b></span>
-                                    <span style="font-size: 1.2em; float: right; padding-left: 25px; padding-right: 25px;"><b><i class="zmdi zmdi-money"></i> Tổng tiền: <?= number_format($order['cart_total'], 0, ',', '.') ?>đ</b></span>
+                                    <span style="font-size: 1.2em; float: right; padding-left: 25px; padding-right: 25px;"><b><a style="color: #fff" title="Public" class="btn btn-primary btn-round"><i class="zmdi zmdi-money"></i> Tổng tiền: <?= number_format($order['cart_total'], 0, ',', '.') ?>đ</a></b></span>
                                     <span>
                                         <form enctype="multipart/form-data" action="admin.php?controller=purchase&action=view&order_id=<?= $order['id'] ?>" method="post"><button type="submit" style="float: right;" class='btn btn-info waves-effect'>Xem chi tiết đơn hàng này</button></form>
                                     </span>
-                                    <?php if ($order['status'] == 3 || $order['status'] == 1) { ?>
+                                    <?php if ($order['status'] == 3 || $order['status'] == 1 || $order['status'] == 2) { ?>
                                         <span> <a href="admin.php?controller=feedback&action=add&order_id=<?= $order['id'] ?>" style="text-decoration: none;" class='btn btn-success waves-effect'>Phản hồi đơn hàng này</a></span>
                                     <?php } elseif ($order['status'] == 0) { ?>
                                         <span>

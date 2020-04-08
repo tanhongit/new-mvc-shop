@@ -5,7 +5,7 @@ if (isset($_GET['id'])) {
 } else show_404();
 $page = get_a_record('posts', $post_id);
 $user = get_a_record('users', $page['post_author']);
-if (!$page) {
+if (!$page || $page['post_status'] <> 'Publiced') {
     show_404();
 } else   updateCountView($post_id);
 $title = $page['post_title'] . ' - Quán Chị Kòi';

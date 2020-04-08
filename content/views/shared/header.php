@@ -122,7 +122,7 @@ $user_login = get_a_record('users', $user_nav);
 									<li><a href="#">Hiện tất cả sản phẩm</a></li>
 									<li><a href="feedback">Gửi phản hồi <span class="tip">Send</span></a></li>
 									<li class="dropdown-submenu">
-										<a href="#">Về Chị Kòi Quán</a>
+										<a href="javascript:void(0);">Về Chị Kòi Quán</a>
 										<ul class="dropdown-menu">
 											<li><a href="<?= $link_contact ?>">Liên hệ</a></li>
 											<li><a href="<?= $link_about ?>">Thông tin về quán</a></li>

@@ -26,7 +26,7 @@
                             <div style="text-align: center;" class="owl-carousel" data-plugin-options='{"items":1}'>
                                 <div>
                                     <div class="img-thumbnail">
-                                        <img class="img-responsive" src="public/upload/ckeditorimages/<?= $page['post_avatar'] ?>" alt="">
+                                        <img class="img-responsive" src="public/upload/ckeditorimages/<?= $page['post_avatar'] ?>" alt="<?= $page['post_title'] ?>">
                                     </div>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@
                         <div class="post-content">
                             <h2><strong><?= $page['post_title'] ?></strong></h2>
                             <div class="post-meta">
-                                <span><i class="fa fa-user"></i> By <a href="#"><?= $user['user_name'] ?></a> </span>
+                                <span><i class="fa fa-user"></i> By <a href="javascript:void(0);"><?= $user['user_name'] ?></a> </span>
                                 <!-- <span><i class="fa fa-comments"></i> <a href="#">12 Comments</a></span> -->
                             </div>
                             <?= $page['post_content'] ?>

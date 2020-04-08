@@ -1,7 +1,8 @@
 <?php
 $title = 'Quản trị hệ thống - Quán Chị Kòi';
 $user = $_SESSION['user'];
-//table order
+
+//table orders
 $options_order_complete = array(
     'where' => 'status = 1',
     'order_by' => 'createtime DESC'
@@ -13,11 +14,11 @@ $options_order = array(
 );
 $total_order = get_total('orders', $options_order);
 
-$options_process = array(
+$options_comlete = array(
     'where' => 'status = 1',
     'order_by' => 'id DESC'
 );
-$total_order_prosess = get_total('orders', $options_process);
+$total_order_prosess = get_total('orders', $options_comlete);
 
 $options_order_new = array(
     'limit' => 1,
@@ -27,8 +28,87 @@ $options_order_new = array(
 $order_new = select_a_record('orders', $options_order_new);
 
 $options_inprocess = array(
-    'where' => 'status = 0',
+    'where' => 'status = 2',
     'order_by' => 'id DESC'
 );
 $total_order_inprosess = get_total('orders', $options_inprocess);
+
+$options_noprocess = array(
+    'where' => 'status = 0',
+    'order_by' => 'id DESC'
+);
+$total_order_noprosess = get_total('orders', $options_noprocess);
+
+$options_order_status = array(
+    'where' => 'status=1 or status=3',
+    'order_by' => 'id DESC'
+);
+$total_order_status = get_total('orders', $options_order_status);
+if ($total_order_status != 0) $order_ratio = ($total_order_status / $total_order) * 100;
+else $order_ratio = 0;
+
+//feedbacks
+$options_feedback = array(
+    'order_by' => 'createTime DESC'
+);
+$total_feedback = get_total('feedbacks', $options_feedback);
+
+$options_feedback_order = array(
+    'order_by' => 'createTime DESC',
+    'where' => 'order_id<>0'
+);
+$total_feedback_order = get_total('feedbacks', $options_feedback_order);
+
+$options_feedback_product = array(
+    'order_by' => 'createTime DESC',
+    'where' => 'product_id<>0'
+);
+$total_feedback_product = get_total('feedbacks', $options_feedback_product);
+
+$options_feedback_status = array(
+    'order_by' => 'createTime DESC',
+    'where' => 'status=1'
+);
+$total_feedback_status = get_total('feedbacks', $options_feedback_status);
+if ($total_feedback_status != 0) $feedback_ratio = $total_feedback_status / $total_feedback * 100;
+else $feedback_ratio = 0;
+
+//comments
+$options_comments = array(
+    'order_by' => 'id DESC'
+);
+$total_rows_comment = get_total('comments', $options_comments);
+
+$options_comment_new = array(
+    'limit' => 1,
+    'offset' => 0,
+    'order_by' => 'id DESC'
+);
+$comment_new = select_a_record('comments', $options_comment_new);
+
+$options_comment_accept = array(
+    'order_by' => 'id DESC',
+    'where' => 'status<>0'
+);
+$total_comment_accept = get_total('comments', $options_comment_accept);
+if ($total_comment_accept != 0) $comment_ratio = $total_comment_accept / $total_rows_comment * 100;
+else $comment_ratio = 0;
+
+
+
+$options_user_online = array(
+    'order_by' => 'session'
+);
+$total_rows_online = get_total('users_online', $options_user_online);
+
+
+$options_total_access = array(
+    'order_by' => 'id'
+);
+$total_rows_access = get_total('visiters', $options_total_access);
+
+$options_product_total = array(
+    'order_by' => 'id'
+);
+$total_product = get_total('products', $options_product_total);
 require('admin/views/home/index.php');

@@ -35,8 +35,6 @@ require('content/views/shared/header.php'); ?>
                         <li><a href="<?php echo PATH_URL; ?>home">Trang chủ</a></li>
                         <li><a href="<?= $link_about ?>">Về chúng tôi</a></li>
                         <li><a href="<?= $link_contact ?>">Liên hệ</a></li>
-                        <!-- <li><a href="#">FAQ's</a></li>
-                        <li><a href="#">Sitemap</a></li> -->
                     </ul>
                 </div>
             </div>

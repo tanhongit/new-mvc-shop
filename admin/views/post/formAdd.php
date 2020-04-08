@@ -21,7 +21,7 @@
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="alert alert-warning" role="alert">
-                        <strong><?php echo 'Cảnh Báo: </strong> Bạn đang trong trang thêm trang mới, Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>'; ?>
+                        <strong><?php echo 'Cảnh Báo: </strong> Bạn đang trong trang thêm bài viết mới, Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>'; ?>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true"><i class="zmdi zmdi-close"></i></span>
                             </button>
@@ -41,7 +41,7 @@
                                         <div class="row clearfix">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <input name="title" type="text" value="<?php echo $post ? $post['post_title'] : ''; ?>" class="form-control" id="name" placeholder="Nhập tiêu đề trang..." required="" />
+                                                    <input name="title" type="text" value="<?php echo $post ? $post['post_title'] : ''; ?>" class="form-control" id="name" placeholder="Nhập tiêu đề bài viết..." required="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -49,7 +49,7 @@
                                         <div class="row clearfix">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <input name="slug" type="text" value="<?php echo $post ? $post['post_slug'] : ''; ?>" class="form-control" id="slug" placeholder="Nhập đường dẫn link sản phẩm..." required="" />
+                                                    <input name="slug" type="text" value="<?php echo $post ? $post['post_slug'] : ''; ?>" class="form-control" id="slug" placeholder="Nhập đường dẫn link bài viết..." required="" />
                                                 </div>
                                             </div>
                                         </div>

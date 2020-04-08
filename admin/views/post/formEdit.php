@@ -21,7 +21,7 @@
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="alert alert-warning" role="alert">
-                        <strong><?php echo $post ? 'Cảnh Báo: </strong> Bạn đang trong trang chỉnh sửa của trang "' . $post['post_title'] . '", Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>' : 'Cảnh Báo: </strong> Bạn đang trong trang tạo một trang mới, Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>'; ?>
+                        <strong><?php echo $post ? 'Cảnh Báo: </strong> Bạn đang trong trang chỉnh sửa của bài viết "' . $post['post_title'] . '", Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>' : 'Cảnh Báo: </strong> Bạn đang trong trang tạo một trang mới, Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>'; ?>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true"><i class="zmdi zmdi-close"></i></span>
                             </button>
@@ -37,11 +37,11 @@
                                         <?php if (isset($post)) : ?>
                                             <input name="editby" type="hidden" value="<?php echo $get_user_by['user_name']; ?>" /><?php else : ?>
                                             <input name="createby" type="hidden" value="<?php echo $get_user_by['id']; ?>" /><?php endif; ?>
-                                        <h2 class="card-inside-title" style="font-weight:bold;">Tiêu đề bài viêts:</h2>
+                                        <h2 class="card-inside-title" style="font-weight:bold;">Tiêu đề bài viết:</h2>
                                         <div class="row clearfix">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <input name="title" type="text" value="<?php echo $post ? $post['post_title'] : ''; ?>" class="form-control" id="name" placeholder="Nhập tiêu đề trang..." required="" />
+                                                    <input name="title" type="text" value="<?php echo $post ? $post['post_title'] : ''; ?>" class="form-control" id="name" placeholder="Nhập tiêu đề bài viết..." required="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -49,7 +49,7 @@
                                         <div class="row clearfix">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <input name="slug" type="text" value="<?php echo $post ? $post['post_slug'] : ''; ?>" class="form-control" id="slug" placeholder="Nhập đường dẫn link sản phẩm..." required="" />
+                                                    <input name="slug" type="text" value="<?php echo $post ? $post['post_slug'] : ''; ?>" class="form-control" id="slug" placeholder="Nhập đường dẫn link bài viết..." required="" />
                                                 </div>
                                             </div>
                                         </div>

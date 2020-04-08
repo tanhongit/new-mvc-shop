@@ -45,10 +45,12 @@ function post_delete($id)
 function page_update()
 {
     $name = escape($_POST['title']);
+    if (strlen($_POST['slug']) >= 5) $slug = slug($_POST['slug']);
+    else $slug = slug($name);
     $post = array(
         'id' => intval($_POST['post_id']),
         'post_title' => $name,
-        'post_slug' => slug($name),
+        'post_slug' => $slug,
         'post_content' => ($_POST['detailpost']), //ckeditor
         'post_modified' => gmdate('Y-m-d H:i:s', time() + 7 * 3600),
         'post_modified_user' => escape($_POST['editby']),
@@ -78,10 +80,12 @@ function page_update()
 function page_add()
 {
     $name = escape($_POST['title']);
+    if (strlen($_POST['slug']) >= 5) $slug = slug($_POST['slug']);
+    else $slug = slug($name);
     $post = array(
         'id' => intval($_POST['post_id']),
         'post_title' => $name,
-        'post_slug' => slug($name),
+        'post_slug' => $slug,
         'post_content' => ($_POST['detailpost']), //ckeditor
         'post_author' => intval($_POST['createby']),
         'totalview' => intval($_POST['totalview']),
@@ -111,10 +115,12 @@ function page_add()
 function post_update()
 {
     $name = escape($_POST['title']);
+    if (strlen($_POST['slug']) >= 5) $slug = slug($_POST['slug']);
+    else $slug = slug($name);
     $post = array(
         'id' => intval($_POST['post_id']),
         'post_title' => $name,
-        'post_slug' => slug($name),
+        'post_slug' => $slug,
         'post_content' => ($_POST['detailpost']), //ckeditor
         'post_modified' => gmdate('Y-m-d H:i:s', time() + 7 * 3600),
         'post_modified_user' => escape($_POST['editby']),
@@ -144,10 +150,12 @@ function post_update()
 function post_add()
 {
     $name = escape($_POST['title']);
+    if (strlen($_POST['slug']) >= 5) $slug = slug($_POST['slug']);
+    else $slug = slug($name);
     $post = array(
         'id' => intval($_POST['post_id']),
         'post_title' => $name,
-        'post_slug' => slug($name),
+        'post_slug' => $slug,
         'post_content' => ($_POST['detailpost']), //ckeditor
         'post_author' => intval($_POST['createby']),
         'totalview' => intval($_POST['totalview']),

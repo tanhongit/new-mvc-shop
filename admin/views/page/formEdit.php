@@ -49,7 +49,7 @@
                                         <div class="row clearfix">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <input name="slug" type="text" value="<?php echo $post ? $post['post_slug'] : ''; ?>" class="form-control" id="slug" placeholder="Nhập đường dẫn link sản phẩm..." required="" />
+                                                    <input name="slug" type="text" value="<?php echo $post ? $post['post_slug'] : ''; ?>" class="form-control" id="slug" placeholder="Nhập đường dẫn link trang..." required="" />
                                                 </div>
                                             </div>
                                         </div>

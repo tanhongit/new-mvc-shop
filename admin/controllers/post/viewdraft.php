@@ -16,7 +16,7 @@ $options = array(
     'offset' => $offset,
     'order_by' => 'id DESC'
 );
-$pages  = get_all('posts', $options);
+$posts  = get_all('posts', $options);
 
 $url = 'admin.php?controller=post&action=viewdraft';
 $total_rows = get_total('posts', $options);

@@ -119,7 +119,7 @@ $user_login = get_a_record('users', $user_nav);
 									<i class="fa fa-angle-down"></i>
 								</a>
 								<ul class="dropdown-menu">
-									<li><a href="#">Hiện tất cả sản phẩm</a></li>
+									<li><a href="index.php?controller=product&action=all">Xem tất cả sản phẩm</a></li>
 									<li><a href="feedback">Gửi phản hồi <span class="tip">Send</span></a></li>
 									<li class="dropdown-submenu">
 										<a href="javascript:void(0);">Về Chị Kòi Quán</a>

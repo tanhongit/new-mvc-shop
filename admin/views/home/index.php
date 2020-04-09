@@ -194,16 +194,25 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach ($comment_five as $comment) : ?>
-                                                <tr>
-                                                    <td><?php echo substr($comment['content'], 0, 150);
-                                                        if (strlen($comment['content']) > 150) echo '...'; ?> </td>
-                                                    <td><?= $comment['author'] ?></td>
-                                                    <td></td>
-                                                </tr>
-                                            <?php endforeach; ?>
+                                            <?php foreach ($comment_five as $comment) :
+                                                if ($comment['status'] == 0) : ?>
+                                                    <tr style="background-color: #FFD18E;">
+                                                        <td><?php echo substr($comment['content'], 0, 150);
+                                                            if (strlen($comment['content']) > 150) echo '...'; ?> </td>
+                                                        <td><?= $comment['author'] ?></td>
+                                                        <td></td>
+                                                    </tr>
+                                                <?php else : ?>
+                                                    <tr>
+                                                        <td><?php echo substr($comment['content'], 0, 150);
+                                                            if (strlen($comment['content']) > 150) echo '...'; ?> </td>
+                                                        <td><?= $comment['author'] ?></td>
+                                                        <td></td>
+                                                    </tr>
+                                            <?php endif;
+                                            endforeach; ?>
                                             <tr>
-                                                <td><strong>All (6) | Mine (1) | Pending (2) | Approved (4) | Spam (0) | Trash (0)</strong></td>
+                                                <td><strong>All (<?= $total_rows_comment ?>) | Mine (<?= $total_mine_comment ?>) | Pending (<?= $total_comment_noaccept ?>) | Approved (<?= $total_comment_accept ?>) | Spam (<?= $total_comment_spam ?>) | Trash (<?= $total_comment_trash ?>)</strong></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -243,18 +252,31 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach ($feedback_five as $feedback) : ?>
-                                                <tr>
-                                                    <td><?= substr($feedback['subject'], 0, 150) ?> </td>
-                                                    <td><?= $feedback['name'] ?></td>
-                                                    <td>
-                                                        <a onclick="return confirm('Are you sure to delete?')" title="Delete" class="btn btn-danger btn-icon" href="admin.php?controller=feedback&action=delete&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-delete"></i></a>
-                                                        <a title="Edit" class="btn btn-warning btn-icon" href="admin.php?controller=feedback&action=edit&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-eyedropper"></i></a><br>
-                                                        <a title="View detail" class="btn btn-success btn-icon" href="admin.php?controller=feedback&action=view&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-eye"></i></a>
-                                                        <a title="Reply" class="btn btn-primary btn-icon" href="admin.php?controller=feedback&action=reply&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-mail-reply"></i></a>
-                                                    </td>
-                                                </tr>
-                                            <?php endforeach; ?>
+                                            <?php foreach ($feedback_five as $feedback) :
+                                                if ($feedback['status'] == 0) : ?>
+                                                    <tr style="background-color: #FFD18E;">
+                                                        <td><?= substr($feedback['subject'], 0, 150) ?> </td>
+                                                        <td><?= $feedback['name'] ?></td>
+                                                        <td>
+                                                            <a onclick="return confirm('Are you sure to delete?')" title="Delete" class="btn btn-danger btn-icon" href="admin.php?controller=feedback&action=delete&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-delete"></i></a>
+                                                            <a title="Edit" class="btn btn-warning btn-icon" href="admin.php?controller=feedback&action=edit&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-eyedropper"></i></a><br>
+                                                            <a title="View detail" class="btn btn-success btn-icon" href="admin.php?controller=feedback&action=view&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-eye"></i></a>
+                                                            <a title="Reply" class="btn btn-primary btn-icon" href="admin.php?controller=feedback&action=reply&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-mail-reply"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                <?php else : ?>
+                                                    <tr>
+                                                        <td><?= substr($feedback['subject'], 0, 150) ?> </td>
+                                                        <td><?= $feedback['name'] ?></td>
+                                                        <td>
+                                                            <a onclick="return confirm('Are you sure to delete?')" title="Delete" class="btn btn-danger btn-icon" href="admin.php?controller=feedback&action=delete&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-delete"></i></a>
+                                                            <a title="Edit" class="btn btn-warning btn-icon" href="admin.php?controller=feedback&action=edit&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-eyedropper"></i></a><br>
+                                                            <a title="View detail" class="btn btn-success btn-icon" href="admin.php?controller=feedback&action=view&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-eye"></i></a>
+                                                            <a title="Reply" class="btn btn-primary btn-icon" href="admin.php?controller=feedback&action=reply&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-mail-reply"></i></a>
+                                                        </td>
+                                                    </tr>
+                                            <?php endif;
+                                            endforeach; ?>
                                             <tr>
                                                 <td><strong>All (<?= $total_feedback ?>) | Mine (<?= $total_feedback_mine ?>) | Pending (<?= $total_feedback_noaccept ?>) | Approved (<?= $total_feedback_status ?>)</strong></td>
                                             </tr>

@@ -117,6 +117,12 @@ $options_comments = array(
 );
 $total_rows_comment = get_total('comments', $options_comments);
 
+$options_comments_mine = array(
+    'order_by' => 'id DESC',
+    'where' => 'id=' . $user_nav
+);
+$total_mine_comment = get_total('comments', $options_comments_mine);
+
 $options_comment_five = array(
     'limit' => 5,
     'offset' => 0,
@@ -137,9 +143,21 @@ $options_comment_noaccept = array(
 );
 $total_comment_noaccept = get_total('comments', $options_comment_noaccept);
 
+$options_comment_trash = array(
+    'order_by' => 'id DESC',
+    'where' => 'status=2'
+);
+$total_comment_trash = get_total('comments', $options_comment_trash);
+
+$options_comment_spam = array(
+    'order_by' => 'id DESC',
+    'where' => 'status=3'
+);
+$total_comment_spam = get_total('comments', $options_comment_spam);
+
 $options_comment_accept = array(
     'order_by' => 'id DESC',
-    'where' => 'status<>0'
+    'where' => 'status=1'
 );
 $total_comment_accept = get_total('comments', $options_comment_accept);
 if ($total_comment_accept != 0) $comment_ratio = $total_comment_accept / $total_rows_comment * 100;

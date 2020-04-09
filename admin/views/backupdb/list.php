@@ -61,7 +61,7 @@
                                     <tbody>
                                         <?php $stt = 0; //https://xuanthulab.net/lay-thong-tin-he-thong-file-thu-muc-trong-php-cung-directoryiterator.html
                                         foreach (new DirectoryIterator('admin/database') as $filename) :
-                                            if ($filename->isDot()) continue;
+                                            if ($filename->isDot() || $filename == '.htaccess') continue;
                                             $stt++; ?>
                                             <tr>
                                                 <td><?php echo $stt ?></td>

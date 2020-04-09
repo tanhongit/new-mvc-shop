@@ -3,8 +3,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-                <h4>About</h4>
-                <p><?= $about_footer ?><a href="<?= $link_about ?>" class="btn-flat btn-xs">View More <i class="fa fa-arrow-right"></i></a></p>
+                <h4>Thông tin</h4>
+                <p><?= $about_footer ?><a href="<?= $link_about ?>" class="btn-flat btn-xs">Xem thêm <i class="fa fa-arrow-right"></i></a></p>
                 <hr class="light">
                 <div class="row">
                     <div class="col-md-3">
@@ -64,7 +64,7 @@
             <div class="row">
                 <p>© Copyright <script>
                         document.write(new Date().getFullYear())
-                    </script> by <span><a href="https://tanhongit.com">TanHongIT</a></span>. All Rights Reserved.</p>
+                    </script> - Phát triển bởi <span><a href="https://tanhongit.com">TanHongIT</a></span>.</p>
             </div>
         </div>
     </div>

@@ -83,10 +83,10 @@ $user_login = get_a_record('users', $user_nav);
 				<nav>
 					<ul class="nav nav-pills nav-top">
 						<li>
-							<a href="<?= $link_about ?>"><i class="fa fa-angle-right"></i>About Us</a>
+							<a href="<?= $link_about ?>"><i class="fa fa-angle-right"></i>Thông tin</a>
 						</li>
 						<li>
-							<a href="<?= $link_contact ?>"><i class="fa fa-headphones"></i>Contact Us</a>
+							<a href="<?= $link_contact ?>"><i class="fa fa-headphones"></i>Liên hệ</a>
 						</li>
 						<?php if (!isset($user_login)) : ?>
 							<li>

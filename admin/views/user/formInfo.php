@@ -6,7 +6,7 @@
                     <h2>Thông tin tài khoản cá nhân của bạn</h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?= PATH_URL . 'home' ?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
-                        <li class="breadcrumb-item"><a href="admin.php?controller=order">User</a></li>
+                        <li class="breadcrumb-item"><a href="admin.php?controller=user&action=listall">User</a></li>
                         <li class="breadcrumb-item active">Your Profile Info</li>
                     </ul>
                     <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>

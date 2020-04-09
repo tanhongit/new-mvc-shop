@@ -13,7 +13,7 @@
                     <h2>Quyền truy cập</h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?= PATH_URL . 'home' ?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
-                        <li class="breadcrumb-item"><a href="admin.php?controller=user">Slides</a></li>
+                        <li class="breadcrumb-item"><a href="admin.php?controller=slide">Slides</a></li>
                         <li class="breadcrumb-item active">Danh sách các Slide hiển thị Homepage</li>
                     </ul>
                     <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>

@@ -12,7 +12,7 @@
                 <div class="col-lg-7 col-md-6 col-sm-12">
                     <h2>Purchase</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="admin.php"><i class="zmdi zmdi-home"></i>Order</a></li>
+                        <li class="breadcrumb-item"><a href="admin.php"><i class="zmdi zmdi-home"></i>ChiKoi</a></li>
                         <li class="breadcrumb-item"><a href="admin.php?controller=purchase">Purchase</a></li>
                         <li class="breadcrumb-item"><a href="admin.php?controller=purchase&action=delivery">Delivery</a></li>
                     </ul>
@@ -51,7 +51,8 @@
                                     <span style="font-size: 1.2em; float: right; padding-left: 20px;"><b><a style="color: #fff" title="Tổng tiền" class="btn btn-primary btn-round"><i class="zmdi zmdi-money"></i> Tổng tiền: <?= number_format($order['cart_total'], 0, ',', '.') ?>đ</a></b></span>
                                     <span>
                                         <form enctype="multipart/form-data" action="admin.php?controller=purchase&action=view&order_id=<?= $order['id'] ?>" method="post"><button type="submit" style="float: right;" class='btn btn-info waves-effect'>Xem chi tiết đơn hàng này</button></form>
-                                    </span><br>
+                                    </span>
+                                    <span> <a href="admin.php?controller=feedback&action=add&order_id=<?= $order['id'] ?>" style="text-decoration: none;" class='btn btn-success waves-effect'>Phản hồi về đơn hàng này</a>
                                 </ul>
                             </div>
                         </div>

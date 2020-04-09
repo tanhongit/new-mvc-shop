@@ -12,8 +12,8 @@
                 <div class="col-lg-7 col-md-6 col-sm-12">
                     <h2>Purchase</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="admin.php"><i class="zmdi zmdi-home"></i>Purchase</a></li>
-                        <li class="breadcrumb-item">Order</li>
+                        <li class="breadcrumb-item"><a href="admin.php"><i class="zmdi zmdi-home"></i>ChiKoi</a></li>
+                        <li class="breadcrumb-item">Purchase</li>
                         <li class="breadcrumb-item">All</li>
                     </ul>
                     <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>

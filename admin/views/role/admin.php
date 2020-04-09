@@ -13,7 +13,7 @@
                     <h2>Admin</h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?= PATH_URL . 'home' ?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
-                        <li class="breadcrumb-item"><a href="admin.php?controller=user">User</a></li>
+                        <li class="breadcrumb-item"><a href="admin.php?controller=user&action=listall">User</a></li>
                         <li class="breadcrumb-item active">Danh sách Admin</li>
                     </ul>
                     <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>

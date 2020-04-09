@@ -12,7 +12,7 @@
                 <div class="col-lg-7 col-md-6 col-sm-12">
                     <h2>Purchase</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="admin.php"><i class="zmdi zmdi-home"></i>Order</a></li>
+                        <li class="breadcrumb-item"><a href="admin.php"><i class="zmdi zmdi-home"></i>ChiKoi</a></li>
                         <li class="breadcrumb-item"><a href="admin.php?controller=purchase">Purchase</a></li>
                         <li class="breadcrumb-item"><a href="admin.php?controller=purchase&action=cancelled">cancelleds</a></li>
                     </ul>

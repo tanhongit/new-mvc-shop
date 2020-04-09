@@ -163,6 +163,105 @@
                 </div>
             </div>
         </div>
+        <div class="row clearfix">
+            <div class="col-lg-6 col-md-12">
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2>Bảng <strong>Bình luận gần đây</strong></h2>
+                                <ul class="header-dropdown">
+                                    <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li><a href="javascript:void(0);">Q/lý bình luận</a></li>
+                                            <li><a href="javascript:void(0);">Q/lý phản hồi</a></li>
+                                            <li><a href="admin.php?controller=order">Q/lý đơn hàng</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="remove">
+                                        <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Nội dung</th>
+                                                <th>Người gửi</th>
+                                                <th>Hành động</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach ($comment_five as $comment) : ?>
+                                                <tr>
+                                                    <td><?php echo substr($comment['content'], 0, 150);
+                                                        if (strlen($comment['content']) > 150) echo '...'; ?> </td>
+                                                    <td><?= $comment['author'] ?></td>
+                                                    <td></td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                            <tr>
+                                                <td><strong>All (6) | Mine (1) | Pending (2) | Approved (4) | Spam (0) | Trash (0)</strong></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2>Bảng <strong>Phản hồi gần đây</strong></h2>
+                                <ul class="header-dropdown">
+                                    <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li><a href="javascript:void(0);">Q/lý bình luận</a></li>
+                                            <li><a href="javascript:void(0);">Q/lý phản hồi</a></li>
+                                            <li><a href="admin.php?controller=order">Q/lý đơn hàng</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="remove">
+                                        <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Nội dung</th>
+                                                <th>Người gửi</th>
+                                                <th>Hành động</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach ($feedback_five as $feedback) : ?>
+                                                <tr>
+                                                    <td><?= substr($feedback['subject'], 0, 150) ?> </td>
+                                                    <td><?= $feedback['name'] ?></td>
+                                                    <td></td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                            <tr>
+                                                <td><strong>All (6) | Mine (1) | Pending (2) | Approved (4) | Spam (0) | Trash (0)</strong></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 <?php require('admin/views/shared/footer.php'); ?>

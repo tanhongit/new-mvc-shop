@@ -65,6 +65,13 @@ $options_feedback_order = array(
 );
 $total_feedback_order = get_total('feedbacks', $options_feedback_order);
 
+$options_feedback_five = array(
+    'limit' => 5,
+    'offset' => 0,
+    'order_by' => 'id DESC'
+);
+$feedback_five = get_all('feedbacks', $options_feedback_five);
+
 $options_feedback_new = array(
     'limit' => 1,
     'offset' => 0,
@@ -97,6 +104,13 @@ $options_comments = array(
     'order_by' => 'id DESC'
 );
 $total_rows_comment = get_total('comments', $options_comments);
+
+$options_comment_five = array(
+    'limit' => 5,
+    'offset' => 0,
+    'order_by' => 'id DESC'
+);
+$comment_five = get_all('comments', $options_comment_five);
 
 $options_comment_new = array(
     'limit' => 1,

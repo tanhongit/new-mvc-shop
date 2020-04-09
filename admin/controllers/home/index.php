@@ -33,6 +33,12 @@ $options_inprocess = array(
 );
 $total_order_inprosess = get_total('orders', $options_inprocess);
 
+$options_cancell = array(
+    'where' => 'status = 3',
+    'order_by' => 'id DESC'
+);
+$total_order_cancell = get_total('orders', $options_cancell);
+
 $options_noprocess = array(
     'where' => 'status = 0',
     'order_by' => 'id DESC'
@@ -59,11 +65,24 @@ $options_feedback_order = array(
 );
 $total_feedback_order = get_total('feedbacks', $options_feedback_order);
 
+$options_feedback_new = array(
+    'limit' => 1,
+    'offset' => 0,
+    'order_by' => 'id DESC'
+);
+$feedback_new = select_a_record('feedbacks', $options_feedback_new);
+
 $options_feedback_product = array(
     'order_by' => 'createTime DESC',
     'where' => 'product_id<>0'
 );
 $total_feedback_product = get_total('feedbacks', $options_feedback_product);
+
+$options_feedback_noaccept = array(
+    'order_by' => 'createTime DESC',
+    'where' => 'status=0'
+);
+$total_feedback_noaccept = get_total('feedbacks', $options_feedback_noaccept);
 
 $options_feedback_status = array(
     'order_by' => 'createTime DESC',
@@ -86,6 +105,12 @@ $options_comment_new = array(
 );
 $comment_new = select_a_record('comments', $options_comment_new);
 
+$options_comment_noaccept = array(
+    'order_by' => 'id DESC',
+    'where' => 'status=0'
+);
+$total_comment_noaccept = get_total('comments', $options_comment_noaccept);
+
 $options_comment_accept = array(
     'order_by' => 'id DESC',
     'where' => 'status<>0'
@@ -94,6 +119,59 @@ $total_comment_accept = get_total('comments', $options_comment_accept);
 if ($total_comment_accept != 0) $comment_ratio = $total_comment_accept / $total_rows_comment * 100;
 else $comment_ratio = 0;
 
+//posts
+$options_page_new = array(
+    'limit' => 1,
+    'offset' => 0,
+    'where' => 'post_type=2',
+    'order_by' => 'id DESC'
+);
+$page_new = select_a_record('posts', $options_page_new);
+
+$options_post = array(
+    'order_by' => 'id DESC',
+    'where' => 'post_type=1',
+);
+$total_post = get_total('posts', $options_post);
+
+$options_page = array(
+    'order_by' => 'id DESC',
+    'where' => 'post_type=2',
+);
+$total_page = get_total('posts', $options_page);
+
+$options_posts = array(
+    'order_by' => 'id DESC'
+);
+$total_posts = get_total('posts', $options_posts);
+
+$options_posts_status = array(
+    'order_by' => 'id DESC',
+    'where' => 'post_status="Publiced"',
+);
+$total_posts_status = get_total('posts', $options_posts_status);
+
+$options_page_draft = array(
+    'order_by' => 'id DESC',
+    'where' => 'post_type=2 and post_status="Draft"'
+);
+$total_page_draft = get_total('posts', $options_page_draft);
+
+$options_post_new = array(
+    'limit' => 1,
+    'offset' => 0,
+    'where' => 'post_type=1',
+    'order_by' => 'id DESC'
+);
+$post_new = select_a_record('posts', $options_post_new);
+
+$options_post_draft = array(
+    'order_by' => 'id DESC',
+    'where' => 'post_type=1 and post_status="Draft"'
+);
+$total_post_draft = get_total('posts', $options_post_draft);
+if ($total_posts_status != 0) $posts_ratio = ($total_posts_status / $total_posts) * 100;
+else $posts_ratio = 0;
 
 
 $options_user_online = array(

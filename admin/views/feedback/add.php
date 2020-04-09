@@ -33,9 +33,9 @@
                             <ul class="header-dropdown">
                                 <li class="dropdown"> <a href="javascript:vorder_id(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                                     <ul class="dropdown-menu dropdown-menu-right slideUp">
-                                        <li><a href="javascript:vorder_id(0);">Action</a></li>
-                                        <li><a href="javascript:vorder_id(0);">Another action</a></li>
-                                        <li><a href="javascript:vorder_id(0);">Something else</a></li>
+                                        <li><a href="admin.php?controller=feedback&action=product">Phản hồi về sản phẩm</a></li>
+                                        <li><a href="admin.php?controller=feedback&action=order">Phản hồi về đơn hàng</a></li>
+                                        <li><a href="admin.php?controller=feedback&action=other">Phản hồi khác</a></li>
                                     </ul>
                                 </li>
                                 <li class="remove">

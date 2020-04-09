@@ -3,6 +3,13 @@
 <script src="admin/themes/bundles/vendorscripts.bundle.js"></script> <!-- slimscroll, waves Scripts Plugin Js -->
 <script src="admin/themes/plugins/momentjs/moment.js"></script> <!-- Moment Plugin Js --> 
 <!-- Bootstrap Material Datetime Picker Plugin Js -->
+<script src="admin/themes/bundles/datatablescripts.bundle.js"></script>
+<script src="admin/themes/plugins/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
+<script src="admin/themes/plugins/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
+<script src="admin/themes/plugins/jquery-datatable/buttons/buttons.colVis.min.js"></script>
+<script src="admin/themes/plugins/jquery-datatable/buttons/buttons.flash.min.js"></script>
+<script src="admin/themes/plugins/jquery-datatable/buttons/buttons.html5.min.js"></script>
+<script src="admin/themes/plugins/jquery-datatable/buttons/buttons.print.min.js"></script>
 <script src="admin/themes/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script> 
 <script src="admin/themes/bundles/jvectormap.bundle.js"></script> <!-- JVectorMap Plugin Js -->
 <script src="admin/themes/bundles/sparkline.bundle.js"></script> <!-- Sparkline Plugin Js -->

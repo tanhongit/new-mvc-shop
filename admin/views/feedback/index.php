@@ -23,9 +23,9 @@
             </div>
         </div>
         <div class="container-fluid">
-            <?php require('admin/views/feedback/order.php'); ?>
-            <?php require('admin/views/feedback/product.php'); ?>
-            <?php require('admin/views/feedback/other.php'); ?>
+            <?php require('admin/views/feedback/tableOrder.php'); ?>
+            <?php require('admin/views/feedback/tableProduct.php'); ?>
+            <?php require('admin/views/feedback/tableOther.php'); ?>
         </div>
     </div>
 </section>

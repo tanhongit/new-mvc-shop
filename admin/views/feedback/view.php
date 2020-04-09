@@ -10,11 +10,11 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2>Chỉnh sửa Thông tin về phiếu phản hồi </h2>
+                    <h2>Thông tin về phiếu phản hồi</h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?= PATH_URL . 'home' ?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
                         <li class="breadcrumb-item"><a href="admin.php?controller=feedback">Feedback</a></li>
-                        <li class="breadcrumb-item active">Edit Feedback Detail</li>
+                        <li class="breadcrumb-item active">Feedback Detail</li>
                     </ul>
                     <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
                 </div>
@@ -149,48 +149,45 @@
                     <?php endif; ?>
                 </div>
                 <hr>
-                <h2 style="font-weight: bold;">Phần chỉnh sửa</h2>
+                <h2 style="font-weight: bold;">Phần thông tin phản hồi</h2>
                 <div class="col-lg-12">
-                    <form id="product-form" class="form-horizontal" method="post" action="admin.php?controller=feedback&action=edit" enctype="multipart/form-data" role="form">
-                        <input name="feedback_id" type="hidden" value="<?php echo $feedback ? $feedback['id'] : '0'; ?>" />
-                        <h4 class="card-inside-title" style="font-weight:bold;">Họ và tên:</h4>
-                        <div class="row clearfix">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <input name="name" type="text" value="<?php echo $feedback ? $feedback['name'] : ''; ?>" class="form-control" id="name" placeholder="họ và tên thật..." required="" />
-                                </div>
+                    <h4 class="card-inside-title" style="font-weight:bold;">Họ và tên:</h4>
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <input name="name" disabled type="text" value="<?php echo $feedback ? $feedback['name'] : ''; ?>" class="form-control" id="name" placeholder="họ và tên thật..." required="" />
                             </div>
                         </div>
-                        <h4 class="card-inside-title" style="font-weight:bold;">Email:</h4>
-                        <div class="row clearfix">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <input name="email" type="text" value="<?php echo $feedback ? $feedback['email'] : ''; ?>" class="form-control" id="color" placeholder="Nhập email của bạn..." required="" />
-                                </div>
+                    </div>
+                    <h4 class="card-inside-title" style="font-weight:bold;">Email:</h4>
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <input name="email" disabled type="text" value="<?php echo $feedback ? $feedback['email'] : ''; ?>" class="form-control" id="color" placeholder="Nhập email của bạn..." required="" />
                             </div>
                         </div>
-                        <h4 class="card-inside-title" style="font-weight:bold;">Nhập số điện thoại:</h4>
-                        <div class="row clearfix">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <input name="phone" type="text" value="<?php echo $feedback ? $feedback['phone'] : ''; ?>" class="form-control" id="totalview" required placeholder="0123456789..." />
-                                </div>
+                    </div>
+                    <h4 class="card-inside-title" style="font-weight:bold;">Số điện thoại:</h4>
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <input name="phone" disabled type="text" value="<?php echo $feedback ? $feedback['phone'] : ''; ?>" class="form-control" id="totalview" required placeholder="0123456789..." />
                             </div>
                         </div>
-                        <h4 class="card-inside-title" style="font-weight:bold;">Nội dung:</h4>
-                        <div class="row clearfix">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <textarea name="subject" type="text" class="form-control" id="totalview" required placeholder="Nội dung phản hồi..."><?php echo $feedback ? $feedback['subject'] : ''; ?></textarea>
-                                </div>
+                    </div>
+                    <h4 class="card-inside-title" style="font-weight:bold;">Nội dung:</h4>
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <textarea name="subject" disabled type="text" class="form-control" id="totalview" required placeholder="Nội dung phản hồi..."><?php echo $feedback ? $feedback['subject'] : ''; ?></textarea>
                             </div>
                         </div>
-                        <br><br>
-                        <div class="form-group" style="text-align: center;">
-                            <button class="btn btn-primary waves-effect" type="submit">Update lại thông tin phản hồi</button>
-                            <a class="btn btn-warning waves-effect" href="admin.php?controller=feedback">Trở về</a>
-                        </div>
-                    </form>
+                    </div>
+                    <br><br>
+                    <div class="form-group" style="text-align: center;">
+                        <a class="btn btn-primary waves-effect" href="admin.php?controller=feedback&action=edit&feedback_id=<?= $feedback['id'] ?>">Chỉnh sửa lại thông tin phản hồi</a>
+                        <a class="btn btn-warning waves-effect" href="admin.php?controller=feedback">Trở về</a>
+                    </div>
                 </div>
             </div>
         </div>

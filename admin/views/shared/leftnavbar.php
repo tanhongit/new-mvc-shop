@@ -114,6 +114,14 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                         <li><a href="admin.php?controller=header-footer&action=listMenuFooter">Link Menu Footer</a></li>
                     </ul>
                 </li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-view-web"></i><span>Feedback</span></a>
+                    <ul class="ml-menu">
+                    <li><a href="admin.php?controller=feedback">All Feedback</a></li>
+                        <li><a href="admin.php?controller=feedback&action=product">Feedback Product</a></li>
+                        <li><a href="admin.php?controller=feedback&action=order">Feedback Order</a></li>
+                        <li><a href="admin.php?controller=feedback&action=other">Feedback Other</a></li>
+                    </ul>
+                </li>
             <?php endif; ?>
         </ul>
     </div>

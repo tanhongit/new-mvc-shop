@@ -10,10 +10,10 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2>Toàn bộ sản phẩm</h2>
+                    <h2>Toàn bộ phản hồi</h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?=PATH_URL.'home'?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
-                        <li class="breadcrumb-item"><a href="admin.php?controller=product">All Product</a></li>
+                        <li class="breadcrumb-item"><a href="admin.php?controller=feedback">Phản hồi</a></li>
                     </ul>
                     <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
                 </div>
@@ -23,9 +23,9 @@
             </div>
         </div>
         <div class="container-fluid">
-            <?php require('admin/views/product/tableofNewproduct.php'); ?>
-            <?php require('admin/views/product/tableofHotproduct.php'); ?>
-            <?php require('admin/views/product/tableofSaleproduct.php'); ?>
+            <?php require('admin/views/feedback/order.php'); ?>
+            <?php require('admin/views/feedback/product.php'); ?>
+            <?php require('admin/views/feedback/other.php'); ?>
         </div>
     </div>
 </section>

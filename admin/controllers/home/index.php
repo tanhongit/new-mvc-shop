@@ -1,7 +1,7 @@
 <?php
 $title = 'Quản trị hệ thống - Quán Chị Kòi';
 $user = $_SESSION['user'];
-
+global $user_nav;
 //table orders
 $options_order_complete = array(
     'where' => 'status = 1',
@@ -71,6 +71,18 @@ $options_feedback_five = array(
     'order_by' => 'id DESC'
 );
 $feedback_five = get_all('feedbacks', $options_feedback_five);
+
+$options_feedback_noaccept = array(
+    'order_by' => 'id DESC',
+    'where' => 'status=0'
+);
+$total_feedback_noaccept = get_total('feedbacks', $options_feedback_noaccept);
+
+$options_feedback_mine = array(
+    'order_by' => 'id DESC',
+    'where' => 'id=' . $user_nav
+);
+$total_feedback_mine = get_total('feedbacks', $options_feedback_mine);
 
 $options_feedback_new = array(
     'limit' => 1,

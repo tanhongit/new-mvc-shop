@@ -247,11 +247,16 @@
                                                 <tr>
                                                     <td><?= substr($feedback['subject'], 0, 150) ?> </td>
                                                     <td><?= $feedback['name'] ?></td>
-                                                    <td></td>
+                                                    <td>
+                                                        <a onclick="return confirm('Are you sure to delete?')" title="Delete" class="btn btn-danger btn-icon" href="admin.php?controller=feedback&action=delete&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-delete"></i></a>
+                                                        <a title="Edit" class="btn btn-warning btn-icon" href="admin.php?controller=feedback&action=edit&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-eyedropper"></i></a><br>
+                                                        <a title="View detail" class="btn btn-success btn-icon" href="admin.php?controller=feedback&action=view&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-eye"></i></a>
+                                                        <a title="Reply" class="btn btn-primary btn-icon" href="admin.php?controller=feedback&action=reply&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-mail-reply"></i></a>
+                                                    </td>
                                                 </tr>
                                             <?php endforeach; ?>
                                             <tr>
-                                                <td><strong>All (6) | Mine (1) | Pending (2) | Approved (4) | Spam (0) | Trash (0)</strong></td>
+                                                <td><strong>All (<?= $total_feedback ?>) | Mine (<?= $total_feedback_mine ?>) | Pending (<?= $total_feedback_noaccept ?>) | Approved (<?= $total_feedback_status ?>)</strong></td>
                                             </tr>
                                         </tbody>
                                     </table>

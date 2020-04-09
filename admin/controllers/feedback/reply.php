@@ -7,6 +7,6 @@ if (!empty($_POST)) {
 }
 if (isset($_GET['feedback_id'])) $feedback_id = intval($_GET['feedback_id']);
 else $feedback_id = 0;
-$title = ($feedback_id == 0) ? '' : 'Trả d phản hồi của khách hàng';
+$title = ($feedback_id == 0) ? '' : 'Trả lời cho phản hồi của khách hàng';
 $feedback = get_a_record('feedbacks', $feedback_id);
 require('admin/views/feedback/reply.php');

@@ -80,7 +80,7 @@ $total_feedback_noaccept = get_total('feedbacks', $options_feedback_noaccept);
 
 $options_feedback_mine = array(
     'order_by' => 'id DESC',
-    'where' => 'id=' . $user_nav
+    'where' => 'user_id=' . $user_nav
 );
 $total_feedback_mine = get_total('feedbacks', $options_feedback_mine);
 
@@ -119,7 +119,7 @@ $total_rows_comment = get_total('comments', $options_comments);
 
 $options_comments_mine = array(
     'order_by' => 'id DESC',
-    'where' => 'id=' . $user_nav
+    'where' => 'user_id=' . $user_nav
 );
 $total_mine_comment = get_total('comments', $options_comments_mine);
 

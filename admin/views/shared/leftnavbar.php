@@ -27,6 +27,7 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                     <li><a href="admin.php?controller=user&action=change-password&user_id=<?= $user_info_nav['id'] ?>">Change your Password</a></li>
                 </ul>
             </li>
+            <li><a href="admin.php?controller=feedback&action=myfeedback"><i class="zmdi zmdi-mail-send"></i><span>Your Feedback</span></a></li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Your Purchase</span></a>
                 <ul class="ml-menu">
                     <li><a href="admin.php?controller=purchase">Tất cả</a></li>
@@ -114,7 +115,7 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                         <li><a href="admin.php?controller=header-footer&action=listMenuFooter">Link Menu Footer</a></li>
                     </ul>
                 </li>
-                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-email-open"></i><span>Feedback</span></a>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-email-open"></i><span>Feedback Manager</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=feedback">All Feedback</a></li>
                         <li><a href="admin.php?controller=feedback&action=pending">Pending Feedback</a></li>

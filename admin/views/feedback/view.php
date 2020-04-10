@@ -185,6 +185,11 @@
                     </div>
                     <br><br>
                     <div class="form-group" style="text-align: center;">
+                        <?php if ($feedback['status'] == 1) : ?>
+                            <a title="UnApprove" class="btn btn-default btn-icon" href="admin.php?controller=feedback&action=unapproved&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-minus-circle"></i></a>
+                        <?php else : ?>
+                            <a title="Approve" class="btn btn-info btn-icon" href="admin.php?controller=feedback&action=approved&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-check-circle"></i></a>
+                        <?php endif; ?>
                         <a onclick="return confirm('Are you sure to delete?')" title="Delete" class="btn btn-danger btn-icon" href="admin.php?controller=feedback&action=delete&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-delete"></i></a>
                         <a class="btn btn-primary waves-effect" href="admin.php?controller=feedback&action=edit&feedback_id=<?= $feedback['id'] ?>">Chỉnh sửa lại thông tin phản hồi</a>
                         <a class="btn btn-warning waves-effect" href="admin.php?controller=feedback">Trở về</a>

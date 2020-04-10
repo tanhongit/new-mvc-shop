@@ -248,25 +248,33 @@
                                         <div style="text-align: center;" class="col-lg-3 col-md-4">
                                             <div>
                                                 <h4>Ảnh đại diện</h4>
-                                                <img style="max-width:250px;" src="public/upload/products/<?php echo $product['img1']; ?>">
+                                                <?php if (strlen($product['img1']) <> 0) { ?>
+                                                    <img style="max-width:250px;" src="public/upload/products/<?php echo $product['img1']; ?>">
+                                                <?php } else echo '<h6>Vị trí này chưa có ảnh</h6>'; ?>
                                             </div>
                                         </div>
                                         <div style="text-align: center;" class="col-lg-3 col-md-4">
                                             <div>
                                                 <h4>Ảnh 2</h4>
-                                                <img style="max-width:250px;" src="public/upload/products/<?php echo $product['img2']; ?>">
+                                                <?php if (strlen($product['img2']) <> 0) { ?>
+                                                    <img style="max-width:250px;" src="public/upload/products/<?php echo $product['img2']; ?>">
+                                                <?php } else echo '<h6>Vị trí này chưa có ảnh</h6>'; ?>
                                             </div>
                                         </div>
                                         <div style="text-align: center;" class="col-lg-3 col-md-4">
                                             <div>
                                                 <h4>Ảnh 3</h4>
-                                                <img style="max-width:250px;" src="public/upload/products/<?php echo $product['img3']; ?>">
+                                                <?php if (strlen($product['img3']) <> 0) { ?>
+                                                    <img style="max-width:250px;" src="public/upload/products/<?php echo $product['img3']; ?>">
+                                                <?php } else echo '<h6>Vị trí này chưa có ảnh</h6>'; ?>
                                             </div>
                                         </div>
                                         <div style="text-align: center;" class="col-lg-3 col-md-4">
                                             <div>
                                                 <h4>Ảnh 4</h4>
-                                                <img style="max-width:250px;" src="public/upload/products/<?php echo $product['img4']; ?>">
+                                                <?php if (strlen($product['img4']) <> 0) { ?>
+                                                    <img style="max-width:250px;" src="public/upload/products/<?php echo $product['img4']; ?>">
+                                                <?php } else echo '<h6>Vị trí này chưa có ảnh</h6>'; ?>
                                             </div>
                                         </div>
                                     </div>

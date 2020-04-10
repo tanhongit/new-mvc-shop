@@ -47,21 +47,39 @@ $feedbacks = get_all('feedbacks', $options);
                             </tr>
                         </tfoot>
                         <tbody>
-                            <?php foreach ($feedbacks as $feedback) : ?>
-                                <tr>
-                                    <td><?php echo $feedback['name'] ?> |<?= $feedback['user_id'] ?></td>
-                                    <td><?= get_time($feedback['createTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
-                                    <td><?= $feedback['email'] ?></td>
-                                    <td><?php echo $feedback['phone'] ?></td>
-                                    <td><?php echo $feedback['subject'] ?></td>
-                                    <td>
-                                        <a onclick="return confirm('Are you sure to delete?')" title="Delete" class="btn btn-danger btn-icon" href="admin.php?controller=feedback&action=delete&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-delete"></i></a>
-                                        <a title="Edit" class="btn btn-warning btn-icon" href="admin.php?controller=feedback&action=edit&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-eyedropper"></i></a>
-                                        <a title="View detail" class="btn btn-success btn-icon" href="admin.php?controller=feedback&action=view&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-eye"></i></a>
-                                        <a title="Reply" class="btn btn-primary btn-icon" href="admin.php?controller=feedback&action=reply&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-mail-reply"></i></a>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
+                            <?php foreach ($feedbacks as $feedback) :
+                                if ($feedback['status'] == 1) : ?>
+                                    <tr>
+                                        <td><?php echo $feedback['name'] ?> |<?= $feedback['user_id'] ?></td>
+                                        <td><?= get_time($feedback['createTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                        <td><?= $feedback['email'] ?></td>
+                                        <td><?php echo $feedback['phone'] ?></td>
+                                        <td><?php echo $feedback['subject'] ?></td>
+                                        <td>
+                                            <a title="UnApprove" class="btn btn-default btn-icon" href="admin.php?controller=feedback&action=unapproved&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-minus-circle"></i></a>
+                                            <a onclick="return confirm('Are you sure to delete?')" title="Delete" class="btn btn-danger btn-icon" href="admin.php?controller=feedback&action=delete&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-delete"></i></a>
+                                            <a title="Edit" class="btn btn-warning btn-icon" href="admin.php?controller=feedback&action=edit&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-eyedropper"></i></a>
+                                            <a title="View detail" class="btn btn-success btn-icon" href="admin.php?controller=feedback&action=view&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-eye"></i></a>
+                                            <a title="Reply" class="btn btn-primary btn-icon" href="admin.php?controller=feedback&action=reply&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-mail-reply"></i></a>
+                                        </td>
+                                    </tr>
+                                <?php else : ?>
+                                    <tr style="background-color: #FFD18E;">
+                                        <td><?php echo $feedback['name'] ?> |<?= $feedback['user_id'] ?></td>
+                                        <td><?= get_time($feedback['createTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                        <td><?= $feedback['email'] ?></td>
+                                        <td><?php echo $feedback['phone'] ?></td>
+                                        <td><?php echo $feedback['subject'] ?></td>
+                                        <td>
+                                            <a title="Approve" class="btn btn-info btn-icon" href="admin.php?controller=feedback&action=approved&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-check-circle"></i></a>
+                                            <a onclick="return confirm('Are you sure to delete?')" title="Delete" class="btn btn-danger btn-icon" href="admin.php?controller=feedback&action=delete&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-delete"></i></a>
+                                            <a title="Edit" class="btn btn-warning btn-icon" href="admin.php?controller=feedback&action=edit&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-eyedropper"></i></a>
+                                            <a title="View detail" class="btn btn-success btn-icon" href="admin.php?controller=feedback&action=view&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-eye"></i></a>
+                                            <a title="Reply" class="btn btn-primary btn-icon" href="admin.php?controller=feedback&action=reply&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-mail-reply"></i></a>
+                                        </td>
+                                    </tr>
+                            <?php endif;
+                            endforeach; ?>
                         </tbody>
                     </table>
                 </div>

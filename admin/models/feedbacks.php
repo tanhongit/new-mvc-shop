@@ -79,3 +79,21 @@ function feedback_reply_email($html, $email)
         echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
     }
 }
+function feedback_Approved($id)
+{
+    if (isset($_GET['feedback_id'])) {
+        $id = intval($_GET['feedback_id']);
+    } else show_404();
+    global $linkconnectDB;
+    $sql = "UPDATE feedbacks SET status=1 where id=" . $id;
+    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+}
+function feedback_unApproved($id)
+{
+    if (isset($_GET['feedback_id'])) {
+        $id = intval($_GET['feedback_id']);
+    } else show_404();
+    global $linkconnectDB;
+    $sql = "UPDATE feedbacks SET status=0 where id=" . $id;
+    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+}

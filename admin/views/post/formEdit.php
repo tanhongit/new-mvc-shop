@@ -68,7 +68,9 @@
                                                 <div>
                                                     <div>
                                                         <h4 style="text-align: center;">Ảnh đại diện hiện tại</h4>
-                                                        <img style="text-align: center;" style="max-width:250px;" src="public/upload/ckeditorimages/<?php echo $post['post_avatar']; ?>">
+                                                        <?php if (strlen($post['post_avatar']) <> 0) { ?>
+                                                            <img style="text-align: center;" style="max-width:250px;" src="public/upload/ckeditorimages/<?php echo $post['post_avatar']; ?>">
+                                                        <?php } else echo '<h6>Chưa có ảnh đại diện</h6>'; ?>
                                                     </div>
                                                 </div>
                                             </div>

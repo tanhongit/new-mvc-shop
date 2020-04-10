@@ -116,10 +116,11 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-email-open"></i><span>Feedback</span></a>
                     <ul class="ml-menu">
-                    <li><a href="admin.php?controller=feedback">All Feedback</a></li>
-                        <li><a href="admin.php?controller=feedback&action=product">Feedback Product</a></li>
-                        <li><a href="admin.php?controller=feedback&action=order">Feedback Order</a></li>
-                        <li><a href="admin.php?controller=feedback&action=other">Feedback Other</a></li>
+                        <li><a href="admin.php?controller=feedback">All Feedback</a></li>
+                        <li><a href="admin.php?controller=feedback&action=pending">Pending Feedback</a></li>
+                        <li><a href="admin.php?controller=feedback&action=product">Product Feedback</a></li>
+                        <li><a href="admin.php?controller=feedback&action=order">Order Feedback</a></li>
+                        <li><a href="admin.php?controller=feedback&action=other">Other Feedback</a></li>
                     </ul>
                 </li>
             <?php endif; ?>

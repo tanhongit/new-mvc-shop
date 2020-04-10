@@ -126,6 +126,7 @@ $total_mine_comment = get_total('comments', $options_comments_mine);
 $options_comment_five = array(
     'limit' => 5,
     'offset' => 0,
+    'where' => 'status<>3 and status<>2',
     'order_by' => 'id DESC'
 );
 $comment_five = get_all('comments', $options_comment_five);

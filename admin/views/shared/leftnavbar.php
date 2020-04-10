@@ -124,7 +124,7 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                         <li><a href="admin.php?controller=feedback&action=other">Other Feedback</a></li>
                     </ul>
                 </li>
-                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-email-open"></i><span>Comment Manager</span></a>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-comments"></i><span>Comment Manager</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=comment">All comment</a></li>
                         <li><a href="admin.php?controller=comment&action=pending">Pending comment</a></li>

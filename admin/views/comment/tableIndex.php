@@ -6,8 +6,10 @@
                 <ul class="header-dropdown">
                     <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                         <ul class="dropdown-menu dropdown-menu-right slideUp">
-                            <li><a href="admin.php?controller=comment&action=pending">Pending</a></li>
+                            <li><a href="admin.php?controller=comment">All comment</a></li>
+                            <li><a href="admin.php?controller=comment&action=trash">Trash</a></li>
                             <li><a href="admin.php?controller=comment&action=spam">Spam</a></li>
+                            <li><a href="admin.php?controller=comment&action=pending">Pending</a></li>
                         </ul>
                     </li>
                     <li class="remove">

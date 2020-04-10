@@ -17,6 +17,7 @@ $comments = get_all('comments', $option);
                             <li><a href="admin.php?controller=comment">All comment</a></li>
                             <li><a href="admin.php?controller=comment&action=trash">Trash</a></li>
                             <li><a href="admin.php?controller=comment&action=spam">Spam</a></li>
+                            <li><a href="admin.php?controller=comment&action=pending">Pending</a></li>
                         </ul>
                     </li>
                     <li class="remove">
@@ -61,7 +62,7 @@ $comments = get_all('comments', $option);
                                     <td>
                                         <a title="Untrash Restore" class="btn btn-info btn-icon" href="admin.php?controller=comment&action=unapproved&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-check-circle"></i></a>
                                         <a title="Add Spam" class="btn btn-danger btn-icon" href="admin.php?controller=comment&action=spam-action&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-minus-circle"></i></a>
-                                        <a title="Delete Permanently" class="btn btn-danger btn-icon" href="admin.php?controller=comment&action=delete&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-delete"></i></a>
+                                        <a onclick="return confirm('Are you sure to delete?')" title="Delete Permanently" class="btn btn-danger btn-icon" href="admin.php?controller=comment&action=delete&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-delete"></i></a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

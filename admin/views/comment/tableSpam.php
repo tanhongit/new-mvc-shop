@@ -17,6 +17,7 @@ $comments = get_all('comments', $option);
                             <li><a href="admin.php?controller=comment">All comment</a></li>
                             <li><a href="admin.php?controller=comment&action=trash">Trash</a></li>
                             <li><a href="admin.php?controller=comment&action=spam">Spam</a></li>
+                            <li><a href="admin.php?controller=comment&action=pending">Pending</a></li>
                         </ul>
                     </li>
                     <li class="remove">

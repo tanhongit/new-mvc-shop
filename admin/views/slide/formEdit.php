@@ -39,9 +39,13 @@
                                 </div>
                                 <h2 class="card-inside-title" style="font-weight:bold;">Status kích hoạt hiện trên trang chủ:</h2>
                                 <div class="form-group">
-                                    <div class="col-sm-9">
-                                        <input type="radio" name="status" <?php if (isset($slide) && $slide['status'] == "1") echo "checked"; ?> value="1">Kích hoạt <br>
-                                        <input type="radio" name="status" <?php if (isset($slide) && $slide['status'] == "0") echo "checked"; ?> value="0">Không kích hoạt
+                                    <div class="radio inlineblock m-r-20">
+                                        <input type="radio" name="status" id="male" class="with-gap" value="1" <?php if (isset($slide) && $slide['status'] == "1") echo "checked"; ?>>
+                                        <label for="male">Kích hoạt</label>
+                                    </div>
+                                    <div class="radio inlineblock">
+                                        <input type="radio" name="status" id="Female" class="with-gap" <?php if (isset($slide) && $slide['status'] == "0") echo "checked"; ?> value="0">
+                                        <label for="Female">Không kích hoạt</label>
                                     </div>
                                 </div>
                                 <?php for ($i = 1; $i < 6; $i++) : ?>

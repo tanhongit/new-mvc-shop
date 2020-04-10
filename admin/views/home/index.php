@@ -297,6 +297,96 @@
                 </div>
             </div>
         </div>
+        <div class="row clearfix">
+            <div class="col-md-12 col-lg-8">
+                <?php require('admin/views/product/tableoUpdateproduct.php'); ?>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2>Bảng <strong>Thông báo</strong></h2>
+                                <ul class="header-dropdown">
+                                    <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li><a href="javascript:void(0);">Q/lý bình luận</a></li>
+                                            <li><a href="javascript:void(0);">Q/lý phản hồi</a></li>
+                                            <li><a href="admin.php?controller=order">Q/lý đơn hàng</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="remove">
+                                        <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Dữ liệu</th>
+                                                <th>Số liệu Thống kê</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><i class="zmdi zmdi-assignment"></i> Đơn hàng mới</td>
+                                                <td><?php echo get_time($order_new['createtime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="zmdi zmdi-assignment-alert"></i> Đơn chưa xử lý</td>
+                                                <td><?= $total_order_noprosess ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="zmdi zmdi-assignment-return"></i> Đơn bị hủy</td>
+                                                <td><?= $total_order_cancell ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="zmdi zmdi-assignment-check"></i> Đơn đang xử lý</td>
+                                                <td><?= $total_order_inprosess ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="zmdi zmdi-comment-alt-text"></i> Bình luận mới</td>
+                                                <td><?php echo get_time($comment_new['createDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="zmdi zmdi-comment-alert"></i> BLuận Chưa Xử lý</td>
+                                                <td><?= $total_comment_noaccept ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="zmdi zmdi-email-open"></i> Phản hồi mới</td>
+                                                <td><?php echo get_time($feedback_new['createTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="zmdi zmdi-email"></i> Phản hồi Chưa Xử lý</td>
+                                                <td><?= $total_feedback_noaccept ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="zmdi zmdi-reader"></i> Trang mới</td>
+                                                <td><?php echo get_time($page_new['post_date'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="zmdi zmdi-tab"></i> Trang nháp</td>
+                                                <td><?= $total_page_draft ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="zmdi zmdi-receipt"></i> Bài viết mới</td>
+                                                <td><?php echo get_time($post_new['post_date'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="zmdi zmdi-assignment-o"></i> Bài viết nháp</td>
+                                                <td><?= $total_post_draft ?></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 <?php require('admin/views/shared/footer.php'); ?>

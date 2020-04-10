@@ -9,11 +9,14 @@ $total_product_update = get_all('products', $options_product_update); ?>
     <div class="col-lg-12">
         <div class="card">
             <div class="header">
-                <h2><strong>Truy Xuất Dữ Liệu</strong> Sản Phẩm Khuyến Mãi </h2>
+                <h2>Truy Xuất Dữ Liệu <strong>Sản Phẩm Vừa cập nhật </strong></h2>
                 <ul class="header-dropdown">
                     <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                         <ul class="dropdown-menu dropdown-menu-right slideUp">
                             <li><a href="admin.php?controller=product&action=edit">Thêm Sản phẩm mới</a></li>
+                            <li><a href="admin.php?controller=product&action=newproduct">Sản phẩm mới</a></li>
+                            <li><a href="admin.php?controller=product&action=saleproduct">Sản phẩm giảm giá</a></li>
+                            <li><a href="admin.php?controller=product&action=hotproduct">Sản phẩm nổi bật</a></li>
                         </ul>
                     </li>
                     <li class="remove">
@@ -55,7 +58,7 @@ $total_product_update = get_all('products', $options_product_update); ?>
                                     <td><a href="admin.php?controller=product&amp;action=edit&amp;product_id=<?php echo $product['id']; ?>"><?php echo $product['product_name']; ?></a></td>
                                     <td><?php echo $product ? number_format($product['product_price'], 0, ',', '.') : 0; ?></td>
                                     <td><?php echo $product['createDate'] ?></td>
-                                    <td><?=get_time($product['editDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600))?></td>
+                                    <td><?= get_time($product['editDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                     <td><?php echo '<image src="public/upload/products/' . $product['img1'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
                                     <td><?php echo $product['totalView'] ?></td>
                                     <td><a href="product/<?php echo $product['id']; ?>-<?php echo $product['slug'] ?>" target="_blank" class="btn btn-success waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-eye"></i></a>

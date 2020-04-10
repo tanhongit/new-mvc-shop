@@ -89,7 +89,7 @@
                                     <div class="mb-3 form-group">
                                         <select name="roleid" required class="form-control show-tick">
                                             <option value="0">User</option>
-                                            <option value="2">Modẻator</option>
+                                            <option value="2">Moderator</option>
                                             <option value="1">Admin</option>
                                         </select>
                                     </div>

@@ -34,6 +34,31 @@ $options_product_update = array(
     'order_by' => 'editDate DESC'
 );
 $product_update = select_a_record('products', $options_product_update);
+
+//user
+$options_user_update = array(
+    'limit' => 1,
+    'offset' => 0,
+    'order_by' => 'editTime DESC'
+);
+$user_update = select_a_record('users', $options_user_update);
+
+$options_user_new = array(
+    'limit' => 1,
+    'offset' => 0,
+    'order_by' => 'createDate DESC'
+);
+$user_new = select_a_record('users', $options_user_new);
+
+$options_user = array(
+    'order_by' => 'editTime DESC'
+);
+$users = get_all('users', $options_user);
+$user_total_7day = 0;
+foreach ($users as $user) {
+    if (strtotime($user['createDate']) > strtotime(date('Y-m-d', mktime(date('H'), date('i'), date('s'), date('m'), (date('d') - 7), date('Y')))))
+        $user_total_7day++;
+}
 ?>
 <div class="navbar-right">
     <ul class="navbar-nav">
@@ -98,8 +123,8 @@ $product_update = select_a_record('products', $options_product_update);
                             <a href="javascript:void(0);">
                                 <div class="icon-circle bg-blue"><i class="zmdi zmdi-account"></i></div>
                                 <div class="menu-info">
-                                    <h4>8 New Members joined</h4>
-                                    <p><i class="zmdi zmdi-time"></i> 14 mins ago </p>
+                                    <h4><?= $user_total_7day ?> New Members joined 7 day</h4>
+                                    <p><i class="zmdi zmdi-time"></i> <?= get_time($user_new['createDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?> </p>
                                 </div>
                             </a>
                         </li>
@@ -125,8 +150,8 @@ $product_update = select_a_record('products', $options_product_update);
                             <a href="javascript:void(0);">
                                 <div class="icon-circle bg-green"><i class="zmdi zmdi-edit"></i></div>
                                 <div class="menu-info">
-                                    <h4><b>Nancy</b> Changed name</h4>
-                                    <p><i class="zmdi zmdi-time"></i>dgre </p>
+                                    <h4><b><?= $user_update['user_name'] ?></b> Vừa cập nhật tài khoản</h4>
+                                    <p><i class="zmdi zmdi-time"></i> <?= get_time($user_update['editTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?> </p>
                                 </div>
                             </a>
                         </li>
@@ -134,7 +159,7 @@ $product_update = select_a_record('products', $options_product_update);
                             <a href="javascript:void(0);">
                                 <div class="icon-circle bg-grey"><i class="zmdi zmdi-comment-text"></i></div>
                                 <div class="menu-info">
-                                    <h4><b><?= $comment_new['author'] ?></b> Đã vừa bình luận</h4>
+                                    <h4><b><?= $comment_new['author'] ?></b> Vừa bình luận</h4>
                                     <p><i class="zmdi zmdi-time"></i> <?= get_time($comment_new['createDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?> </p>
                                 </div>
                             </a>

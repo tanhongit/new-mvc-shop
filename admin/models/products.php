@@ -27,6 +27,15 @@ function products_delete($id)
 }
 function product_update()
 {
+    if (isset($_POST['editby'])) $editby = $_POST['editby'];
+    else $editby = NULL;
+
+    if ($_POST['product_id'] <> 0) $editDate = gmdate('Y-m-d H:i:s', time() + 7 * 3600);
+    else $editDate = '0000-00-00 00:00:00';
+
+    if ($_POST['createdate'] == NULL || $_POST['createdate'] == 'dd/mm/yyyy') $createDate = date('Y-m-d H:i:s', time() + 7 * 3600);
+    else $createDate = $_POST['createdate'];
+    
     $name = escape($_POST['name']);
     $product = array(
         'id' => intval($_POST['product_id']),
@@ -39,15 +48,15 @@ function product_update()
         'product_price' => intval($_POST['price']),
         'product_color' => escape($_POST['color']),
         'product_material' => escape($_POST['material']),
-        'createDate' => escape($_POST['createdate']),
+        'createDate' => $createDate,
         'saleoff' => intval($_POST['status']),
         'percentoff' => intval($_POST['percent_off']),
         'totalView' => intval($_POST['totalview']),
         'product_description' => ($_POST['description']),
         'product_detail' => ($_POST['detail']),
         'createBy' => escape($_POST['createby']),
-        'editBy' => escape($_POST['editby']),
-        'editDate' => gmdate('Y-m-d H:i:s', time() + 7 * 3600)
+        'editBy' => escape($editby),
+        'editDate' => $editDate
     );
     $product_id = save('products', $product);
     //upload ảnh 1 của product

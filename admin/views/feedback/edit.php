@@ -185,6 +185,21 @@
                                 </div>
                             </div>
                         </div>
+                        <h4>Status:</h4>
+                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="radio inlineblock m-r-20">
+                                        <input type="radio" name="status" id="male" class="with-gap" value="1" <?php if ($feedback['status'] == "1") echo "checked"; ?>>
+                                        <label for="male">Approve</label>
+                                    </div>
+                                    <div class="radio inlineblock">
+                                        <input type="radio" name="status" id="Female" class="with-gap" <?php if ($feedback['status'] == "0") echo "checked"; ?> value="0">
+                                        <label for="Female">Pending</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <br><br>
                         <div class="form-group" style="text-align: center;">
                             <button class="btn btn-primary waves-effect" type="submit">Update lại thông tin phản hồi</button>

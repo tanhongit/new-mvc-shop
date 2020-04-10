@@ -38,6 +38,7 @@ function feedback_update()
         'phone' => escape($_POST['phone']),
         'subject' => escape($_POST['subject']),
         'editTime' => gmdate('Y-m-d H:i:s', time() + 7 * 3600),
+        'status' => intval($_POST['status']),
     );
     save('feedbacks', $feedback);
     header('location:admin.php?controller=feedback');

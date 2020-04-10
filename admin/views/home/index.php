@@ -107,51 +107,51 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Đơn hàng mới</td>
+                                                <td><i class="zmdi zmdi-assignment"></i> Đơn hàng mới</td>
                                                 <td><?php echo get_time($order_new['createtime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                             </tr>
                                             <tr>
-                                                <td>Đơn chưa xử lý</td>
+                                                <td><i class="zmdi zmdi-assignment-alert"></i> Đơn chưa xử lý</td>
                                                 <td><?= $total_order_noprosess ?></td>
                                             </tr>
                                             <tr>
-                                                <td>Đơn bị hủy</td>
+                                                <td><i class="zmdi zmdi-assignment-return"></i> Đơn bị hủy</td>
                                                 <td><?= $total_order_cancell ?></td>
                                             </tr>
                                             <tr>
-                                                <td>Đơn đang xử lý</td>
+                                                <td><i class="zmdi zmdi-assignment-check"></i> Đơn đang xử lý</td>
                                                 <td><?= $total_order_inprosess ?></td>
                                             </tr>
                                             <tr>
-                                                <td>Bình luận mới</td>
+                                                <td><i class="zmdi zmdi-comment-alt-text"></i> Bình luận mới</td>
                                                 <td><?php echo get_time($comment_new['createDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                             </tr>
                                             <tr>
-                                                <td>BLuận Chưa Xử lý</td>
+                                                <td><i class="zmdi zmdi-comment-alert"></i> BLuận Chưa Xử lý</td>
                                                 <td><?= $total_comment_noaccept ?></td>
                                             </tr>
                                             <tr>
-                                                <td>Phản hồi mới</td>
+                                                <td><i class="zmdi zmdi-email-open"></i> Phản hồi mới</td>
                                                 <td><?php echo get_time($feedback_new['createTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                             </tr>
                                             <tr>
-                                                <td>Phản hồi Chưa Xử lý</td>
+                                                <td><i class="zmdi zmdi-email"></i> Phản hồi Chưa Xử lý</td>
                                                 <td><?= $total_feedback_noaccept ?></td>
                                             </tr>
                                             <tr>
-                                                <td>Trang mới</td>
+                                                <td><i class="zmdi zmdi-reader"></i> Trang mới</td>
                                                 <td><?php echo get_time($page_new['post_date'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                             </tr>
                                             <tr>
-                                                <td>Trang nháp</td>
+                                                <td><i class="zmdi zmdi-tab"></i> Trang nháp</td>
                                                 <td><?= $total_page_draft ?></td>
                                             </tr>
                                             <tr>
-                                                <td>Bài viết mới</td>
+                                                <td><i class="zmdi zmdi-receipt"></i> Bài viết mới</td>
                                                 <td><?php echo get_time($post_new['post_date'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                             </tr>
                                             <tr>
-                                                <td>Bài viết nháp</td>
+                                                <td><i class="zmdi zmdi-assignment-o"></i> Bài viết nháp</td>
                                                 <td><?= $total_post_draft ?></td>
                                             </tr>
                                         </tbody>
@@ -200,19 +200,25 @@
                                                         <td><?php echo substr($comment['content'], 0, 150);
                                                             if (strlen($comment['content']) > 150) echo '...'; ?> </td>
                                                         <td><?= $comment['author'] ?></td>
-                                                        <td></td>
+                                                        <td><a title="Approve" class="btn btn-info btn-icon" href="admin.php?controller=comment&action=approved&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-check-circle"></i></a>
+                                                            <a title="Add Trash" class="btn btn-danger btn-icon" href="admin.php?controller=comment&action=trash-action&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-delete"></i></a>
+                                                            <a title="Edit" class="btn btn-warning btn-icon" href="admin.php?controller=comment&action=edit&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-eyedropper"></i></a>
+                                                            <a title="Add Spam" class="btn btn-danger btn-icon" href="admin.php?controller=comment&action=spam-action&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-minus-circle"></i></a></td>
                                                     </tr>
                                                 <?php else : ?>
                                                     <tr>
                                                         <td><?php echo substr($comment['content'], 0, 150);
                                                             if (strlen($comment['content']) > 150) echo '...'; ?> </td>
                                                         <td><?= $comment['author'] ?></td>
-                                                        <td></td>
+                                                        <td><a title="Unapprove" class="btn btn-default btn-icon" href="admin.php?controller=comment&action=unapproved&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-minus-circle"></i></a>
+                                                            <a title="Add Trash" class="btn btn-danger btn-icon" href="admin.php?controller=comment&action=trash-action&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-delete"></i></a>
+                                                            <a title="Edit" class="btn btn-warning btn-icon" href="admin.php?controller=comment&action=edit&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-eyedropper"></i></a>
+                                                            <a title="Add Spam" class="btn btn-danger btn-icon" href="admin.php?controller=comment&action=spam-action&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-minus-circle"></i></a></td>
                                                     </tr>
                                             <?php endif;
                                             endforeach; ?>
                                             <tr>
-                                                <td><strong>All (<?= $total_rows_comment ?>) | Mine (<?= $total_mine_comment ?>) | Pending (<?= $total_comment_noaccept ?>) | Approved (<?= $total_comment_accept ?>) | Spam (<?= $total_comment_spam ?>) | Trash (<?= $total_comment_trash ?>)</strong></td>
+                                                <td><strong><a href="admin.php?controller=comment">All</a> (<?= $total_rows_comment ?>) | Mine (<?= $total_mine_comment ?>) | <a href="admin.php?controller=comment&action=pending">Pending</a> (<?= $total_comment_noaccept ?>) | <a href="admin.php?controller=comment">Approved</a> (<?= $total_comment_accept ?>) | <a href="admin.php?controller=comment&action=spam">Spam</a> (<?= $total_comment_spam ?>) | <a href="admin.php?controller=comment&action=trash">Trash</a> (<?= $total_comment_trash ?>)</strong></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -280,7 +286,7 @@
                                             <?php endif;
                                             endforeach; ?>
                                             <tr>
-                                                <td><strong>All (<?= $total_feedback ?>) | Mine (<?= $total_feedback_mine ?>) | Pending (<?= $total_feedback_noaccept ?>) | Approved (<?= $total_feedback_status ?>)</strong></td>
+                                                <td><strong><a href="admin.php?controller=feedback">All</a> (<?= $total_feedback ?>) | <a href="admin.php?controller=feedback&action=myfeedback">Mine</a> (<?= $total_feedback_mine ?>) | <a href="admin.php?controller=feedback&action=pending">Pending</a> (<?= $total_feedback_noaccept ?>) | Approved (<?= $total_feedback_status ?>)</strong></td>
                                             </tr>
                                         </tbody>
                                     </table>

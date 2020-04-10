@@ -83,6 +83,18 @@
                                     </div>
                                 </div>
                             </div>
+                            <h2 class="card-inside-title" style="font-weight:bold;">Chọn mức quyền quản trị (Role):</h2>
+                            <div class="row clearfix">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="mb-3 form-group">
+                                        <select name="roleid" required class="form-control show-tick">
+                                            <option value="0">User</option>
+                                            <option value="2">Modẻator</option>
+                                            <option value="1">Admin</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         <?php else : ?>
                             <h4 class="card-inside-title" style="font-weight:bold;">Tên đăng nhập: "<?= $user_info['user_username'] ?>"</h4>
                             <input name="username" type="hidden" value="<?php echo $user_info ? $user_info['user_username'] : ''; ?>" class="form-control" />

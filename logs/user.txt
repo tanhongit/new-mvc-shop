@@ -3,3 +3,6 @@ user :
     tanhongitii | meowwww@gmail.com.com : 123456789
 Mod :
     eyteyt | moderator@gmail.com : 12345678
+
+Admin:
+    admin | admin@gmail.com : 1234567890

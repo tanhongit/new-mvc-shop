@@ -111,8 +111,14 @@ function changePassword($id, $newpassword, $currentPassword)
 }
 function user_update()
 {
+    global $user_nav;
+    $user_login = get_a_record('users', $user_nav);
     if ($_POST['user_id'] <> 0) $editTime = gmdate('Y-m-d H:i:s', time() + 7 * 3600);
     else $editTime = '0000-00-00 00:00:00';
+
+    if (isset($_POST['roleid']) && $user_login['role_id'] == 1) $roleid = $_POST['roleid'];
+    else $roleid = $user_login['role_id'];
+
     $user_edit = array(
         'id' => intval($_POST['user_id']),
         'user_email' => escape($_POST['email']),
@@ -120,7 +126,8 @@ function user_update()
         'user_name' => escape($_POST['name']),
         'user_address' => escape($_POST['address']),
         'user_phone' => escape($_POST['phone']),
-        'editTime' => $editTime
+        'editTime' => $editTime,
+        'role_id' => $roleid
     );
     global $linkconnectDB;
     $email_check = addslashes($_POST['email']);

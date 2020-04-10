@@ -57,6 +57,7 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                 <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-collection-text"></i><span>Quản lý sản phẩm</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=product">Danh sách sản phẩm</a></li>
+                        <li><a href="admin.php?controller=product&action=update">Sản phẩm mới cập nhật</a></li>
                         <li><a href="admin.php?controller=product&action=newproduct">Sản phẩm mới</a></li>
                         <li><a href="admin.php?controller=product&action=saleproduct">Sản phẩm khuyến mại</a></li>
                         <li><a href="admin.php?controller=product&action=hotproduct">Sản phẩm hot</a></li>

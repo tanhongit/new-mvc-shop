@@ -5,7 +5,7 @@ function order_cancell($id)
         $id = intval($_GET['order_id']);
     } else show_404();
     global $linkconnectDB;
-    $sql = "UPDATE orders SET status=3 where id=" . $id;
+    $sql = "UPDATE orders SET status=3,editTime='" . gmdate('Y-m-d H:i:s', time() + 7 * 3600) . "' where id=" . $id;
     mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
 }
 function purchase_order_detail($order_id)

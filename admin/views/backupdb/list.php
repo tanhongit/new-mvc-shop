@@ -48,22 +48,31 @@
                                         <tr>
                                             <th>STT</th>
                                             <th>Tên file CSDL đã backup</th>
+                                            <th>Hành động</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>STT</th>
                                             <th>Tên file CSDL đã backup</th>
+                                            <th>Hành động</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <?php $stt = 0; //https://xuanthulab.net/lay-thong-tin-he-thong-file-thu-muc-trong-php-cung-directoryiterator.html
                                         foreach (new DirectoryIterator('admin/database') as $filename) :
                                             if ($filename->isDot() || $filename == '.htaccess') continue;
+                                            $link_connect_file = 'admin/database/' . $filename;
                                             $stt++; ?>
                                             <tr>
                                                 <td><?php echo $stt ?></td>
                                                 <td><?= $filename ?></td>
+                                                <td>
+                                                    <form action="admin.php?controller=backupdb&action=delete" method="post">
+                                                        <input type="hidden" name="linkFile" value="<?= $link_connect_file ?>">
+                                                        <button onclick="return confirm('Are you sure to delete?')" title="Delete file" class="btn btn-danger btn-round" type="submit"> <i class="zmdi zmdi-delete"></i> Xóe</button>
+                                                    </form>
+                                                </td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

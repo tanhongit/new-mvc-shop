@@ -19,7 +19,6 @@ DROP TABLE IF EXISTS comments;
 
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `product_id` int(11) DEFAULT NULL,
   `user_id` int(11) NOT NULL DEFAULT 0,
   `content` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `createDate` datetime DEFAULT NULL,
@@ -27,14 +26,19 @@ CREATE TABLE `comments` (
   `email` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   `link_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'author-comment.png',
+  `editTime` datetime DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  `post_id` int(11) DEFAULT NULL,
+  `page_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_id_product` (`product_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO comments VALUES("1","4","0","Trà sữa ngon lắm bạn","2020-03-27 00:00:00","Tân","tan12357@gmail.com","1","author-comment.png");
-INSERT INTO comments VALUES("4","2","0","Trà sữa ngon lắm ạ, đây là vị trà mk thích nhất luôn. Mong lần tới vẫn được nhiều thạch trong ly ạ. Cảm ơn chủ quán nhé!!","2020-03-27 02:18:17","Trung","trungtin@gmail.com","0","author-comment.png");
-INSERT INTO comments VALUES("7","2","2","régrest","2020-04-01 13:12:20","Tân Hồng IT","phuongtan12357nguyen@gmail.com ?> ","0","avatar-user1011-tanhongit.jpg");
-INSERT INTO comments VALUES("8","2","2","régrest","2020-04-01 13:15:09","Tân Hồng IT","phuongtan12357nguyen@gmail.com","0","avatar-user1011-tanhongit.jpg");
+INSERT INTO comments VALUES("1","0","Trà sữa ngon lắm bạn","2020-03-27 00:00:00","Tân","tan12357@gmail.com","0","author-comment.png","","4","","");
+INSERT INTO comments VALUES("4","0","Tr&agrave; sữa ngon lắm ạ, đ&acirc;y l&agrave; vị tr&agrave; mk th&iacute;ch nhất lu&ocirc;n. Mong lần tới vẫn được nhiều thạch trong ly ạ. Cảm ơn chủ qu&aacute;n nh&eacute;!!","2020-03-27 02:18:17","Trung AV","trungtin@gmail.com","1","author-comment.png","2020-04-10 15:55:11","2","","");
+INSERT INTO comments VALUES("7","2","régrest","2020-04-01 13:12:20","Tân Hồng IT","phuongtan12357nguyen@gmail.com ?> ","2","avatar-user1011-tanhongit.jpg","","2","","");
+INSERT INTO comments VALUES("8","2","régrest","2020-04-01 13:15:09","Tân Hồng IT","phuongtan12357nguyen@gmail.com","3","avatar-user1011-tanhongit.jpg","","2","","");
+INSERT INTO comments VALUES("9","2","Cảm ơn shop nhiều ạ","2020-04-10 19:27:57","Tân Hồng ","phuongtan12357nguyen@gmail.com","0","avatar-user1011-tanhongit.jpg","","22","","");
 
 
 DROP TABLE IF EXISTS contacts;
@@ -75,23 +79,23 @@ CREATE TABLE `feedbacks` (
   `order_id` int(11) NOT NULL DEFAULT 0,
   `product_id` int(11) NOT NULL DEFAULT 0,
   `status` int(11) NOT NULL DEFAULT 0,
+  `editTime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_user_id` (`user_id`),
   KEY `fk_product_id` (`product_id`),
   KEY `fk_order_id` (`order_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO feedbacks VALUES("1","Tân Hồng ","phuongtan12357nguyen@gmail.com","363220339","abc","2020-04-05 16:58:23","2","0","2","1");
-INSERT INTO feedbacks VALUES("2","Tân Hồng ","phuongtan12357nguyen@gmail.com","363220339","abc dè","2020-04-05 16:59:35","2","0","2","1");
-INSERT INTO feedbacks VALUES("3","Tân Hồng ","phuongtan12357nguyen@gmail.com","363220339","abc dè","2020-04-05 17:01:52","2","0","2","1");
-INSERT INTO feedbacks VALUES("4","Nguyen Tan","test@gmail.com","1663220339","srdxtfcghjooiuijytrdesdfcvgb édrtyguhiopiuiytredrftyu","2020-04-05 17:06:46","1","0","28","1");
-INSERT INTO feedbacks VALUES("5","Nguyen Tan","test@gmail.com","1663220339","Ahihi nớp diu","2020-04-05 17:07:36","1","0","0","1");
-INSERT INTO feedbacks VALUES("6","Alibaba","alibaba@gmail.com","1234567890","aladin","2020-04-05 17:12:32","0","0","0","1");
-INSERT INTO feedbacks VALUES("7","aladin","aladin@gmail","363220339","reywsrewyre","2020-04-05 17:13:23","0","0","8","1");
-INSERT INTO feedbacks VALUES("8","y54wy54wy","ewt43wt54w@gmail.com","432542543","regresg","2020-04-05 17:23:09","0","0","0","1");
-INSERT INTO feedbacks VALUES("9","Tân Hồng ","phuongtan12357nguyen@gmail.com","363220339","Toi hong mún mua đơn hàng này nữa","2020-04-06 14:48:32","2","3","0","1");
-INSERT INTO feedbacks VALUES("10","Tân Hồng ","phuongtan12357nguyen@gmail.com","363220339","tuyệt đấy","2020-04-06 14:50:20","2","6","0","0");
-INSERT INTO feedbacks VALUES("11","url","","339908569","ỷdyr","2020-04-09 00:00:00","0","0","0","0");
+INSERT INTO feedbacks VALUES("1","Tân Hồng ","phuongtan12357nguyen@gmail.com","363220339","abc","2020-04-05 16:58:23","2","0","2","1","");
+INSERT INTO feedbacks VALUES("2","Tân Hồng ","phuongtan12357nguyen@gmail.com","363220339","abc dè","2020-04-05 16:59:35","2","0","2","0","");
+INSERT INTO feedbacks VALUES("3","Tân Hồng ","phuongtan12357nguyen@gmail.com","363220339","abc dè","2020-04-05 17:01:52","2","0","2","1","");
+INSERT INTO feedbacks VALUES("4","Nguyen Tan","test@gmail.com","1663220339","srdxtfcghjooi","2020-04-05 17:06:46","1","0","28","1","2020-04-09 16:48:56");
+INSERT INTO feedbacks VALUES("5","Nguyen Tan","test@gmail.com","1663220339","Ahihi nớp diu","2020-04-05 17:07:36","1","0","0","1","");
+INSERT INTO feedbacks VALUES("6","Alibaba","alibaba@gmail.com","1234567890","aladin","2020-04-05 17:12:32","0","0","0","1","2020-04-10 23:26:58");
+INSERT INTO feedbacks VALUES("7","aladin","aladin@gmail","363220339","reywsrewyre","2020-04-05 17:13:23","0","0","8","0","2020-04-10 23:26:49");
+INSERT INTO feedbacks VALUES("8","y54wy54wy","ewt43wt54w@gmail.com","432542543","regresg","2020-04-05 17:23:09","0","4","0","0","");
+INSERT INTO feedbacks VALUES("9","Tân Hồng ","phuongtan12357nguyen@gmail.com","12345678","Toi hong mún mua đơn hàng này nữa , bạn nàm giề được tôi","2020-04-06 14:48:32","2","3","0","1","2020-04-09 15:53:51");
+INSERT INTO feedbacks VALUES("11","url","","339908569","ỷdyr","2020-04-09 00:00:00","0","0","0","1","");
 
 
 DROP TABLE IF EXISTS introduce;
@@ -148,7 +152,7 @@ INSERT INTO menu_footers VALUES("8","Not available","javascript:void(0);","","0"
 INSERT INTO menu_footers VALUES("9","Not available","javascript:void(0);","","0");
 INSERT INTO menu_footers VALUES("10","Sản phẩm nổi bật","type/1-san-pham-hot","Sản phẩm nổi bật","0");
 INSERT INTO menu_footers VALUES("11","Sản phẩm mới","type/2-san-pham-moi","Sản phẩm mới","0");
-INSERT INTO menu_footers VALUES("12","Đang giảm giá","3-san-pham-dang-giam-gia","Sản phẩn đang giảm giá","0");
+INSERT INTO menu_footers VALUES("12","Đang giảm giá","type/3-san-pham-dang-giam-gia","Sản phẩn đang giảm giá","0");
 INSERT INTO menu_footers VALUES("18","Text Link","javascript:void(0);","","1");
 INSERT INTO menu_footers VALUES("19","Social","javascript:void(0);","Các liên kết trang mạng xã hội","1");
 INSERT INTO menu_footers VALUES("20","Blog","javascript:void(0);","","1");
@@ -165,7 +169,7 @@ CREATE TABLE `order_detail` (
   `price` float NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_order_id` (`order_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO order_detail VALUES("1","1","4","1","15000");
 INSERT INTO order_detail VALUES("2","1","12","10","15000");
@@ -180,6 +184,7 @@ INSERT INTO order_detail VALUES("10","6","28","1","10000");
 INSERT INTO order_detail VALUES("11","8","4","1","15000");
 INSERT INTO order_detail VALUES("12","8","28","5","10000");
 INSERT INTO order_detail VALUES("13","7","5","6","15000");
+INSERT INTO order_detail VALUES("14","9","8","1","10000");
 
 
 DROP TABLE IF EXISTS orders;
@@ -195,17 +200,19 @@ CREATE TABLE `orders` (
   `message` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   `user_id` int(11) NOT NULL DEFAULT 0,
+  `editTime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_id_user` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO orders VALUES("1","Nguyen Phuong Tan","Dong Nai","khu 2, thi tran gia ray, xuan loc, dong nai, vn","0363220339","165000","2020-03-21 10:19:59","","0","0");
-INSERT INTO orders VALUES("3","Nguyen Tan","Dong Nai","Xuan Lu1ed9c","1663220339","30000","2020-03-21 10:30:22","","0","2");
-INSERT INTO orders VALUES("4","Nguyen Phuong Tan","Dong Nai","khu 2, thi tran gia ray, xuan loc, dong nai, vn","0363220339","105000","2020-03-25 13:29:57","","0","2");
-INSERT INTO orders VALUES("5","drt","-","xuan lộc, đồng nai, việt nam","0363220339","80","2020-03-25 16:21:38","","0","1");
-INSERT INTO orders VALUES("6","Nguyen Phuong Tan","Dong Nai","khu 2, thi tran gia ray, xuan loc, dong nai, vn","0363220339","10000","2020-03-29 20:24:33","fgh","0","1");
-INSERT INTO orders VALUES("7","Nguyen Phuong Tan","Dong Nai","khu 2, thi tran gia ray, xuan loc, dong nai, vn","0363220339","10000","2020-03-29 20:25:46","fgh","0","0");
-INSERT INTO orders VALUES("8","Tân Hồng IT","Đồng Nai","xuân lộc, đồng nai, việt nam","363220339","155000","2020-04-02 10:44:06","ghtrsehts htr yht whtwsht eshtesh té tesh ts hres hsh t","0","1");
+INSERT INTO orders VALUES("1","Nguyen Phuong Tan","Dong Nai","khu 2, thi tran gia ray, xuan loc, dong nai, vn","0363220339","165000","2020-03-21 10:19:59","","0","0","");
+INSERT INTO orders VALUES("3","Nguyen Tan","Dong Nai","Xuan Lu1ed9c","1663220339","30000","2020-03-21 10:30:22","","3","2","2020-04-10 22:02:29");
+INSERT INTO orders VALUES("4","Nguyen Phuong Tan","Dong Nai","khu 2, thi tran gia ray, xuan loc, dong nai, vn","0363220339","105000","2020-03-25 13:29:57","","3","2","2020-04-10 22:07:25");
+INSERT INTO orders VALUES("5","drt","-","xuan lộc, đồng nai, việt nam","0363220339","80","2020-03-25 16:21:38","","0","1","");
+INSERT INTO orders VALUES("6","Nguyen Phuong Tan","Dong Nai","khu 2, thi tran gia ray, xuan loc, dong nai, vn","0363220339","10000","2020-03-29 20:24:33","fgh","2","1","");
+INSERT INTO orders VALUES("7","Nguyen Phuong Tan","Dong Nai","khu 2, thi tran gia ray, xuan loc, dong nai, vn","0363220339","10000","2020-03-29 20:25:46","fgh","2","0","");
+INSERT INTO orders VALUES("8","Tân Hồng IT","Đồng Nai","xuân lộc, đồng nai, việt nam","363220339","155000","2020-04-02 10:44:06","ghtrsehts htr yht whtwsht eshtesh té tesh ts hres hsh t","0","1","");
+INSERT INTO orders VALUES("9","Tân Hồng ","yth","xuân lộc, đồng nai, việt nam","363220339","10000","2020-04-10 22:06:29","","0","2","2020-04-10 22:08:28");
 
 
 DROP TABLE IF EXISTS posts;
@@ -227,11 +234,11 @@ CREATE TABLE `posts` (
   KEY `fk_id_author` (`post_author`)
 ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO posts VALUES("1","2","2020-04-08 05:57:42","","About","Publiced","2020-04-08 06:31:51","2","Tân Hồng ","26","about","about-1page.png");
+INSERT INTO posts VALUES("1","2","2020-04-08 05:57:42","","About","Publiced","2020-04-08 06:31:51","2","Tân Hồng ","29","about","about-1page.png");
 INSERT INTO posts VALUES("7","2","2020-04-08 23:12:50","","Contact Liên hệ","Publiced","0000-00-00 00:00:00","2","","0","contact","");
 INSERT INTO posts VALUES("8","2","2020-04-08 23:13:53","","Điều khoản sử dụng","Publiced","0000-00-00 00:00:00","2","","1","terms-of-use-page","");
 INSERT INTO posts VALUES("6","2","2020-04-08 11:47:48","","Dmca Luật bản quyền","Trash","2020-04-08 10:25:58","1","Tân Hồng ","5","dmca-luat-ban","");
-INSERT INTO posts VALUES("5","2","2020-04-08 10:13:14","Phim việt chất lượng cao<br />\n<img alt=\"\" src=\"/php-mvc-shop/public/upload/ckeditorimages/about-1page.png\" style=\"height:271px; width:482px\" />","Phim việt","Trash","2020-04-08 10:13:10","1","Tân Hồng ","4","phim-viet","phim-viet-5post.png");
+INSERT INTO posts VALUES("5","2","2020-04-09 14:03:15","Phim việt chất lượng cao<br />\n<img alt=\"\" src=\"/php-mvc-shop/public/upload/ckeditorimages/about-1page.png\" style=\"height:271px; width:482px\" />","Phim việt","Publiced","2020-04-08 10:13:10","1","Tân Hồng ","4","phim-viet","phim-viet-5post.png");
 INSERT INTO posts VALUES("4","2","2020-04-08 06:06:12","ouhiuh<br />\naad<br />\n<img alt=\"\" src=\"/php-mvc-shop/public/upload/ckeditorimages/tenor.gif\" style=\"height:498px; width:498px\" /><br />\n<br />\nfhgtfrdhtrd<br />\nỵytrj","Privacy Policy","Draft","2020-04-08 06:05:46","2","Tân Hồng ","7","privacy-policy","privacy-policy-4page.jpg");
 INSERT INTO posts VALUES("3","2","2020-04-08 06:17:37","Luật bản quyền dựa tr&ecirc;n luật to&agrave;n cầu<br />\n<img alt=\"\" src=\"/php-mvc-shop/public/upload/ckeditorimages/dmca-luat-ban-quyen-2page.jpg\" style=\"height:304px; width:650px\" />","Dmca Luật bản quyền","Publiced","2020-04-07 23:52:43","2","","1","dmca-luat-ban-quyen","");
 
@@ -254,7 +261,7 @@ CREATE TABLE `products` (
   `createBy` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `createDate` date DEFAULT NULL,
   `editBy` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `editDate` date DEFAULT NULL,
+  `editDate` datetime DEFAULT NULL,
   `totalView` int(11) DEFAULT 0,
   `saleoff` tinyint(11) DEFAULT 0,
   `percentoff` int(11) DEFAULT NULL,
@@ -267,25 +274,27 @@ CREATE TABLE `products` (
   KEY `fk_category_id` (`category_id`),
   KEY `fk_supply_id` (`supply_id`),
   KEY `fk_type_id` (`product_typeid`)
-) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO products VALUES("1","Hạt Hướng Dương Chất Lượng Giá Rẻ","2","1","4","1","Hạt hướng dương có hạt to, hàng chất lượng không hôi không có hạt lép, hạt hư.","10000","Đen","Hạt hướng dương","To","Hạt hướng dương c&oacute; hạt to, h&agrave;ng chất lượng kh&ocirc;ng h&ocirc;i kh&ocirc;ng c&oacute; hạt l&eacute;p, hạt hư.<br />\n<img alt=\"\" src=\"/php-mvc-shop/public/upload/ckeditorimages/dmca-luat-ban-quyen-2page.jpg\" style=\"height:304px; width:650px\" /><br />\n&nbsp;","","2020-03-18","Tân Hồng ","2020-04-07","81","0","0","hat-huong-duong-chat-luong-gia-re-1img1.jpg","hat-huong-duong-chat-luong-gia-re-1img2.jpg","","","hat-huong-duong-chat-luong-gia-re");
-INSERT INTO products VALUES("2","Trà Sữa Thái Xanh (Chân Châu, Pudding) 15k, 20k","2","1","3","1","ok ok","15000","Xanh","ok","Vừa - 15k, Lớn - 20k","ok<br />\n<img alt=\"\" src=\"/php-mvc-shop/public/upload/ckeditorimages/tenor.gif\" style=\"height:498px; width:498px\" />","","2020-03-18","Tân Hồng ","2020-04-07","86","0","0","tra-sua-thai-xanh-chan-chau-pudding-15k-20k-2img1.jpg","tra-sua-thai-xanh-chan-chau-pudding-15k-20k-2img2.jpg","tra-sua-thai-xanh-chan-chau-pudding-15k-20k-2img3.jpg","tra-sua-thai-xanh-chan-chau-pudding-15k-20k-2img4.jpg","tra-sua-thai-xanh-chan-chau-pudding-15k-20k");
-INSERT INTO products VALUES("3","Trà Sữa Truyền Thống (Chân Châu, Pudding) 15k, 20k","2","1","3","1","ok","15000","ok","ok","Vừa - 15k, Lớn - 20k","ok con d&ecirc;","","2020-03-18","Tân Hồng IT","2020-03-27","29","0","0","tra-sua-truyen-thong-chan-chau-pudding-15k-20k-3img1.jpg","tra-sua-truyen-thong-chan-chau-pudding-15k-20k-3img2.jpg","","","tra-sua-truyen-thong-chan-chau-pudding-15k-20k");
-INSERT INTO products VALUES("4","Trà Sữa Vị Dâu (Chân Châu, Pudding) 15k, 20k","2","1","3","1","ok","15000","ok","ok","Vừa - 15k, Lớn - 20k","ok","","2020-03-19","Tân Hồng IT","2020-03-27","148","0","0","tra-sua-vi-dau-1.jpg","tra-sua-vi-dau-chan-chau-pudding-15k-20k-4img2.jpg","tra-sua-vi-dau-chan-chau-pudding-15k-20k-4img3.jpg","","tra-sua-vi-dau-chan-chau-pudding-15k-20k");
-INSERT INTO products VALUES("5","Trà Sữa Vị Socola (Chân Châu, Pudding) 15k, 20k","2","1","3","1","ok","15000","ok","ok","Vừa - 15k, Lớn - 20k","ok","","2020-03-19","","","101","0","","project-1.jpg","","","","tra-sua-vi-socola-chan-chau-pudding");
-INSERT INTO products VALUES("6","Trà Sữa Vị Đào (Chân Châu, Pudding) 15k, 20k","2","1","3","1","ok","15000","ok","ok","Vừa - 15k, Lớn - 20k","ok","","2020-03-19","Tân Hồng IT","2020-03-27","36","0","0","tra-sua-vi-dao-chan-chau-pudding-15k-20k-6img1.jpg","tra-sua-vi-dao-chan-chau-pudding-15k-20k-6img2.jpg","","","tra-sua-vi-dao-chan-chau-pudding-15k-20k");
+INSERT INTO products VALUES("1","Hạt Hướng Dương Chất Lượng Giá Rẻ","2","1","4","1","Hạt hướng dương có hạt to, hàng chất lượng không hôi không có hạt lép, hạt hư.","10000","Đen","Hạt hướng dương","To","Hạt hướng dương c&oacute; hạt to, h&agrave;ng chất lượng kh&ocirc;ng h&ocirc;i kh&ocirc;ng c&oacute; hạt l&eacute;p, hạt hư.<br />\n<img alt=\"\" src=\"/php-mvc-shop/public/upload/ckeditorimages/dmca-luat-ban-quyen-2page.jpg\" style=\"height:304px; width:650px\" /><br />\n&nbsp;","","2020-03-18","Tân Hồng ","2020-04-07 00:00:00","83","0","0","hat-huong-duong-chat-luong-gia-re-1img1.jpg","hat-huong-duong-chat-luong-gia-re-1img2.jpg","","","hat-huong-duong-chat-luong-gia-re");
+INSERT INTO products VALUES("2","Trà Sữa Thái Xanh (Chân Châu, Pudding) 15k, 20k","2","1","3","1","ok ok","15000","Xanh","ok","Vừa - 15k, Lớn - 20k","ok<br />\n<img alt=\"\" src=\"/php-mvc-shop/public/upload/ckeditorimages/tenor.gif\" style=\"height:498px; width:498px\" />","","2020-03-18","Tân Hồng ","2020-04-07 00:00:00","94","0","0","tra-sua-thai-xanh-chan-chau-pudding-15k-20k-2img1.jpg","tra-sua-thai-xanh-chan-chau-pudding-15k-20k-2img2.jpg","tra-sua-thai-xanh-chan-chau-pudding-15k-20k-2img3.jpg","tra-sua-thai-xanh-chan-chau-pudding-15k-20k-2img4.jpg","tra-sua-thai-xanh-chan-chau-pudding-15k-20k");
+INSERT INTO products VALUES("3","Trà Sữa Truyền Thống (Chân Châu, Pudding) 15k, 20k","2","1","3","1","ok","15000","ok","ok","Vừa - 15k, Lớn - 20k","ok con d&ecirc;","","2020-03-18","Tân Hồng IT","2020-03-27 00:00:00","29","0","0","tra-sua-truyen-thong-chan-chau-pudding-15k-20k-3img1.jpg","tra-sua-truyen-thong-chan-chau-pudding-15k-20k-3img2.jpg","","","tra-sua-truyen-thong-chan-chau-pudding-15k-20k");
+INSERT INTO products VALUES("4","Trà Sữa Vị Dâu (Chân Châu, Pudding) 15k, 20k","2","1","3","1","ok","15000","ok","ok","Vừa - 15k, Lớn - 20k","ok","","2020-03-19","Tân Hồng IT","2020-03-27 00:00:00","154","0","0","tra-sua-vi-dau-1.jpg","tra-sua-vi-dau-chan-chau-pudding-15k-20k-4img2.jpg","tra-sua-vi-dau-chan-chau-pudding-15k-20k-4img3.jpg","","tra-sua-vi-dau-chan-chau-pudding-15k-20k");
+INSERT INTO products VALUES("5","Trà Sữa Vị Socola (Chân Châu, Pudding) 15k, 20k","2","1","3","1","ok","15000","ok","ok","Vừa - 15k, Lớn - 20k","ok","","2020-03-19","","","103","0","","project-1.jpg","","","","tra-sua-vi-socola-chan-chau-pudding");
+INSERT INTO products VALUES("6","Trà Sữa Vị Đào (Chân Châu, Pudding) 15k, 20k","2","1","3","1","ok","15000","ok","ok","Vừa - 15k, Lớn - 20k","ok","","2020-03-19","Tân Hồng IT","2020-03-27 00:00:00","36","0","0","tra-sua-vi-dao-chan-chau-pudding-15k-20k-6img1.jpg","tra-sua-vi-dao-chan-chau-pudding-15k-20k-6img2.jpg","","","tra-sua-vi-dao-chan-chau-pudding-15k-20k");
 INSERT INTO products VALUES("7","Trà bí đao hạt é - Giải khát, thanh lọc","2","1","5","1","ok","10000","ok","ok","ok","ok","","2020-03-19","","","29","0","","project-1.jpg","","","","tra-bi-dao-hat-e");
-INSERT INTO products VALUES("8","Sương Sáo nhà tự làm ngon bổ dưỡng","2","1","5","1","ok","10000","ok","ok","kok","ok","","2020-03-19","Tân Hồng IT","2020-03-29","12","0","0","project-1.jpg","","","","suong-sao-nha-tu-lam-ngon-bo-duong");
-INSERT INTO products VALUES("9","Cá viên chiên (có thể đặt theo phần tùy chọn giá)","2","1","2","1","ok","15000","ok","ok","Vừa - 15k, Lớn - 20k","ok","","2020-03-19","Tân Hồng ","2020-04-08","12","0","0","ca-vien-chien-9img1.jpg","ca-vien-chien-co-the-dat-theo-phan-tuy-chon-gia-9img2.jpg","","","ca-vien-chien-co-the-dat-theo-phan-tuy-chon-gia");
-INSERT INTO products VALUES("10","Tôm viên (có thể đặt theo phần tùy chọn giá)","2","1","2","1","ok","15000","ok","ok","Vừa - 15k, Lớn - 20k","ok","","2020-03-19","Tân Hồng IT","2020-03-30","14","0","0","project-1.jpg","","","","tom-vien-co-the-dat-theo-phan-tuy-chon-gia");
-INSERT INTO products VALUES("11","Bò viên (có thể đặt theo phần tùy chọn giá)","2","1","2","1","ok","15000","ok","ok","Vừa - 15k, Lớn - 20k","ok","","2020-03-19","Tân Hồng ","2020-04-08","19","0","0","project-1.jpg","","","","bo-vien-co-the-dat-theo-phan-tuy-chon-gia");
-INSERT INTO products VALUES("24","Bánh xèo chảo - To, giòn ngon, kèm rau rừng hấp dẫn (Loại ăn mặn)","1","1","1","","Bánh xèo (Loại ăn mặn) to giòn có ăn kèm rau rừng và nước mắm ngọt nhà tự làm an toàn vệ sinh","20000","Vàng","Bột năng, tôm, giá, thịt heo,","To","bla","","2020-03-27","Tân Hồng ","2020-04-07","60","0","0","banh-xeo-chao-to-gion-ngon-kem-rau-rung-hap-dan-loai-an-man-24img1.jpg","banh-xeo-chao-to-gion-ngon-kem-rau-rung-hap-dan-loai-an-man-24img2.jpg","banh-xeo-chao-to-gion-ngon-kem-rau-rung-hap-dan-loai-an-man-24img3.jpg","banh-xeo-chao-to-gion-ngon-kem-rau-rung-hap-dan-loai-an-man-24img4.jpg","banh-xeo-chao-to-gion-ngon-kem-rau-rung-hap-dan-loai-an-man");
-INSERT INTO products VALUES("22","Bánh Plan (có thể đặt theo phần tùy chọn giá)","3","1","2","","ttt","7000","Vàng","ừae","Dạng hộp tròn","ttt","","2020-03-25","Tân Hồng ","2020-04-07","86","1","28","banh-plan-co-the-dat-theo-phan-tuy-chon-gia-22img1.jpg","banh-plan-22img2.jpg","banh-plan-co-the-dat-theo-phan-tuy-chon-gia-22img3.jpg","banh-plan-22img4.jpg","banh-plan-co-the-dat-theo-phan-tuy-chon-gia");
-INSERT INTO products VALUES("25","Bánh xèo chảo - To, giòn ngon, kèm rau rừng hấp dẫn (Loại ăn chay)","1","1","1","","ẻtyu","15000","vàngV","Bột năng, đậu hũ, giá, nấm,","To","dfgtjhu","Tân Hồng IT","2020-03-27","","2020-03-27","40","0","0","banh-xeo-chao-to-gion-ngon-kem-rau-rung-hap-dan-loai-an-chay-25img1.jpg","","","","banh-xeo-chao-to-gion-ngon-kem-rau-rung-hap-dan-loai-an-chay");
-INSERT INTO products VALUES("26","Ly bánh plan 5 cái kết hợp sữa tươi và cafe","1","1","2","","ăD","25000","Vàng","cafe, sữa tươi","To","FWEF","","2020-03-27","Tân Hồng IT","2020-04-03","33","0","0","ly-banh-plan-5-cai-ket-hop-sua-tuoi-va-cafe-26img1.jpg","ly-banh-plan-5-cai-ket-hop-sua-tuoi-va-cafe-26img2.jpg","ly-banh-plan-5-cai-ket-hop-sua-tuoi-va-cafe-26img3.jpg","","ly-banh-plan-5-cai-ket-hop-sua-tuoi-va-cafe");
-INSERT INTO products VALUES("27","Pudding thạch nhiều loại khác nhau ngon mát","2","1","2","","sdfghj","4000","Nhiều màu lựa chọn","dsfg","Hũ đựng","&aacute;dfgh","","2020-03-27","Tân Hồng IT","2020-03-29","42","0","0","pudding-thach-nhieu-loai-khac-nhau-ngon-mat-27img1.jpg","pudding-thach-nhieu-loai-khac-nhau-ngon-mat-27img2.jpg","pudding-thach-nhieu-loai-khac-nhau-ngon-mat-27img3.jpg","pudding-thach-nhieu-loai-khac-nhau-ngon-mat-27img4.jpg","pudding-thach-nhieu-loai-khac-nhau-ngon-mat");
-INSERT INTO products VALUES("28","Mặt nạ ngủ Bioaqua viên thuốc","2","2","8","","ưertyuio","10000","Xanh lá","lô hội","ẻtyu","<u><strong>C&ocirc;ng dụng:</strong></u>\n<ul>\n	<li>L&ocirc; Hội: Chiết xuất từ l&ocirc; hội c&oacute; t&aacute;c dụng l&agrave;m s&aacute;ng da, dưỡng ẩm, sạch b&atilde; nhờn, đặc biệt c&oacute; khả năng kiềm dầu cao</li>\n	<li>Hoa Anh Đ&agrave;o: C&oacute; t&aacute;c dụng dưỡng ẩm, l&agrave;m mịn da, gi&uacute;p da săn chắc tăng độ đ&agrave;n hồi cho da</li>\n	<li>Việt Quất: C&oacute; t&aacute;c dụng l&agrave;m trắng, dưỡng ẩm s&acirc;u cho da lu&ocirc;n căng mịn v&agrave; tr&agrave;n đầy sức sống</li>\n</ul>\n","Tân Hồng IT","2020-03-27","","2020-03-27","83","0","0","mat-na-ngu-bioaqua-vien-thuoc-28img1.jpg","","","","mat-na-ngu-bioaqua-vien-thuoc");
+INSERT INTO products VALUES("8","Sương Sáo nhà tự làm ngon bổ dưỡng","2","1","5","1","ok","10000","ok","ok","kok","ok","","2020-03-19","Tân Hồng IT","2020-03-29 00:00:00","14","0","0","project-1.jpg","","","","suong-sao-nha-tu-lam-ngon-bo-duong");
+INSERT INTO products VALUES("9","Cá viên chiên (có thể đặt theo phần tùy chọn giá)","2","1","2","1","ok","15000","ok","ok","Vừa - 15k, Lớn - 20k","ok","","2020-03-19","Tân Hồng ","2020-04-08 00:00:00","12","0","0","ca-vien-chien-9img1.jpg","ca-vien-chien-co-the-dat-theo-phan-tuy-chon-gia-9img2.jpg","","","ca-vien-chien-co-the-dat-theo-phan-tuy-chon-gia");
+INSERT INTO products VALUES("10","Tôm viên (có thể đặt theo phần tùy chọn giá)","2","1","2","1","ok","15000","ok","ok","Vừa - 15k, Lớn - 20k","ok","","2020-03-19","Tân Hồng IT","2020-03-30 00:00:00","14","0","0","project-1.jpg","","","","tom-vien-co-the-dat-theo-phan-tuy-chon-gia");
+INSERT INTO products VALUES("11","Bò viên (có thể đặt theo phần tùy chọn giá)","2","1","2","1","ok","15000","ok","ok","Vừa - 15k, Lớn - 20k","ok","","2020-03-19","Tân Hồng ","2020-04-08 00:00:00","19","0","0","project-1.jpg","","","","bo-vien-co-the-dat-theo-phan-tuy-chon-gia");
+INSERT INTO products VALUES("24","Bánh xèo chảo - To, giòn ngon, kèm rau rừng hấp dẫn (Loại ăn mặn)","1","1","1","","Bánh xèo (Loại ăn mặn) to giòn có ăn kèm rau rừng và nước mắm ngọt nhà tự làm an toàn vệ sinh","20000","Vàng","Bột năng, tôm, giá, thịt heo,","To","bla","","2020-03-27","Tân Hồng ","2020-04-07 00:00:00","60","0","0","banh-xeo-chao-to-gion-ngon-kem-rau-rung-hap-dan-loai-an-man-24img1.jpg","banh-xeo-chao-to-gion-ngon-kem-rau-rung-hap-dan-loai-an-man-24img2.jpg","banh-xeo-chao-to-gion-ngon-kem-rau-rung-hap-dan-loai-an-man-24img3.jpg","banh-xeo-chao-to-gion-ngon-kem-rau-rung-hap-dan-loai-an-man-24img4.jpg","banh-xeo-chao-to-gion-ngon-kem-rau-rung-hap-dan-loai-an-man");
+INSERT INTO products VALUES("22","Bánh Plan (có thể đặt theo phần tùy chọn giá)","3","1","2","","ttt","7000","Vàng","ừae","Dạng hộp tròn","ttt","","2020-03-25","Tân Hồng ","2020-04-07 00:00:00","92","1","28","banh-plan-co-the-dat-theo-phan-tuy-chon-gia-22img1.jpg","banh-plan-22img2.jpg","banh-plan-co-the-dat-theo-phan-tuy-chon-gia-22img3.jpg","banh-plan-22img4.jpg","banh-plan-co-the-dat-theo-phan-tuy-chon-gia");
+INSERT INTO products VALUES("25","Bánh xèo chảo - To, giòn ngon, kèm rau rừng hấp dẫn (Loại ăn chay)","1","1","1","","ẻtyu","15000","vàngV","Bột năng, đậu hũ, giá, nấm,","To","dfgtjhu","Tân Hồng IT","2020-03-27","","2020-03-27 00:00:00","41","0","0","banh-xeo-chao-to-gion-ngon-kem-rau-rung-hap-dan-loai-an-chay-25img1.jpg","","","","banh-xeo-chao-to-gion-ngon-kem-rau-rung-hap-dan-loai-an-chay");
+INSERT INTO products VALUES("26","Ly bánh plan 5 cái kết hợp sữa tươi và cafe","1","1","2","","ăD","25000","Vàng","cafe, sữa tươi","To","FWEF","","2020-04-10","Tân Hồng ","2020-04-10 21:04:51","37","0","0","ly-banh-plan-5-cai-ket-hop-sua-tuoi-va-cafe-26img1.jpg","ly-banh-plan-5-cai-ket-hop-sua-tuoi-va-cafe-26img2.jpg","ly-banh-plan-5-cai-ket-hop-sua-tuoi-va-cafe-26img3.jpg","","ly-banh-plan-5-cai-ket-hop-sua-tuoi-va-cafe");
+INSERT INTO products VALUES("27","Pudding thạch nhiều loại khác nhau ngon mát","2","1","2","","sdfghj","4000","Nhiều màu lựa chọn","dsfg","Hũ đựng","&aacute;dfgh","","2020-03-27","Tân Hồng IT","2020-03-29 00:00:00","49","0","0","pudding-thach-nhieu-loai-khac-nhau-ngon-mat-27img1.jpg","pudding-thach-nhieu-loai-khac-nhau-ngon-mat-27img2.jpg","pudding-thach-nhieu-loai-khac-nhau-ngon-mat-27img3.jpg","pudding-thach-nhieu-loai-khac-nhau-ngon-mat-27img4.jpg","pudding-thach-nhieu-loai-khac-nhau-ngon-mat");
+INSERT INTO products VALUES("28","Mặt nạ ngủ Bioaqua viên thuốc","2","2","8","","ưertyuio","10000","Xanh lá","lô hội","ẻtyu","<u><strong>C&ocirc;ng dụng:</strong></u>\n<ul>\n	<li>L&ocirc; Hội: Chiết xuất từ l&ocirc; hội c&oacute; t&aacute;c dụng l&agrave;m s&aacute;ng da, dưỡng ẩm, sạch b&atilde; nhờn, đặc biệt c&oacute; khả năng kiềm dầu cao</li>\n	<li>Hoa Anh Đ&agrave;o: C&oacute; t&aacute;c dụng dưỡng ẩm, l&agrave;m mịn da, gi&uacute;p da săn chắc tăng độ đ&agrave;n hồi cho da</li>\n	<li>Việt Quất: C&oacute; t&aacute;c dụng l&agrave;m trắng, dưỡng ẩm s&acirc;u cho da lu&ocirc;n căng mịn v&agrave; tr&agrave;n đầy sức sống</li>\n</ul>\n","Tân Hồng IT","2020-03-27","","2020-03-27 00:00:00","83","0","0","mat-na-ngu-bioaqua-vien-thuoc-28img1.jpg","","","","mat-na-ngu-bioaqua-vien-thuoc");
+INSERT INTO products VALUES("29","Nguyen Tan","2","3","8","","rt","0","ret","rty","rty","rtyu","Tân Hồng ","2020-04-10","","2020-04-10 20:07:40","0","0","0","","","","","nguyen-tan");
+INSERT INTO products VALUES("30","Trà sữa mới","1","1","3","","trhdt","0","nâu","egsre","to","tdrhtrf","","2020-03-10","Tân Hồng ","2020-04-10 20:24:51","0","0","0","","","","","tra-sua-moi");
 
 
 DROP TABLE IF EXISTS roles;
@@ -381,20 +390,25 @@ CREATE TABLE `users` (
   `role_id` int(11) NOT NULL DEFAULT 0,
   `user_avatar` varchar(550) COLLATE utf8mb4_unicode_ci DEFAULT 'author-auto.png',
   `user_email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `user_phone` int(20) DEFAULT NULL,
+  `user_phone` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_address` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `createDate` date DEFAULT NULL,
+  `createDate` datetime DEFAULT NULL,
   `verified` int(11) NOT NULL DEFAULT 0,
   `verificationCode` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `editTime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_id_role` (`role_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1036 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=1042 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO users VALUES("1","testna","25f9e794323b453885f5181f1b624d0b","Nguyen Tan","0","avatar-user1-test.png","test@gmail.com","1663220339","Xuan Lu1ed9c","2020-03-22","1","7696e44eae7b27a56dd4f0abc3996fa4");
-INSERT INTO users VALUES("1014","Tân","202cb962ac59075b964b07152d234b70","Nguyen Tan","2","avatar-user1014-tan.jpg","ph12357tan@gmail.com","89941576","3128  Doctors Drive","2020-03-24","1","793f470cada3b6223637ca20dc0cb9d3");
-INSERT INTO users VALUES("2","tanhongit","c0fb14c1843804fa722bdc4b5ec0583b","Tân Hồng ","1","avatar-user1011-tanhongit.jpg","phuongtan12357nguyen@gmail.com","363220339","xuân lộc, đồng nai, việt nam","2020-03-24","1","dd5bfe95860b785a82126bd40a7fc093");
-INSERT INTO users VALUES("4","tanhongitii","25f9e794323b453885f5181f1b624d0b","Tân Hồng IT","0","avatar-user1018-tanhongitii.jpg","meowwww@gmail.com.com","363220339","xuan lộc, đồng nai, việt nam","2020-03-26","0","");
-INSERT INTO users VALUES("3","eyteyt","25d55ad283aa400af464c76d713c07ad","Tân Hồng IT","2","author-auto.png","moderator@gmail.com","363220339","xuan lộc, đồng nai, việt nam","2020-04-02","1","47986eab669c010f869a7c7f288873e2");
+INSERT INTO users VALUES("1","testna","25f9e794323b453885f5181f1b624d0b","Nguyen Tan","0","avatar-user1-test.png","test@gmail.com","01663220339","Xuan Lu1ed9cccthis copy of windows is genurehh","2020-03-22 00:00:00","1","7696e44eae7b27a56dd4f0abc3996fa4","2020-04-11 03:16:19");
+INSERT INTO users VALUES("1014","Tân","202cb962ac59075b964b07152d234b70","Nguyen Tan","2","avatar-user1014-tan.jpg","ph12357tan@gmail.com","89941576","3128  Doctors Drive","2020-03-24 00:00:00","1","793f470cada3b6223637ca20dc0cb9d3","");
+INSERT INTO users VALUES("2","tanhongit","847265df1ad7102fe1b5d97884e51801","Tân Hồng ","1","avatar-user1011-tanhongit.jpg","phuongtan12357nguyen@gmail.com","363220339","xuân lộc, đồng nai, việt namm","2020-03-24 00:00:00","1","dd5bfe95860b785a82126bd40a7fc093","2020-04-11 03:19:09");
+INSERT INTO users VALUES("4","tanhongitii","25f9e794323b453885f5181f1b624d0b","Tân Hồng IT","0","avatar-user1018-tanhongitii.jpg","meowwww@gmail.com.com","363220339","xuan lộc, đồng nai, việt nam","2020-04-11 00:00:00","0","","");
+INSERT INTO users VALUES("3","eyteyt","25d55ad283aa400af464c76d713c07ad","Tân Hồng IT","2","author-auto.png","moderator@gmail.com","363220339","xuan lộc, đồng nai, việt nammmmmmmm","2020-04-07 00:00:00","1","47986eab669c010f869a7c7f288873e2","2020-04-11 03:18:25");
+INSERT INTO users VALUES("1038","shtshrffgd","e807f1fcf82d132f9bb018ca6738a19f","t4greg","0","author-auto.png","phuong12357tan@gmail.com","+8489941576","3128  Doctors Drive","2020-04-11 01:35:31","0","3cb8761195802abf0656e670f73b277c","2020-04-11 01:40:43");
+INSERT INTO users VALUES("1039","thtreht","e807f1fcf82d132f9bb018ca6738a19f","dtrdhtrjy","2","author-auto.png","trehytrh@gmail.com","4089941576","3128  Doctors Drive","2020-04-11 02:41:21","0","9b20629c075697db8c9c5d3b94a86f8b","");
+INSERT INTO users VALUES("1040","admin","e807f1fcf82d132f9bb018ca6738a19f","Át min","1","author-auto.png","admin@gmail.com","4089941576","3128  Doctors Drive","2020-04-11 02:43:23","0","aca75e03278fa33d61ce42889ea19ed3","");
+INSERT INTO users VALUES("1041","ưer","eba0fd768067afc24806607a4de3f852","ỳdtdy","0","author-auto.png","ph12rgesgresg@gmail.com","4089941576","3128  Doctors Drive","2020-04-11 02:45:37","0","8d9bce9a1dec443a338a00c3e79576f8","2020-04-11 03:20:35");
 
 
 DROP TABLE IF EXISTS users_online;

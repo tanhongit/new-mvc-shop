@@ -52,3 +52,9 @@ function backup_db()
     fwrite($handle, ($return));
     fclose($handle);
 }
+function delete_file_backup($link_connect)
+{
+    if (is_file($link_connect)) {
+        unlink($link_connect);
+    }
+}

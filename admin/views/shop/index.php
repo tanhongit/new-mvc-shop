@@ -69,9 +69,9 @@
                                                 <td><a href="admin.php?controller=shop&amp;action=edit&amp;cate_id=<?php echo $category['id']; ?>"><?php echo $category['category_name']; ?></a></td>
                                                 <td><?php echo $category['slug'] ?></td>
                                                 <td><?php echo $category['category_position'] ?></td>
-                                                <td><a href="shop/<?php echo $category['id']; ?>-<?php echo $category['slug'] ?>" target="_blank" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-eye"></i></a>
-                                                    <a href="admin.php?controller=shop&amp;action=edit&amp;cate_id=<?php echo $category['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
-                                                    <a onclick="return confirm('Are you sure to delete?')" href="admin.php?controller=shop&amp;action=delete&amp;cate_id=<?= $category['id'] ?>" class="btn btn-default waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
+                                                <td><a href="shop/<?php echo $category['id']; ?>-<?php echo $category['slug'] ?>" target="_blank" class="btn btn-success waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-eye"></i></a>
+                                                    <a href="admin.php?controller=shop&amp;action=edit&amp;cate_id=<?php echo $category['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
+                                                    <a onclick="return confirm('Are you sure to delete?')" href="admin.php?controller=shop&amp;action=delete&amp;cate_id=<?= $category['id'] ?>" class="btn btn-danger waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

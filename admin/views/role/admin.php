@@ -85,9 +85,9 @@
                                                     <td><?= $user['createDate'] ?></td>
                                                     <td><?= $user['user_phone'] ?></td>
                                                     <td><?php echo $user['user_email'] ?></td>
-                                                    <td><a href="admin.php?controller=user&amp;action=info&amp;user_id=<?php echo $user['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-eye"></i></a>
-                                                        <a href="admin.php?controller=user&amp;action=edit&amp;user_id=<?php echo $user['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
-                                                        <a onclick="return confirm('Are you sure to delete?')" href="admin.php?controller=role&amp;action=deleteAdmin&amp;user_id=<?php echo $user['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
+                                                    <td><a href="admin.php?controller=user&amp;action=info&amp;user_id=<?php echo $user['id']; ?>" class="btn btn-success waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-eye"></i></a>
+                                                        <a href="admin.php?controller=user&amp;action=edit&amp;user_id=<?php echo $user['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
+                                                        <a onclick="return confirm('Are you sure to delete?')" href="admin.php?controller=role&amp;action=deleteAdmin&amp;user_id=<?php echo $user['id']; ?>" class="btn btn-danger waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
                                                 </tr>
                                         <?php endif;
                                         endforeach; ?>

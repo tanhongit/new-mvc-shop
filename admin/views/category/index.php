@@ -73,9 +73,9 @@
                                                         echo $category['category_name'];
                                                     }
                                                     ?></td>
-                                                <td><a href="category/<?php echo $category['id']; ?>-<?php echo $category['slug'] ?>" target="_blank" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-eye"></i></a>
-                                                    <a href="admin.php?controller=category&amp;action=edit&amp;subcate_id=<?php echo $subcategory['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
-                                                    <a onclick="return confirm('Are you sure to delete?')" href="admin.php?controller=category&amp;action=delete&amp;subcate_id=<?= $subcategory['id'] ?>" class="btn btn-default waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
+                                                <td><a href="category/<?php echo $category['id']; ?>-<?php echo $category['slug'] ?>" target="_blank" class="btn btn-success waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-eye"></i></a>
+                                                    <a href="admin.php?controller=category&amp;action=edit&amp;subcate_id=<?php echo $subcategory['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
+                                                    <a onclick="return confirm('Are you sure to delete?')" href="admin.php?controller=category&amp;action=delete&amp;subcate_id=<?= $subcategory['id'] ?>" class="btn btn-danger waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

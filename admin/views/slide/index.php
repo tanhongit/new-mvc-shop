@@ -76,8 +76,8 @@
                                                 <?php for ($i = 1; $i < 6; $i++) : ?>
                                                     <td><?php echo '<image src="public/upload/slides/' . $slide['slide_img' . $i] . '?time=' . time() . '" style="max-width:50px;" /><br>'  . $slide['slide_img' . $i] ?></td>
                                                 <?php endfor; ?>
-                                                <td><a href="admin.php?controller=slide&amp;action=edit&amp;slide_id=<?php echo $slide['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
-                                                    <a onclick="return confirm('Are you sure to delete?')" href="admin.php?controller=slide&amp;action=delete&amp;slide_id=<?php echo $slide['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
+                                                <td><a href="admin.php?controller=slide&amp;action=edit&amp;slide_id=<?php echo $slide['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
+                                                    <a onclick="return confirm('Are you sure to delete?')" href="admin.php?controller=slide&amp;action=delete&amp;slide_id=<?php echo $slide['id']; ?>" class="btn btn-danger waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>
@@ -134,8 +134,8 @@
                                                 <?php for ($i = 1; $i < 6; $i++) : ?>
                                                     <td><?php echo $slide['slide_text' . $i] ?></td>
                                                 <?php endfor; ?>
-                                                <td><a href="admin.php?controller=slide&amp;action=edit&amp;slide_id=<?php echo $slide['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
-                                                    <a onclick="return confirm('Are you sure to delete?')" href="admin.php?controller=slide&amp;action=delete&amp;slide_id=<?php echo $slide['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
+                                                <td><a href="admin.php?controller=slide&amp;action=edit&amp;slide_id=<?php echo $slide['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
+                                                    <a onclick="return confirm('Are you sure to delete?')" href="admin.php?controller=slide&amp;action=delete&amp;slide_id=<?php echo $slide['id']; ?>" class="btn btn-danger waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

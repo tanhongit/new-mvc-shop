@@ -52,7 +52,7 @@
                                     <td><?php echo $order['createtime'] ?></td>
                                     <td><?php echo $order['cart_total'] ?></td>
                                     <td><?php echo $status[$order['status']]; ?></td>
-                                    <td><a href="admin.php?controller=order&amp;action=view&amp;order_id=<?php echo $order['id']; ?>" class="btn btn-default waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-eye"></i></a></td>
+                                    <td><a href="admin.php?controller=order&amp;action=view&amp;order_id=<?php echo $order['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-eye"></i></a></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

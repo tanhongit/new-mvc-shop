@@ -60,7 +60,9 @@ function changePassword($id, $newpassword, $currentPassword)
     } else {
         $options = array(
             'id' => $id,
-            'user_password' => $newpassword
+            'user_password' => $newpassword,
+            'editTime' => gmdate('Y-m-d H:i:s', time() + 7 * 3600)
+
         );
         save('users', $options);
         //sendmail
@@ -109,13 +111,16 @@ function changePassword($id, $newpassword, $currentPassword)
 }
 function user_update()
 {
+    if ($_POST['user_id'] <> 0) $editTime = gmdate('Y-m-d H:i:s', time() + 7 * 3600);
+    else $editTime = '0000-00-00 00:00:00';
     $user_edit = array(
         'id' => intval($_POST['user_id']),
         'user_email' => escape($_POST['email']),
         'user_username' => escape($_POST['username']),
         'user_name' => escape($_POST['name']),
         'user_address' => escape($_POST['address']),
-        'user_phone' => escape($_POST['phone'])
+        'user_phone' => escape($_POST['phone']),
+        'editTime' => $editTime
     );
     global $linkconnectDB;
     $email_check = addslashes($_POST['email']);

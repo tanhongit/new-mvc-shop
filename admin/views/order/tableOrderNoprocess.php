@@ -58,8 +58,11 @@ $status = array(
                                 <tr>
                                     <td><?php echo $order['id'] ?></td>
                                     <td><a href="admin.php?controller=order&amp;action=view&amp;order_id=<?php echo $order['id']; ?>"><?php echo $order['customer']; ?></a></td>
-                                    <?php $user_order = get_a_record('users', $order['user_id']) ?>
-                                    <td><?= $user_order['user_username'] ?> | <?= $user_order['id'] ?></td>
+                                    <?php if ($order['user_id'] <> 0) : $user_order = get_a_record('users', $order['user_id']) ?>
+                                        <td><?= $user_order['user_username'] ?> | <?= $user_order['id'] ?></td>
+                                    <?php else : ?>
+                                        <td></td>
+                                    <?php endif; ?>
                                     <td><?php echo $order['createtime'] ?></td>
                                     <td><?php echo $order['cart_total'] ?></td>
                                     <td><?php echo $status[$order['status']]; ?></td>

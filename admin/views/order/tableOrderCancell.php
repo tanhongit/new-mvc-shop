@@ -19,7 +19,7 @@ $status = array(
                 <ul class="header-dropdown">
                     <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                         <ul class="dropdown-menu dropdown-menu-right slideUp">
-                        <li><a href="admin.php?controller=order&action=order-noprocess">Chưa xử lý</a></li>
+                            <li><a href="admin.php?controller=order&action=order-noprocess">Chưa xử lý</a></li>
                             <li><a href="admin.php?controller=order&action=order-complete">Đơn hoàn thành</a></li>
                             <li><a href="admin.php?controller=order&action=order-inprocess">Đang vận chuyển</a></li>
                         </ul>
@@ -59,8 +59,11 @@ $status = array(
                                 <tr>
                                     <td><?php echo $order['id'] ?></td>
                                     <td><a href="admin.php?controller=order&amp;action=view&amp;order_id=<?php echo $order['id']; ?>"><?php echo $order['customer']; ?></a></td>
-                                    <?php $user_order = get_a_record('users', $order['user_id']) ?>
-                                    <td><?= $user_order['user_username'] ?> | <?= $user_order['id'] ?></td>
+                                    <?php if ($order['user_id'] <> 0) : $user_order = get_a_record('users', $order['user_id']) ?>
+                                        <td><?= $user_order['user_username'] ?> | <?= $user_order['id'] ?></td>
+                                    <?php else : ?>
+                                        <td></td>
+                                    <?php endif; ?>
                                     <td><?php echo $order['createtime'] ?></td>
                                     <td><?php echo $order['cart_total'] ?></td>
                                     <td><?php echo $status[$order['status']]; ?></td>

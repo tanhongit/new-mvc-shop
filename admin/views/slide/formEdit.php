@@ -33,7 +33,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="name" type="text" value="<?php echo $slide ? $slide['slide_name'] : ''; ?>" class="form-control" id="name" placeholder="Nhập tên slide..." required="" />
+                                            <input name="name" type="text" maxlength="255" value="<?php echo $slide ? $slide['slide_name'] : ''; ?>" class="form-control" id="name" placeholder="Nhập tên slide..." required="" />
                                         </div>
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@
                                     <div class="row clearfix">
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                <input name="slide_text<?= $i ?>" type="text" value="<?php echo $slide ? $slide['slide_text' . $i] : ''; ?>" class="form-control" id="name" placeholder="Nhập text <?= $i ?>..." />
+                                                <input name="slide_text<?= $i ?>"  maxlength="500" type="text" value="<?php echo $slide ? $slide['slide_text' . $i] : ''; ?>" class="form-control" id="name" placeholder="Nhập text <?= $i ?>..." />
                                             </div>
                                         </div>
                                     </div>

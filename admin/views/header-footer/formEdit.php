@@ -33,7 +33,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="name" type="text" value="<?php echo $contact ? $contact['contact_name'] : ''; ?>" class="form-control" id="name" placeholder="Nhập tên contact..." required="" />
+                                            <input name="name" type="text" maxlength="255" value="<?php echo $contact ? $contact['contact_name'] : ''; ?>" class="form-control" id="name" placeholder="Nhập tên contact..." required="" />
                                         </div>
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@
                                             <h2 style="text-align: center;">Số điện thoại</h2>
                                         </div>
                                         <div class="body">
-                                            <input name="phone" value="<?= $contact['phone'] ?>" type="text" class="form-control" required placeholder="Nhập phone...">
+                                            <input name="phone" maxlength="20" pattern="[0-9\.]+" value="<?= $contact['phone'] ?>" type="text" class="form-control" required placeholder="Nhập phone...">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -99,7 +99,7 @@
                                             <h2 style="text-align: center;">Số điện thoại phụ</h2>
                                         </div>
                                         <div style="text-align: center;" class="body">
-                                            <input type="text" value="<?= $contact['phone_2'] ?>" name="phone_2" class="form-control" required placeholder="Nhập phone...">
+                                            <input type="text" value="<?= $contact['phone_2'] ?>" pattern="[0-9\.]+" maxlength="20" name="phone_2" class="form-control" required placeholder="Nhập phone...">
                                         </div>
                                     </div>
                                 </div>
@@ -109,7 +109,7 @@
                                             <h2 style="text-align: center;">Link trang About</h2>
                                         </div>
                                         <div class="body">
-                                            <input name="link_about" value="<?= $contact['link_about'] ?>" type="text" class="form-control" required placeholder="Nhập link...">
+                                            <input name="link_about" value="<?= $contact['link_about'] ?>" type="text" maxlength="255" class="form-control" required placeholder="Nhập link...">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -117,7 +117,7 @@
                                             <h2 style="text-align: center;">Link trang Contact</h2>
                                         </div>
                                         <div style="text-align: center;" class="body">
-                                            <input type="text" value="<?= $contact['link_Contact'] ?>" name="link_Contact" class="form-control" required placeholder="Nhập link...">
+                                            <input type="text" value="<?= $contact['link_Contact'] ?>" maxlength="550" name="link_Contact" class="form-control" required placeholder="Nhập link...">
                                         </div>
                                     </div>
                                 </div>
@@ -130,7 +130,7 @@
                                             <h2 style="text-align: center;">Địa chỉ Email</h2>
                                         </div>
                                         <div class="body">
-                                            <input name="email" value="<?= $contact['email'] ?>" type="text" class="form-control" required placeholder="Nhập country...">
+                                            <input name="email" value="<?= $contact['email'] ?>" maxlength="255" type="email" class="form-control" required placeholder="Nhập country...">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -138,7 +138,7 @@
                                             <h2 style="text-align: center;">Địa chỉ</h2>
                                         </div>
                                         <div style="text-align: center;" class="body">
-                                            <input type="text" value="<?= $contact['address'] ?>" name="address" class="form-control" required placeholder="Nhập địa chỉ...">
+                                            <input type="text" value="<?= $contact['address'] ?>" name="address" maxlength="500" class="form-control" required placeholder="Nhập địa chỉ...">
                                         </div>
                                     </div>
                                 </div>
@@ -156,7 +156,7 @@
                                             <h2 style="text-align: center;">Link trang Linkedin</h2>
                                         </div>
                                         <div style="text-align: center;" class="body">
-                                            <input type="text" value="<?= $contact['link_linkedin'] ?>" name="link_linkedin" class="form-control" required placeholder="Nhập link...">
+                                            <input type="text" value="<?= $contact['link_linkedin'] ?>" maxlength="250" name="link_linkedin" class="form-control" required placeholder="Nhập link...">
                                         </div>
                                     </div>
                                 </div>
@@ -166,7 +166,7 @@
                                             <h2 style="text-align: center;">Link trang Twitter</h2>
                                         </div>
                                         <div class="body">
-                                            <input name="link_Twitter" value="<?= $contact['link_Twitter'] ?>" type="text" class="form-control" required placeholder="Nhập link...">
+                                            <input name="link_Twitter" value="<?= $contact['link_Twitter'] ?>" maxlength="250" type="text" class="form-control" required placeholder="Nhập link...">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">

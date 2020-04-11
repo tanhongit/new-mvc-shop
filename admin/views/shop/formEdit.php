@@ -34,7 +34,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="name" type="text" value="<?php echo $category ? $category['category_name'] : ''; ?>" class="form-control" id="name" placeholder="Nhập tên sản nhóm danh mục..." required="" />
+                                            <input name="name" type="text"  maxlength="255" value="<?php echo $category ? $category['category_name'] : ''; ?>" class="form-control" id="name" placeholder="Nhập tên sản nhóm danh mục..." required="" />
                                         </div>
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="slug" type="text" value="<?php echo $category ? $category['slug'] : ''; ?>" class="form-control" id="slug" placeholder="Đường dẫn link sẽ tự động được tạo giống với tên danh mục..." required="" disabled/>
+                                            <input name="slug" type="text"  maxlength="255" value="<?php echo $category ? $category['slug'] : ''; ?>" class="form-control" id="slug" placeholder="Đường dẫn link sẽ tự động được tạo giống với tên danh mục..." required="" disabled/>
                                         </div>
                                     </div>
                                 </div>
@@ -51,7 +51,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="position" type="text" value="<?php echo $category ? $category['category_position'] : ''; ?>" class="form-control" id="slug" placeholder="Vị trí danh mục trên bảng dữ liệu..." pattern="[0-9]+" required="" />
+                                            <input name="position" type="text"  maxlength="4" value="<?php echo $category ? $category['category_position'] : ''; ?>" class="form-control" id="slug" placeholder="Vị trí danh mục trên bảng dữ liệu..." pattern="[0-9]+" required="" />
                                         </div>
                                     </div>
                                 </div>

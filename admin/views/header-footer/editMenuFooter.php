@@ -34,7 +34,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="name" type="text" value="<?php echo $menufooter ? $menufooter['menu_name'] : ''; ?>" class="form-control" id="name" placeholder="VD: tanhongit.com, Trang chủ Tân Hồng IT..." required="" />
+                                    <input name="name" type="text" maxlength="150" value="<?php echo $menufooter ? $menufooter['menu_name'] : ''; ?>" class="form-control" id="name" placeholder="VD: tanhongit.com, Trang chủ Tân Hồng IT..." required="" />
                                 </div>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="menu_url" type="text" value="<?php echo $menufooter ? $menufooter['menu_url'] : ''; ?>" class="form-control" id="name" placeholder="https://tanhongit.com..."/>
+                                    <input name="menu_url" maxlength="255" type="text" value="<?php echo $menufooter ? $menufooter['menu_url'] : ''; ?>" class="form-control" id="name" placeholder="https://tanhongit.com..."/>
                                 </div>
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="menu_description" type="text" value="<?php echo $menufooter ? $menufooter['menu_description'] : ''; ?>" class="form-control" id="name" placeholder="Trang web buôn bán vâng vâng..."/>
+                                    <input name="menu_description" maxlength="255" type="text" value="<?php echo $menufooter ? $menufooter['menu_description'] : ''; ?>" class="form-control" id="name" placeholder="Trang web buôn bán vâng vâng..."/>
                                 </div>
                             </div>
                         </div>

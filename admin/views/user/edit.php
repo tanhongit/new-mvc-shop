@@ -79,7 +79,7 @@
                             <div class="row clearfix">
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <input name="username" type="text" value="<?php echo $user_info ? $user_info['user_username'] : ''; ?>" class="form-control" id="name" placeholder="VD: tanhongit" required="" />
+                                        <input name="username" type="text" maxlength="50" value="<?php echo $user_info ? $user_info['user_username'] : ''; ?>" class="form-control" id="name" placeholder="VD: tanhongit" required="" />
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="name" type="text" value="<?php echo $user_info ? $user_info['user_name'] : ''; ?>" class="form-control" id="name" placeholder="họ và tên thật..." required="" />
+                                    <input name="name" type="text" maxlength="250" value="<?php echo $user_info ? $user_info['user_name'] : ''; ?>" class="form-control" id="name" placeholder="họ và tên thật..." required="" />
                                 </div>
                             </div>
                         </div>
@@ -111,7 +111,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="email" type="text" value="<?php echo $user_info ? $user_info['user_email'] : ''; ?>" class="form-control" id="color" placeholder="Nhập email của bạn..." required="" />
+                                    <input name="email" type="email" maxlength="250" value="<?php echo $user_info ? $user_info['user_email'] : ''; ?>" class="form-control" id="color" placeholder="Nhập email của bạn..." required="" />
                                 </div>
                             </div>
                         </div>
@@ -119,7 +119,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="address" type="text" value="<?php echo $user_info ? $user_info['user_address'] : ''; ?>" class="form-control" id="material" placeholder="Địa chỉ người dùng ..." required="" />
+                                    <input name="address" type="text" maxlength="250" value="<?php echo $user_info ? $user_info['user_address'] : ''; ?>" class="form-control" id="material" placeholder="Địa chỉ người dùng ..." required="" />
                                 </div>
                             </div>
                         </div>
@@ -127,7 +127,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="phone" type="text" value="<?php echo $user_info ? $user_info['user_phone'] : ''; ?>" class="form-control" id="totalview" required placeholder="0123456789..." />
+                                    <input name="phone" type="text" pattern="[0-9\.]+" maxlength="20" value="<?php echo $user_info ? $user_info['user_phone'] : ''; ?>" class="form-control" id="totalview" required placeholder="0123456789..." />
                                 </div>
                             </div>
                         </div>

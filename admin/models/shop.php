@@ -17,10 +17,14 @@ function categories_delete($id)
 }
 function category_uodate()
 {
+    $name = escape($_POST['name']);
+    if (strlen($_POST['slug']) >= 5) $slug = slug($_POST['slug']);
+    else $slug = slug($name);
+
     $category = array(
         'id' => intval($_POST['cate_id']),
         'category_name' => escape($_POST['name']),
-        'slug' => slug($_POST['name']),
+        'slug' =>  $slug,
         'category_position' => intval($_POST['position'])
     );
     save('categories', $category);

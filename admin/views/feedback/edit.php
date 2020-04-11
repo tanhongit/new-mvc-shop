@@ -157,7 +157,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="name" type="text" value="<?php echo $feedback ? $feedback['name'] : ''; ?>" class="form-control" id="name" placeholder="họ và tên thật..." required="" />
+                                    <input name="name" type="text" maxlength="250" value="<?php echo $feedback ? $feedback['name'] : ''; ?>" class="form-control" id="name" placeholder="họ và tên thật..." required="" />
                                 </div>
                             </div>
                         </div>
@@ -165,7 +165,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="email" type="text" value="<?php echo $feedback ? $feedback['email'] : ''; ?>" class="form-control" id="color" placeholder="Nhập email của bạn..." required="" />
+                                    <input name="email" type="email" maxlength="250" value="<?php echo $feedback ? $feedback['email'] : ''; ?>" class="form-control" id="color" placeholder="Nhập email của bạn..." required="" />
                                 </div>
                             </div>
                         </div>
@@ -173,7 +173,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="phone" type="text" value="<?php echo $feedback ? $feedback['phone'] : ''; ?>" class="form-control" id="totalview" required placeholder="0123456789..." />
+                                    <input name="phone" pattern="[0-9\.]+" type="text" maxlength="20" value="<?php echo $feedback ? $feedback['phone'] : ''; ?>" class="form-control" id="totalview" required placeholder="0123456789..." />
                                 </div>
                             </div>
                         </div>

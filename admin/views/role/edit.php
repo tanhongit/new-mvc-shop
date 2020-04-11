@@ -34,7 +34,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="name" type="text" value="<?php echo $role ? $role['role_name'] : ''; ?>" class="form-control" id="name" placeholder="VD: admin, mod, super mod..." required=""/>
+                                    <input name="name" type="text" maxlength="255" value="<?php echo $role ? $role['role_name'] : ''; ?>" class="form-control" id="name" placeholder="VD: admin, mod, super mod..." required=""/>
                                 </div>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="description" type="text" value="<?php echo $role ? $role['role_desc'] : ''; ?>" class="form-control" id="name" placeholder="Hé lô quát do nem..." required="" />
+                                    <input name="description" maxlength="500" type="text" value="<?php echo $role ? $role['role_desc'] : ''; ?>" class="form-control" id="name" placeholder="Hé lô quát do nem..." required="" />
                                 </div>
                             </div>
                         </div>

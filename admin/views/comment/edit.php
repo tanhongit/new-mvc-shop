@@ -50,7 +50,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="email" type="text" value="<?php echo $comment ? $comment['email'] : ''; ?>" class="form-control" id="color" placeholder="Nhập email của bạn..." required="" />
+                                    <input name="email" type="email" maxlength="100" value="<?php echo $comment ? $comment['email'] : ''; ?>" class="form-control" id="color" placeholder="Nhập email của bạn..." required="" />
                                 </div>
                             </div>
                         </div>

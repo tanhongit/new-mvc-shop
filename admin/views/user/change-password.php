@@ -42,7 +42,7 @@
                                         <div class="row clearfix">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <input name="currentPassword" type="password" value="" class="form-control" placeholder="VD: tanhongit" required="" />
+                                                    <input name="currentPassword" type="password" maxlength="50" value="" class="form-control" placeholder="VD: tanhongit" required="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -50,7 +50,7 @@
                                         <div class="row clearfix">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <input name="newPassword" type="password" value="" class="form-control" placeholder="Nhap mat khau..." required="" />
+                                                    <input name="newPassword" type="password" value="" maxlength="50" class="form-control" placeholder="Nhap mat khau..." required="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -58,7 +58,7 @@
                                         <div class="row clearfix">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <input name="confirmPassword" type="password" value="" class="form-control" placeholder="Xác nhận mật khẩu..." required="" />
+                                                    <input name="confirmPassword" type="password" value="" maxlength="50" class="form-control" placeholder="Xác nhận mật khẩu..." required="" />
                                                 </div>
                                             </div>
                                         </div>

@@ -117,7 +117,7 @@
                             <a href="javascript:void(0);">
                                 <div class="icon-circle bg-light-blue"><i class="zmdi zmdi-settings"></i></div>
                                 <div class="menu-info">
-                                    <h4>Settings Updated</h4>
+                                    <h4><?=$total_rows_online?></h4>
                                     <p><i class="zmdi zmdi-time"></i> Yesterday </p>
                                 </div>
                             </a>

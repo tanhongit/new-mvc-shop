@@ -5,12 +5,6 @@ function insert_user_online($session, $time, $ip, $browser, $date)
     $sql = "INSERT INTO users_online(session, time, ip, browser, dateonline)VALUES('$session', '$time','$ip','$browser', '$date')";
     return mysqli_query($linkconnectDB, $sql);
 }
-function insert_visiter($session, $time, $ip, $browser, $date)
-{
-    global $linkconnectDB;
-    $sql = "INSERT INTO visiters(session, time, ip, browser, dateonline)VALUES('$session', '$time','$ip','$browser', '$date')";
-    return mysqli_query($linkconnectDB, $sql);
-}
 function update_user_online($session, $time, $ip, $browser, $date)
 {
     global $linkconnectDB;

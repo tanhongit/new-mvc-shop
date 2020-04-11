@@ -223,7 +223,7 @@ $total_post_draft = get_total('posts', $options_post_draft);
 if ($total_posts_status != 0) $posts_ratio = ($total_posts_status / $total_posts) * 100;
 else $posts_ratio = 0;
 
-
+//uuser online
 $options_user_online = array(
     'order_by' => 'session'
 );

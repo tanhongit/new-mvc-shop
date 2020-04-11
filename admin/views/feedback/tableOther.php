@@ -1,6 +1,6 @@
 <?php
 $options = array(
-    'order_by' => 'id ASC',
+    'order_by' => 'id desc',
     'where' => 'order_id=0 and product_id=0'
 );
 $feedbacks = get_all('feedbacks', $options);

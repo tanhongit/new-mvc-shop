@@ -29,7 +29,7 @@
 												<span class="product-thumb-info-act-left"><em>Lượt xem</em></span>
 												<span class="product-thumb-info-act-right"><em><i class="fa fa-plus"></i> Chi tiết</em></span>
 											</span>
-											<img alt="" class="img-responsive" src="public/upload/products/<?php echo $saleoff_product['img1']; ?>">
+											<img alt="<?=$saleoff_product['product_name']?>" class="img-responsive" src="public/upload/products/<?php echo $saleoff_product['img1']; ?>">
 										</span>
 									</a>
 									<span class="product-thumb-info-content">

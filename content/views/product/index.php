@@ -16,27 +16,27 @@
                         <div class="owl-carousel" data-plugin-options='{"items": 1}'>
                             <div>
                                 <div class="thumbnail">
-                                    <img alt="" class="img-responsive img-rounded img-fluid" src="public/upload/products/<?php echo $product['img1'] ?>">
+                                    <img alt="<?=$product['product_name']?>" class="img-responsive img-rounded img-fluid" src="public/upload/products/<?php echo $product['img1'] ?>">
                                 </div>
                             </div>
                             <?php if (strlen($product['img2']) > 1) { ?>
                                 <div>
                                     <div class="thumbnail">
-                                        <img alt="" class="img-responsive img-rounded img-fluid" src="public/upload/products/<?php echo $product['img2'] ?>">
+                                        <img alt="<?=$product['product_name']?>" class="img-responsive img-rounded img-fluid" src="public/upload/products/<?php echo $product['img2'] ?>">
                                     </div>
                                 </div>
                             <?php }
                             if (strlen($product['img3']) > 1) { ?>
                                 <div>
                                     <div class="thumbnail">
-                                        <img alt="" class="img-responsive img-rounded img-fluid" src="public/upload/products/<?php echo $product['img3'] ?>">
+                                        <img alt="<?=$product['product_name']?>" class="img-responsive img-rounded img-fluid" src="public/upload/products/<?php echo $product['img3'] ?>">
                                     </div>
                                 </div>
                             <?php }
                             if (strlen($product['img4']) > 1) : ?>
                                 <div>
                                     <div class="thumbnail">
-                                        <img alt="" class="img-responsive img-rounded img-fluid" src="public/upload/products/<?php echo $product['img4'] ?>">
+                                        <img alt="<?=$product['product_name']?>" class="img-responsive img-rounded img-fluid" src="public/upload/products/<?php echo $product['img4'] ?>">
                                     </div>
                                 </div>
                             <?php endif; ?>
@@ -231,7 +231,7 @@
                                                 <span class="product-thumb-info-act-left"><em>Lượt xem</em></span>
                                                 <span class="product-thumb-info-act-right"><em><i class="fa fa-plus"></i> Chi tiết</em></span>
                                             </span>
-                                            <img alt="" class="img-responsive" src="public/upload/products/<?php echo $related_product['img1']; ?>">
+                                            <img alt="<?=$related_product['product_name']?>" class="img-responsive" src="public/upload/products/<?php echo $related_product['img1']; ?>">
                                         </span>
                                     </a>
                                     <span class="product-thumb-info-content">

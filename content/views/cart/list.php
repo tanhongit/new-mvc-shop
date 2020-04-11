@@ -34,7 +34,7 @@
                             </td>
                             <td class="product-thumbnail">
                                 <a href="product/<?php echo $product['id'] . '-' . slug($product['name']); ?>">
-                                    <img width="100" height="100" alt="" class="img-responsive" src="<?php echo 'public/upload/products/' . $product['image'] ?>">
+                                    <img width="100" height="100" alt="<?=$product['name']?>" class="img-responsive" src="<?php echo 'public/upload/products/' . $product['image'] ?>">
                                 </a>
                             </td>
                             <td class="product-name">

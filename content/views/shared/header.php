@@ -302,7 +302,7 @@ $user_login = get_a_record('users', $user_nav);
 																<tr>
 																	<td class="product-thumbnail">
 																		<a href="product/<?php echo $product_cart['id'] . '-' . slug($product_cart['name']); ?>">
-																			<img width="100" height="100" alt="" class="img-responsive" src="public/upload/products/<?php echo $product_cart['image'] ?>">
+																			<img width="100" height="100" alt="<?=$product_cart['name']?>" class="img-responsive" src="public/upload/products/<?php echo $product_cart['image'] ?>">
 																		</a>
 																	</td>
 																	<td class="product-name">

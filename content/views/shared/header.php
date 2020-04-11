@@ -56,7 +56,7 @@ $user_login = get_a_record('users', $user_nav);
 	<link rel="stylesheet" href="public/css/theme-blog.css">
 	<link rel="stylesheet" href="public/css/theme-shop.css">
 	<link rel="stylesheet" href="public/css/theme-animate.css">
-	<link rel="stylesheet" href="public/vendor/rs-plugin/css/settings.css" media="screen">
+	<link rel="stylesheet" href="public/vendor/rs-plugin/css/settings.min.css" media="screen">
 	<link rel="stylesheet" href="public/vendor/circle-flip-slideshow/css/component.css" media="screen">
 	<link rel="stylesheet" href="public/css/skins/default.css">
 	<link rel="stylesheet" href="public/css/custom.css">

@@ -190,6 +190,12 @@ $options_page = array(
 );
 $total_page = get_total('posts', $options_page);
 
+$options_trash = array(
+    'order_by' => 'id DESC',
+    'where' => 'post_status="Trash"',
+);
+$total_post_trash = get_total('posts', $options_trash);
+
 $options_posts = array(
     'order_by' => 'id DESC'
 );
@@ -227,19 +233,42 @@ else $posts_ratio = 0;
 $options_user_online = array(
     'order_by' => 'session'
 );
-$total_rows_online = get_total('users_online', $options_user_online);
+$users_online = get_all('users_online', $options_user_online);
+$users_online_total = 0;
+foreach ($users_online as $user) {
+    if ($user['time'] > strtotime(date('Y-m-d', mktime(date('H'), date('i') - 10, date('s'), date('m'), date('d'), date('Y'))))) {
+        $users_online_total++;
+    }
+}
 
-
-$options_total_access = array(
-    'order_by' => 'id'
+$options_user_online_all = array(
+    'order_by' => 'session'
 );
-$total_rows_access = get_total('visiters', $options_total_access);
+$users_online_all = get_total('users_online', $options_user_online_all);
 
 //product
 $options_product_total = array(
     'order_by' => 'id'
 );
 $total_product = get_total('products', $options_product_total);
+
+$options_New_product_total = array(
+    'order_by' => 'id',
+    'where' =>'product_typeid=2'
+);
+$total_new_product = get_total('products', $options_New_product_total);
+
+$options_hot_product_total = array(
+    'order_by' => 'id',
+    'where' =>'product_typeid=1'
+);
+$total_hot_product = get_total('products', $options_hot_product_total);
+
+$options_sale_product_total = array(
+    'order_by' => 'id',
+    'where' =>'product_typeid=3'
+);
+$total_sale_product = get_total('products', $options_sale_product_total);
 
 $options_product_update = array(
     'limit' => 1,
@@ -255,6 +284,17 @@ $options_user_update = array(
     'order_by' => 'editTime DESC'
 );
 $user_update = select_a_record('users', $options_user_update);
+
+$options_user_all = array(
+    'order_by' => 'editTime DESC'
+);
+$user_all_total = get_total('users', $options_user_all);
+
+$options_user_not_veri = array(
+    'order_by' => 'editTime DESC',
+    'where' => 'verified=0'
+);
+$user_not_veri_total = get_total('users', $options_user_not_veri);
 
 $options_user_new = array(
     'limit' => 1,

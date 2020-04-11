@@ -82,12 +82,12 @@
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="card">
                             <div class="header">
-                                <h2>Bảng <strong>Thông báo</strong></h2>
+                                <h2>Bảng <strong>Thống kê</strong></h2>
                                 <ul class="header-dropdown">
                                     <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="javascript:void(0);">Q/lý bình luận</a></li>
-                                            <li><a href="javascript:void(0);">Q/lý phản hồi</a></li>
+                                            <li><a href="admin.php?controller=comment">Q/lý bình luận</a></li>
+                                            <li><a href="admin.php?controller=feedback">Q/lý phản hồi</a></li>
                                             <li><a href="admin.php?controller=order">Q/lý đơn hàng</a></li>
                                         </ul>
                                     </li>
@@ -173,8 +173,8 @@
                                 <ul class="header-dropdown">
                                     <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="javascript:void(0);">Q/lý bình luận</a></li>
-                                            <li><a href="javascript:void(0);">Q/lý phản hồi</a></li>
+                                            <li><a href="admin.php?controller=comment">Q/lý bình luận</a></li>
+                                            <li><a href="admin.php?controller=feedback">Q/lý phản hồi</a></li>
                                             <li><a href="admin.php?controller=order">Q/lý đơn hàng</a></li>
                                         </ul>
                                     </li>
@@ -237,8 +237,8 @@
                                 <ul class="header-dropdown">
                                     <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="javascript:void(0);">Q/lý bình luận</a></li>
-                                            <li><a href="javascript:void(0);">Q/lý phản hồi</a></li>
+                                            <li><a href="admin.php?controller=comment">Q/lý bình luận</a></li>
+                                            <li><a href="admin.php?controller=feedback">Q/lý phản hồi</a></li>
                                             <li><a href="admin.php?controller=order">Q/lý đơn hàng</a></li>
                                         </ul>
                                     </li>
@@ -286,7 +286,7 @@
                                             <?php endif;
                                             endforeach; ?>
                                             <tr>
-                                                <td><strong><a href="admin.php?controller=feedback">All</a> (<?= $total_feedback ?>) | <a href="admin.php?controller=feedback&action=myfeedback">Mine</a> (<?= $total_feedback_mine ?>) | <a href="admin.php?controller=feedback&action=pending">Pending</a> (<?= $total_feedback_noaccept ?>) | Approved (<?= $total_feedback_status ?>)</strong></td>
+                                                <td><strong><a href="admin.php?controller=feedback">All</a> (<?= $total_feedback ?>) | <a href="admin.php?controller=feedback&action=myfeedback">Mine</a> (<?= $total_feedback_mine ?>) | <a href="admin.php?controller=feedback&action=pending">Pending</a> (<?= $total_feedback_noaccept ?>) | <a href="admin.php?controller=feedback">Approved</a> (<?= $total_feedback_status ?>)</strong></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -306,12 +306,13 @@
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="card">
                             <div class="header">
-                                <h2>Bảng <strong>Thông báo</strong></h2>
+                                <h2>Bảng <strong>Thống kê 2</strong></h2>
                                 <ul class="header-dropdown">
                                     <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="javascript:void(0);">Q/lý bình luận</a></li>
-                                            <li><a href="javascript:void(0);">Q/lý phản hồi</a></li>
+                                            <li><a href="admin.php?controller=user&action=listall">Q/lý User</a></li>
+                                            <li><a href="admin.php?controller=comment">Q/lý bình luận</a></li>
+                                            <li><a href="admin.php?controller=feedback">Q/lý phản hồi</a></li>
                                             <li><a href="admin.php?controller=order">Q/lý đơn hàng</a></li>
                                         </ul>
                                     </li>
@@ -331,52 +332,88 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><i class="zmdi zmdi-assignment"></i> Đơn hàng mới</td>
-                                                <td><?php echo get_time($order_new['createtime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                                <td><i class="zmdi zmdi-case"></i> Sản phẩm mới</td>
+                                                <td><?= $total_new_product ?></td>
                                             </tr>
                                             <tr>
-                                                <td><i class="zmdi zmdi-assignment-alert"></i> Đơn chưa xử lý</td>
-                                                <td><?= $total_order_noprosess ?></td>
+                                                <td><i class="zmdi zmdi-case-download"></i> Sản phẩm khuyến mãi</td>
+                                                <td><?= $total_sale_product ?></td>
                                             </tr>
                                             <tr>
-                                                <td><i class="zmdi zmdi-assignment-return"></i> Đơn bị hủy</td>
-                                                <td><?= $total_order_cancell ?></td>
+                                                <td><i class="zmdi zmdi-case-play"></i> Sản phẩm nổi bật</td>
+                                                <td><?= $total_hot_product ?></td>
                                             </tr>
                                             <tr>
-                                                <td><i class="zmdi zmdi-assignment-check"></i> Đơn đang xử lý</td>
-                                                <td><?= $total_order_inprosess ?></td>
+                                                <td><i class="zmdi zmdi-case-check"></i> Sản phẩm mới cập nhật</td>
+                                                <td><?= get_time($product_update['editDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                             </tr>
                                             <tr>
-                                                <td><i class="zmdi zmdi-comment-alt-text"></i> Bình luận mới</td>
-                                                <td><?php echo get_time($comment_new['createDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                                <td><i class="zmdi zmdi-account-add"></i> Người dùng mới</td>
+                                                <td><?php echo $user_new['user_name'] ?></td>
                                             </tr>
                                             <tr>
-                                                <td><i class="zmdi zmdi-comment-alert"></i> BLuận Chưa Xử lý</td>
-                                                <td><?= $total_comment_noaccept ?></td>
+                                                <td><i class="zmdi zmdi-accounts"></i> Tổng Số lượng User</td>
+                                                <td><?= $user_all_total ?></td>
                                             </tr>
                                             <tr>
-                                                <td><i class="zmdi zmdi-email-open"></i> Phản hồi mới</td>
-                                                <td><?php echo get_time($feedback_new['createTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                                <td><i class="zmdi zmdi-mood-bad"></i> Tổng User chưa Verified</td>
+                                                <td><?php echo $user_not_veri_total ?></td>
                                             </tr>
                                             <tr>
-                                                <td><i class="zmdi zmdi-email"></i> Phản hồi Chưa Xử lý</td>
-                                                <td><?= $total_feedback_noaccept ?></td>
+                                                <td><i class="zmdi zmdi-receipt"></i> Tổng số Bài viết</td>
+                                                <td><?= $total_post ?></td>
                                             </tr>
                                             <tr>
-                                                <td><i class="zmdi zmdi-reader"></i> Trang mới</td>
-                                                <td><?php echo get_time($page_new['post_date'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                                <td><i class="zmdi zmdi-reader"></i> Tổng số Trang</td>
+                                                <td><?php echo $total_page ?></td>
                                             </tr>
                                             <tr>
-                                                <td><i class="zmdi zmdi-tab"></i> Trang nháp</td>
-                                                <td><?= $total_page_draft ?></td>
+                                                <td><i class="zmdi zmdi-delete"></i> Trang & Bài viết rác</td>
+                                                <td><?= $total_post_trash ?></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2>Bảng <strong>Thống kê 3</strong></h2>
+                                <ul class="header-dropdown">
+                                    <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li><a href="admin.php?controller=user&action=listall">Q/lý User</a></li>
+                                            <li><a href="admin.php?controller=comment">Q/lý bình luận</a></li>
+                                            <li><a href="admin.php?controller=feedback">Q/lý phản hồi</a></li>
+                                            <li><a href="admin.php?controller=order">Q/lý đơn hàng</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="remove">
+                                        <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Dữ liệu</th>
+                                                <th>Số liệu Thống kê</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><i class="zmdi zmdi-pin-account"></i> User đang online</td>
+                                                <td><?= $users_online_total ?></td>
                                             </tr>
                                             <tr>
-                                                <td><i class="zmdi zmdi-receipt"></i> Bài viết mới</td>
-                                                <td><?php echo get_time($post_new['post_date'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td><i class="zmdi zmdi-assignment-o"></i> Bài viết nháp</td>
-                                                <td><?= $total_post_draft ?></td>
+                                                <td><i class="zmdi zmdi-accounts-outline"></i> Tổng User truy cập</td>
+                                                <td><?= $users_online_all ?></td>
                                             </tr>
                                         </tbody>
                                     </table>

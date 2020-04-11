@@ -80,7 +80,7 @@
                                                     <td></td>
                                                 <?php endif; ?>
                                                 <td><?php echo $order['createtime'] ?></td>
-                                                <td><?php echo $order['cart_total'] ?></td>
+                                                <td><?php echo number_format($order['cart_total'], 0, ',', '.') ?></td>
                                                 <td><?php echo $status[$order['status']]; ?></td>
                                                 <td><a href="admin.php?controller=order&amp;action=view&amp;order_id=<?php echo $order['id']; ?>" class="btn btn-<?php if ($order['status'] == 0) echo 'warning';
                                                                                                                                                                     elseif ($order['status'] == 1) echo 'success';

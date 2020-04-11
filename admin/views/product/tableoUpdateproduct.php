@@ -1,7 +1,7 @@
 <?php
 
 $options_product_update = array(
-    'order_by' => 'editDate desc'
+    'order_by' => 'editDate DESC'
 );
 $total_product_update = get_all('products', $options_product_update); ?>
 <!-- Basic Examples -->

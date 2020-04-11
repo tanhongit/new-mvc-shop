@@ -236,9 +236,9 @@ $options_user_online = array(
 $users_online = get_all('users_online', $options_user_online);
 $users_online_total = 0;
 foreach ($users_online as $user) {
-    if ($user['time'] >= strtotime(date('Y-m-d', mktime(date('H'), date('i') - 10, date('s'), date('m'), date('d'), date('Y'))))) {
+    if ($user['dateonline'] >= date('Y-m-d H:i:s', mktime(date('H'), date('i') - 10, date('s'), date('m'), date('d'), date('Y')) + 7 * 3600)) {
         $users_online_total++;
-    } else $users_online_total--;
+    }
 }
 
 $options_user_online_all = array(

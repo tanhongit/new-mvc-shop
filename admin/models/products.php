@@ -35,14 +35,17 @@ function product_update()
 
     if ($_POST['createdate'] == NULL || $_POST['createdate'] == 'dd/mm/yyyy') $createDate = date('Y-m-d H:i:s', time() + 7 * 3600);
     else $createDate = $_POST['createdate'];
-    
+
     $name = escape($_POST['name']);
+    if (strlen($_POST['slug']) >= 5) $slug = slug($_POST['slug']);
+    else $slug = slug($name);
+
     $product = array(
         'id' => intval($_POST['product_id']),
         'category_id' => intval($_POST['category_id']),
         'sub_category_id' => intval($_POST['subcategory_id']),
         'product_name' => $name,
-        'slug' => slug($name),
+        'slug' => $slug,
         'product_size' => escape($_POST['size']),
         'product_typeid' => intval($_POST['type_id']),
         'product_price' => intval($_POST['price']),
@@ -60,7 +63,7 @@ function product_update()
     );
     $product_id = save('products', $product);
     //upload ảnh 1 của product
-    $image_name1 = slug($name) . '-' . $product_id . 'img1';
+    $image_name1 = $slug . '-' . $product_id . 'img1';
     $config1 = array(
         'name' => $image_name1,
         'upload_path'  => 'public/upload/products/',
@@ -76,7 +79,7 @@ function product_update()
         save('products', $product);
     }
     //upload ảnh 2 của product
-    $image_name2 = slug($name) . '-' . $product_id . 'img2';
+    $image_name2 = $slug . '-' . $product_id . 'img2';
     $config2 = array(
         'name' => $image_name2,
         'upload_path'  => 'public/upload/products/',
@@ -92,7 +95,7 @@ function product_update()
         save('products', $product);
     }
     //upload ảnh 3 của product
-    $image_name3 = slug($name) . '-' . $product_id . 'img3';
+    $image_name3 = $slug . '-' . $product_id . 'img3';
     $config3 = array(
         'name' => $image_name3,
         'upload_path'  => 'public/upload/products/',
@@ -108,7 +111,7 @@ function product_update()
         save('products', $product);
     }
     //upload ảnh 4 của product
-    $image_name4 = slug($name) . '-' . $product_id . 'img4';
+    $image_name4 = $slug . '-' . $product_id . 'img4';
     $config4 = array(
         'name' => $image_name4,
         'upload_path'  => 'public/upload/products/',

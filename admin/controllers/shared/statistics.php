@@ -236,9 +236,9 @@ $options_user_online = array(
 $users_online = get_all('users_online', $options_user_online);
 $users_online_total = 0;
 foreach ($users_online as $user) {
-    if ($user['time'] > strtotime(date('Y-m-d', mktime(date('H'), date('i') - 10, date('s'), date('m'), date('d'), date('Y'))))) {
+    if ($user['time'] >= strtotime(date('Y-m-d', mktime(date('H'), date('i') - 10, date('s'), date('m'), date('d'), date('Y'))))) {
         $users_online_total++;
-    }
+    } else $users_online_total--;
 }
 
 $options_user_online_all = array(
@@ -254,19 +254,19 @@ $total_product = get_total('products', $options_product_total);
 
 $options_New_product_total = array(
     'order_by' => 'id',
-    'where' =>'product_typeid=2'
+    'where' => 'product_typeid=2'
 );
 $total_new_product = get_total('products', $options_New_product_total);
 
 $options_hot_product_total = array(
     'order_by' => 'id',
-    'where' =>'product_typeid=1'
+    'where' => 'product_typeid=1'
 );
 $total_hot_product = get_total('products', $options_hot_product_total);
 
 $options_sale_product_total = array(
     'order_by' => 'id',
-    'where' =>'product_typeid=3'
+    'where' => 'product_typeid=3'
 );
 $total_sale_product = get_total('products', $options_sale_product_total);
 

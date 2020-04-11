@@ -102,7 +102,7 @@ function convert_name($str)
 }
 function slug($str)
 {
-    $str = stringURL($str);
+    $str = convert_name($str);
     $str = strtolower($str); //mb_strtolower($str, 'UTF-8');
     $str = str_replace(' ', '-', $str);
     return $str;

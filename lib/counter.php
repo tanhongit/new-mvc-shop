@@ -2,7 +2,7 @@
 require_once('lib/statistics.php');
 $session = session_id();
 $time = time();
-$time_check = $time - 30; //Ấn định thời gian là 10 phút
+//$time_check = $time - 30; //Ấn định thời gian là 10 phút
 
 // function get_client_ip_env()
 // {

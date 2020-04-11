@@ -8,8 +8,9 @@ if (!empty($_POST)) {
 
 if (isset($_GET['product_id'])) $product_id = intval($_GET['product_id']);
 else $product_id = 0;
-$title = ($product_id == 0) ? 'Thêm sản phẩm' : 'Sửa sản phẩm';
+$title = ($product_id == 0) ? 'Thêm sản phẩm' : 'Sửa sản phẩm: ';
 $product = get_a_record('products', $product_id);
+if ($product_id <> 0) $title .= $product['product_name'];
 $options = array(
     'order_by' => 'createDate'
 );

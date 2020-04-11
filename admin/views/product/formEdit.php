@@ -98,7 +98,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="name" type="text" value="<?php echo $product ? $product['product_name'] : ''; ?>" class="form-control" id="name" placeholder="Nhập tên sản phẩm..." required="" />
+                                            <input name="name" max='500' type="text" value="<?php echo $product ? $product['product_name'] : ''; ?>" class="form-control" id="name" placeholder="Nhập tên sản phẩm..." required="" />
                                         </div>
                                     </div>
                                 </div>
@@ -107,7 +107,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input disabled name="slug" type="text" value="<?php echo $product ? $product['slug'] : ''; ?>" class="form-control" id="slug" placeholder="Nhập đường dẫn link sản phẩm..." required="" />
+                                            <input name="slug" type="text" value="<?php echo $product ? $product['slug'] : ''; ?>" class="form-control" id="slug" placeholder="Nhập đường dẫn link sản phẩm..." />
                                         </div>
                                     </div>
                                 </div>
@@ -151,7 +151,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="price" type="text" value="<?php echo $product ? $product['product_price'] : 0; ?>" class="form-control" id="price" placeholder="0" pattern="[0-9\.]+" required="" />
+                                            <input name="price" type="type" maxlength="11" value="<?php echo $product ? $product['product_price'] : 0; ?>" class="form-control" id="price" placeholder="0" pattern="[0-9\.]+" required="" />
                                         </div>
                                     </div>
                                 </div>
@@ -159,7 +159,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="color" type="text" value="<?php echo $product ? $product['product_color'] : ''; ?>" class="form-control" id="color" placeholder="Color..." required="" />
+                                            <input name="color" type="text" maxlength="250" value="<?php echo $product ? $product['product_color'] : ''; ?>" class="form-control" id="color" placeholder="Color..." required="" />
                                         </div>
                                     </div>
                                 </div>
@@ -167,7 +167,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="size" type="text" value="<?php echo $product ? $product['product_size'] : ''; ?>" class="form-control" id="size" placeholder="Size ..." />
+                                            <input name="size" type="text" required maxlength="100" value="<?php echo $product ? $product['product_size'] : ''; ?>" class="form-control" id="size" placeholder="Size ..." />
                                         </div>
                                     </div>
                                 </div>
@@ -175,7 +175,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="material" type="text" value="<?php echo $product ? $product['product_material'] : ''; ?>" class="form-control" id="material" placeholder="Material ..." required="" />
+                                            <input name="material" type="text" maxlength="250" value="<?php echo $product ? $product['product_material'] : ''; ?>" class="form-control" id="material" placeholder="Material ..." required="" />
                                         </div>
                                     </div>
                                 </div>
@@ -183,7 +183,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="totalview" type="text" value="<?php echo $product ? $product['totalView'] : ''; ?>" class="form-control" id="totalview" placeholder="Lượt view..." />
+                                            <input name="totalview" pattern="[0-9\.]+" type="text" maxlength="11" value="<?php echo $product ? $product['totalView'] : ''; ?>" class="form-control" id="totalview" placeholder="Lượt view..." />
                                         </div>
                                     </div>
                                 </div>
@@ -202,7 +202,7 @@
                                                 </div>
                                             <?php else : ?>
                                                 <div class="radio inlineblock m-r-20">
-                                                    <input type="radio" name="status" id="male" class="with-gap" value="1" ?>
+                                                    <input type="radio" name="status" id="male" class="with-gap" value="1">
                                                     <label for="male">Bật giảm giá</label>
                                                 </div>
                                                 <div class="radio inlineblock">
@@ -217,7 +217,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="percent_off" type="text" value="<?php echo $product ? $product['percentoff'] : ''; ?>" class="form-control" id="percent_off" placeholder="Number Precent Off ..." />
+                                            <input name="percent_off" type="text" maxlength="11" value="<?php echo $product ? $product['percentoff'] : ''; ?>" class="form-control" id="percent_off" pattern="[0-9\.]+" placeholder="Number Precent Off ..." />
                                         </div>
                                     </div>
                                 </div>

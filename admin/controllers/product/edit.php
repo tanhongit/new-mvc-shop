@@ -9,6 +9,7 @@ if (!empty($_POST)) {
 if (isset($_GET['product_id'])) $product_id = intval($_GET['product_id']);
 else $product_id = 0;
 $title = ($product_id == 0) ? 'Thêm sản phẩm' : 'Sửa sản phẩm: ';
+$nav_product  = 'class="active open"';
 $product = get_a_record('products', $product_id);
 if ($product_id <> 0) $title .= $product['product_name'];
 $options = array(

@@ -9,4 +9,5 @@ if ($user_id != $user_nav && $login_user['role_id'] == 0) {
     exit;
 }
 $user_info = get_a_record('users', $user_id);
+$nav_user = $nav_profile = 'class="active open"';
 require('admin/views/user/change-password.php');

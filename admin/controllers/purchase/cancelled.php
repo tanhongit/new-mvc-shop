@@ -8,6 +8,7 @@ if (!empty($user_nav)) {
     );
     $order_cancelled  = get_all('orders', $options);
     $title = 'Đơn hàng đã hủy';
+    $your_Purchase  = 'class="active open"';
     $status = array(
         0 => 'Đã xác nhận đơn hàng',
         2 => 'Đang giao hàng',

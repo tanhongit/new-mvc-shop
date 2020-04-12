@@ -18,4 +18,5 @@ $status = array(
     3 => 'Đã bị hủy'
 );
 $title = 'Gửi phản hồi của bạn đến Chị Kòi Quán';
+$nav_feedback = 'class="active open"';
 require('admin/views/feedback/add.php');

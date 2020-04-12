@@ -7,6 +7,7 @@ if (!$order) {
     show_404();
 }
 $title = 'Chi tiết đơn hàng';
+$your_Purchase  = 'class="active open"';
 $order_detail = order_detail($order_id);
 $status = array(
     0 => 'Đã xác nhận đơn hàng',

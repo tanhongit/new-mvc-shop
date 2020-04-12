@@ -7,5 +7,6 @@ $options = array(
 );
 $title = 'Danh mục sản phẩm';
 $subcategories = get_all('subcategory', $options);
+$nav_category = 'class="active open"';
 //load view
 require('admin/views/category/index.php');

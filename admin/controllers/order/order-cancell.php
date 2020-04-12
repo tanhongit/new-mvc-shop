@@ -7,6 +7,7 @@ $options = array(
 $order_complete  = get_all('orders', $options);
 
 $title = 'Đơn hàng đã bị hủy';
+$nav_order  = 'class="active open"';
 $status = array(
     0 => 'Chưa xử lý',
     1 => 'Đã xử lý',

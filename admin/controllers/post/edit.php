@@ -8,6 +8,7 @@ if (!empty($_POST)) {
 if (isset($_GET['post_id'])) $post_id = intval($_GET['post_id']);
 else $post_id = 0;
 $title = 'Sửa bài viết - Chị Kòi Quán';
+$nav_post  = 'class="active open"';
 $post = get_a_record('posts', $post_id);
 global $user_nav;
 $login_user = get_a_record('users', $user_nav);

@@ -6,5 +6,6 @@ $options = array(
     'order_by' => 'id ASC'
 );
 $title = 'Danh sách Thành viên';
+$nav_user = 'class="active open"';
 $list_user = get_all('users', $options);
 require('admin/views/user/listall.php');

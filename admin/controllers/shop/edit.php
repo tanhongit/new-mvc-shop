@@ -9,4 +9,5 @@ if (isset($_GET['cate_id'])) $cate_id = intval($_GET['cate_id']);
 else $cate_id = 0;
 $title = ($cate_id == 0) ? 'Thêm danh mục' : 'Sửa danh mục';
 $category = get_a_record('categories', $cate_id);
+$nav_category = 'class="active open"';
 require('admin/views/shop/edit.php');

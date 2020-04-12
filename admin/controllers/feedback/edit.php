@@ -9,6 +9,7 @@ if (!empty($_POST)) {
 if (isset($_GET['feedback_id'])) $feedback_id = intval($_GET['feedback_id']);
 else $feedback_id = 0;
 $title = ($feedback_id == 0) ? '' : 'Sửa phần phản hồi của khách hàng';
+$nav_feedback = 'class="active open"';
 $feedback = get_a_record('feedbacks', $feedback_id);
 if ($feedback['order_id'] <> 0) {
     $order_detail = order_detail($feedback['order_id']);

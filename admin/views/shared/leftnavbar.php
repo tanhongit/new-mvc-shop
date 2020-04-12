@@ -20,15 +20,15 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                 </div>
             </li>
             <li class="open"><a href="<?= PATH_URL ?>home" target="_blank"><i class="zmdi zmdi-home"></i><span>Quay lại SHOP</span></a></li>
-            <li class="active open"><a href="admin.php"><i class="zmdi zmdi-view-dashboard"></i><span>Bảng điều khiển</span></a></li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
+            <li <?php if (isset($home_nav)) echo $home_nav; ?>><a href="admin.php"><i class="zmdi zmdi-view-dashboard"></i><span>Bảng điều khiển</span></a></li>
+            <li <?php if (isset($nav_profile)) echo $nav_profile; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
                 <ul class="ml-menu">
                     <li><a href="admin.php?controller=user&action=info&user_id=<?= $user_nav ?>">Your profile</a></li>
                     <li><a href="admin.php?controller=user&action=change-password&user_id=<?= $user_info_nav['id'] ?>">Change your Password</a></li>
                 </ul>
             </li>
-            <li><a href="admin.php?controller=feedback&action=myfeedback"><i class="zmdi zmdi-mail-send"></i><span>Your Feedback</span></a></li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Your Purchase</span></a>
+            <li <?php if (isset($your_feedback)) echo $your_feedback; ?>><a href="admin.php?controller=feedback&action=myfeedback"><i class="zmdi zmdi-mail-send"></i><span>Your Feedback</span></a></li>
+            <li <?php if (isset($your_Purchase)) echo $your_Purchase; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Your Purchase</span></a>
                 <ul class="ml-menu">
                     <li><a href="admin.php?controller=purchase">Tất cả</a></li>
                     <li><a href="admin.php?controller=purchase&action=confirmed">Đơn đã xác thực</a></li>
@@ -39,7 +39,7 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
             </li>
             <?php if ($user_info_nav['role_id'] != 0) :
                 if ($user_info_nav['role_id'] == 1) : ?>
-                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-folder"></i><span>Quản lý danh mục</span></a>
+                    <li <?php if (isset($nav_category)) echo $nav_category; ?>> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-folder"></i><span>Quản lý danh mục</span></a>
                         <ul class="ml-menu">
                             <li><a href="admin.php?controller=shop">1. Nhóm danh mục</a></li>
                             <li><a href="admin.php?controller=shop&amp;action=edit">2. Add nhóm danh mục mới</a></li>
@@ -47,20 +47,20 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                             <li><a href="admin.php?controller=category&amp;action=edit">4. Add danh mục con mới</a></li>
                         </ul>
                     </li>
-                    <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-dns"></i><span>Backup</span></a>
+                    <li <?php if (isset($backupdb)) echo $backupdb; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-dns"></i><span>Backup</span></a>
                         <ul class="ml-menu">
                             <li><a href="admin.php?controller=backupdb">Backup CSDL</a></li>
                             <li><a href="admin.php?controller=backupdb&action=list">List Backup CSDL</a></li>
                         </ul>
                     </li>
-                    <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-view-web"></i><span>Setup View Web</span></a>
+                    <li <?php if (isset($nav_hf)) echo $nav_hf; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-view-web"></i><span>Setup View Web</span></a>
                         <ul class="ml-menu">
                             <li><a href="admin.php?controller=slide">Slide HomePage</a></li>
                             <li><a href="admin.php?controller=header-footer">Edit Header Footer</a></li>
                             <li><a href="admin.php?controller=header-footer&action=listMenuFooter">Link Menu Footer</a></li>
                         </ul>
                     </li>
-                    <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Admin</span></a>
+                    <li <?php if (isset($nav_admin)) echo $nav_admin; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Admin</span></a>
                         <ul class="ml-menu">
                             <li><a href="admin.php?controller=user&action=info&user_id=<?= $user_nav ?>">Your Profile</a></li>
                             <li><a href="admin.php?controller=role">List Role</a></li>
@@ -69,7 +69,7 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                         </ul>
                     </li>
                 <?php endif; ?>
-                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-blogger"></i><span>Blog -> Page</span></a>
+                <li <?php if (isset($nav_page)) echo $nav_page; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-blogger"></i><span>Blog -> Page</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=page">All Page</a></li>
                         <li><a href="admin.php?controller=page&action=viewtrash">Thùng rác</a></li>
@@ -77,7 +77,7 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                         <li><a href="admin.php?controller=page&action=add">ADD New Page</a></li>
                     </ul>
                 </li>
-                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-blogger"></i><span>Blog -> Post</span></a>
+                <li <?php if (isset($nav_post)) echo $nav_post; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-blogger"></i><span>Blog -> Post</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=post">All Post</a></li>
                         <li><a href="admin.php?controller=post&action=viewtrash">Thùng rác</a></li>
@@ -85,7 +85,7 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                         <li><a href="admin.php?controller=post&action=add">ADD New Post</a></li>
                     </ul>
                 </li>
-                <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-collection-text"></i><span>Quản lý sản phẩm</span></a>
+                <li <?php if (isset($nav_product)) echo $nav_product; ?>> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-collection-text"></i><span>Quản lý sản phẩm</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=product">Danh sách sản phẩm</a></li>
                         <li><a href="admin.php?controller=product&action=update">Sản phẩm mới cập nhật</a></li>
@@ -95,7 +95,7 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                         <li><a href="admin.php?controller=product&amp;action=edit">Add sản phẩm mới</a></li>
                     </ul>
                 </li>
-                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-shopping-cart"></i><span>Quản lý đơn hàng</span></a>
+                <li <?php if (isset($nav_order)) echo $nav_order; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-shopping-cart"></i><span>Quản lý đơn hàng</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=order">Danh sách All đơn hàng</a></li>
                         <li><a href="admin.php?controller=order&amp;action=order-noprocess">Đơn hàng chưa xử lý</a></li>
@@ -104,21 +104,21 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                         <li><a href="admin.php?controller=order&amp;action=order-cancell">Đơn hàng đã bị hủy</a></li>
                     </ul>
                 </li>
-                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>User</span></a>
+                <li <?php if (isset($nav_user)) echo $nav_user; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>User</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=user&action=info&user_id=<?= $user_nav ?>">Your Profile</a></li>
                         <li><a href="admin.php?controller=user&action=listall">List Profile</a></li>
                         <li><a href="admin.php?controller=user&action=add">Add New User</a></li>
                     </ul>
                 </li>
-                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-collection-folder-image"></i><span>Media</span></a>
+                <li <?php if (isset($nav_media)) echo $nav_media; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-collection-folder-image"></i><span>Media</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=media&action=image-gallery">Product Image Gallery</a></li>
                         <li><a href="admin.php?controller=media">Library Media Upload</a></li>
                         <li><a href="admin.php?controller=media&action=add">Add New Media</a></li>
                     </ul>
                 </li>
-                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-email-open"></i><span>Feedback Manager</span></a>
+                <li <?php if (isset($nav_feedback)) echo $nav_feedback; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-email-open"></i><span>Feedback Manager</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=feedback">All Feedback</a></li>
                         <li><a href="admin.php?controller=feedback&action=pending">Pending Feedback</a></li>
@@ -127,7 +127,7 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                         <li><a href="admin.php?controller=feedback&action=other">Other Feedback</a></li>
                     </ul>
                 </li>
-                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-comments"></i><span>Comment Manager</span></a>
+                <li <?php if (isset($nav_comment)) echo $nav_comment; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-comments"></i><span>Comment Manager</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=comment">All comment</a></li>
                         <li><a href="admin.php?controller=comment&action=pending">Pending comment</a></li>

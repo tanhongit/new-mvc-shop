@@ -8,6 +8,7 @@ if (!empty($_POST)) {
 
 if (isset($_GET['post_id'])) $post_id = intval($_GET['post_id']);
 else $post_id = 0;
-$post = get_a_record('posts', $post_id); 
+$post = get_a_record('posts', $post_id);
 $title = 'Thêm trang mới - Chị Kòi Quán';
+$nav_post  = 'class="active open"';
 require('admin/views/post/add.php');

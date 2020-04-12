@@ -3,6 +3,7 @@ permission_user();
 require_once('admin/models/posts.php');
 
 $title = 'Các bản nháp';
+$nav_post  = 'class="active open"';
 if (isset($_GET['page'])) $page = intval($_GET['page']);
 else $page = 1;
 

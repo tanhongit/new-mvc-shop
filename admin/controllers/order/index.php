@@ -11,6 +11,7 @@ $options = array(
 $url = 'admin.php?controller=order';
 $total_rows = get_total('orders', $options);
 $title = 'Đơn hàng';
+$nav_order  = 'class="active open"';
 $orders = get_all('orders', $options);
 $status = array(
     0 => 'Chưa xử lý',

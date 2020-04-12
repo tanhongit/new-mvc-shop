@@ -8,6 +8,7 @@ if (!empty($user_nav)) {
     );
     $order_confirmed  = get_all('orders', $options);
     $title = 'Đơn hàng đã xác nhận';
+    $your_Purchase  = 'class="active open"';
     $status = array(
         0 => 'Đã xác nhận đơn hàng',
         2 => 'Đang giao hàng',

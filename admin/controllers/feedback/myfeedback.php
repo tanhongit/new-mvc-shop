@@ -1,5 +1,6 @@
 <?php
 $title = 'Tất cả phản hồi của bạn';
+$nav_feedback = $your_feedback = 'class="active open"';
 global $user_nav;
 $option = array(
     'order_by' => 'id desc',

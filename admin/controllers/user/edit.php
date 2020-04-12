@@ -18,5 +18,6 @@ if (!empty($_POST)) {
     user_update();
 }
 $title = ($user_id == 0) ? 'Thêm thông tin' : 'Cập nhật thông tin tài khoản';
+$nav_user = 'class="active open"';
 $user_info = get_a_record('users', $user_id);
 require('admin/views/user/edit.php');

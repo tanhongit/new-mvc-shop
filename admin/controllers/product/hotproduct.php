@@ -9,4 +9,5 @@ if (isset($_POST['product_id'])) {
     }
 }
 $title = 'Sản phẩm mới order';
+$nav_product  = 'class="active open"';
 require('admin/views/product/hotproduct.php');

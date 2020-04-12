@@ -19,4 +19,5 @@ $status = array(
     2 => 'Đang xử lý - giao hàng',
     3 => 'Đã bị hủy'
 );
+$nav_feedback = 'class="active open"';
 require('admin/views/feedback/view.php');

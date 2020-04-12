@@ -1,7 +1,7 @@
 <?php
 permission_user();
 require_once('admin/models/posts.php');
-
+$nav_post  = 'class="active open"';
 $title = 'Thùng rác';
 if (isset($_GET['page'])) $page = intval($_GET['page']);
 else $page = 1;

@@ -298,10 +298,10 @@
             </div>
         </div>
         <div class="row clearfix">
-            <div class="col-md-12 col-lg-8">
+            <div class="col-md-12 col-lg-9">
                 <?php require('admin/views/product/tableoUpdateproduct.php'); ?>
             </div>
-            <div class="col-lg-4 col-md-12">
+            <div class="col-lg-3 col-md-12">
                 <div class="row clearfix">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="card">

@@ -1,5 +1,6 @@
 <?php
 permission_user();
+permission_moderator();
 require_once('admin/models/header-footer.php');
 if (!empty($_POST)) {
     header_footer_update();

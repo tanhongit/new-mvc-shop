@@ -1,5 +1,6 @@
 <?php
 permission_user();
+permission_moderator();
 $options_link = array(
     'order_by' => 'id ASC',
     'where' => 'parent=0'

@@ -1,5 +1,6 @@
 <?php
 permission_user();
+permission_moderator();
 require_once('admin/models/roles.php');
 if (!empty($_POST)) {
     role_update();

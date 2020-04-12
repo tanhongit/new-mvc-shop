@@ -1,5 +1,6 @@
 <?php
 permission_user();
+permission_moderator();
 require_once('admin/models/feedbacks.php');
 require_once('admin/models/order.php');
 if (!empty($_POST)) {

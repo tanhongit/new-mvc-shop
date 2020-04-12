@@ -1,5 +1,6 @@
 <?php
 permission_user();
+permission_moderator();
 require_once('admin/models/shop.php');
 if (!empty($_POST)) {
     category_uodate();

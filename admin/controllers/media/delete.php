@@ -1,5 +1,6 @@
 <?php
 permission_user();
+permission_moderator();
 require_once('admin/models/media.php');
 $media_id = intval($_GET['media_id']);
 media_delete($media_id);

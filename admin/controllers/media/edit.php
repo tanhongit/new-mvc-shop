@@ -1,5 +1,6 @@
 <?php
 permission_user();
+permission_moderator();
 require_once('admin/models/media.php');
 if (!empty($_POST)) {
     media_update();

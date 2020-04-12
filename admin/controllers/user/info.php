@@ -14,6 +14,9 @@ $login_user = get_a_record('users', $user_nav);
 if ($user_id != $user_nav && $login_user['role_id'] == 0) {
     header('location:index.php');
     exit;
+}elseif ($user_id != $user_nav && $login_user['role_id'] == 2) {
+    header('location:admin.php');
+    exit;
 }
 $user_info = get_a_record('users', $user_id);
 require('admin/views/user/info.php');

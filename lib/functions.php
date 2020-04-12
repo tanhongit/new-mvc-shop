@@ -147,6 +147,16 @@ function permission_user()
     $user_login = get_a_record('users', $user_nav);
     if ($user_login['role_id'] == 0) {
         header('location:index.php');
+        exit;
+    }
+}
+function permission_moderator()
+{
+    global $user_nav;
+    $user_login = get_a_record('users', $user_nav);
+    if ($user_login['role_id'] == 2) {
+        header('location:admin.php');
+        exit;
     }
 }
 //pagination admin

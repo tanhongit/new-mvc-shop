@@ -5,9 +5,13 @@ require_once('admin/models/posts.php');
 if (!empty($_POST)) {
     page_update();
 }
-
 if (isset($_GET['post_id'])) $post_id = intval($_GET['post_id']);
 else $post_id = 0;
 $title = 'Sửa trang - Chị Kòi Quán';
 $post = get_a_record('posts', $post_id);
-require('admin/views/page/edit.php');
+global $user_nav;
+$login_user = get_a_record('users', $user_nav);
+if ($login_user['role_id'] == 2) {
+    if ($post['post_author'] == $user_nav)  require('admin/views/page/edit.php');
+    else  header('location:admin.php?controller=page');
+} else  require('admin/views/page/edit.php');

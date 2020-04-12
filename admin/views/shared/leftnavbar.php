@@ -37,7 +37,38 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                     <li><a href="admin.php?controller=purchase&action=cancelled">Đơn hàng đã hủy</a></li>
                 </ul>
             </li>
-            <?php if ($user_info_nav['role_id'] != 0) : ?>
+            <?php if ($user_info_nav['role_id'] != 0) :
+                if ($user_info_nav['role_id'] == 1) : ?>
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-folder"></i><span>Quản lý danh mục</span></a>
+                        <ul class="ml-menu">
+                            <li><a href="admin.php?controller=shop">1. Nhóm danh mục</a></li>
+                            <li><a href="admin.php?controller=shop&amp;action=edit">2. Add nhóm danh mục mới</a></li>
+                            <li><a href="admin.php?controller=category">3. Danh mục con</a></li>
+                            <li><a href="admin.php?controller=category&amp;action=edit">4. Add danh mục con mới</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-dns"></i><span>Backup</span></a>
+                        <ul class="ml-menu">
+                            <li><a href="admin.php?controller=backupdb">Backup CSDL</a></li>
+                            <li><a href="admin.php?controller=backupdb&action=list">List Backup CSDL</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-view-web"></i><span>Setup View Web</span></a>
+                        <ul class="ml-menu">
+                            <li><a href="admin.php?controller=slide">Slide HomePage</a></li>
+                            <li><a href="admin.php?controller=header-footer">Edit Header Footer</a></li>
+                            <li><a href="admin.php?controller=header-footer&action=listMenuFooter">Link Menu Footer</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Admin</span></a>
+                        <ul class="ml-menu">
+                            <li><a href="admin.php?controller=user&action=info&user_id=<?= $user_nav ?>">Your Profile</a></li>
+                            <li><a href="admin.php?controller=role">List Role</a></li>
+                            <li><a href="admin.php?controller=role&action=admin">List Admin</a></li>
+                            <li><a href="admin.php?controller=user&action=add">Add New User Or Admin</a></li>
+                        </ul>
+                    </li>
+                <?php endif; ?>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-blogger"></i><span>Blog -> Page</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=page">All Page</a></li>
@@ -64,14 +95,6 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                         <li><a href="admin.php?controller=product&amp;action=edit">Add sản phẩm mới</a></li>
                     </ul>
                 </li>
-                <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-folder"></i><span>Quản lý danh mục</span></a>
-                    <ul class="ml-menu">
-                        <li><a href="admin.php?controller=shop">1. Nhóm danh mục</a></li>
-                        <li><a href="admin.php?controller=shop&amp;action=edit">2. Add nhóm danh mục mới</a></li>
-                        <li><a href="admin.php?controller=category">3. Danh mục con</a></li>
-                        <li><a href="admin.php?controller=category&amp;action=edit">4. Add danh mục con mới</a></li>
-                    </ul>
-                </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-shopping-cart"></i><span>Quản lý đơn hàng</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=order">Danh sách All đơn hàng</a></li>
@@ -88,32 +111,11 @@ $user_info_nav = get_a_record('users', $user_nav) ?>
                         <li><a href="admin.php?controller=user&action=add">Add New User</a></li>
                     </ul>
                 </li>
-                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Admin</span></a>
-                    <ul class="ml-menu">
-                        <li><a href="admin.php?controller=user&action=info&user_id=<?= $user_nav ?>">Your Profile</a></li>
-                        <li><a href="admin.php?controller=role">List Role</a></li>
-                        <li><a href="admin.php?controller=role&action=admin">List Admin</a></li>
-                        <li><a href="admin.php?controller=user&action=add">Add New User Or Admin</a></li>
-                    </ul>
-                </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-collection-folder-image"></i><span>Media</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=media&action=image-gallery">Product Image Gallery</a></li>
                         <li><a href="admin.php?controller=media">Library Media Upload</a></li>
                         <li><a href="admin.php?controller=media&action=add">Add New Media</a></li>
-                    </ul>
-                </li>
-                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-dns"></i><span>Backup</span></a>
-                    <ul class="ml-menu">
-                        <li><a href="admin.php?controller=backupdb">Backup CSDL</a></li>
-                        <li><a href="admin.php?controller=backupdb&action=list">List Backup CSDL</a></li>
-                    </ul>
-                </li>
-                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-view-web"></i><span>Setup View Web</span></a>
-                    <ul class="ml-menu">
-                        <li><a href="admin.php?controller=slide">Slide HomePage</a></li>
-                        <li><a href="admin.php?controller=header-footer">Edit Header Footer</a></li>
-                        <li><a href="admin.php?controller=header-footer&action=listMenuFooter">Link Menu Footer</a></li>
                     </ul>
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-email-open"></i><span>Feedback Manager</span></a>

@@ -1,6 +1,3 @@
-<!-- Left Sidebar -->
-<?php global $user_nav;
-$user_info_nav = get_a_record('users', $user_nav) ?>
 <aside id="leftsidebar" class="sidebar">
     <div class="navbar-brand">
         <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>

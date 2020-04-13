@@ -92,7 +92,9 @@
                                 <?php global $user_nav;
                                 $get_user_by = get_a_record('users', $user_nav) ?>
                                 <?php if (isset($product)) : ?>
-                                    <input name="editby" type="hidden" value="<?php echo $get_user_by['user_name']; ?>" /><?php else : ?>
+                                    <input name="editby" type="hidden" value="<?php echo $get_user_by['user_name']; ?>" />
+                                    <input name="createby" type="hidden" value="<?php echo $product['createBy']; ?>" />
+                                <?php else : ?>
                                     <input name="createby" type="hidden" value="<?php echo $get_user_by['user_name']; ?>" /><?php endif; ?>
                                 <h2 class="card-inside-title" style="font-weight:bold;">Tên Sản Phẩm:</h2>
                                 <div class="row clearfix">

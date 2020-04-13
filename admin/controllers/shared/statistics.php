@@ -11,6 +11,12 @@ $options_order = array(
 );
 $total_order = get_total('orders', $options_order);
 
+$options_order_mine = array(
+    'order_by' => 'id DESC',
+    'where' => 'user_id=' . $user_nav
+);
+$total_order_mine = get_total('orders', $options_order_mine);
+
 $options_comlete = array(
     'where' => 'status = 1',
     'order_by' => 'id DESC'
@@ -29,6 +35,18 @@ $options_inprocess = array(
     'order_by' => 'id DESC'
 );
 $total_order_inprosess = get_total('orders', $options_inprocess);
+
+$options_mine_inprocess = array(
+    'where' => 'status = 2 and user_id=' . $user_nav,
+    'order_by' => 'id DESC'
+);
+$total_mine_order_inprosess = get_total('orders', $options_mine_inprocess);
+
+$options_mine_complete = array(
+    'where' => 'status = 1 and user_id=' . $user_nav,
+    'order_by' => 'id DESC'
+);
+$total_mine_order_complete = get_total('orders', $options_mine_complete);
 
 $options_cancell_total = array(
     'where' => 'status = 3',
@@ -89,6 +107,18 @@ $options_feedback_mine = array(
 );
 $total_feedback_mine = get_total('feedbacks', $options_feedback_mine);
 
+$options_feedback_mine_product = array(
+    'order_by' => 'id DESC',
+    'where' => 'product_id<>0 and user_id=' . $user_nav
+);
+$total_feedback_mine_product = get_total('feedbacks', $options_feedback_mine_product);
+
+$options_feedback_mine_order = array(
+    'order_by' => 'id DESC',
+    'where' => 'product_id<>0 and user_id=' . $user_nav
+);
+$total_feedback_mine_order = get_total('feedbacks', $options_feedback_mine_order);
+
 $options_feedback_new = array(
     'limit' => 1,
     'offset' => 0,
@@ -127,6 +157,12 @@ $options_comments_mine = array(
     'where' => 'user_id=' . $user_nav
 );
 $total_mine_comment = get_total('comments', $options_comments_mine);
+
+$options_mine_comment_noaccept = array(
+    'order_by' => 'id DESC',
+    'where' => 'status=0 and user_id=' . $user_nav
+);
+$total_mine_comment_noaccept = get_total('comments', $options_mine_comment_noaccept);
 
 $options_comment_five = array(
     'limit' => 5,

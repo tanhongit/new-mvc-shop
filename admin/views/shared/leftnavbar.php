@@ -1,3 +1,8 @@
+<!--
+    Developed by: TanHongIT
+    Website: https://tanhongit.com - https://tanhongit.net
+    Github: https://github.com/TanHongIT
+-->
 <aside id="leftsidebar" class="sidebar">
     <div class="navbar-brand">
         <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>

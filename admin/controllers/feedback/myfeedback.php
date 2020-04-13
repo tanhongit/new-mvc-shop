@@ -1,3 +1,8 @@
+<!--
+    Developed by: TanHongIT
+    Website: https://tanhongit.com - https://tanhongit.net
+    Github: https://github.com/TanHongIT
+-->
 <?php
 $title = 'Tất cả phản hồi của bạn';
 $nav_feedback = $your_feedback = 'class="active open"';

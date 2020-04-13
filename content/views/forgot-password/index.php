@@ -1,3 +1,8 @@
+<!--
+    Developed by: TanHongIT
+    Website: https://tanhongit.com - https://tanhongit.net
+    Github: https://github.com/TanHongIT
+-->
 <!doctype html>
 <html class="no-js " lang="en">
 <head>

@@ -1,3 +1,8 @@
+<!--
+    Developed by: TanHongIT
+    Website: https://tanhongit.com - https://tanhongit.net
+    Github: https://github.com/TanHongIT
+-->
 <?php
 if (isset($_GET['page'])) $page = intval($_GET['page']);
 else $page = 1;

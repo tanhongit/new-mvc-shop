@@ -1,3 +1,7 @@
+#    Developed by: TanHongIT
+#    Website: https://tanhongit.com - https://tanhongit.net
+#    Github: https://github.com/TanHongIT
+
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f 

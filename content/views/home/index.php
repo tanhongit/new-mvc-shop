@@ -1,3 +1,8 @@
+<!--
+    Developed by: TanHongIT
+    Website: https://tanhongit.com - https://tanhongit.net
+    Github: https://github.com/TanHongIT
+-->
 <?php require('content/views/shared/header.php'); ?>
 <div role="main" class="main">
     <?php

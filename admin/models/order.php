@@ -25,3 +25,21 @@ function order_delete($id)
     $sql = "DELETE FROM orders WHERE id=$id";
     mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
 }
+function order_complete($id)
+{
+    $id = intval($_POST['order_id']);
+    $order = array(
+        'id' => $id,
+        'status' => 1
+    );
+    save('orders', $order);
+}
+function order_inprocess($id)
+{
+    $id = intval($_POST['order_id']);
+    $order = array(
+        'id' => $id,
+        'status' => 2
+    );
+    save('orders', $order);
+}

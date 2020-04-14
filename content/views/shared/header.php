@@ -66,6 +66,7 @@ $user_login = get_a_record('users', $user_nav);
 	<link rel="stylesheet" href="public/css/skins/default.css">
 	<link rel="stylesheet" href="public/css/custom.css">
 	<script src="public/vendor/modernizr/modernizr.js"></script>
+	<script src="public/js/jquery-3.2.1.min.js"></script>
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://chikoiquan.com" />
 	<meta property="og:title" content="Chị Kòi Quán" />
@@ -307,7 +308,7 @@ $user_login = get_a_record('users', $user_nav);
 																<tr>
 																	<td class="product-thumbnail">
 																		<a href="product/<?php echo $product_cart['id'] . '-' . slug($product_cart['name']); ?>">
-																			<img width="100" height="100" alt="<?=$product_cart['name']?>" class="img-responsive" src="public/upload/products/<?php echo $product_cart['image'] ?>">
+																			<img width="100" height="100" alt="<?= $product_cart['name'] ?>" class="img-responsive" src="public/upload/products/<?php echo $product_cart['image'] ?>">
 																		</a>
 																	</td>
 																	<td class="product-name">

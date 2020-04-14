@@ -66,6 +66,21 @@ function save($table, $data = array())
     $id = ($id > 0) ? $id : mysqli_insert_id($linkconnectDB);
     return $id;
 }
+function save_and_get_result($table, $data = array())
+{
+    $values = array();
+    global $linkconnectDB;
+    foreach ($data as $key => $value) {
+        $value = mysqli_real_escape_string($linkconnectDB, $value);
+        $values[] = "`$key`='$value'";
+    }
+    $sql = "INSERT INTO `$table` SET " . implode(',', $values);
+    $result = mysqli_query($linkconnectDB, $sql);
+    if (!$result) {
+        $result = mysqli_error($linkconnectDB);
+    }
+    echo $result;
+}
 //for admin
 //lựa chọn bảng theo một mảng
 function select_a_record($table, $options = array(), $select = '*')
@@ -84,28 +99,27 @@ function select_a_record($table, $options = array(), $select = '*')
     }
     return $data;
 }
-function get_time($timePost,$timeReply) {
+function get_time($timePost, $timeReply)
+{
+    $datePost = date_parse_from_format('Y:m:d H:i:s', $timePost);
+    $dateReply = date_parse_from_format('Y:m:d H:i:s', $timeReply);
+    $tsPost = mktime($datePost['hour'], $datePost['minute'], $datePost['second'], $datePost['month'], $datePost['day'], $datePost['year']);
+    $tsReply = mktime($dateReply['hour'], $dateReply['minute'], $dateReply['second'], $dateReply['month'], $dateReply['day'], $dateReply['year']);
+    $distance = $tsReply - $tsPost;
 
-    $datePost	= date_parse_from_format('Y:m:d H:i:s', $timePost);
-    $dateReply	= date_parse_from_format('Y:m:d H:i:s', $timeReply);
-
-    $tsPost		= mktime($datePost['hour'], $datePost['minute'], $datePost['second'], $datePost['month'], $datePost['day'], $datePost['year']);
-    $tsReply	= mktime($dateReply['hour'], $dateReply['minute'], $dateReply['second'], $dateReply['month'], $dateReply['day'], $dateReply['year']);
-    $distance 	= $tsReply - $tsPost;
-
-    switch ($distance){
+    switch ($distance) {
         case ($distance < 60):
             $result = ($distance == 1) ? $distance . ' second ago' : $distance . ' seconds ago';
             break;
         case ($distance >= 60 && $distance < 3600):
-            $minute	= round($distance/60);
+            $minute = round($distance / 60);
             $result = ($minute == 1) ? $minute . ' minute ago' : $minute . ' minutes ago';
             break;
         case ($distance >= 3600 && $distance < 86400):
-            $hour	= round($distance/3600);
+            $hour = round($distance / 3600);
             $result = ($hour == 1) ? $hour . ' hour ago' : $hour . ' hours ago';
             break;
-        case (round($distance/86400)==1):
+        case (round($distance / 86400) == 1):
             $result = 'Yesterday at ' . date('H:i:s', $tsReply);
             break;
         default:

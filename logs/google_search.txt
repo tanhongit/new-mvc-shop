@@ -25,3 +25,7 @@ None:
 
 User online:
     - http://laptrinhphp.info/du-an-thuc-te/Xay-dung-module-dem-so-nguoi-dang-online-bang-PHP-MySQL.html
+
+Confirm Dialog when i close the browser?
+    - https://stackoverflow.com/questions/10311341/confirmation-before-closing-of-tab-browser
+    - https://stackoverflow.com/questions/4427714/confirm-dialog-when-i-close-the-browser

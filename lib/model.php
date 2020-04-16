@@ -81,7 +81,6 @@ function save_and_get_result($table, $data = array())
     }
     echo $result;
 }
-//for admin
 //lựa chọn bảng theo một mảng
 function select_a_record($table, $options = array(), $select = '*')
 {

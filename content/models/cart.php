@@ -62,6 +62,7 @@ function update_sesion_cart()
         //dùng trong file login.php
     }
 }
+//đồng bộ sản phẩm giữa session và db khi người dùng add to cart
 function update_cart_user_db()
 {
     global $user_nav, $linkconnectDB;
@@ -124,6 +125,10 @@ function update_cart_user_db()
         2.1) nếu sản phẩm trong cart chưa tồn tại ở trên db, sẽ tiến hành add sp với id = 0
         2.2) Nếu 1 số sp trong cart đã có trên db -> tiến hành đổi số lượng với id = id sản phẩm trong cart (Phải kiểm tra có đúng là của người dùng đang đăng nhập)
     */
+}
+//xóa đồng bộ sản phẩm giữa session và db khi người dùng đã đặt hàng
+function detroy_cart_user_db(){
+    
 }
 //Cập nhật số lượng sản phẩm
 function cart_update($product_id, $number)

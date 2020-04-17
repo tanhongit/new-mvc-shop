@@ -16,9 +16,11 @@ if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
     if ($user['role_id'] == 1 || $user['role_id'] == 2) {
         update_sesion_cart();
+        update_cart_user_db();
         header('location:admin.php');
     } elseif ($user['role_id'] == 0) {
         update_sesion_cart();
+        update_cart_user_db();
         header('location:index.php');
     }
 }

@@ -20,6 +20,8 @@ if (!empty($_POST)) {
         'number' => intval($_POST['number_cart'])
     );
     cart_add($product_id, $product['number']);
+    global $user_nav;
+    if (isset($user_nav)) update_cart_user_db();
 }
 echo $product_id;
 header('location:../../product/' . $product_id . '-' . $product_slug);

@@ -29,7 +29,7 @@ function cart_add($product_id, $number)
     }
 }
 //cập nhật giỏ hàng đến cho người dùng và từ người dùng xuống session cart
-function update_sesion_cart_user()
+function update_sesion_cart()
 {
     global $user_nav, $linkconnectDB;
     if (isset($user_nav)) {

@@ -62,7 +62,69 @@ function update_sesion_cart()
         //dùng trong file login.php
     }
 }
+function update_cart_user_db()
+{
+    global $user_nav, $linkconnectDB;
+    //lấy sản phẩm trong session cart
+    $cart = cart_list();
 
+    //nếu row > 0, tức người dùng đã có sp trên db
+    if (mysqli_num_rows(mysqli_query($linkconnectDB, "SELECT * FROM cart_user WHERE user_id=" . $user_nav . "")) > 0) {
+        foreach ($cart as $product_cart) {
+            $option_cart_user = array(
+                'order_by' => 'id',
+                'where' => 'user_id=' . $user_nav
+            );
+            //duyệt mảng cart_user với user là người đang đăng nhập
+            $cart_users = get_all('cart_user', $option_cart_user);
+            foreach ($cart_users as $cart_user) {
+                if ($cart_user['product_id'] == $product_cart['id']) {
+                    $status = 1;
+                    break;
+                } else $status = 0;
+            }
+
+            if ($status == 1) { //nếu sp trong cart này đã có trên db -> edit
+                $cart_user = array(
+                    'id' => $cart_user['id'],
+                    'product_id' => $product_cart['id'],
+                    'number' => $product_cart['number'],
+                );
+                save('cart_user', $cart_user);
+            } elseif ($status == 0) { //nếu sp trong cart này chưa có trên db -> add
+                $cart_user = array(
+                    'id' => 0,
+                    'user_id' => $user_nav,
+                    'product_id' => $product_cart['id'],
+                    'number' => $product_cart['number'],
+                );
+                save('cart_user', $cart_user);
+            }
+        }
+    } else {
+        foreach ($cart as $product_cart) {
+            $up_cart_user = array(
+                'id' => 0,
+                'user_id' => $user_nav,
+                'product_id' => $product_cart['id'],
+                'number' => $product_cart['number'],
+            );
+            save('cart_user', $up_cart_user);
+        }
+    }
+    /*
+    phân tích đồng bộ số lượng sản phẩm trong cart lên db:
+    đầu tiên sẽ kểm tra người dùng hiện tại trên db
+    có 2 trường hợp: 1 là người dùng hiện tại chưa có sản phẩm nào trên db, 2 là  đã có 1 số sản phẩm trên đó
+    TH1:
+        kiểm tra xem người dùng hiện tại có sp nào trên db không
+        nếu chưa có sẽ tiến hành upload sản phẩm lên với id = 0 là mặc định (add sp)
+    TH2: (đã có 1 số sản phẩm trên đó)
+        2.0) kiểm tra xem người dùng hiện tại có sp nào trên db không
+        2.1) nếu sản phẩm trong cart chưa tồn tại ở trên db, sẽ tiến hành add sp với id = 0
+        2.2) Nếu 1 số sp trong cart đã có trên db -> tiến hành đổi số lượng với id = id sản phẩm trong cart (Phải kiểm tra có đúng là của người dùng đang đăng nhập)
+    */
+}
 //Cập nhật số lượng sản phẩm
 function cart_update($product_id, $number)
 {

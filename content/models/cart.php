@@ -127,8 +127,11 @@ function update_cart_user_db()
     */
 }
 //xóa đồng bộ sản phẩm giữa session và db khi người dùng đã đặt hàng
-function detroy_cart_user_db(){
-    
+function detroy_cart_user_db()
+{
+    global $user_nav, $linkconnectDB;
+    $sql = "DELETE FROM cart_user WHERE user_id=" . $user_nav;
+    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
 }
 //Cập nhật số lượng sản phẩm
 function cart_update($product_id, $number)

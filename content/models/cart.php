@@ -133,6 +133,13 @@ function detroy_cart_user_db()
     $sql = "DELETE FROM cart_user WHERE user_id=" . $user_nav;
     mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
 }
+//xóa động bộ tùy sản phẩm được loại khỏi cart 
+function delete_cart_user_db($product_id)
+{
+    global $user_nav, $linkconnectDB;
+    $sql = "DELETE FROM cart_user WHERE user_id=" . $user_nav . " and product_id=" . $product_id;
+    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+}
 //Cập nhật số lượng sản phẩm
 function cart_update($product_id, $number)
 {

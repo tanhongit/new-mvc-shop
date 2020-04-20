@@ -13,6 +13,7 @@ $user = get_a_record('users', $post['post_author']);
 if (!$post || $post['post_status'] <> 'Publiced') {
     show_404();
 } else   updateCountView($post_id);
+$image_post = $post['post_avatar'];
 $title = $post['post_title'] . ' - Quán Chị Kòi';
 //load view
 require('content/views/post/index.php');

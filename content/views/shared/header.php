@@ -37,6 +37,8 @@ $options_menu_footer = array(
 $menu_footers = get_all('menu_footers', $options_menu_footer);
 global $user_nav;
 $user_login = get_a_record('users', $user_nav);
+
+if (isset($image_product)) $link_image = 'https://chikoiquan.com/public/upload/products/' . $image_product;
 ?>
 <!DOCTYPE html>
 <html>
@@ -50,6 +52,8 @@ $user_login = get_a_record('users', $user_nav);
 	<meta name="author" content="chikoiquan.com">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel=icon href="<?= PATH_URL ?>public/img/<?= $favicon ?>" sizes="32x32">
+	<link rel="shortcut icon" href="<?= PATH_URL ?>public/img/<?= $favicon ?>" type="image/x-icon" />
+	<link rel="apple-touch-icon" sizes="180x180" href="<?= PATH_URL ?>public/img/<?= $favicon ?>">
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="public/vendor/bootstrap/bootstrap.css">
 	<link rel="stylesheet" href="public/vendor/fontawesome/css/font-awesome.css">
@@ -65,15 +69,34 @@ $user_login = get_a_record('users', $user_nav);
 	<link rel="stylesheet" href="public/vendor/circle-flip-slideshow/css/component.css" media="screen">
 	<link rel="stylesheet" href="public/css/skins/default.css">
 	<link rel="stylesheet" href="public/css/custom.css">
+	<!--[if IE]>
+			<link rel="stylesheet" href="public/css/ie.css">
+		<![endif]-->
+
+	<!--[if lte IE 8]>
+			<script src="public/vendor/respond/respond.js"></script>
+			<script src="public/vendor/excanvas/excanvas.js"></script>
+		<![endif]-->
 	<script src="public/vendor/modernizr/modernizr.js"></script>
 	<script src="public/js/jquery-3.2.1.min.js"></script>
+	<meta property="og:site_name" content="Quán Chị Kòi" />
+	<meta property="og:title" content="<?php echo isset($title) ? $title : 'Quán Chị Kòi'; ?>" />
+	<meta property="article:tag" content="Chị Kòi Quán" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://chikoiquan.com" />
+	<meta property="article:publisher" content="https://www.facebook.com/110895717060461" />
 	<meta property="og:title" content="Chị Kòi Quán" />
-	<meta property="og:description" content="Buôn bán các loại đồ an thức uống, hàng mỹ phẩm, làm đẹp" />
-	<meta property="og:image" content="<?= PATH_URL ?>public/img/<?= $favicon ?>" />
+	<meta property="og:description" content="Buôn bán các loại đồ ăn thức uống, hàng mỹ phẩm, làm đẹp" />
+	<meta property="og:image" content="<?php echo isset($link_image) ? $link_image : ''; ?>" />
+	<meta property="og:image:secure_url" content="<?php echo isset($link_image) ? $link_image : ''; ?>" />
+	<meta property="og:image:width" content="700" />
+	<meta property="og:image:height" content="345" />
 	<meta property="og:locale" content="vi_VN" />
 	<meta property="fb:app_id" content="517386205818335" />
+	<meta name="twitter:description" content="Buôn bán các loại đồ ăn thức uống, hàng mỹ phẩm, làm đẹp." />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="<?php echo isset($title) ? $title : 'Quán Chị Kòi'; ?>" />
+	<!-- <meta name="twitter:image" content="https://tanhongit.com/wp-content/uploads/2020/04/giai-phap-lam-viec-tai-nha-hieu-qua.jpg" /> -->
 </head>
 
 <body>

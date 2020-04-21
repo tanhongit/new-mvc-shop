@@ -15,5 +15,7 @@ if (!$post || $post['post_status'] <> 'Publiced') {
 } else   updateCountView($post_id);
 $image_post = $post['post_avatar'];
 $title = $post['post_title'] . ' - Quán Chị Kòi';
+$url_product = 'post/' . $post['id'] . '-' . $post['post_slug'];
+$image_product = PATH_URL . 'public/upload/ckeditorimages/' . $post['post_avatar'];
 //load view
 require('content/views/post/index.php');

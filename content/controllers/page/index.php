@@ -14,5 +14,7 @@ if (!$page || $page['post_status'] <> 'Publiced') {
     show_404();
 } else   updateCountView($post_id);
 $title = $page['post_title'] . ' - Quán Chị Kòi';
+$url_product = 'page/' . $page['id'] . '-' . $page['post_slug'];
+$image_product = PATH_URL . 'public/upload/ckeditorimages/' . $page['post_avatar'];
 //load view
 require('content/views/page/index.php');

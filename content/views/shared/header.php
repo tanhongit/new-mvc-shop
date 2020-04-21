@@ -38,7 +38,10 @@ $menu_footers = get_all('menu_footers', $options_menu_footer);
 global $user_nav;
 $user_login = get_a_record('users', $user_nav);
 
-if (isset($image_product)) $link_image = 'https://chikoiquan.com/public/upload/products/' . $image_product;
+if (isset($image_product)) $link_image = $image_product;
+else $link_image = PATH_URL . 'public/img/bang-hieu-chikoishop.jpg';
+if (isset($url_product)) $url_site = PATH_URL . $url_product . '/';
+else $url_site = PATH_URL . 'home';
 ?>
 <!DOCTYPE html>
 <html>
@@ -81,22 +84,22 @@ if (isset($image_product)) $link_image = 'https://chikoiquan.com/public/upload/p
 	<script src="public/js/jquery-3.2.1.min.js"></script>
 	<meta property="og:site_name" content="Quán Chị Kòi" />
 	<meta property="og:title" content="<?php echo isset($title) ? $title : 'Quán Chị Kòi'; ?>" />
-	<meta property="article:tag" content="Chị Kòi Quán" />
+	<meta property="article:tag" content="<?php echo isset($title) ? $title : 'Quán Chị Kòi'; ?>" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://chikoiquan.com" />
+	<meta property="og:url" content="<?php echo $url_site; ?>" />
+	<link rel="canonical" href="<?php echo $url_site; ?>" />
 	<meta property="article:publisher" content="https://www.facebook.com/110895717060461" />
-	<meta property="og:title" content="Chị Kòi Quán" />
-	<meta property="og:description" content="Buôn bán các loại đồ ăn thức uống, hàng mỹ phẩm, làm đẹp" />
-	<meta property="og:image" content="<?php echo isset($link_image) ? $link_image : ''; ?>" />
-	<meta property="og:image:secure_url" content="<?php echo isset($link_image) ? $link_image : ''; ?>" />
+	<meta property="og:description" content="Buôn bán các loại đồ ăn thức uống, hàng mỹ phẩm, làm đẹp,..." />
+	<meta property="og:image" content="<?php echo $link_image; ?>" />
+	<meta property="og:image:secure_url" content="<?php echo $link_image; ?>" />
 	<meta property="og:image:width" content="700" />
 	<meta property="og:image:height" content="345" />
 	<meta property="og:locale" content="vi_VN" />
 	<meta property="fb:app_id" content="517386205818335" />
-	<meta name="twitter:description" content="Buôn bán các loại đồ ăn thức uống, hàng mỹ phẩm, làm đẹp." />
+	<meta name="twitter:description" content="Buôn bán các loại đồ ăn thức uống, hàng mỹ phẩm, làm đẹp,..." />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="<?php echo isset($title) ? $title : 'Quán Chị Kòi'; ?>" />
-	<!-- <meta name="twitter:image" content="https://tanhongit.com/wp-content/uploads/2020/04/giai-phap-lam-viec-tai-nha-hieu-qua.jpg" /> -->
+	<meta name="twitter:image" content="<?php echo $link_image; ?>" />
 </head>
 
 <body>

@@ -57,4 +57,4 @@ Change the value of the constant SMTP_UNAME and SMTP_PWORD to match the configur
 
 Path: [`/lib/config/sendmail.php`](https://github.com/TanHongIT/new-mvc-shop/tree/master/lib/config)
 
-![Image](https://imgur.com/rncleZ0)
+![Image](https://imgur.com/rncleZ0.png)

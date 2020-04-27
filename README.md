@@ -12,8 +12,7 @@ After a clone my repository to the local computer, you need to edit some code to
 
 ### 3.1 Edit Config
 
-Path: [`/lib/config/config.php`][config-link].
-[config-link]: https://github.com/TanHongIT/new-mvc-shop/tree/master/lib/config
+Path: [`/lib/config/config.php`](https://github.com/TanHongIT/new-mvc-shop/tree/master/lib/config)
 
 ```php
 <?php

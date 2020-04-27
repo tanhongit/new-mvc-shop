@@ -1,8 +1,16 @@
 # Welcome to New PHP MVC by TANHONGIT
 
-Tong quan
+## Support the project
+Support this project :stuck_out_tongue_winking_eye: :pray:
+<p align="center">
+    <a href="https://www.buymeacoffee.com/TanHongIT" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-green.svg" data-origin="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="PayPal buymeacoffee TanHongIT"></a>
+</p>
 
-Yeu cau cau hinh
+# 1 Configuration requirements
+
+    - Version PHP 7.2 and above
+    - OpenSSL PHP Extension     
+    - 
 
 # 2 Download Database
 
@@ -42,7 +50,8 @@ define('DB_NAME', 'chikoi');
 
 ### 3.3 Edit SMTP Mail
 
-The third thing: you need to change the information about SMTP Mail to be able to use some functions about user account authentication, change passwords, notify users, ...
+> The third thing: 
+You need to change the information about **SMTP Mail** to be able to use some functions about user account authentication, change passwords, notify users, ...
 
 ```php
 define('SMTP_HOST','smtp.gmail.com');
@@ -51,10 +60,13 @@ define('SMTP_UNAME','tanhongitverifi@gmail.com');
 define('SMTP_PWORD','kkgdqneidrcgvqt');
 ```
 
-Change the value of the constant SMTP_UNAME and SMTP_PWORD to match the configuration you added on your Gmail.
+Change the value of the constant **SMTP_UNAME** and **SMTP_PWORD** to match the configuration you added on your Gmail.
 
 **Where SMTP_PWORD is the application password for your _gmail.com_ account.**
 
 Path: [`/lib/config/sendmail.php`](https://github.com/TanHongIT/new-mvc-shop/tree/master/lib/config)
+
+# 4 Technology
+- Pure PHP language
 
 ![Image](https://imgur.com/rncleZ0.png)

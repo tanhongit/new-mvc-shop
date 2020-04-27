@@ -1,14 +1,19 @@
-## Welcome to New PHP MVC by TANHONGIT
+# Welcome to New PHP MVC by TANHONGIT
 
-You can use the [editor on GitHub](https://github.com/TanHongIT/new-mvc-shop/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Tong quan
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Yeu cau cau hinh
 
-## Request appropriate edits
+Database
+
+# 3 Request appropriate edits
 
 After a clone my repository to the local computer, you need to edit some code to be able to connect to the database and help the site works.
 
-### Edit config.php
+### 3.1 Edit Config
+
+Path: [`/lib/config/config.php`][config-link].
+[config-link]: https://github.com/TanHongIT/new-mvc-shop/tree/master/lib/config
 
 ```php
 <?php
@@ -16,6 +21,19 @@ define('BASE_URL', 'new-mvc-shop');
 define('PATH_URL', 'http://localhost/new-mvc-shop/');
 define('PATH_URL_IMG', PATH_URL . '/public/upload/images/');
 define('PATH_URL_IMG_PRODUCT', PATH_URL . '/public/upload/products/');
+```
+### 3.2 Edit Connect Database
+
+You need to change the connection information to the database after you have cloned my repository so that the website can work.
+
+Path: [`/lib/config/database.php`][database-link].
+[database-link]: https://github.com/TanHongIT/new-mvc-shop/tree/master/lib/config
+
+```php
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'chikoi');
 ```
 
 ### Markdown

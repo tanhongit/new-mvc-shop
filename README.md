@@ -6,39 +6,48 @@ Support this project :stuck_out_tongue_winking_eye: :pray:
     <a href="https://www.paypal.me/tanhongit" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-green.svg" data-origin="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="PayPal buymeacoffee TanHongIT"></a>
 </p>
 
-# 1 Configuration requirements
+# 1. Configuration requirements
 
     - Version PHP 7.2 and above
     - OpenSSL PHP Extension
 
-# 2 Technology
+# 2. Technology
 - Pure PHP language
 
-# 3 Feature
+# 3. Feature
 
 ```
-    1. FRONT-END
-        - Shopping cart
-        - Customer login
-    2. BACKEND-ADMIN
-        - Admin roles, permission
-        - Product manager
-        - Category manager
-        - Order management
-        - Comment manager
-        - Feedback manager
-        - User management
-        - Template manager
-        - Backup database 
+1. FRONT-END
+    - Shopping cart
+    - Customer login
+    - Content: Page, Post, Product, Category,...
+    - Product attributes: cost price, promotion price, detail,...
+    - Feedback
+    - Comment on Product, Post,...
+    ...
+
+=================================================================
+
+2. BACKEND-ADMIN
+    - Admin roles, permission
+    - Product manager
+    - Category manager
+    - Order management
+    - Comment manager
+    - Feedback manager
+    - User management
+    - Template manager
+    - Backup database 
+    ...
 ```
 
-# 4 Download Database
+# 4. Download Database
 
 This is the path to the database file for you to download: [`/admin/database/***.sql`](https://github.com/TanHongIT/new-mvc-shop/tree/master/admin/database)
 
-Create a new database on PHPMyAdmin at your server, then import the .sql file that you just downloaded.
+Create a new database on **PHPMyAdmin** at your server, then import the .sql file that you just downloaded.
 
-# 5 Request appropriate edits
+# 5. Request appropriate edits
 
 After a clone my repository to the local computer, you need to edit some code to be able to connect to the database and help the site works.
 

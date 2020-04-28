@@ -106,17 +106,21 @@ Path: [`/lib/config/sendmail.php`](https://github.com/TanHongIT/new-mvc-shop/tre
 
 ```
 user :
-    username: testna | email: test@gmail.com | password: 123456789
+    username: testna      | email: test@gmail.com        | password: 123456789
     username: tanhongitii | email: meowwww@gmail.com.com | password: 123456789
 Mod :
-    username: eyteyt | email: moderator@gmail.com | password: 12345678
+    username: eyteyt      | email: moderator@gmail.com   | password: 12345678
 
 Admin:
-    username: admin | email: admin@gmail.com | password: 1234567890
+    username: admin       | email: admin@gmail.com       | password: 1234567890
 ```
 # Demo Images
+
+HomePage
 ![Image](https://imgur.com/rncleZ0.png)
 
+Slide of Homepage
 ![Image](https://imgur.com/uI1Umba.png)
 
+Product Page
 ![Image](https://imgur.com/ExdAptJ.png)

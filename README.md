@@ -97,7 +97,26 @@ Change the value of the constant **SMTP_UNAME** and **SMTP_PWORD** to match the 
 
 Path: [`/lib/config/sendmail.php`](https://github.com/TanHongIT/new-mvc-shop/tree/master/lib/config)
 
-# 6 Demo
+# 6. Demo
 
+1. Front-End: [http://tanhongit.epizy.com/new-mvc-shop/home](http://tanhongit.epizy.com/new-mvc-shop/home)
+2. Back-End: [http://tanhongit.epizy.com/new-mvc-shop/admin.php](http://tanhongit.epizy.com/new-mvc-shop/admin.php)
 
+> **_Account login on Backend_**
+
+```
+user :
+    username: testna | email: test@gmail.com | password: 123456789
+    username: tanhongitii | email: meowwww@gmail.com.com | password: 123456789
+Mod :
+    username: eyteyt | email: moderator@gmail.com | password: 12345678
+
+Admin:
+    username: admin | email: admin@gmail.com | password: 1234567890
+```
+# Demo Images
 ![Image](https://imgur.com/rncleZ0.png)
+
+![Image](https://imgur.com/uI1Umba.png)
+
+![Image](https://imgur.com/ExdAptJ.png)

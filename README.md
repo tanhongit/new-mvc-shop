@@ -1,5 +1,10 @@
 # Welcome to New PHP MVC by TANHONGIT
 
+The NEW-MVC-SHOP is a free e-commerce website project for everyone to use. It is built in pure PHP language. And anyone can use it.
+- Customers do not need to know much about technology.
+- Powerful system, many useful functions.
+- Easy to access, easy to use.
+
 ## Support the project
 Support this project :stuck_out_tongue_winking_eye: :pray:
 <p align="center">
@@ -53,7 +58,7 @@ After a clone my repository to the local computer, you need to edit some code to
 
 ### 5.1 Edit Config
 
-You need to change the path in the 'config.php' file to match the location of this source code on your server and must match the domain you registered.
+You need to change the path in the '**config.php**' file to match the location of this source code on your server and must match the domain you registered.
 
 Path: [`/lib/config/config.php`](https://github.com/TanHongIT/new-mvc-shop/tree/master/lib/config)
 
@@ -116,11 +121,11 @@ Admin:
 ```
 # Demo Images
 
-HomePage
+**HomePage**
 ![Image](https://imgur.com/rncleZ0.png)
 
-Slide of Homepage
+**Slide of Homepage**
 ![Image](https://imgur.com/uI1Umba.png)
 
-Product Page
+**Product Page**
 ![Image](https://imgur.com/ExdAptJ.png)

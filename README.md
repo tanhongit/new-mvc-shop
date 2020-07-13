@@ -129,5 +129,6 @@ Admin:
 
 **Product Page**
 ![Image](https://imgur.com/ExdAptJ.png)
-
+<p align="center">
 ![license](https://img.shields.io/packagist/l/doctrine/orm.svg)
+</p>

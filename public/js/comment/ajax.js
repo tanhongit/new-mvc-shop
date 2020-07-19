@@ -42,7 +42,22 @@ async function addComment(commentContent, productID, userID, link_image, author,
     comments.forEach(item => {
 
         commentsResult += `
-            <li>${item['rate']}<br>${item['content']}</li>`;
+        <li>
+        <div class="comment">
+            <div class="img-thumbnail">
+                <image style="max-width: 80px;" alt=""
+                    src="public/upload/images/${item['link_image']}">
+                </image>
+            </div>
+            <div class="comment-block">
+                <div class="comment-arrow"></div>
+                <span class="comment-by">
+                    <strong>${item['author']}</strong>
+                </span>
+                <p>${item['content']}</p>
+            </div>
+        </div>
+    </li>`;
 
     });
     // Đẩy html được render vào

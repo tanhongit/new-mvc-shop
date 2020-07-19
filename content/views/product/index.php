@@ -369,5 +369,6 @@
         </div>
     </div>
 </div>
+<script src="public/js/comment/ajax.js"></script>
 <?php
 require('content/views/shared/footer.php');

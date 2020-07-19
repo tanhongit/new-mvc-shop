@@ -124,11 +124,23 @@ Admin:
 **HomePage**
 ![Image](https://imgur.com/rncleZ0.png)
 
+---------------------------------------------------------------------------------
+
 **Slide of Homepage**
 ![Image](https://imgur.com/uI1Umba.png)
 
+---------------------------------------------------------------------------------
+
 **Product Page**
 ![Image](https://imgur.com/ExdAptJ.png)
+
+---------------------------------------------------------------------------------
+
+**Admin Manager Page**
+![Image](https://imgur.com/xOpAmb4.png)
+
+---------------------------------------------------------------------------------
+
 <p align="center">
      <img src="https://img.shields.io/packagist/l/doctrine/orm.svg" data-origin="https://img.shields.io/packagist/l/doctrine/orm.svg" alt="license">
 </p>

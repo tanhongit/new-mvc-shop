@@ -180,7 +180,7 @@
                                     <h4>Thêm bình luận</h4>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <!-- <form action="index.php?controller=comment" id="submitReview" method="post">
+                                            <form action="index.php?controller=comment" id="submitReview" method="post">
                                                 <input name="product_id" type="hidden" value="<?= $product['id'] ?>">
                                                 <input name="user_id" type="hidden" value="<?php echo $user_nav ? $user_nav : '0'; ?> ">
                                                 <div class="row">
@@ -218,9 +218,9 @@
                                                         <input type="submit" value="Xác nhận gửi" class="btn btn-primary" data-loading-text="Loading...">
                                                     </div>
                                                 </div>
-                                            </form> -->
+                                            </form>
 
-                                            <div class="row">
+                                            <!-- <div class="row">
                                                 <input name="product_id" id="product_id" type="hidden" value="<?= $product['id'] ?>">
                                                 <input name="user_id" id="user_id" type="hidden" value="<?php echo $user_nav ? $user_nav : '0'; ?> ">
                                                 <?php if (!isset($user_nav)) : ?>
@@ -277,11 +277,11 @@
                                             <hr>
                                             <div class="row">
                                                 <div class="col-md-12" style="text-align: center;">
-                                                    <button id="send-comment" onclick="addComment();"
+                                                    <button id="send-comment"
                                                         class="btn btn-primary" data-loading-text="Loading...">Xác nhận
                                                         gửi</button>
                                                 </div>
-                                            </div>
+                                            </div> -->
 
                                         </div>
                                     </div>
@@ -369,6 +369,6 @@
         </div>
     </div>
 </div>
-<script src="public/js/comment/ajax.js"></script>
+
 <?php
 require('content/views/shared/footer.php');

@@ -18,7 +18,7 @@ btnComment.addEventListener('click', function () {
 async function addComment(commentContent, productID, userID, link_image, author, email) {
 
     // url sẽ xử lý phía server
-    const url = 'index.php?controller=comment';
+    const url = 'index.php?controller=comment&action=index';
 
     // Chuyển data nhận vào thành kiểu Object để parse sang JSON
     const data = { productID: productID, commentContent: commentContent, userID: userID, link_image: link_image, author: author, email: email };

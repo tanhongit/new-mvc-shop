@@ -117,6 +117,7 @@
 <script src="public/js/views/view.home.js"></script>
 <script src="public/js/custom.js"></script>
 <script src="public/js/theme.init.js"></script>
+<script src="public/js/comment/ajax.js"></script>
 </body>
 
 </html>

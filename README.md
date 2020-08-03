@@ -24,24 +24,27 @@ Support this project :stuck_out_tongue_winking_eye: :pray:
 ```
 1. FRONT-END
     - Shopping cart
+    - Save cart with database
     - Customer login
-    - Content: Page, Post, Product, Category,...
+    - Content: Page, Post, Product List, Product Details, Category,...
     - Product attributes: cost price, promotion price, detail,...
-    - Feedback
+    - Feedback, Feedback for product, Feedback for order
     - Comment on Product, Post,...
+    - Search, pagination,...
+    - Checkout, PlaceỎder,...
     ...
 
 =================================================================
 
 2. BACKEND-ADMIN
     - Admin roles, permission
-    - Product manager
-    - Category manager
-    - Order management
-    - Comment manager
-    - Feedback manager
-    - User management
-    - Template manager
+    - Product manager   (Create, delete, update)
+    - Category manager  (Create, delete, update)
+    - Order management  (Create, delete, update)
+    - Comment manager   (Create, delete, update)
+    - Feedback manager  (Create, delete, update)
+    - User management   (Create, delete, update)
+    - Template manager  (Create, update)
     - Backup database 
     ...
 ```

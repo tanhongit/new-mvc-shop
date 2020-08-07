@@ -95,8 +95,8 @@ You need to change the information about **SMTP Mail** to be able to use some fu
 ```php
 define('SMTP_HOST','smtp.gmail.com');
 define('SMTP_PORT','465');
-define('SMTP_UNAME','tanhongitverifi@gmail.com');
-define('SMTP_PWORD','kkgdqneidrcgvqt');
+define('SMTP_UNAME'add_your_mail');
+define('SMTP_PWORD','add_your_application_password_from_your_mail');
 ```
 
 Change the value of the constant **SMTP_UNAME** and **SMTP_PWORD** to match the configuration you added on your Gmail.

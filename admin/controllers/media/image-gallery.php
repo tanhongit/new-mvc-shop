@@ -5,6 +5,7 @@
 -->
 <?php
 permission_user();
+$user_info_nav = get_a_record('users', $user_nav);
 $options = array(
     'order_by' => 'id ASC'
 );

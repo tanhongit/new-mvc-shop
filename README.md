@@ -87,7 +87,29 @@ define('DB_PASS', '');
 define('DB_NAME', 'chikoi');
 ```
 
-### 5.3 Edit SMTP Mail
+### 5.2 Edit .htaccess
+
+Change RewriteBase - Recommend the path that matches your host address.
+
+-----------------------------------------------
+
+Example use localhost:  http://localhost/new-mvc-shop/index.php
+
+so we will have:
+```
+RewriteBase /new-mvc-shop/
+```
+
+------------------------------------------------
+
+Example 2: use localhost:  http://localhost/frontend/new-mvc-shop/index.php
+
+so we will have:
+```
+RewriteBase /frontend/new-mvc-shop/
+```
+
+### 5.4 Edit SMTP Mail
 
 > The third thing: 
 You need to change the information about **SMTP Mail** to be able to use some functions about user account authentication, change passwords, notify users, ...

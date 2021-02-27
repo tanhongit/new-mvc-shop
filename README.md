@@ -123,6 +123,8 @@ define('SMTP_PWORD','add_your_application_password_from_your_mail');
 
 Change the value of the constant **SMTP_UNAME** and **SMTP_PWORD** to match the configuration you added on your Gmail.
 
+Tips: https://support.google.com/accounts/answer/185833?hl=en
+
 **Where SMTP_PWORD is the application password for your _gmail.com_ account.**
 
 Path: [`/lib/config/sendmail.php`](https://github.com/TanHongIT/new-mvc-shop/tree/master/lib/config)

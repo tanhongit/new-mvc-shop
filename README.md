@@ -13,7 +13,7 @@ Support this project :stuck_out_tongue_winking_eye: :pray:
 
 # 1. Configuration requirements
 
-    - Version PHP 7.2 and above
+    - Version PHP 7.2 and above (-> 8.1)
     - OpenSSL PHP Extension
 
 # 2. Technology

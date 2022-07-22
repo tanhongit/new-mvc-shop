@@ -68,9 +68,9 @@ Path: [`/lib/config/config.php`](https://github.com/TanHongIT/new-mvc-shop/tree/
 ```php
 <?php
 define('BASE_URL', 'new-mvc-shop');
-define('PATH_URL', 'http://localhost/new-mvc-shop/');
-define('PATH_URL_IMG', PATH_URL . '/public/upload/images/');
-define('PATH_URL_IMG_PRODUCT', PATH_URL . '/public/upload/products/');
+define('PATH_URL', '/');
+define('PATH_URL_IMG', PATH_URL . 'public/upload/images/');
+define('PATH_URL_IMG_PRODUCT', PATH_URL . 'public/upload/products/');
 ```
 ### 5.2 Edit Connect Database
 
@@ -93,20 +93,9 @@ Change RewriteBase - Recommend the path that matches your host address.
 
 -----------------------------------------------
 
-Example use localhost:  http://localhost/new-mvc-shop/index.php
-
 so we will have:
 ```
-RewriteBase /new-mvc-shop/
-```
-
-------------------------------------------------
-
-Example 2: use localhost:  http://localhost/frontend/new-mvc-shop/index.php
-
-so we will have:
-```
-RewriteBase /frontend/new-mvc-shop/
+RewriteBase /
 ```
 
 ### 5.4 Edit SMTP Mail

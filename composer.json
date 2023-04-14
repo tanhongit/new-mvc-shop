@@ -1,5 +1,25 @@
 {
+    "name": "tanhongit/new-mvc-shop",
+    "description": "new-mvc-shop project",
+    "keywords": [
+        "new-mvc-shop",
+        "mvc",
+        "php",
+        "php-mvc"
+    ],
+    "homepage": "https://tanhongit.com",
+    "authors": [
+        {
+            "name": "Tan Nguyen",
+            "email": "tannp27@gmail.com",
+            "homepage": "https://tanhongit.com"
+        }
+    ],
+    "license": "MIT",
     "require": {
         "phpmailer/phpmailer": "^6.1"
+    },
+    "support": {
+        "issues": "https://github.com/tanhongit/new-mvc-shop/issues"
     }
 }

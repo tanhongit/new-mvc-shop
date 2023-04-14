@@ -1,11 +1,9 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php
+
 permission_user();
+
 require_once('admin/models/comments.php');
+
 if (isset($_GET['comment_id'])) {
     $comment_id = intval($_GET['comment_id']);
     comment_unApproved($comment_id);

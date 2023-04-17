@@ -1,8 +1,3 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php
 require('content/views/shared/header.php'); ?>
 <div role="main" class="main shop">
@@ -55,7 +50,7 @@ require('content/views/shared/header.php'); ?>
                 <div class="row featured-boxes">
                     <div class="col-md-12">
                         <div class="actions-continue">
-                            <form action="cart/order/checkout" method="post">
+                            <form action="cart/order" method="post">
                                 <input type="submit" value="Tiếp tục thanh toán →" name="proceed" class="btn btn-lg btn-primary"></form>
                         </div>
                     </div>

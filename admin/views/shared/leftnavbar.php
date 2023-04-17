@@ -41,7 +41,7 @@
             </li>
             <?php if ($user_info_nav['role_id'] != 0) :
                 if ($user_info_nav['role_id'] == 1) : ?>
-                    <li <?php if (isset($nav_category)) echo $nav_category; ?>> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-folder"></i><span>Quản lý danh mục</span></a>
+                    <li <?= $navCategory ?? ''; ?>> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-folder"></i><span>Quản lý danh mục</span></a>
                         <ul class="ml-menu">
                             <li><a href="admin.php?controller=shop">1. Nhóm danh mục</a></li>
                             <li><a href="admin.php?controller=shop&amp;action=edit">2. Add nhóm danh mục mới</a></li>
@@ -49,7 +49,7 @@
                             <li><a href="admin.php?controller=category&amp;action=edit">4. Add danh mục con mới</a></li>
                         </ul>
                     </li>
-                    <li <?php if (isset($backupdb)) echo $backupdb; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-dns"></i><span>Backup</span></a>
+                    <li <?= $backupDbClass ?? '' ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-dns"></i><span>Backup</span></a>
                         <ul class="ml-menu">
                             <li><a href="admin.php?controller=backupdb">Backup CSDL</a></li>
                             <li><a href="admin.php?controller=backupdb&action=list">List Backup CSDL</a></li>

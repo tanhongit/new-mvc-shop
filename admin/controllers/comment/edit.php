@@ -9,13 +9,13 @@ if (!empty($_POST)) {
 }
 
 if (isset($_GET['comment_id'])) {
-    $comment_id = intval($_GET['comment_id']);
+    $commentId = intval($_GET['comment_id']);
 } else {
-    $comment_id = 0;
+    $commentId = 0;
 }
 
-$title = $comment_id === 0 ? '' : 'Sửa phần bình luận của khách hàng';
-$comment = get_a_record('comments', $comment_id);
+$title = $commentId === 0 ? '' : 'Sửa phần bình luận của khách hàng';
+$comment = get_a_record('comments', $commentId);
 
 if ($comment['post_id'] <> 0) {
     $post = get_a_record('posts', $comment['post_id']);

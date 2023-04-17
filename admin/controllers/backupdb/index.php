@@ -6,7 +6,7 @@ permission_moderator();
 require_once('admin/models/backupDB.php');
 
 $title = 'Backup Cơ sở dữ liệu Dababase';
-$backupdb = 'class="active open"';
+$backupDbClass = 'class="active open"';
 
 if (isset($_POST['back_u_P_Data_base'])) {
     backup_db();

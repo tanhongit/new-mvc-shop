@@ -12,6 +12,6 @@ $options = array(
 );
 $title = 'Nhóm Danh mục sản phẩm';
 $categories = get_all('categories', $options);
-$nav_category = 'class="active open"';
+$navCategory = 'class="active open"';
 //load view
 require('admin/views/shop/index.php');

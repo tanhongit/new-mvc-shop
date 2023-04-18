@@ -67,7 +67,7 @@
                                                 <td><?= $stt ?></td>
                                                 <td><?= $link['menu_name'] ?></td>
                                                 <td><?= $link['menu_url'] ?></td>
-                                                <td><a href="admin.php?controller=header-footer&amp;action=editMenuFooter&amp;menufooter_id=<?php echo $link['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a></td>
+                                                <td><a href="admin.php?controller=header-footer&amp;action=editMenuFooter&amp;menu_footer_id=<?php echo $link['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>
@@ -110,12 +110,12 @@
                                     </tfoot>
                                     <tbody>
                                         <?php $stt = 0;
-                                        foreach ($link_menu_footer as $link) : $stt++; ?>
+                                        foreach ($menuFooterLinks as $link) : $stt++; ?>
                                             <tr>
                                                 <td><?= $stt ?></td>
                                                 <td><?= $link['menu_name'] ?></td>
                                                 <td><?= $link['menu_url'] ?></td>
-                                                <td><a href="admin.php?controller=header-footer&amp;action=editMenuFooter&amp;menufooter_id=<?php echo $link['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a></td>
+                                                <td><a href="admin.php?controller=header-footer&amp;action=editMenuFooter&amp;menu_footer_id=<?php echo $link['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

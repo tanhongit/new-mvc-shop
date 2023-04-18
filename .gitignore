@@ -1,2 +1,5 @@
 .idea
 .composer.lock
+.vscode
+vendor
+.gitignore

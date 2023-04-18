@@ -4,7 +4,7 @@
     Github: https://github.com/TanHongIT
 -->
 <?php
-function header_footer_update()
+function updateHeaderFooter()
 {
     $contacts = array(
         'id' => intval($_POST['contact_id']),
@@ -53,14 +53,14 @@ function header_footer_update()
     }
     header('location:admin.php?controller=header-footer');
 }
-function menu_footer_update()
+function updateMenuFooter()
 {
-    $menufooter = array(
-        'id' => intval($_POST['menufooter_id']),
+    $menuFooter = array(
+        'id' => intval($_POST['menu_footer_id']),
         'menu_name' => escape($_POST['name']),
         'menu_url' => escape($_POST['menu_url']),
         'menu_description' => escape($_POST['menu_description'])
     );
-    save('menu_footers', $menufooter);
+    save('menu_footers', $menuFooter);
     header('location:admin.php?controller=header-footer&action=listMenuFooter');
 }

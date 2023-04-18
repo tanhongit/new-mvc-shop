@@ -8,7 +8,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-function feedback_order_add()
+function addFeedbackOrder()
 {
     $feedback_add = array(
         'id' => intval($_POST['feedback_id']),
@@ -27,14 +27,14 @@ function feedback_order_add()
     require('content/views/feedback/result.php');
     exit;
 }
-function feedback_delete($id)
+function deleteFeedback($id)
 {
     global $linkconnectDB;
     $id = intval($id);
     $sql = "DELETE FROM feedbacks WHERE id=$id";
     mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
 }
-function feedback_update()
+function updateFeedback()
 {
     $feedback = array(
         'id' => intval($_POST['feedback_id']),
@@ -85,7 +85,7 @@ function feedback_reply_email($html, $email)
         echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
     }
 }
-function feedback_Approved($id)
+function approveFeedback($id)
 {
     if (isset($_GET['feedback_id'])) {
         $id = intval($_GET['feedback_id']);
@@ -94,7 +94,7 @@ function feedback_Approved($id)
     $sql = "UPDATE feedbacks SET status=1 where id=" . $id;
     mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
 }
-function feedback_unApproved($id)
+function unApproveFeedback($id)
 {
     if (isset($_GET['feedback_id'])) {
         $id = intval($_GET['feedback_id']);

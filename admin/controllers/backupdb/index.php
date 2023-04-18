@@ -8,7 +8,7 @@ require_once('admin/models/backupDB.php');
 $title = 'Backup Cơ sở dữ liệu Dababase';
 $backupDbClass = 'class="active open"';
 
-if (isset($_POST['back_u_P_Data_base'])) {
+if (isset($_POST['backup_database'])) {
     backup_db();
     header('location:admin.php?controller=backupdb&action=result');
 }

@@ -34,7 +34,7 @@
                     <div class="card">
                         <div class="body">
                             <form id="product-form" class="form-horizontal" method="post" enctype="multipart/form-data" role="form">
-                                <input name="subcate_id" type="hidden" value="<?php echo $subcategory ? $subcategory['id'] : '0'; ?>" />
+                                <input name="sub_cate_id" type="hidden" value="<?php echo $subcategory ? $subcategory['id'] : '0'; ?>" />
                                 <h2 class="card-inside-title" style="font-weight:bold;">Tên danh mục con:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">

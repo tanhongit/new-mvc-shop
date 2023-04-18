@@ -23,7 +23,7 @@ function subcategories_delete($id)
 function subcategory_update()
 {
     $subcategory = array(
-        'id' => intval($_POST['subcate_id']),
+        'id' => intval($_POST['sub_cate_id']),
         'subcategory_name' => escape($_POST['name']),
         'slug' => slug($_POST['name']),
         'category_id' => intval($_POST['category_id'])

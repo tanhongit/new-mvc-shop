@@ -45,7 +45,7 @@
                                 <hr>
                                 <h1 style="text-align: center; font-weight:bold;">Bạn có chắc rằng bạn muốn lưu lại bản backup DataBase? Hãy lựa chọn !!!</h1>
                                 <div class="form-group" style="text-align: center;">
-                                <input type="text" hidden name="back_u_P_Data_base">
+                                <input type="text" hidden name="backup_database">
                                     <button class="btn btn-primary waves-effect" type="submit">Có! Bắt đầu tạo bản Backup</button>
                                     <a class="btn btn-warning waves-effect" href="admin.php">Không! Trở về</a>
                                 </div>

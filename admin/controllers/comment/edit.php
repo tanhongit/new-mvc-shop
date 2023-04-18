@@ -29,6 +29,6 @@ if ($comment['product_id'] <> 0) {
     $product = get_a_record('products', $comment['product_id']);
 }
 
-$nav_comment = 'class="active open"';
+$navComment = 'class="active open"';
 
 require('admin/views/comment/edit.php');

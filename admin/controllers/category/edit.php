@@ -14,8 +14,8 @@ $categories = get_all('categories', array(
     'order_by' => 'id'
 ));
 
-if (isset($_GET['subcate_id'])) {
-    $subCateId = intval($_GET['subcate_id']);
+if (isset($_GET['sub_cate_id'])) {
+    $subCateId = intval($_GET['sub_cate_id']);
 } else {
     $subCateId = 0;
 }

@@ -5,7 +5,7 @@ permission_user();
 require_once('admin/models/comments.php');
 
 $title = 'Tổng Danh Sách Bình luận';
-$nav_comment = 'class="active open"';
+$navComment = 'class="active open"';
 $option = array(
     'order_by' => 'id desc',
     'where' => 'status<>3 and status<>2'

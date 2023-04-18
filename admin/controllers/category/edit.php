@@ -6,7 +6,7 @@ permission_moderator();
 require_once('admin/models/category.php');
 
 if (!empty($_POST)) {
-    subcategory_update();
+    updateSubCategory();
 }
 
 $categories = get_all('categories', array(

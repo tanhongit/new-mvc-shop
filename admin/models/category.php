@@ -4,7 +4,7 @@
     Github: https://github.com/TanHongIT
 -->
 <?php
-function subcategories_delete($id)
+function deleteSubCategory($id)
 {
     $id = intval($id);
     require_once('admin/models/products.php');
@@ -20,7 +20,7 @@ function subcategories_delete($id)
     $sql = "DELETE FROM subcategory WHERE id=$id";
     mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
 }
-function subcategory_update()
+function updateSubCategory()
 {
     $subcategory = array(
         'id' => intval($_POST['sub_cate_id']),

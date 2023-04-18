@@ -4,7 +4,7 @@
     Github: https://github.com/TanHongIT
 -->
 <?php
-function comment_Approved($id)
+function approveComment($id)
 {
     if (isset($_GET['comment_id'])) {
         $id = intval($_GET['comment_id']);
@@ -13,7 +13,7 @@ function comment_Approved($id)
     $sql = "UPDATE comments SET status=1 where id=" . $id;
     mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
 }
-function comment_Spam($id)
+function spamComment($id)
 {
     if (isset($_GET['comment_id'])) {
         $id = intval($_GET['comment_id']);
@@ -22,7 +22,7 @@ function comment_Spam($id)
     $sql = "UPDATE comments SET status=3 where id=" . $id;
     mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
 }
-function comment_Trash($id)
+function trashComment($id)
 {
     if (isset($_GET['comment_id'])) {
         $id = intval($_GET['comment_id']);
@@ -31,7 +31,7 @@ function comment_Trash($id)
     $sql = "UPDATE comments SET status=2 where id=" . $id;
     mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
 }
-function comment_unApproved($id)
+function unApprovedComment($id)
 {
     if (isset($_GET['comment_id'])) {
         $id = intval($_GET['comment_id']);
@@ -40,14 +40,14 @@ function comment_unApproved($id)
     $sql = "UPDATE comments SET status=0 where id=" . $id;
     mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
 }
-function comment_delete($id)
+function deleteComment($id)
 {
     global $linkconnectDB;
     $id = intval($id);
     $sql = "DELETE FROM comments WHERE id=$id";
     mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
 }
-function comment_update()
+function updateComment()
 {
     $comment = array(
         'id' => intval($_POST['comment_id']),

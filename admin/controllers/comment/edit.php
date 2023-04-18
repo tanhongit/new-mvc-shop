@@ -5,7 +5,7 @@ permission_user();
 require_once('admin/models/comments.php');
 
 if (!empty($_POST)) {
-    comment_update();
+    updateComment();
 }
 
 if (isset($_GET['comment_id'])) {

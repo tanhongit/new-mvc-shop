@@ -5,7 +5,7 @@ permission_user();
 require_once('admin/models/comments.php');
 
 if (isset($_GET['comment_id'])) {
-    $comment_id = intval($_GET['comment_id']);
-    comment_Spam($comment_id);
+    $commentId = intval($_GET['comment_id']);
+    spamComment($commentId);
     header('location:admin.php?controller=comment&action=spam');
 }

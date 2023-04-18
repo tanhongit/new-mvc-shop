@@ -29,7 +29,7 @@
                     <li><a href="admin.php?controller=user&action=change-password&user_id=<?= $user_info_nav['id'] ?>">Change your Password</a></li>
                 </ul>
             </li>
-            <li <?php if (isset($your_feedback)) echo $your_feedback; ?>><a href="admin.php?controller=feedback&action=myfeedback"><i class="zmdi zmdi-mail-send"></i><span>Your Feedback</span></a></li>
+            <li <?= $yourFeedback ?? '' ?>><a href="admin.php?controller=feedback&action=myfeedback"><i class="zmdi zmdi-mail-send"></i><span>Your Feedback</span></a></li>
             <li <?php if (isset($your_Purchase)) echo $your_Purchase; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Your Purchase</span></a>
                 <ul class="ml-menu">
                     <li><a href="admin.php?controller=purchase">Tất cả</a></li>
@@ -120,7 +120,7 @@
                         <li><a href="admin.php?controller=media&action=add">Add New Media</a></li>
                     </ul>
                 </li>
-                <li <?php if (isset($nav_feedback)) echo $nav_feedback; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-email-open"></i><span>Feedback Manager</span></a>
+                <li <?= $navFeedback ?? '' ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-email-open"></i><span>Feedback Manager</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=feedback">All Feedback</a></li>
                         <li><a href="admin.php?controller=feedback&action=pending">Pending Feedback</a></li>

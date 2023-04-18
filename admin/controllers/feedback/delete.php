@@ -5,7 +5,7 @@ permission_moderator();
 
 require_once('admin/models/feedbacks.php');
 
-$feedback_id = intval($_GET['feedback_id']);
-feedback_delete($feedback_id);
+$feedbackId = intval($_GET['feedback_id']);
+deleteFeedback($feedbackId);
 
 header('location:admin.php?controller=feedback');

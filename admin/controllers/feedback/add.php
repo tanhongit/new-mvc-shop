@@ -4,7 +4,7 @@ require_once('admin/models/feedbacks.php');
 require_once('admin/models/order.php');
 
 if (!empty($_POST)) {
-    feedback_order_add();
+    addFeedbackOrder();
 }
 
 if (isset($_GET['order_id'])) {
@@ -27,6 +27,6 @@ $status = array(
     3 => 'Đã bị hủy'
 );
 $title = 'Gửi phản hồi của bạn đến Chị Kòi Quán';
-$nav_feedback = 'class="active open"';
+$navFeedback = 'class="active open"';
 
 require('admin/views/feedback/add.php');

@@ -7,18 +7,18 @@ require_once('admin/models/feedbacks.php');
 require_once('admin/models/order.php');
 
 if (!empty($_POST)) {
-    feedback_update();
+    updateFeedback();
 }
 
 if (isset($_GET['feedback_id'])) {
-    $feedback_id = intval($_GET['feedback_id']);
+    $feedbackId = intval($_GET['feedback_id']);
 } else {
-    $feedback_id = 0;
+    $feedbackId = 0;
 }
 
-$title = $feedback_id === 0 ? '' : 'Sửa phần phản hồi của khách hàng';
-$nav_feedback = 'class="active open"';
-$feedback = get_a_record('feedbacks', $feedback_id);
+$title = $feedbackId === 0 ? '' : 'Sửa phần phản hồi của khách hàng';
+$navFeedback = 'class="active open"';
+$feedback = get_a_record('feedbacks', $feedbackId);
 
 if ($feedback['order_id'] <> 0) {
     $order_detail = order_detail($feedback['order_id']);

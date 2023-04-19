@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h2 class="shorter"><strong>Thủ tục thanh toán và đặt hàng</strong></h2>
-                <?php if (!isset($user_nav)) echo '<p>Phản hồi của khách hàng? <a href="admin.php">Nhấn vào đây để đăng nhập.</a></p>';
+                <?php if (!isset($userNav)) echo '<p>Phản hồi của khách hàng? <a href="admin.php">Nhấn vào đây để đăng nhập.</a></p>';
                 else echo '<p>Phản hồi của Bạn? <strong><a href="index.php&controller=feedback">Nhấn vào đây để gửi phản hồi.</a></strong></p>' ?>
             </div>
         </div>
@@ -139,7 +139,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <?php if (!isset($user_nav)) : ?>
+                                    <?php if (!isset($userNav)) : ?>
                                         <input type="hidden" name="user_id" value="0">
                                         <div class="row">
                                             <div class="form-group">
@@ -170,7 +170,7 @@
                                             </div>
                                         </div>
                                     <?php else : ?>
-                                        <input type="hidden" name="user_id" value="<?= $user_nav ?>">
+                                        <input type="hidden" name="user_id" value="<?= $userNav ?>">
                                         <h3>Thông tin dưới đây tự động được thêm từ tài khoản của bạn. Bạn có thể chỉnh sửa nếu thông tin bị sai lệch!</h3>
                                         <div class="row">
                                             <div class="form-group">

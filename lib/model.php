@@ -10,9 +10,9 @@ require('config/config.php');
 function get_a_record($table, $id, $select = '*')
 {
     $id = intval($id);
-    global $linkconnectDB;
+    global $linkConnectDB;
     $sql = "SELECT $select FROM `$table` WHERE id=$id";
-    $query = mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    $query = mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
     $data = NULL;
     if (mysqli_num_rows($query) > 0) {
         $data = mysqli_fetch_assoc($query);
@@ -27,9 +27,9 @@ function get_all($table, $options = array())
     $where = isset($options['where']) ? 'WHERE ' . $options['where'] : '';
     $order_by = isset($options['order_by']) ? 'ORDER BY ' . $options['order_by'] : '';
     $limit = isset($options['offset']) && isset($options['limit']) ? 'LIMIT ' . $options['offset'] . ',' . $options['limit'] : '';
-    global $linkconnectDB;
+    global $linkConnectDB;
     $sql = "SELECT $select FROM `$table` $where $order_by $limit";
-    $query = mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    $query = mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
     $data = array();
     if (mysqli_num_rows($query) > 0) {
         while ($row = mysqli_fetch_assoc($query)) {
@@ -41,19 +41,19 @@ function get_all($table, $options = array())
 }
 function get_total($table, $options = array())
 {
-    global $linkconnectDB;
+    global $linkConnectDB;
     $where = isset($options['where']) ? 'WHERE ' . $options['where'] : '';
     $sql = "SELECT COUNT(*) as total FROM `$table` $where";
-    $query = mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    $query = mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
     $row = mysqli_fetch_assoc($query);
     return $row['total'];
 }
 function save($table, $data = array())
 {
     $values = array();
-    global $linkconnectDB;
+    global $linkConnectDB;
     foreach ($data as $key => $value) {
-        $value = mysqli_real_escape_string($linkconnectDB, $value);
+        $value = mysqli_real_escape_string($linkConnectDB, $value);
         $values[] = "`$key`='$value'";
     }
     $id = intval($data['id']);
@@ -62,22 +62,22 @@ function save($table, $data = array())
     } else {
         $sql = "INSERT INTO `$table` SET " . implode(',', $values);
     }
-    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
-    $id = ($id > 0) ? $id : mysqli_insert_id($linkconnectDB);
+    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
+    $id = ($id > 0) ? $id : mysqli_insert_id($linkConnectDB);
     return $id;
 }
 function save_and_get_result($table, $data = array())
 {
     $values = array();
-    global $linkconnectDB;
+    global $linkConnectDB;
     foreach ($data as $key => $value) {
-        $value = mysqli_real_escape_string($linkconnectDB, $value);
+        $value = mysqli_real_escape_string($linkConnectDB, $value);
         $values[] = "`$key`='$value'";
     }
     $sql = "INSERT INTO `$table` SET " . implode(',', $values);
-    $result = mysqli_query($linkconnectDB, $sql);
+    $result = mysqli_query($linkConnectDB, $sql);
     if (!$result) {
-        $result = mysqli_error($linkconnectDB);
+        $result = mysqli_error($linkConnectDB);
     }
     echo $result;
 }
@@ -88,9 +88,9 @@ function select_a_record($table, $options = array(), $select = '*')
     $where = isset($options['where']) ? 'WHERE ' . $options['where'] : '';
     $order_by = isset($options['order_by']) ? 'ORDER BY ' . $options['order_by'] : '';
     $limit = isset($options['offset']) && isset($options['limit']) ? 'LIMIT ' . $options['offset'] . ',' . $options['limit'] : '';
-    global $linkconnectDB;
+    global $linkConnectDB;
     $sql = "SELECT $select FROM `$table` $where $order_by $limit";
-    $query = mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    $query = mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
     $data = NULL;
     if (mysqli_num_rows($query) > 0) {
         $data = mysqli_fetch_assoc($query);

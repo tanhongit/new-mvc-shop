@@ -9,43 +9,43 @@ function approveComment($id)
     if (isset($_GET['comment_id'])) {
         $id = intval($_GET['comment_id']);
     } else show_404();
-    global $linkconnectDB;
+    global $linkConnectDB;
     $sql = "UPDATE comments SET status=1 where id=" . $id;
-    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
 function spamComment($id)
 {
     if (isset($_GET['comment_id'])) {
         $id = intval($_GET['comment_id']);
     } else show_404();
-    global $linkconnectDB;
+    global $linkConnectDB;
     $sql = "UPDATE comments SET status=3 where id=" . $id;
-    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
 function trashComment($id)
 {
     if (isset($_GET['comment_id'])) {
         $id = intval($_GET['comment_id']);
     } else show_404();
-    global $linkconnectDB;
+    global $linkConnectDB;
     $sql = "UPDATE comments SET status=2 where id=" . $id;
-    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
 function unApprovedComment($id)
 {
     if (isset($_GET['comment_id'])) {
         $id = intval($_GET['comment_id']);
     } else show_404();
-    global $linkconnectDB;
+    global $linkConnectDB;
     $sql = "UPDATE comments SET status=0 where id=" . $id;
-    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
 function deleteComment($id)
 {
-    global $linkconnectDB;
+    global $linkConnectDB;
     $id = intval($id);
     $sql = "DELETE FROM comments WHERE id=$id";
-    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
 function updateComment()
 {

@@ -7,9 +7,9 @@
 permission_user();
 require_once('admin/models/users.php');
 $user_id = intval($_GET['user_id']);
-global $user_nav;
-$user = get_a_record('users', $user_nav);
-if ($_GET['user_id'] == $user_nav || $user['role_id'] <> 1) {
+global $userNav;
+$user = get_a_record('users', $userNav);
+if ($_GET['user_id'] == $userNav || $user['role_id'] <> 1) {
     echo '<div style="padding-top: 200" class="container"><div class="alert alert-danger" style="text-align: center;"><strong>Error!</strong> Bạn không có quyền hoặc không được phép xóa người dùng này.<br><br> Hãy <a href="javascript: history.go(-1)">Quay lại</a> .!!</div></div>';
     require('admin/views/user/result.php');
     exit;

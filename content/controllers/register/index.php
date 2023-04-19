@@ -17,7 +17,7 @@ if (!empty($_POST)) {
         'user_email' => escape($_POST['email']),
         'createDate' => gmdate('Y-m-d H:i:s', time() + 7 * 3600)
     );
-    global $linkconnectDB;
+    global $linkConnectDB;
     $username = addslashes($_POST['username']);
     $email = addslashes($_POST['email']);
     $get_user_email_option = array(
@@ -31,15 +31,15 @@ if (!empty($_POST)) {
         }
     }
     $title = 'Kết quả đăng ký thành viên';
-    if (mysqli_num_rows(mysqli_query($linkconnectDB, "SELECT user_username FROM users WHERE user_username='$username'")) > 0) {
+    if (mysqli_num_rows(mysqli_query($linkConnectDB, "SELECT user_username FROM users WHERE user_username='$username'")) > 0) {
         echo "<div style='padding-top: 200' class='container'><div style='text-align: center;' class='alert alert-danger'><strong>NO!</strong> Tên đăng nhập này đã có người dùng. Vui lòng chọn tên đăng nhập khác. <a href='javascript: history.go(-1)'>Trở lại</a> hoặc <a href='index.php'>Đến Trang chủ</a></div></div>";
     } elseif ($_POST['confirmPassword'] != $_POST['password']) {
         echo "<div style='padding-top: 200' class='container'><div style='text-align: center;' class='alert alert-danger'><strong>NO!</strong> Việc đăng ký thành viên có vấn đề. Bạn đã không xác thực đúng mật khẩu đã nhập !! <br><a href='javascript: history.go(-1)'>Trở lại</a> hoặc <a href='index.php'>Đến Trang chủ</a></div></div>";
     } elseif (!preg_match("/([a-z0-9_]+|[a-z0-9_]+\.[a-z0-9_]+)@(([a-z0-9]|[a-z0-9]+\.[a-z0-9]+)+\.([a-z]{2,4}))/i", $email)) {
         echo "<div style='padding-top: 200' class='container'><div style='text-align: center;' class='alert alert-danger'><strong>NO!</strong> Email này không hợp lệ. Vui long nhập email khác. <a href='javascript: history.go(-1)'>Trở lại</a> hoặc <a href='index.php'>Đến Trang chủ</a></div></div>";
-    } elseif (mysqli_num_rows(mysqli_query($linkconnectDB, "SELECT user_email FROM users WHERE user_email='$email' and verified = 0")) > 0) {
+    } elseif (mysqli_num_rows(mysqli_query($linkConnectDB, "SELECT user_email FROM users WHERE user_email='$email' and verified = 0")) > 0) {
         echo "<div style='padding-top: 200' class='container'><div style='text-align: center;' class='alert alert-danger'><strong>NO!</strong> Email này đã đăng ký nhưng chưa được kích hoạt. nếu bạn đã từng đăng ký với email này vui lòng vào hộp thư đến hoặc kiểm tra trong muc spam sẽ có thư gửi yêu cầu xác nhận. Bạn hãy click vào link, Email sẽ được kích hoạt ngay. <br><br>Bạn có muốn <a href='index.php?controller=register&action=resend&id=" . $get_userid_of_email . "'>gửi lại mã kích hoạt</a> ??<br><br>Hoặc nếu muốn đăng ký thành viên mới hãy <a href='javascript: history.go(-1)'>Trở lại</a> hoặc <a href='index.php'>Đến Trang chủ</a></div></div>";
-    } elseif (mysqli_num_rows(mysqli_query($linkconnectDB, "SELECT user_email FROM users WHERE user_email='$email'")) > 0) {
+    } elseif (mysqli_num_rows(mysqli_query($linkConnectDB, "SELECT user_email FROM users WHERE user_email='$email'")) > 0) {
         echo "<div style='padding-top: 200' class='container'><div style='text-align: center;' class='alert alert-danger'><strong>NO!</strong> Email này đã có người dùng. Vui lòng chọn Email khác. <a href='javascript: history.go(-1)'>Trở lại</a> hoặc <a href='index.php'>Đến Trang chủ</a></div></div>";
     } elseif (strlen($_POST['password']) < 8) {
         echo "<div style='padding-top: 200' class='container'><div style='text-align: center;' class='alert alert-danger'><strong>NO!</strong> Việc đăng ký thành viên có vấn đề. Mật khẩu của bạn phải dài từ 8 ký tự trở lên !! <br><a href='javascript: history.go(-1)'>Trở lại</a> hoặc <a href='index.php'>Đến Trang chủ</a></div></div>";

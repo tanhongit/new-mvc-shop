@@ -6,21 +6,21 @@
 <?php
 function backup_db()
 {
-    global $linkconnectDB;
+    global $linkConnectDB;
     // Lưu trữ tất cả tên Table vào một mảng
     $return = '';
     $allTables = array();
-    $result = mysqli_query($linkconnectDB, 'SHOW TABLES');
+    $result = mysqli_query($linkConnectDB, 'SHOW TABLES');
     while ($row = mysqli_fetch_row($result)) {
         $allTables[] = $row[0];
     }
 
     foreach ($allTables as $table) {
-        $result = mysqli_query($linkconnectDB, 'SELECT * FROM ' . $table);
+        $result = mysqli_query($linkConnectDB, 'SELECT * FROM ' . $table);
         $num_fields = mysqli_num_fields($result);
 
         $return .= 'DROP TABLE IF EXISTS ' . $table . ';';
-        $row2 = mysqli_fetch_row(mysqli_query($linkconnectDB, 'SHOW CREATE TABLE ' . $table));
+        $row2 = mysqli_fetch_row(mysqli_query($linkConnectDB, 'SHOW CREATE TABLE ' . $table));
         $return .= "\n\n" . $row2[1] . ";\n\n";
 
         for ($i = 0; $i < $num_fields; $i++) {

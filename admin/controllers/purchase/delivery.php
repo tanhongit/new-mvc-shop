@@ -5,10 +5,10 @@
 -->
 <?php
 require_once('admin/models/purchase.php');
-global $user_nav;
-if (!empty($user_nav)) {
+global $userNav;
+if (!empty($userNav)) {
     $options = array(
-        'where' => 'status = 2 and user_id =' . $user_nav,
+        'where' => 'status = 2 and user_id =' . $userNav,
         'order_by' => 'createtime DESC'
     );
     $order_delivery  = get_all('orders', $options);

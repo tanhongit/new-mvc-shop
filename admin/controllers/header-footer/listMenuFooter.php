@@ -14,6 +14,6 @@ $titleOptions = array(
     'order_by' => 'id ASC',
     'where' => 'parent=1'
 );
-$link_title_footer = get_all('menu_footers', $titleOptions);
+$titleFooterLinks = get_all('menu_footers', $titleOptions);
 
 require('admin/views/header-footer/listMenuFooter.php');

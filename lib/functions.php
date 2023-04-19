@@ -14,8 +14,8 @@ function show_404()
 //Thoát các ký tự đặc biệt trong chuỗi
 function escape($str)
 {
-    global $linkconnectDB;
-    return mysqli_real_escape_string($linkconnectDB, $str);
+    global $linkConnectDB;
+    return mysqli_real_escape_string($linkConnectDB, $str);
 }
 function pagination($url, $page, $total)
 {
@@ -148,8 +148,8 @@ function upload($field, $config = array())
 //permission users
 function permission_user()
 {
-    global $user_nav;
-    $user_login = get_a_record('users', $user_nav);
+    global $userNav;
+    $user_login = get_a_record('users', $userNav);
     if ($user_login['role_id'] == 0) {
         header('location:index.php');
         exit;
@@ -157,8 +157,8 @@ function permission_user()
 }
 function permission_moderator()
 {
-    global $user_nav;
-    $user_login = get_a_record('users', $user_nav);
+    global $userNav;
+    $user_login = get_a_record('users', $userNav);
     if ($user_login['role_id'] == 2) {
         header('location:admin.php');
         exit;

@@ -14,9 +14,9 @@ function media_delete($id)
     if (is_file($image)) {
         unlink($image);
     }
-    global $linkconnectDB;
+    global $linkConnectDB;
     $sql = "DELETE FROM media WHERE id=$id";
-    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
 function media_add()
 {

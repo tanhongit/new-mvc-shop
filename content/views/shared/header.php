@@ -35,8 +35,8 @@ $options_menu_footer = array(
 	'offset' => 15
 );
 $menu_footers = get_all('menu_footers', $options_menu_footer);
-global $user_nav;
-$user_login = get_a_record('users', $user_nav);
+global $userNav;
+$user_login = get_a_record('users', $userNav);
 
 if (isset($image_product)) $link_image = $image_product;
 else $link_image = PATH_URL . 'public/img/bang-hieu-chikoishop.jpg';
@@ -180,7 +180,7 @@ else $url_site = PATH_URL . 'home';
 									</ul>
 								</li>
 							<?php endforeach; ?>
-							<?php if (!isset($user_nav)) : ?>
+							<?php if (!isset($userNav)) : ?>
 								<li class="dropdown mega-menu-item mega-menu-signin signin" id="headerAccount">
 									<a class="dropdown-toggle" href="admin.php">
 										<i class="fa fa-user"></i> Đăng nhập
@@ -307,7 +307,7 @@ else $url_site = PATH_URL . 'home';
 													</div>
 													<div class="col-md-6">
 														<ul class="list-account-options">
-															<li><a href="admin.php?controller=user&action=info&user_id=<?= $user_nav ?>">Tài khoản của tôi</a></li>
+															<li><a href="admin.php?controller=user&action=info&user_id=<?= $userNav ?>">Tài khoản của tôi</a></li>
 															<li><a href="admin.php?controller=purchase">Đơn mua của tôi</a></li>
 															<li><a href="admin.php?controller=home&action=logout">Đăng xuất</a></li>
 														</ul>

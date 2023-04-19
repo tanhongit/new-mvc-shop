@@ -6,9 +6,9 @@
 <?php
 require_once('admin/models/users.php');
 if (isset($_POST['id_change'])) {
-    global $user_nav;
-    $login_user = get_a_record('users', $user_nav);
-    if ($_POST['id_change'] != $user_nav && $login_user['role_id'] == 0) {
+    global $userNav;
+    $login_user = get_a_record('users', $userNav);
+    if ($_POST['id_change'] != $userNav && $login_user['role_id'] == 0) {
         header('location:index.php');
     }
     $id = intval($_POST['id_change']);

@@ -62,7 +62,7 @@
                                     </tfoot>
                                     <tbody>
                                         <?php $stt = 0;
-                                        foreach ($link_title_footer as $link) : $stt++; ?>
+                                        foreach ($titleFooterLinks as $link) : $stt++; ?>
                                             <tr>
                                                 <td><?= $stt ?></td>
                                                 <td><?= $link['menu_name'] ?></td>

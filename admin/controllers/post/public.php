@@ -9,11 +9,11 @@ require_once('admin/models/posts.php');
 $post_id = intval($_GET['post_id']);
 
 $post = get_a_record('posts', $post_id);
-global $user_nav;
-$login_user = get_a_record('users', $user_nav);
+global $userNav;
+$login_user = get_a_record('users', $userNav);
 
 if ($login_user['role_id'] == 2) {
-    if ($post['post_author'] == $user_nav) {
+    if ($post['post_author'] == $userNav) {
         post_public($post_id);
         require('admin/views/post/result.php');
     } else  header('location:admin.php?controller=post');

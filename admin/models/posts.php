@@ -9,43 +9,43 @@ function post_trash($id)
     if (isset($_GET['post_id'])) {
         $id = intval($_GET['post_id']);
     } else show_404();
-    global $linkconnectDB;
+    global $linkConnectDB;
     $sql = "UPDATE posts SET post_status='Trash' where id=" . $id;
-    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
 function post_restore($id)
 {
     if (isset($_GET['post_id'])) {
         $id = intval($_GET['post_id']);
     } else show_404();
-    global $linkconnectDB;
+    global $linkConnectDB;
     $sql = "UPDATE posts SET post_status='Draft' where id=" . $id;
-    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
 function post_draft($id)
 {
     if (isset($_GET['post_id'])) {
         $id = intval($_GET['post_id']);
     } else show_404();
-    global $linkconnectDB;
+    global $linkConnectDB;
     $sql = "UPDATE posts SET post_status='Draft' where id=" . $id;
-    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
 function post_public($id)
 {
     if (isset($_GET['post_id'])) {
         $id = intval($_GET['post_id']);
     } else show_404();
-    global $linkconnectDB;
+    global $linkConnectDB;
     $sql = 'UPDATE posts SET post_status="Publiced", post_date="' . gmdate('Y-m-d H:i:s', time() + 7 * 3600) . '" where id=' . $id;
-    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
 function post_delete($id)
 {
     $id = intval($id);
-    global $linkconnectDB;
+    global $linkConnectDB;
     $sql = "DELETE FROM posts WHERE id=$id";
-    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
 function page_update()
 {

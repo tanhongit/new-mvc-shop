@@ -43,7 +43,7 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            <?php foreach ($order_complete as $order) : ?>
+                            <?php foreach ($orderComplete as $order) : ?>
                                 <tr>
                                     <td><?php echo $order['id'] ?></td>
                                     <td><a href="admin.php?controller=order&amp;action=view&amp;order_id=<?php echo $order['id']; ?>"><?php echo $order['customer']; ?></a></td>

@@ -13,8 +13,8 @@ $options = array(
 );
 
 $url = 'index.php?controller=product&action=all';
-$total_rows = get_total('products', $options);
-$total = ceil($total_rows / $limit);
+$totalRows = get_total('products', $options);
+$total = ceil($totalRows / $limit);
 $pagination = pagination($url, $page, $total);
 
 $products_all = get_all('products', $options);

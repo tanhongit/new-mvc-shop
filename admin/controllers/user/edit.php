@@ -4,20 +4,20 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-if (isset($_GET['user_id'])) $user_id = intval($_GET['user_id']);
-else $user_id = 0;
+if (isset($_GET['user_id'])) $userId = intval($_GET['user_id']);
+else $userId = 0;
 global $userNav;
-$login_user = get_a_record('users', $userNav);
-if ($user_id != $userNav && $login_user['role_id'] == 0) {
+$loginUser = get_a_record('users', $userNav);
+if ($userId != $userNav && $loginUser['role_id'] == 0) {
     header('location:index.php');
-} elseif ($user_id != $userNav && $login_user['role_id'] == 2) {
+} elseif ($userId != $userNav && $loginUser['role_id'] == 2) {
     header('location:admin.php');
 }
 require_once('admin/models/users.php');
 if (!empty($_POST)) {
     user_update();
 }
-$title = ($user_id == 0) ? 'Thêm thông tin' : 'Cập nhật thông tin tài khoản';
+$title = ($userId == 0) ? 'Thêm thông tin' : 'Cập nhật thông tin tài khoản';
 $nav_user = 'class="active open"';
-$user_info = get_a_record('users', $user_id);
+$user_info = get_a_record('users', $userId);
 require('admin/views/user/edit.php');

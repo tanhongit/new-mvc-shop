@@ -15,7 +15,7 @@ $title = $feedbackId === 0 ? '' : 'Xem chi tiết phản hồi của khách hàn
 $feedback = get_a_record('feedbacks', $feedbackId);
 
 if ($feedback['order_id'] <> 0) {
-    $order_detail = order_detail($feedback['order_id']);
+    $orderDetail = order_detail($feedback['order_id']);
     $order = get_a_record('orders', $feedback['order_id']);
 }
 

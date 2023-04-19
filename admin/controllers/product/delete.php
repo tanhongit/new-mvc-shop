@@ -2,6 +2,6 @@
 permission_moderator();
 //load model
 require_once('admin/models/products.php');
-$product_id = intval($_GET['product_id']);
-products_delete($product_id);
+$productId = intval($_GET['product_id']);
+products_delete($productId);
 header('location:admin.php?controller=product');

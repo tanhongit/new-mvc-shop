@@ -25,7 +25,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($cart as $product_id => $product) { ?>
+                    <?php foreach ($cart as $productId => $product) { ?>
                         <tr class="cart_table_item">
                             <td class="product-remove">
                                 <a title="Remove this item" class="remove" href="cart/delete/<?php echo $product['id']; ?>">

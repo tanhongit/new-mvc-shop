@@ -5,7 +5,7 @@
 
 permission_user();
 
-$user_info_nav = get_a_record('users', $userNav);
+$userInfoNav = get_a_record('users', $userNav);
 
 $options = array(
     'order_by' => 'id ASC'

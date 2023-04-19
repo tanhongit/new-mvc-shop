@@ -40,8 +40,8 @@ function slide_update()
         'slide_text5' => escape($_POST['slide_text5']),
         'status' => intval($_POST['status'])
     );
-    $slide_id = save('slides', $slides);
-    $image_name1 = 'image1' . '-' . $slide_id . '-' . slug($name);
+    $slideId = save('slides', $slides);
+    $image_name1 = 'image1' . '-' . $slideId . '-' . slug($name);
     $config = array(
         'name' => $image_name1,
         'upload_path' => 'public/upload/slides/',
@@ -50,12 +50,12 @@ function slide_update()
     $image1 = upload('image1', $config); //$field = name of input
     if ($image1) {
         $slides = array(
-            'id' => $slide_id,
+            'id' => $slideId,
             'slide_img1' => $image1
         );
         save('slides', $slides);
     }
-    $image_name2 = 'image2' . '-' . $slide_id . '-' . slug($name);
+    $image_name2 = 'image2' . '-' . $slideId . '-' . slug($name);
     $config = array(
         'name' => $image_name2,
         'upload_path' => 'public/upload/slides/',
@@ -64,12 +64,12 @@ function slide_update()
     $image2 = upload('image2', $config);
     if ($image2) {
         $slides = array(
-            'id' => $slide_id,
+            'id' => $slideId,
             'slide_img2' => $image2
         );
         save('slides', $slides);
     }
-    $image_name3 = 'image3' . '-' . $slide_id . '-' . slug($name);
+    $image_name3 = 'image3' . '-' . $slideId . '-' . slug($name);
     $config = array(
         'name' => $image_name3,
         'upload_path' => 'public/upload/slides/',
@@ -78,12 +78,12 @@ function slide_update()
     $image3 = upload('image3', $config);
     if ($image3) {
         $slides = array(
-            'id' => $slide_id,
+            'id' => $slideId,
             'slide_img3' => $image3
         );
         save('slides', $slides);
     }
-    $image_name4 = 'image4' . '-' . $slide_id . '-' . slug($name);
+    $image_name4 = 'image4' . '-' . $slideId . '-' . slug($name);
     $config = array(
         'name' => $image_name4,
         'upload_path' => 'public/upload/slides/',
@@ -92,12 +92,12 @@ function slide_update()
     $image4 = upload('image4', $config);
     if ($image4) {
         $slides = array(
-            'id' => $slide_id,
+            'id' => $slideId,
             'slide_img4' => $image4
         );
         save('slides', $slides);
     }
-    $image_name5 = 'image5' . '-' . $slide_id . '-' . slug($name);
+    $image_name5 = 'image5' . '-' . $slideId . '-' . slug($name);
     $config = array(
         'name' => $image_name5,
         'upload_path' => 'public/upload/slides/',
@@ -106,7 +106,7 @@ function slide_update()
     $image5 = upload('image5', $config);
     if ($image5) {
         $slides = array(
-            'id' => $slide_id,
+            'id' => $slideId,
             'slide_img5' => $image5
         );
         save('slides', $slides);

@@ -12,19 +12,19 @@ if (!empty($_POST)) {
 		'message' => escape($_POST['message']),
 		'user_id' => intval($_POST['user_id'])
 	);
-	$order_id = save('orders', $order);
+	$orderId = save('orders', $order);
 
 	$cart = cart_list();
 	//lấy sản phẩm trong session cart
 	foreach ($cart as $product) {
-		$order_detail = array(
+		$orderDetail = array(
 			'id' => 0,
-			'order_id' => $order_id,
+			'order_id' => $orderId,
 			'product_id' => $product['id'],
 			'quantity' => $product['number'],
 			'price' => $product['price']
 		);
-		save('order_detail', $order_detail);
+		save('order_detail', $orderDetail);
 	}
 	cart_destroy(); //xoá cart sau khi save order db
 	global $userNav;

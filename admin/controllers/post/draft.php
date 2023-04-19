@@ -2,6 +2,6 @@
 permission_user();
 permission_moderator();
 require_once('admin/models/posts.php');
-$post_id = intval($_GET['post_id']);
-post_draft($post_id);
+$postId = intval($_GET['post_id']);
+post_draft($postId);
 header('location:admin.php?controller=post&action=viewdraft');

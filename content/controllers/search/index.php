@@ -17,8 +17,8 @@ $options = array(
     'order_by' => 'id DESC'
 );
 $url = 'index.php?controller=search&keyword=' . $keyword;
-$total_rows = get_total('products', $options);
-$total = ceil($total_rows / $limit);
+$totalRows = get_total('products', $options);
+$total = ceil($totalRows / $limit);
 
 //data
 $products = get_all('products', $options);

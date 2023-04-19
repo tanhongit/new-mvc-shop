@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h1 class="shorter"><strong>Xem tất cả sản phẩm</strong></h1>
-                        <p>Hiển thị <?php if ($total_rows >= 12) echo '1–12 trong '; ?><?php echo $total_rows; ?> kết quả.</p>
+                        <p>Hiển thị <?php if ($totalRows >= 12) echo '1–12 trong '; ?><?php echo $total_rows; ?> kết quả.</p>
                     </div>
                 </div>
                 <div class="row">

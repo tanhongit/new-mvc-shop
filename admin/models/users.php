@@ -56,7 +56,7 @@ function changePassword($id, $newpassword, $currentPassword)
     mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
     $rows =  mysqli_affected_rows($linkConnectDB); //Gets the number of affected rows in a previous MySQL operation
     if ($rows <> 1) {
-        return  "<div style='padding-top: 200' class='container'><div class='alert alert-danger' style='text-align: center;'><strong>NO!</strong> Việc thay đổi mật khẩu có vấn đề. Bạn đã nhập mật khẩu hiện tại không đúng !! <br><a href='javascript: history.go(-1)'>Trở lại</a> hoặc <a href='admin.php'>Đến Dashboard</a></div></div>" . mysqli_error($linkConnectDB);
+        return  "<div style='padding-top: 200px' class='container'><div class='alert alert-danger' style='text-align: center;'><strong>NO!</strong> Việc thay đổi mật khẩu có vấn đề. Bạn đã nhập mật khẩu hiện tại không đúng !! <br><a href='javascript: history.go(-1)'>Trở lại</a> hoặc <a href='admin.php'>Đến Dashboard</a></div></div>" . mysqli_error($linkConnectDB);
     } else {
         $options = array(
             'id' => $id,
@@ -106,7 +106,7 @@ function changePassword($id, $newpassword, $currentPassword)
         } catch (Exception $e) {
             echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
         }
-        return '<div style="padding-top: 200" class="container"><div class="alert alert-success" style="text-align: center;"><strong>Tốt!</strong> Bạn đã thay đổi mật khẩu thành công. Và một tin nhắn thông báo đã được gửi đến Email của người dùng này. Hãy <a href="admin.php?controller=home&action=logout">Đăng xuất</a> và đăng nhập lại.!!</div></div>';
+        return '<div style="padding-top: 200px" class="container"><div class="alert alert-success" style="text-align: center;"><strong>Tốt!</strong> Bạn đã thay đổi mật khẩu thành công. Và một tin nhắn thông báo đã được gửi đến Email của người dùng này. Hãy <a href="admin.php?controller=home&action=logout">Đăng xuất</a> và đăng nhập lại.!!</div></div>';
     }
 }
 function user_update()
@@ -133,14 +133,14 @@ function user_update()
     $email_check = addslashes($_POST['email']);
     $id_check = intval($_POST['user_id']);
     if (mysqli_num_rows(mysqli_query($linkConnectDB, "SELECT user_email FROM users WHERE user_email='$email_check'")) != 0 && mysqli_num_rows(mysqli_query($linkConnectDB, "SELECT user_email FROM users WHERE id='$id_check' AND user_email='$email_check'")) <> 1) {
-        echo "<div style='padding-top: 200' class='container'><div class='alert alert-danger' style='text-align: center;'><strong>NO!</strong> Email này đã có người dùng. Vui lòng chọn Email khác. <a href='javascript: history.go(-1)'>Trở lại</a></div></div>";
+        echo "<div style='padding-top: 200px' class='container'><div class='alert alert-danger' style='text-align: center;'><strong>NO!</strong> Email này đã có người dùng. Vui lòng chọn Email khác. <a href='javascript: history.go(-1)'>Trở lại</a></div></div>";
         require('admin/views/user/result.php');
         exit;
     } else {
         $get_currentEmail_user = get_a_record('users', $_POST['user_id']);
         $currentEmail = $get_currentEmail_user['user_email'];
-        $user_id =  save('users', $user_edit);
-        $avatar_name = 'avatar-user' . $user_id . '-' . slug($_POST['username']);
+        $userId =  save('users', $user_edit);
+        $avatar_name = 'avatar-user' . $userId . '-' . slug($_POST['username']);
         $config = array(
             'name' => $avatar_name,
             'upload_path'  => 'public/upload/images/',
@@ -150,12 +150,12 @@ function user_update()
         //cập nhật ảnh mới
         if ($avatar) {
             $user_edit = array(
-                'id' => $user_id,
+                'id' => $userId,
                 'user_avatar' => $avatar
             );
             save('users', $user_edit);
         }
-        $user_edited = get_a_record('users', $user_id);
+        $user_edited = get_a_record('users', $userId);
         if ($user_edited['user_email'] != $currentEmail) {
             //send mail
             require 'vendor/autoload.php';
@@ -201,7 +201,7 @@ function user_update()
                 echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
             }
             $verificationCode_add = array(
-                'id' => $user_id,
+                'id' => $userId,
                 'verificationCode' => $verificationCode,
                 'verified' => 0
             );
@@ -228,23 +228,23 @@ function user_add()
     $email = addslashes($_POST['email']);
     //https://freetuts.net/xay-dung-chuc-nang-dang-nhap-va-dang-ky-voi-php-va-mysql-85.html
     if (mysqli_num_rows(mysqli_query($linkConnectDB, "SELECT user_username FROM users WHERE user_username='$username'")) > 0) {
-        echo "<div style='padding-top: 200' class='container'><div class='alert alert-danger' style='text-align: center;'><strong>NO!</strong> Tên đăng nhập này đã có người dùng. Vui lòng chọn tên đăng nhập khác. <a href='javascript: history.go(-1)'>Trở lại</a></div></div>";
+        echo "<div style='padding-top: 200px' class='container'><div class='alert alert-danger' style='text-align: center;'><strong>NO!</strong> Tên đăng nhập này đã có người dùng. Vui lòng chọn tên đăng nhập khác. <a href='javascript: history.go(-1)'>Trở lại</a></div></div>";
         require('admin/views/user/addresult.php');
         exit;
     } elseif (!preg_match("/([a-z0-9_]+|[a-z0-9_]+\.[a-z0-9_]+)@(([a-z0-9]|[a-z0-9]+\.[a-z0-9]+)+\.([a-z]{2,4}))/i", $email)) {
-        echo "<div style='padding-top: 200' class='container'><div class='alert alert-danger' style='text-align: center;'><strong>NO!</strong> Email này không hợp lệ. Vui long nhập email khác. <a href='javascript: history.go(-1)'>Trở lại</a></div></div>";
+        echo "<div style='padding-top: 200px' class='container'><div class='alert alert-danger' style='text-align: center;'><strong>NO!</strong> Email này không hợp lệ. Vui long nhập email khác. <a href='javascript: history.go(-1)'>Trở lại</a></div></div>";
         require('admin/views/user/addresult.php');
         exit;
     } elseif (strlen($_POST['password']) < 8) {
-        echo "<div style='padding-top: 200' class='container'><div style='text-align: center;' class='alert alert-danger'><strong>NO!</strong> Mật khẩu bạn nhập phải dài từ 8 ký tự trở lên !! <br><a href='javascript: history.go(-1)'>Trở lại</a></div></div>";
+        echo "<div style='padding-top: 200px' class='container'><div style='text-align: center;' class='alert alert-danger'><strong>NO!</strong> Mật khẩu bạn nhập phải dài từ 8 ký tự trở lên !! <br><a href='javascript: history.go(-1)'>Trở lại</a></div></div>";
         exit;
     } elseif (mysqli_num_rows(mysqli_query($linkConnectDB, "SELECT user_email FROM users WHERE user_email='$email'")) > 0) {
-        echo "<div style='padding-top: 200' class='container'><div class='alert alert-danger' style='text-align: center;'><strong>NO!</strong> Email này đã có người dùng. Vui lòng chọn Email khác. <a href='javascript: history.go(-1)'>Trở lại</a></div></div>";
+        echo "<div style='padding-top: 200px' class='container'><div class='alert alert-danger' style='text-align: center;'><strong>NO!</strong> Email này đã có người dùng. Vui lòng chọn Email khác. <a href='javascript: history.go(-1)'>Trở lại</a></div></div>";
         require('admin/views/user/addresult.php');
         exit;
     } else {
-        $user_id =  save('users', $user_add);
-        $avatar_name = 'avatar-user' . $user_id . '-' . slug($_POST['username']);
+        $userId =  save('users', $user_add);
+        $avatar_name = 'avatar-user' . $userId . '-' . slug($_POST['username']);
         $config = array(
             'name' => $avatar_name,
             'upload_path'  => 'public/upload/images/',
@@ -253,7 +253,7 @@ function user_add()
         $avatar = upload('imagee', $config);
         if ($avatar) {
             $user_add = array(
-                'id' => $user_id,
+                'id' => $userId,
                 'user_avatar' => $avatar
             );
             save('users', $user_add);
@@ -301,11 +301,11 @@ function user_add()
             echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
         }
         $verificationCode_add = array(
-            'id' => $user_id,
+            'id' => $userId,
             'verificationCode' => $verificationCode,
             'verified' => 0
         );
         save('users', $verificationCode_add);
-        header('location:admin.php?controller=user&action=info&user_id=' . $user_id);
+        header('location:admin.php?controller=user&action=info&user_id=' . $userId);
     }
 }

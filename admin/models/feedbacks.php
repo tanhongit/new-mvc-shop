@@ -18,7 +18,7 @@ function addFeedbackOrder()
         'status' => 0
     );
     save('feedbacks', $feedback_add);
-    echo "<div style='padding-top: 200' class='container'><div style='text-align: center;' class='alert alert-success'><strong>Done!</strong> Thư phản hồi của bạn đã được gửi đến hệ thống của quán Chị Kòi. Cảm ơn bạn đã gửi lại phải hồi về quán. <br><br>Hãy đến <a href='admin.php'>Dashboard</a></div></div>";
+    echo "<div style='padding-top: 200px' class='container'><div style='text-align: center;' class='alert alert-success'><strong>Done!</strong> Thư phản hồi của bạn đã được gửi đến hệ thống của quán Chị Kòi. Cảm ơn bạn đã gửi lại phải hồi về quán. <br><br>Hãy đến <a href='admin.php'>Dashboard</a></div></div>";
     require('content/views/feedback/result.php');
     exit;
 }

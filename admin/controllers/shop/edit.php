@@ -5,9 +5,9 @@ require_once('admin/models/shop.php');
 if (!empty($_POST)) {
     category_uodate();
 }
-if (isset($_GET['cate_id'])) $cate_id = intval($_GET['cate_id']);
-else $cate_id = 0;
-$title = ($cate_id == 0) ? 'Thêm danh mục' : 'Sửa danh mục';
-$category = get_a_record('categories', $cate_id);
+if (isset($_GET['cate_id'])) $categoryId = intval($_GET['cate_id']);
+else $categoryId = 0;
+$title = ($categoryId == 0) ? 'Thêm danh mục' : 'Sửa danh mục';
+$category = get_a_record('categories', $categoryId);
 $navCategory = 'class="active open"';
 require('admin/views/shop/edit.php');

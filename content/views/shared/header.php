@@ -325,7 +325,7 @@ else $url_site = PATH_URL . 'home';
 												<div class="col-md-12">
 													<table cellspacing="0" class="cart">
 														<tbody>
-															<?php foreach ($cart as $product_id => $product_cart) { ?>
+															<?php foreach ($cart as $productId => $product_cart) { ?>
 																<tr>
 																	<td class="product-thumbnail">
 																		<a href="product/<?php echo $product_cart['id'] . '-' . slug($product_cart['name']); ?>">

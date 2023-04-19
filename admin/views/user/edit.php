@@ -74,7 +74,7 @@
                 <div class="col-lg-12">
                     <form id="product-form" class="form-horizontal" method="post" action="admin.php?controller=user&action=edit" enctype="multipart/form-data" role="form">
                         <input name="user_id" type="hidden" value="<?php echo $user_info ? $user_info['id'] : '0'; ?>" />
-                        <?php if ($login_user['role_id'] == 1) : ?>
+                        <?php if ($loginUser['role_id'] == 1) : ?>
                             <h4 class="card-inside-title" style="font-weight:bold;">Tên đăng nhập:</h4>
                             <div class="row clearfix">
                                 <div class="col-sm-12">

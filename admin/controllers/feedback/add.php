@@ -8,13 +8,13 @@ if (!empty($_POST)) {
 }
 
 if (isset($_GET['order_id'])) {
-    $order_id = intval($_GET['order_id']);
+    $orderId = intval($_GET['order_id']);
 } else {
-    $order_id = 0;
+    $orderId = 0;
 }
 
-$order = get_a_record('orders', $order_id);
-$order_detail = order_detail($order_id);
+$order = get_a_record('orders', $orderId);
+$orderDetail = order_detail($orderId);
 
 if (isset($userNav)) {
     $user_action = get_a_record('users', $userNav);

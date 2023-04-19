@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="container-fluid">
-        <?php if ($user_info_nav['role_id']  == 0) : ?>
+        <?php if ($userInfoNav['role_id']  == 0) : ?>
             <div class="row clearfix">
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card widget_2 big_icon sales">

@@ -24,8 +24,8 @@ $options = array(
 );
 
 $url = 'shop/' . $shop_id . '-' . $category['slug'];
-$total_rows = get_total('products', $options);
-$total = ceil($total_rows / $limit);
+$totalRows = get_total('products', $options);
+$total = ceil($totalRows / $limit);
 
 $products = get_all('products', $options);
 $pagination = pagination($url, $page, $total);

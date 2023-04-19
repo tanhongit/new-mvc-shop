@@ -3,7 +3,7 @@
 <div class="navbar-right">
     <ul class="navbar-nav">
         <li><a href="#search" class="main_search" title="Search..."><i class="zmdi zmdi-search"></i></a></li>
-        <?php if ($user_info_nav['role_id'] != 0) : ?>
+        <?php if ($userInfoNav['role_id'] != 0) : ?>
             <li class="dropdown">
                 <a href="javascript:void(0);" class="dropdown-toggle" title="App" data-toggle="dropdown" role="button"><i class="zmdi zmdi-apps"></i>
                     <div class="notify"><span class="heartbit"></span><span class="point"></span></div>

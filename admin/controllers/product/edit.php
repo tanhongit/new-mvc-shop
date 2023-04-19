@@ -6,12 +6,12 @@ if (!empty($_POST)) {
     product_update();
 }
 
-if (isset($_GET['product_id'])) $product_id = intval($_GET['product_id']);
-else $product_id = 0;
-$title = ($product_id == 0) ? 'Thêm sản phẩm' : 'Sửa sản phẩm: ';
-$nav_product  = 'class="active open"';
-$product = get_a_record('products', $product_id);
-if ($product_id <> 0) $title .= $product['product_name'];
+if (isset($_GET['product_id'])) $productId = intval($_GET['product_id']);
+else $productId = 0;
+$title = ($productId == 0) ? 'Thêm sản phẩm' : 'Sửa sản phẩm: ';
+$productNav  = 'class="active open"';
+$product = get_a_record('products', $productId);
+if ($productId <> 0) $title .= $product['product_name'];
 $options = array(
     'order_by' => 'createDate'
 );

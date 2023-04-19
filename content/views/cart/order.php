@@ -43,7 +43,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($cart as $product_id => $product) { ?>
+                                        <?php foreach ($cart as $productId => $product) { ?>
                                             <tr class="cart_table_item">
                                                 <td class="product-thumbnail">
                                                     <a href="product/<?php echo $product['id'] . '-' . slug($product['name']); ?>">

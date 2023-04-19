@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h1 class="shorter"><strong><?php echo $category['subcategory_name']; ?></strong></h1>
-                        <p>Hiển thị <?php if ($total_rows >= 9) echo '1–9 trong '; ?><?php echo $total_rows; ?> kết quả.</p>
+                        <p>Hiển thị <?php if ($totalRows >= 9) echo '1–9 trong '; ?><?php echo $total_rows; ?> kết quả.</p>
                     </div>
                 </div>
                 <div class="row">

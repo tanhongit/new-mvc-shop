@@ -27,13 +27,13 @@
         <div class="container-fluid">
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12">
-                    <?php if (empty($order_cancelled)) echo '<h2 style="text-align: center;">Chưa có đơn hàng nào</h2>'; ?>
-                    <?php foreach ($order_cancelled as $order) :
-                        $order_detail = purchase_order_detail($order['id']); ?>
+                    <?php if (empty($cancelledOrders)) echo '<h2 style="text-align: center;">Chưa có đơn hàng nào</h2>'; ?>
+                    <?php foreach ($cancelledOrders as $order) :
+                        $orderDetail = purchase_order_detail($order['id']); ?>
                         <div class="card">
                             <div class="body">
                                 <ul class="comment-reply list-unstyled">
-                                    <?php foreach ($order_detail as $product) : ?>
+                                    <?php foreach ($orderDetail as $product) : ?>
                                         <li>
                                             <div class="icon-box"><a href="product/<?php echo $product['product_id']; ?>-<?php echo $product['slug']; ?>"><img class="img-fluid img-thumbnail" src="public/upload/products/<?= $product['img1'] ?>" style="max-width:80px;" alt="Awesome Image"></a></div>
                                             <div class="text-box">

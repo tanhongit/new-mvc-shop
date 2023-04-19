@@ -57,9 +57,9 @@ function page_update()
         'totalview' => intval($_POST['totalview']),
         'post_type' => 2
     );
-    $post_id = save('posts', $post);
+    $postId = save('posts', $post);
     //upload ảnh 1 của post
-    $image_name1 = slug($name) . '-' . $post_id . 'page';
+    $image_name1 = slug($name) . '-' . $postId . 'page';
     $config1 = array(
         'name' => $image_name1,
         'upload_path'  => 'public/upload/ckeditorimages/',
@@ -69,7 +69,7 @@ function page_update()
     //cập nhật ảnh mới lên database 
     if ($image1) {
         $post = array(
-            'id' => $post_id,
+            'id' => $postId,
             'post_avatar' => $image1
         );
         save('posts', $post);
@@ -92,9 +92,9 @@ function page_add()
         'post_type' => 2,
         'post_status' => 'Draft'
     );
-    $post_id = save('posts', $post);
+    $postId = save('posts', $post);
     //upload ảnh 1 của post
-    $image_name1 = slug($name) . '-' . $post_id . 'page';
+    $image_name1 = slug($name) . '-' . $postId . 'page';
     $config1 = array(
         'name' => $image_name1,
         'upload_path'  => 'public/upload/ckeditorimages/',
@@ -104,7 +104,7 @@ function page_add()
     //cập nhật ảnh mới lên database 
     if ($image1) {
         $post = array(
-            'id' => $post_id,
+            'id' => $postId,
             'post_avatar' => $image1
         );
         save('posts', $post);
@@ -127,9 +127,9 @@ function post_update()
         'totalview' => intval($_POST['totalview']),
         'post_type' => 1
     );
-    $post_id = save('posts', $post);
+    $postId = save('posts', $post);
     //upload ảnh 1 của post
-    $image_name1 = slug($name) . '-' . $post_id . 'post';
+    $image_name1 = slug($name) . '-' . $postId . 'post';
     $config1 = array(
         'name' => $image_name1,
         'upload_path'  => 'public/upload/ckeditorimages/',
@@ -139,7 +139,7 @@ function post_update()
     //cập nhật ảnh mới lên database 
     if ($image1) {
         $post = array(
-            'id' => $post_id,
+            'id' => $postId,
             'post_avatar' => $image1
         );
         save('posts', $post);
@@ -162,9 +162,9 @@ function post_add()
         'post_type' => 1,
         'post_status' => 'Draft'
     );
-    $post_id = save('posts', $post);
+    $postId = save('posts', $post);
     //upload ảnh 1 của post
-    $image_name1 = slug($name) . '-' . $post_id . 'post';
+    $image_name1 = slug($name) . '-' . $postId . 'post';
     $config1 = array(
         'name' => $image_name1,
         'upload_path'  => 'public/upload/ckeditorimages/',
@@ -174,7 +174,7 @@ function post_add()
     //cập nhật ảnh mới lên database 
     if ($image1) {
         $post = array(
-            'id' => $post_id,
+            'id' => $postId,
             'post_avatar' => $image1
         );
         save('posts', $post);

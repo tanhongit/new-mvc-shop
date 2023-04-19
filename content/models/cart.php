@@ -1,8 +1,3 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php
 //khởi tạo giỏ hàng
 if (!isset($_SESSION['cart'])) $_SESSION['cart'] = array();
@@ -29,7 +24,7 @@ function cart_add($product_id, $number)
     }
 }
 //cập nhật giỏ hàng đến cho người dùng và từ người dùng xuống session cart
-function update_sesion_cart()
+function updateCartSession()
 {
     global $userNav, $linkConnectDB;
     if (isset($userNav)) {

@@ -12,7 +12,7 @@ if (!empty($_POST)) {
 if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
 
-    update_sesion_cart();
+    updateCartSession();
     update_cart_user_db();
 
     if ($user['role_id'] == 1 || $user['role_id'] == 2) {

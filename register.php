@@ -1,8 +1,3 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php 
 require_once('lib/model.php');
 $contacts = get_a_record('contacts', 1); ?>

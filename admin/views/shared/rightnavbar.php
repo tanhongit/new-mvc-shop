@@ -1,9 +1,4 @@
 <!-- Right Icon menu Sidebar -->
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php require_once('admin/controllers/shared/statistics.php'); ?>
 <div class="navbar-right">
     <ul class="navbar-nav">

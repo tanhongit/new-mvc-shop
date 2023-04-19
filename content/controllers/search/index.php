@@ -1,9 +1,4 @@
 
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php
 $keyword = '';
 if (isset($_GET['keyword'])) {

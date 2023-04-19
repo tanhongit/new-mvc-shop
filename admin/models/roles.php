@@ -7,9 +7,9 @@
 function role_delete($id)
 {
     $id = intval($id);
-    global $linkconnectDB;
+    global $linkConnectDB;
     $sql = "DELETE FROM roles WHERE id=$id";
-    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
 function role_update()
 {

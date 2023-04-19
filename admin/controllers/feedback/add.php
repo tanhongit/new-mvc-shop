@@ -16,8 +16,8 @@ if (isset($_GET['order_id'])) {
 $order = get_a_record('orders', $order_id);
 $order_detail = order_detail($order_id);
 
-if (isset($user_nav)) {
-    $user_action = get_a_record('users', $user_nav);
+if (isset($userNav)) {
+    $user_action = get_a_record('users', $userNav);
 }
 
 $status = array(

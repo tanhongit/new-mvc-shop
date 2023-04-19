@@ -65,10 +65,10 @@ function get_client_ip_env()
 $ip = get_client_ip_env();
 $browser = $_SERVER['HTTP_USER_AGENT'];
 
-global $linkconnectDB;
+global $linkConnectDB;
 $date =  gmdate('Y-m-d H:i:s', time() + 7 * 3600);
 $sql = "SELECT * FROM users_online WHERE session='$session'";
-$result = mysqli_query($linkconnectDB, $sql);
+$result = mysqli_query($linkConnectDB, $sql);
 $count = mysqli_num_rows($result);
 if ($count == "0") { //Truy cập lần đầu
     // //sql2
@@ -77,10 +77,10 @@ if ($count == "0") { //Truy cập lần đầu
     update_user_online($session, $time, $ip, $browser, $date);
 }
 // $sql3 = "SELECT * FROM users_online";
-// $result3 = mysqli_query($linkconnectDB, $sql3);
+// $result3 = mysqli_query($linkConnectDB, $sql3);
 // $count_user_online = mysqli_num_rows($result3);
 //echo "Số người đang online : $count_user_online ";
 // Nếu quá 10 phút, xóa bỏ session
 // $sql4 = "DELETE FROM users_online WHERE time<$time_check";
-// $result4 = mysqli_query($linkconnectDB, $sql4);
+// $result4 = mysqli_query($linkConnectDB, $sql4);
 // Đóng kết nối

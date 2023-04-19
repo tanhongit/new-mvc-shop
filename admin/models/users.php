@@ -11,7 +11,7 @@ use PHPMailer\PHPMailer\Exception;
 
 function user_login($input, $password)
 {
-    global $linkconnectDB;
+    global $linkConnectDB;
     //autoselect login with username or email : https://stackoverflow.com/questions/16436704/login-with-username-or-email
 
     // //cách 1
@@ -33,11 +33,11 @@ function user_login($input, $password)
     $sql = "SELECT * FROM `users` WHERE (LOWER(`user_username`)='" . strtolower($input) . "' OR
     LOWER(`user_email`)='" . strtolower($input) . "') AND `user_password`='" . $password . "'";
 
-    $query = mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    $query = mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
     if (mysqli_num_rows($query) > 0) {
         $_SESSION['user'] = mysqli_fetch_assoc($query);
-        global $user_nav;
-        $user_nav = $_SESSION['user']['id'];
+        global $userNav;
+        $userNav = $_SESSION['user']['id'];
         return true;
     }
     return false;
@@ -49,19 +49,19 @@ function user_delete($id)
     if (is_file($image)) {
         unlink($image);
     }
-    global $linkconnectDB;
+    global $linkConnectDB;
     $id = intval($id);
     $sql = "DELETE FROM users WHERE id=$id";
-    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
 function changePassword($id, $newpassword, $currentPassword)
 {
-    global $linkconnectDB;
+    global $linkConnectDB;
     $sql = "Update users SET user_password='$newpassword' WHERE id='$id' AND user_password = '$currentPassword'";
-    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
-    $rows =  mysqli_affected_rows($linkconnectDB); //Gets the number of affected rows in a previous MySQL operation
+    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
+    $rows =  mysqli_affected_rows($linkConnectDB); //Gets the number of affected rows in a previous MySQL operation
     if ($rows <> 1) {
-        return  "<div style='padding-top: 200' class='container'><div class='alert alert-danger' style='text-align: center;'><strong>NO!</strong> Việc thay đổi mật khẩu có vấn đề. Bạn đã nhập mật khẩu hiện tại không đúng !! <br><a href='javascript: history.go(-1)'>Trở lại</a> hoặc <a href='admin.php'>Đến Dashboard</a></div></div>" . mysqli_error($linkconnectDB);
+        return  "<div style='padding-top: 200' class='container'><div class='alert alert-danger' style='text-align: center;'><strong>NO!</strong> Việc thay đổi mật khẩu có vấn đề. Bạn đã nhập mật khẩu hiện tại không đúng !! <br><a href='javascript: history.go(-1)'>Trở lại</a> hoặc <a href='admin.php'>Đến Dashboard</a></div></div>" . mysqli_error($linkConnectDB);
     } else {
         $options = array(
             'id' => $id,
@@ -116,8 +116,8 @@ function changePassword($id, $newpassword, $currentPassword)
 }
 function user_update()
 {
-    global $user_nav;
-    $user_login = get_a_record('users', $user_nav);
+    global $userNav;
+    $user_login = get_a_record('users', $userNav);
     if ($_POST['user_id'] <> 0) $editTime = gmdate('Y-m-d H:i:s', time() + 7 * 3600);
     else $editTime = '0000-00-00 00:00:00';
 
@@ -134,10 +134,10 @@ function user_update()
         'editTime' => $editTime,
         'role_id' => $roleid
     );
-    global $linkconnectDB;
+    global $linkConnectDB;
     $email_check = addslashes($_POST['email']);
     $id_check = intval($_POST['user_id']);
-    if (mysqli_num_rows(mysqli_query($linkconnectDB, "SELECT user_email FROM users WHERE user_email='$email_check'")) != 0 && mysqli_num_rows(mysqli_query($linkconnectDB, "SELECT user_email FROM users WHERE id='$id_check' AND user_email='$email_check'")) <> 1) {
+    if (mysqli_num_rows(mysqli_query($linkConnectDB, "SELECT user_email FROM users WHERE user_email='$email_check'")) != 0 && mysqli_num_rows(mysqli_query($linkConnectDB, "SELECT user_email FROM users WHERE id='$id_check' AND user_email='$email_check'")) <> 1) {
         echo "<div style='padding-top: 200' class='container'><div class='alert alert-danger' style='text-align: center;'><strong>NO!</strong> Email này đã có người dùng. Vui lòng chọn Email khác. <a href='javascript: history.go(-1)'>Trở lại</a></div></div>";
         require('admin/views/user/result.php');
         exit;
@@ -228,11 +228,11 @@ function user_add()
         'createDate' => gmdate('Y-m-d H:i:s', time() + 7 * 3600),
         'user_phone' => escape($_POST['phone'])
     );
-    global $linkconnectDB;
+    global $linkConnectDB;
     $username = addslashes($_POST['username']);
     $email = addslashes($_POST['email']);
     //https://freetuts.net/xay-dung-chuc-nang-dang-nhap-va-dang-ky-voi-php-va-mysql-85.html
-    if (mysqli_num_rows(mysqli_query($linkconnectDB, "SELECT user_username FROM users WHERE user_username='$username'")) > 0) {
+    if (mysqli_num_rows(mysqli_query($linkConnectDB, "SELECT user_username FROM users WHERE user_username='$username'")) > 0) {
         echo "<div style='padding-top: 200' class='container'><div class='alert alert-danger' style='text-align: center;'><strong>NO!</strong> Tên đăng nhập này đã có người dùng. Vui lòng chọn tên đăng nhập khác. <a href='javascript: history.go(-1)'>Trở lại</a></div></div>";
         require('admin/views/user/addresult.php');
         exit;
@@ -243,7 +243,7 @@ function user_add()
     } elseif (strlen($_POST['password']) < 8) {
         echo "<div style='padding-top: 200' class='container'><div style='text-align: center;' class='alert alert-danger'><strong>NO!</strong> Mật khẩu bạn nhập phải dài từ 8 ký tự trở lên !! <br><a href='javascript: history.go(-1)'>Trở lại</a></div></div>";
         exit;
-    } elseif (mysqli_num_rows(mysqli_query($linkconnectDB, "SELECT user_email FROM users WHERE user_email='$email'")) > 0) {
+    } elseif (mysqli_num_rows(mysqli_query($linkConnectDB, "SELECT user_email FROM users WHERE user_email='$email'")) > 0) {
         echo "<div style='padding-top: 200' class='container'><div class='alert alert-danger' style='text-align: center;'><strong>NO!</strong> Email này đã có người dùng. Vui lòng chọn Email khác. <a href='javascript: history.go(-1)'>Trở lại</a></div></div>";
         require('admin/views/user/addresult.php');
         exit;

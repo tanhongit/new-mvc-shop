@@ -26,9 +26,9 @@ function products_delete($id)
     if (is_file($image4)) {
         unlink($image4);
     }
-    global $linkconnectDB;
+    global $linkConnectDB;
     $sql = "DELETE FROM products WHERE id=$id";
-    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
 function product_update()
 {

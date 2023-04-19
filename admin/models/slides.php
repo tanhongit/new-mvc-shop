@@ -28,9 +28,9 @@ function slide_delete($id)
     if (is_file($image5)) {
         unlink($image5);
     }
-    global $linkconnectDB;
+    global $linkConnectDB;
     $sql = "DELETE FROM slides WHERE id=$id";
-    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
 function slide_update()
 {

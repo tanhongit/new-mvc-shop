@@ -16,9 +16,9 @@ function categories_delete($id)
     foreach ($products as $product) {
         products_delete($product['id']);
     }
-    global $linkconnectDB;
+    global $linkConnectDB;
     $sql = "DELETE FROM categories WHERE id=$id";
-    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
 function category_uodate()
 {

@@ -103,7 +103,7 @@
                         <h3>Thông tin Phản hồi</h3>
                         <form action="admin.php?controller=feedback&action=add&order_id=<?= $order['id'] ?>" method="post">
                             <input type="hidden" name="feedback_id" value="0">
-                            <input type="hidden" class="form-control" name="user_id" value="<?= $user_nav ?>">
+                            <input type="hidden" class="form-control" name="user_id" value="<?= $userNav ?>">
                             <input type="hidden" name="name" value="<?= $user_action['user_name'] ?>" class="form-control">
                             <input type="hidden" name="email" value="<?= $user_action['user_email'] ?>" class="form-control">
                             <input type="hidden" value="<?= $user_action['user_phone'] ?>" name="phone" class="form-control">

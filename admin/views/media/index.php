@@ -67,7 +67,7 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <?php foreach ($list_media as $media) : ?>
+                                        <?php foreach ($listMedia as $media) : ?>
                                             <tr>
                                                 <td><?php echo $media['id'] ?></td>
                                                 <td><?php echo '<image src="public/upload/media/' . $media['slug'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>

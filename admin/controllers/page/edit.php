@@ -15,9 +15,9 @@ else $post_id = 0;
 $title = 'Sửa trang - Chị Kòi Quán';
 $nav_page  = 'class="active open"';
 $post = get_a_record('posts', $post_id);
-global $user_nav;
-$login_user = get_a_record('users', $user_nav);
+global $userNav;
+$login_user = get_a_record('users', $userNav);
 if ($login_user['role_id'] == 2) {
-    if ($post['post_author'] == $user_nav)  require('admin/views/page/edit.php');
+    if ($post['post_author'] == $userNav)  require('admin/views/page/edit.php');
     else  header('location:admin.php?controller=page');
 } else  require('admin/views/page/edit.php');

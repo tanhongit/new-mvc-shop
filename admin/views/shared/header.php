@@ -5,8 +5,8 @@
 -->
 <?php
 $contacts = get_a_record('contacts', 1);
-global $user_nav;
-$user_info_nav = get_a_record('users', $user_nav) ?>
+global $userNav;
+$user_info_nav = get_a_record('users', $userNav) ?>
 <!doctype html>
 <html class="no-js " lang="en">
 

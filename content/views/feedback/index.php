@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h2 class="shorter"><strong>Gửi phản hồi của bạn đến Chị Kòi Quán</strong></h2>
-                <?php if (isset($user_nav)) echo '<p>Bạn đang đăng nhập với người dùng: <a href="admin.php?controller=user&action=info&user_id=' . $user_nav . '"><b>' . $user_action['user_name'] . '</b></a></p>';
+                <?php if (isset($userNav)) echo '<p>Bạn đang đăng nhập với người dùng: <a href="admin.php?controller=user&action=info&user_id=' . $userNav . '"><b>' . $user_action['user_name'] . '</b></a></p>';
                 else echo '<p>Bạn đã có tài khoản người dùng? <a href="admin.php">Nhấn vào đây đăng nhập.</a></p>' ?>
             </div>
         </div>
@@ -32,7 +32,7 @@
                                     <?php if ($product <> 0) { ?>
                                         <input type="hidden" class="form-control" name="product_id" value="<?= $product['id'] ?>">
                                     <?php } else echo '<input type="hidden" class="form-control" name="product_id" value="0">' ?>
-                                    <?php if (!isset($user_nav)) : ?>
+                                    <?php if (!isset($userNav)) : ?>
                                         <input type="hidden" class="form-control" name="user_id" value="0">
                                         <div class="row">
                                             <div class="form-group">
@@ -55,8 +55,8 @@
                                             </div>
                                         </div>
                                     <?php else : ?>
-                                        <h3>Bạn sẽ gửi phản hồi với tư cách là người dùng: <a href="admin.php?controller=user&action=info&user_id=<?= $user_nav ?>"><b><?= $user_action['user_name'] ?></b></a></h3>
-                                        <input type="hidden" class="form-control" name="user_id" value="<?= $user_nav ?>">
+                                        <h3>Bạn sẽ gửi phản hồi với tư cách là người dùng: <a href="admin.php?controller=user&action=info&user_id=<?= $userNav ?>"><b><?= $user_action['user_name'] ?></b></a></h3>
+                                        <input type="hidden" class="form-control" name="user_id" value="<?= $userNav ?>">
                                         <input type="hidden" name="name" value="<?= $user_login['user_name'] ?>" class="form-control">
                                         <input type="hidden" name="email" value="<?= $user_login['user_email'] ?>" class="form-control">
                                         <input type="hidden" value="<?= $user_login['user_phone'] ?>" name="phone" class="form-control">

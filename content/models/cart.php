@@ -31,16 +31,16 @@ function cart_add($product_id, $number)
 //cập nhật giỏ hàng đến cho người dùng và từ người dùng xuống session cart
 function update_sesion_cart()
 {
-    global $user_nav, $linkconnectDB;
-    if (isset($user_nav)) {
+    global $userNav, $linkConnectDB;
+    if (isset($userNav)) {
         $option = array(
             'order_by' => 'id asc',
-            'where' => 'user_id=' . $user_nav
+            'where' => 'user_id=' . $userNav
         );
         $product_of_user = get_all('cart_user', $option);
         if (!empty($product_of_user)) {
             foreach ($product_of_user as $product) {
-                if (isset($_SESSION['cart'][$product['product_id']]) && mysqli_num_rows(mysqli_query($linkconnectDB, "SELECT product_id FROM cart_user WHERE product_id=" . $product['product_id']  . "")) == 1) {
+                if (isset($_SESSION['cart'][$product['product_id']]) && mysqli_num_rows(mysqli_query($linkConnectDB, "SELECT product_id FROM cart_user WHERE product_id=" . $product['product_id']  . "")) == 1) {
                     //nếu đã có sp trong giỏ hàng thì số lượng công thêm $number
                     $_SESSION['cart'][$product['product_id']]['number'] += $product['number'];
                 } else {
@@ -65,16 +65,16 @@ function update_sesion_cart()
 //đồng bộ sản phẩm giữa session và db khi người dùng add to cart
 function update_cart_user_db()
 {
-    global $user_nav, $linkconnectDB;
+    global $userNav, $linkConnectDB;
     //lấy sản phẩm trong session cart
     $cart = cart_list();
 
     //nếu row > 0, tức người dùng đã có sp trên db
-    if (mysqli_num_rows(mysqli_query($linkconnectDB, "SELECT * FROM cart_user WHERE user_id=" . $user_nav . "")) > 0) {
+    if (mysqli_num_rows(mysqli_query($linkConnectDB, "SELECT * FROM cart_user WHERE user_id=" . $userNav . "")) > 0) {
         foreach ($cart as $product_cart) {
             $option_cart_user = array(
                 'order_by' => 'id',
-                'where' => 'user_id=' . $user_nav
+                'where' => 'user_id=' . $userNav
             );
             //duyệt mảng cart_user với user là người đang đăng nhập
             $cart_users = get_all('cart_user', $option_cart_user);
@@ -95,7 +95,7 @@ function update_cart_user_db()
             } elseif ($status == 0) { //nếu sp trong cart này chưa có trên db -> add
                 $cart_user = array(
                     'id' => 0,
-                    'user_id' => $user_nav,
+                    'user_id' => $userNav,
                     'product_id' => $product_cart['id'],
                     'number' => $product_cart['number'],
                 );
@@ -106,7 +106,7 @@ function update_cart_user_db()
         foreach ($cart as $product_cart) {
             $up_cart_user = array(
                 'id' => 0,
-                'user_id' => $user_nav,
+                'user_id' => $userNav,
                 'product_id' => $product_cart['id'],
                 'number' => $product_cart['number'],
             );
@@ -129,16 +129,16 @@ function update_cart_user_db()
 //xóa đồng bộ sản phẩm giữa session và db khi người dùng đã đặt hàng
 function detroy_cart_user_db()
 {
-    global $user_nav, $linkconnectDB;
-    $sql = "DELETE FROM cart_user WHERE user_id=" . $user_nav;
-    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    global $userNav, $linkConnectDB;
+    $sql = "DELETE FROM cart_user WHERE user_id=" . $userNav;
+    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
 //xóa động bộ tùy sản phẩm được loại khỏi cart 
 function delete_cart_user_db($product_id)
 {
-    global $user_nav, $linkconnectDB;
-    $sql = "DELETE FROM cart_user WHERE user_id=" . $user_nav . " and product_id=" . $product_id;
-    mysqli_query($linkconnectDB, $sql) or die(mysqli_error($linkconnectDB));
+    global $userNav, $linkConnectDB;
+    $sql = "DELETE FROM cart_user WHERE user_id=" . $userNav . " and product_id=" . $product_id;
+    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
 //Cập nhật số lượng sản phẩm
 function cart_update($product_id, $number)

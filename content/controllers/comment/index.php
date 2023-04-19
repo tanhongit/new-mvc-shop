@@ -5,8 +5,8 @@
 -->
 <?php
 if (!empty($_POST)) {
-    global $user_nav;
-    if (isset($user_nav)) {
+    global $userNav;
+    if (isset($userNav)) {
         $comment_add = array(
             'id' => 0,
             'product_id' => intval($_POST['product_id']),

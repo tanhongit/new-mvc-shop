@@ -182,9 +182,9 @@
                                         <div class="col-md-12">
                                             <form action="index.php?controller=comment" id="submitReview" method="post">
                                                 <input name="product_id" type="hidden" value="<?= $product['id'] ?>">
-                                                <input name="user_id" type="hidden" value="<?php echo $user_nav ? $user_nav : '0'; ?> ">
+                                                <input name="user_id" type="hidden" value="<?php echo $userNav ? $userNav : '0'; ?> ">
                                                 <div class="row">
-                                                    <?php if (!isset($user_nav)) : ?>
+                                                    <?php if (!isset($userNav)) : ?>
                                                         <div class="form-group">
                                                             <div class="col-md-6">
                                                                 <label>Tên bạn *</label>
@@ -204,7 +204,7 @@
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-12">
-                                                            <?php if (isset($user_nav)) : ?>
+                                                            <?php if (isset($userNav)) : ?>
                                                                 <label>Bạn đang đăng nhập với tài khoản <strong><?= $user_login['user_name'] ?></strong>. Bạn muốn <a href="admin.php?controller=home&action=logout">đăng xuất</a> ?</label>
                                                             <?php else : ?>
                                                                 <label>Bạn có muốn <strong><a href="admin.php?controller=home&action=login">đăng nhập</a></strong> để bình luận bằng tài khoản của bạn.!</label>
@@ -222,8 +222,8 @@
 
                                             <!-- <div class="row">
                                                 <input name="product_id" id="product_id" type="hidden" value="<?= $product['id'] ?>">
-                                                <input name="user_id" id="user_id" type="hidden" value="<?php echo $user_nav ? $user_nav : '0'; ?> ">
-                                                <?php if (!isset($user_nav)) : ?>
+                                                <input name="user_id" id="user_id" type="hidden" value="<?php echo $userNav ? $userNav : '0'; ?> ">
+                                                <?php if (!isset($userNav)) : ?>
                                                     <input name="link_image" type="hidden" id="link_image"
                                                         value="author-comment.png">
                                                     <div class="form-group">
@@ -255,7 +255,7 @@
                                             <div class="row">
                                                 <div class="form-group">
                                                     <div class="col-md-12">
-                                                        <?php if (isset($user_nav)) : ?>
+                                                        <?php if (isset($userNav)) : ?>
                                                             <label>Bạn đang đăng nhập với tài khoản
                                                                 <strong><?= $user_login['user_name'] ?></strong>. Bạn muốn
                                                                 <a href="admin.php?controller=home&action=logout">đăng

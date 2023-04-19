@@ -18,7 +18,7 @@ $total_order = get_total('orders', $options_order);
 
 $options_order_mine = array(
     'order_by' => 'id DESC',
-    'where' => 'user_id=' . $user_nav
+    'where' => 'user_id=' . $userNav
 );
 $total_order_mine = get_total('orders', $options_order_mine);
 
@@ -42,13 +42,13 @@ $options_inprocess = array(
 $total_order_inprosess = get_total('orders', $options_inprocess);
 
 $options_mine_inprocess = array(
-    'where' => 'status = 2 and user_id=' . $user_nav,
+    'where' => 'status = 2 and user_id=' . $userNav,
     'order_by' => 'id DESC'
 );
 $total_mine_order_inprosess = get_total('orders', $options_mine_inprocess);
 
 $options_mine_complete = array(
-    'where' => 'status = 1 and user_id=' . $user_nav,
+    'where' => 'status = 1 and user_id=' . $userNav,
     'order_by' => 'id DESC'
 );
 $total_mine_order_complete = get_total('orders', $options_mine_complete);
@@ -108,19 +108,19 @@ $total_feedback_noaccept = get_total('feedbacks', $options_feedback_noaccept);
 
 $options_feedback_mine = array(
     'order_by' => 'id DESC',
-    'where' => 'user_id=' . $user_nav
+    'where' => 'user_id=' . $userNav
 );
 $total_feedback_mine = get_total('feedbacks', $options_feedback_mine);
 
 $options_feedback_mine_product = array(
     'order_by' => 'id DESC',
-    'where' => 'product_id<>0 and user_id=' . $user_nav
+    'where' => 'product_id<>0 and user_id=' . $userNav
 );
 $total_feedback_mine_product = get_total('feedbacks', $options_feedback_mine_product);
 
 $options_feedback_mine_order = array(
     'order_by' => 'id DESC',
-    'where' => 'product_id<>0 and user_id=' . $user_nav
+    'where' => 'product_id<>0 and user_id=' . $userNav
 );
 $total_feedback_mine_order = get_total('feedbacks', $options_feedback_mine_order);
 
@@ -159,13 +159,13 @@ $total_rows_comment = get_total('comments', $options_comments);
 
 $options_comments_mine = array(
     'order_by' => 'id DESC',
-    'where' => 'user_id=' . $user_nav
+    'where' => 'user_id=' . $userNav
 );
 $total_mine_comment = get_total('comments', $options_comments_mine);
 
 $options_mine_comment_noaccept = array(
     'order_by' => 'id DESC',
-    'where' => 'status=0 and user_id=' . $user_nav
+    'where' => 'status=0 and user_id=' . $userNav
 );
 $total_mine_comment_noaccept = get_total('comments', $options_mine_comment_noaccept);
 

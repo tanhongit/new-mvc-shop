@@ -1,9 +1,9 @@
 <?php
 require_once('admin/models/purchase.php');
-global $user_nav;
-if (!empty($user_nav)) {
+global $userNav;
+if (!empty($userNav)) {
     $options = array(
-        'where' => 'user_id =' . $user_nav,
+        'where' => 'user_id =' . $userNav,
         'order_by' => 'createtime DESC'
     );
     $order_all  = get_all('orders', $options);

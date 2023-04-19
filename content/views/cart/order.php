@@ -1,8 +1,3 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php require('content/views/shared/header.php'); ?>
 <div role="main" class="main shop">
     <div class="container">
@@ -48,7 +43,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($cart as $product_id => $product) { ?>
+                                        <?php foreach ($cart as $productId => $product) { ?>
                                             <tr class="cart_table_item">
                                                 <td class="product-thumbnail">
                                                     <a href="product/<?php echo $product['id'] . '-' . slug($product['name']); ?>">

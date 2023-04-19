@@ -1,8 +1,3 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <aside id="leftsidebar" class="sidebar">
     <div class="navbar-brand">
         <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
@@ -12,11 +7,11 @@
         <ul class="list">
             <li>
                 <div class="user-info">
-                    <a class="image" href="admin.php?controller=user&action=info&user_id=<?= $userNav ?>"><img src="public/upload/images/<?= $user_info_nav['user_avatar'] ?>" alt="User"></a>
+                    <a class="image" href="admin.php?controller=user&action=info&user_id=<?= $userNav ?>"><img src="public/upload/images/<?= $userInfoNav['user_avatar'] ?>" alt="User"></a>
                     <div class="detail">
-                        <h4><?= $user_info_nav['user_name'] ?></h4>
-                        <small><?php if ($user_info_nav['role_id'] == 1) echo 'Admin';
-                                elseif ($user_info_nav['role_id'] == 2) echo 'Moderator';
+                        <h4><?= $userInfoNav['user_name'] ?></h4>
+                        <small><?php if ($userInfoNav['role_id'] == 1) echo 'Admin';
+                                elseif ($userInfoNav['role_id'] == 2) echo 'Moderator';
                                 else echo "User"; ?></small>
                     </div>
                 </div>
@@ -26,7 +21,7 @@
             <li <?php if (isset($nav_profile)) echo $nav_profile; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
                 <ul class="ml-menu">
                     <li><a href="admin.php?controller=user&action=info&user_id=<?= $userNav ?>">Your profile</a></li>
-                    <li><a href="admin.php?controller=user&action=change-password&user_id=<?= $user_info_nav['id'] ?>">Change your Password</a></li>
+                    <li><a href="admin.php?controller=user&action=change-password&user_id=<?= $userInfoNav['id'] ?>">Change your Password</a></li>
                 </ul>
             </li>
             <li <?= $yourFeedback ?? '' ?>><a href="admin.php?controller=feedback&action=myfeedback"><i class="zmdi zmdi-mail-send"></i><span>Your Feedback</span></a></li>
@@ -39,8 +34,8 @@
                     <li><a href="admin.php?controller=purchase&action=cancelled">Đơn hàng đã hủy</a></li>
                 </ul>
             </li>
-            <?php if ($user_info_nav['role_id'] != 0) :
-                if ($user_info_nav['role_id'] == 1) : ?>
+            <?php if ($userInfoNav['role_id'] != 0) :
+                if ($userInfoNav['role_id'] == 1) : ?>
                     <li <?= $navCategory ?? ''; ?>> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-folder"></i><span>Quản lý danh mục</span></a>
                         <ul class="ml-menu">
                             <li><a href="admin.php?controller=shop">1. Nhóm danh mục</a></li>
@@ -62,7 +57,7 @@
                             <li><a href="admin.php?controller=header-footer&action=listMenuFooter">Link Menu Footer</a></li>
                         </ul>
                     </li>
-                    <li <?php if (isset($nav_admin)) echo $nav_admin; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Admin</span></a>
+                    <li <?= $adminNav ?? '' ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Admin</span></a>
                         <ul class="ml-menu">
                             <li><a href="admin.php?controller=user&action=info&user_id=<?= $userNav ?>">Your Profile</a></li>
                             <li><a href="admin.php?controller=role">List Role</a></li>
@@ -71,7 +66,7 @@
                         </ul>
                     </li>
                 <?php endif; ?>
-                <li <?php if (isset($nav_page)) echo $nav_page; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-blogger"></i><span>Blog -> Page</span></a>
+                <li <?= $pageNav ?? '' ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-blogger"></i><span>Blog -> Page</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=page">All Page</a></li>
                         <li><a href="admin.php?controller=page&action=viewtrash">Thùng rác</a></li>
@@ -79,7 +74,7 @@
                         <li><a href="admin.php?controller=page&action=add">ADD New Page</a></li>
                     </ul>
                 </li>
-                <li <?php if (isset($nav_post)) echo $nav_post; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-blogger"></i><span>Blog -> Post</span></a>
+                <li <?= $postNav ?? '' ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-blogger"></i><span>Blog -> Post</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=post">All Post</a></li>
                         <li><a href="admin.php?controller=post&action=viewtrash">Thùng rác</a></li>
@@ -87,7 +82,7 @@
                         <li><a href="admin.php?controller=post&action=add">ADD New Post</a></li>
                     </ul>
                 </li>
-                <li <?php if (isset($nav_product)) echo $nav_product; ?>> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-collection-text"></i><span>Quản lý sản phẩm</span></a>
+                <li <?= $productNav ?? '' ?>> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-collection-text"></i><span>Quản lý sản phẩm</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=product">Danh sách sản phẩm</a></li>
                         <li><a href="admin.php?controller=product&action=update">Sản phẩm mới cập nhật</a></li>
@@ -97,7 +92,7 @@
                         <li><a href="admin.php?controller=product&amp;action=edit">Add sản phẩm mới</a></li>
                     </ul>
                 </li>
-                <li <?php if (isset($nav_order)) echo $nav_order; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-shopping-cart"></i><span>Quản lý đơn hàng</span></a>
+                <li <?= $orderNav ?? '' ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-shopping-cart"></i><span>Quản lý đơn hàng</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=order">Danh sách All đơn hàng</a></li>
                         <li><a href="admin.php?controller=order&amp;action=order-noprocess">Đơn hàng chưa xử lý</a></li>

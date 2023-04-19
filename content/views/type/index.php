@@ -1,8 +1,3 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php require('content/views/shared/header.php'); ?>
 <div role="main" class="main shop">
     <div class="container">
@@ -15,7 +10,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h1 class="shorter"><strong><?php echo $type['type_name'] ?></strong></h1>
-                        <p>Hiển thị <?php if ($total_rows >= 9) echo '1–9 trong '; ?><?php echo $total_rows; ?> kết quả.</p>
+                        <p>Hiển thị <?php if ($totalRows >= 9) echo '1–9 trong '; ?><?php echo $total_rows; ?> kết quả.</p>
                     </div>
                 </div>
 

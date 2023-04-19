@@ -1,12 +1,7 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php
 permission_user();
 permission_moderator();
 require_once('admin/models/slides.php');
-$slide_id = intval($_GET['slide_id']);
-slide_delete($slide_id);
+$slideId = intval($_GET['slide_id']);
+slide_delete($slideId);
 header('location:admin.php?controller=slide');

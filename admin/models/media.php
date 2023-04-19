@@ -1,8 +1,3 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php
 function media_delete($id)
 {
@@ -25,7 +20,7 @@ function media_add()
         'media_name' => escape($_POST['name']),
         'createDate' => gmdate('Y-m-d H:i:s', time() + 7 * 3600)
     );
-    $media_id =  save('media', $media_add);
+    $mediaId =  save('media', $media_add);
     $slugg = slug($_POST['name']);
     $config = array(
         'name' => $slugg,
@@ -35,7 +30,7 @@ function media_add()
     $images = upload('imggggg', $config);
     if ($images) {
         $media_add = array(
-            'id' => $media_id,
+            'id' => $mediaId,
             'slug' => $images
         );
         save('media', $media_add);
@@ -48,7 +43,7 @@ function media_update()
         'id' => intval($_POST['media_id']),
         'media_name' => escape($_POST['name']),
     );
-    $media_id =  save('media', $media_edit);
+    $mediaId =  save('media', $media_edit);
     $slugg = slug($_POST['name']);
     $config = array(
         'name' => $slugg,
@@ -58,7 +53,7 @@ function media_update()
     $images = upload('imggggg', $config);
     if ($images) {
         $media_edit = array(
-            'id' => $media_id,
+            'id' => $mediaId,
             'slug' => $images
         );
         save('media', $media_edit);

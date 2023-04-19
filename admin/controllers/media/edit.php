@@ -10,13 +10,13 @@ if (!empty($_POST)) {
 }
 
 if (isset($_GET['media_id'])) {
-    $media_id = intval($_GET['media_id']);
+    $mediaId = intval($_GET['media_id']);
 } else {
-    $media_id = 0;
+    $mediaId = 0;
 }
 
-$title = ($media_id == 0) ? 'Thêm Ảnh mới' : 'Cập nhật ảnh';
+$title = ($mediaId == 0) ? 'Thêm Ảnh mới' : 'Cập nhật ảnh';
 $navMedia = 'class="active open"';
-$media_info = get_a_record('media', $media_id);
+$media_info = get_a_record('media', $mediaId);
 
 require('admin/views/media/edit.php');

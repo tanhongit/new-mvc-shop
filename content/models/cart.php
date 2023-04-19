@@ -1,23 +1,18 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php
 //khởi tạo giỏ hàng
 if (!isset($_SESSION['cart'])) $_SESSION['cart'] = array();
 //thêm giỏ hàng
-function cart_add($product_id, $number)
+function cart_add($productId, $number)
 {
-    if (isset($_SESSION['cart'][$product_id])) {
+    if (isset($_SESSION['cart'][$productId])) {
         //nếu đã có sp trong giỏ hàng thì số lượng công thêm $number
-        $_SESSION['cart'][$product_id]['number'] += $number;
+        $_SESSION['cart'][$productId]['number'] += $number;
     } else {
         //lấy thông tin sản phẩm từ CSDL và lưu vào giỏ hàng
-        $product = get_a_record('products', $product_id);
+        $product = get_a_record('products', $productId);
 
-        $_SESSION['cart'][$product_id] = array(
-            'id' => $product_id,
+        $_SESSION['cart'][$productId] = array(
+            'id' => $productId,
             'name' => $product['product_name'],
             'image' => $product['img1'],
             'number' => $number,
@@ -29,7 +24,7 @@ function cart_add($product_id, $number)
     }
 }
 //cập nhật giỏ hàng đến cho người dùng và từ người dùng xuống session cart
-function update_sesion_cart()
+function updateCartSession()
 {
     global $userNav, $linkConnectDB;
     if (isset($userNav)) {
@@ -134,26 +129,26 @@ function detroy_cart_user_db()
     mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
 //xóa động bộ tùy sản phẩm được loại khỏi cart 
-function delete_cart_user_db($product_id)
+function delete_cart_user_db($productId)
 {
     global $userNav, $linkConnectDB;
-    $sql = "DELETE FROM cart_user WHERE user_id=" . $userNav . " and product_id=" . $product_id;
+    $sql = "DELETE FROM cart_user WHERE user_id=" . $userNav . " and product_id=" . $productId;
     mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
 //Cập nhật số lượng sản phẩm
-function cart_update($product_id, $number)
+function cart_update($productId, $number)
 {
     if ($number == 0) {
         //xóa sp ra khỏi giỏ hàng
-        unset($_SESSION['cart'][$product_id]);
+        unset($_SESSION['cart'][$productId]);
     } else {
-        $_SESSION['cart'][$product_id]['number'] = $number;
+        $_SESSION['cart'][$productId]['number'] = $number;
     }
 }
 //Xóa sản phẩm ra khỏi giỏ hàng
-function cart_delete($product_id)
+function cart_delete($productId)
 {
-    unset($_SESSION['cart'][$product_id]);
+    unset($_SESSION['cart'][$productId]);
 }
 //Tổng giá trị giỏ hàng
 function cart_total()

@@ -72,7 +72,7 @@
                                         <?php
                                         $stt = 0;
                                         $order_total = 0;
-                                        foreach ($order_detail as $product) :
+                                        foreach ($orderDetail as $product) :
                                             $stt++;
                                             if ($product["product_typeid"] == 3) {
                                                 $order_total += ($product['product_price'] - (($product['product_price']) * ($product['percentoff']) / 100)) * $product['quantity'];

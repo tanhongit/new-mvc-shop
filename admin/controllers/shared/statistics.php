@@ -1,15 +1,13 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php
-//table orders
+/**
+ * @var $userNav
+ */
+
 $options_order_complete = array(
     'where' => 'status = 1',
     'order_by' => 'createtime DESC'
 );
-$order_completes = get_all('orders', $options_order_complete);
+$orderCompletes = get_all('orders', $options_order_complete);
 
 $options_order = array(
     'order_by' => 'id DESC'

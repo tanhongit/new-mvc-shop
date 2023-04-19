@@ -1,8 +1,3 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <div class="featured-box featured-box-secundary featured-box-cart">
     <div class="box-content">
         <form method="post" action="index.php?controller=cart" role="form">
@@ -30,7 +25,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($cart as $product_id => $product) { ?>
+                    <?php foreach ($cart as $productId => $product) { ?>
                         <tr class="cart_table_item">
                             <td class="product-remove">
                                 <a title="Remove this item" class="remove" href="cart/delete/<?php echo $product['id']; ?>">

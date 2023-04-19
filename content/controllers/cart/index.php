@@ -1,13 +1,8 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php
 //form submit
 if (!empty($_POST)) {
-    foreach ($_POST['number'] as $product_id => $number) {
-        cart_update($product_id, $number);
+    foreach ($_POST['number'] as $productId => $number) {
+        cart_update($productId, $number);
         global $userNav;
         if (isset($userNav)) update_cart_user_db();
     }

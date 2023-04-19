@@ -1,8 +1,3 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php
 if (isset($_GET['id'])) {
     $shop_id = intval($_GET['id']);
@@ -29,8 +24,8 @@ $options = array(
 );
 
 $url = 'shop/' . $shop_id . '-' . $category['slug'];
-$total_rows = get_total('products', $options);
-$total = ceil($total_rows / $limit);
+$totalRows = get_total('products', $options);
+$total = ceil($totalRows / $limit);
 
 $products = get_all('products', $options);
 $pagination = pagination($url, $page, $total);

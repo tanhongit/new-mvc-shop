@@ -1,8 +1,3 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php require('content/views/shared/header.php'); ?>
 <div role="main" class="main shop">
     <div class="container">
@@ -12,7 +7,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h1 class="shorter"><strong>Search</strong></h1>
-                        <p>Hiển thị <?php if ($total_rows >= 9) echo '1–9 trong '; ?><?php echo $total_rows; ?> kết quả.</p>
+                        <p>Hiển thị <?php if ($totalRows >= 9) echo '1–9 trong '; ?><?php echo $total_rows; ?> kết quả.</p>
                     </div>
                 </div>
                 <div class="row">
@@ -29,7 +24,7 @@
                     <hr>
                     <div><?php if (empty($products)) { ?>
                             <h3 class="col-sm-12">Không tìm thấy kết quả phù hợp cho từ khoá trên.</h3>
-                        <?php } else { ?><h3 class="col-sm-12">Có tổng cộng <?php echo $total_rows ?> kết quả phù hợp với từ
+                        <?php } else { ?><h3 class="col-sm-12">Có tổng cộng <?php echo $totalRows ?> kết quả phù hợp với từ
                                 khóa "<?php echo $keyword ?>".</h3><?php } ?></div>
                     <hr class="tall">
                     <ul class="products product-thumb-info-list" data-plugin-masonry data-plugin-options='{"layoutMode": "fitRows"}'>

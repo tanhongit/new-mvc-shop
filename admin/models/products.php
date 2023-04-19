@@ -1,8 +1,3 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php
 function products_delete($id)
 {
@@ -66,9 +61,9 @@ function product_update()
         'editBy' => escape($editby),
         'editDate' => $editDate
     );
-    $product_id = save('products', $product);
+    $productId = save('products', $product);
     //upload ảnh 1 của product
-    $image_name1 = $slug . '-' . $product_id . 'img1';
+    $image_name1 = $slug . '-' . $productId . 'img1';
     $config1 = array(
         'name' => $image_name1,
         'upload_path'  => 'public/upload/products/',
@@ -78,13 +73,13 @@ function product_update()
     //cập nhật ảnh mới lên database 
     if ($image1) {
         $product = array(
-            'id' => $product_id,
+            'id' => $productId,
             'img1' => $image1
         );
         save('products', $product);
     }
     //upload ảnh 2 của product
-    $image_name2 = $slug . '-' . $product_id . 'img2';
+    $image_name2 = $slug . '-' . $productId . 'img2';
     $config2 = array(
         'name' => $image_name2,
         'upload_path'  => 'public/upload/products/',
@@ -94,13 +89,13 @@ function product_update()
     //cập nhật ảnh mới lên database
     if ($image2) {
         $product = array(
-            'id' => $product_id,
+            'id' => $productId,
             'img2' => $image2
         );
         save('products', $product);
     }
     //upload ảnh 3 của product
-    $image_name3 = $slug . '-' . $product_id . 'img3';
+    $image_name3 = $slug . '-' . $productId . 'img3';
     $config3 = array(
         'name' => $image_name3,
         'upload_path'  => 'public/upload/products/',
@@ -110,13 +105,13 @@ function product_update()
     //cập nhật ảnh mới lên database 
     if ($image3) {
         $product = array(
-            'id' => $product_id,
+            'id' => $productId,
             'img3' => $image3
         );
         save('products', $product);
     }
     //upload ảnh 4 của product
-    $image_name4 = $slug . '-' . $product_id . 'img4';
+    $image_name4 = $slug . '-' . $productId . 'img4';
     $config4 = array(
         'name' => $image_name4,
         'upload_path'  => 'public/upload/products/',
@@ -126,7 +121,7 @@ function product_update()
     //cập nhật ảnh mới lên database 
     if ($image4) {
         $product = array(
-            'id' => $product_id,
+            'id' => $productId,
             'img4' => $image4
         );
         save('products', $product);

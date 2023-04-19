@@ -1,11 +1,6 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php
-if (isset($_GET['id'])) $product_id = intval($_GET['id']);
-cart_delete($product_id);
+if (isset($_GET['id'])) $productId = intval($_GET['id']);
+cart_delete($productId);
 global $userNav;
-if (isset($userNav)) delete_cart_user_db($product_id);
+if (isset($userNav)) delete_cart_user_db($productId);
 header('location:' . PATH_URL . 'cart');

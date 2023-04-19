@@ -1,8 +1,3 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php
 require_once('admin/models/purchase.php');
 global $userNav;
@@ -11,7 +6,7 @@ if (!empty($userNav)) {
         'where' => 'status = 0 and user_id =' . $userNav,
         'order_by' => 'createtime DESC'
     );
-    $order_confirmed  = get_all('orders', $options);
+    $confirmedOrders  = get_all('orders', $options);
     $title = 'Đơn hàng đã xác nhận';
     $your_Purchase  = 'class="active open"';
     $status = array(

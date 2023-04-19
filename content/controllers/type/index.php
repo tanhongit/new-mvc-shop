@@ -1,8 +1,3 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php
 if (isset($_GET['id'])) {
     $type_id = intval($_GET['id']);
@@ -23,8 +18,8 @@ $options = array(
     'order_by' => 'id DESC'
 );
 $url = 'type/' . $type_id . '-' . $type['slug'];
-$total_rows = get_total('products', $options);
-$total = ceil($total_rows / $limit);
+$totalRows = get_total('products', $options);
+$total = ceil($totalRows / $limit);
 $products = get_all('products', $options);
 $pagination = pagination($url, $page, $total);
 

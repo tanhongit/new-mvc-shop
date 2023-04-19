@@ -1,15 +1,10 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php
 if (isset($_GET['id'])) {
-    $product_id = intval($_GET['id']);
+    $productId = intval($_GET['id']);
 }
 $option_slug_product = array(
     'select' => 'slug',
-    'where' => 'id=' . $product_id
+    'where' => 'id=' . $productId
 );
 $product_slugs = get_all('products', $option_slug_product);
 foreach ($product_slugs as $slug) {
@@ -19,9 +14,9 @@ if (!empty($_POST)) {
     $product = array(
         'number' => intval($_POST['number_cart'])
     );
-    cart_add($product_id, $product['number']);
+    cart_add($productId, $product['number']);
     global $userNav;
     if (isset($userNav)) update_cart_user_db();
 }
-echo $product_id;
-header('location:../../product/' . $product_id . '-' . $product_slug);
+echo $productId;
+header('location:../../product/' . $productId . '-' . $product_slug);

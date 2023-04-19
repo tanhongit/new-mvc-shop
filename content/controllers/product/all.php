@@ -1,8 +1,3 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php
 if (isset($_GET['page'])) $page = intval($_GET['page']);
 else $page = 1;
@@ -18,8 +13,8 @@ $options = array(
 );
 
 $url = 'index.php?controller=product&action=all';
-$total_rows = get_total('products', $options);
-$total = ceil($total_rows / $limit);
+$totalRows = get_total('products', $options);
+$total = ceil($totalRows / $limit);
 $pagination = pagination($url, $page, $total);
 
 $products_all = get_all('products', $options);

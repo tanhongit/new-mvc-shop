@@ -1,18 +1,13 @@
-<!--
-    Developed by: TanHongIT
-    Website: https://tanhongit.com - https://tanhongit.net
-    Github: https://github.com/TanHongIT
--->
 <?php
 require_once('content/models/products.php');
 if (isset($_GET['id'])) {
-    $product_id = intval($_GET['id']);
+    $productId = intval($_GET['id']);
 } else show_404();
-$product = get_a_record('products', $product_id);
+$product = get_a_record('products', $productId);
 
 if (!$product) {
     show_404();
-} else   updateCountView($product_id);
+} else   updateCountView($productId);
 $title = $product['product_name'] . ' - Quán Chị Kòi';
 $image_product = PATH_URL . 'public/upload/products/' . $product['img1'];
 $url_product = 'product/' . $product['id'] . '-' . $product['slug'];

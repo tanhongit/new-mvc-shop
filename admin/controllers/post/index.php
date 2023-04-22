@@ -23,5 +23,5 @@ $url = 'admin.php?controller=post';
 $totalRows = get_total('posts', $options);
 $total = ceil($totalRows / $limit);
 
-$pagination = pagination_admin($url, $page, $total);
+$pagination = adminPagination($url, $page, $total);
 require('admin/views/post/index.php');

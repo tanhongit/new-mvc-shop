@@ -8,7 +8,7 @@ if (!$order) {
 }
 $title = 'Chi tiết đơn hàng';
 $your_Purchase  = 'class="active open"';
-$orderDetail = order_detail($orderId);
+$orderDetail = orderDetail($orderId);
 $status = array(
     0 => 'Đã xác nhận đơn hàng',
     2 => 'Đang giao hàng',

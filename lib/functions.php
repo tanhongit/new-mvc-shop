@@ -160,7 +160,7 @@ function permission_moderator()
     }
 }
 //pagination admin
-function pagination_admin($url, $page, $total)
+function adminPagination($url, $page, $total)
 {
     $adjacents = 2;
     $out = '<ul class="pagination pagination-primary mt-4">';

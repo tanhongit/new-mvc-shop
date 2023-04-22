@@ -35,19 +35,19 @@
                     <div class="card">
                         <div class="body">
                             <form id="product-form" class="form-horizontal" method="post" action="admin.php?controller=media&action=add" enctype="multipart/form-data" role="form">
-                                <input name="media_id" type="hidden" value="<?php echo $media_info ? $media_info['id'] : '0'; ?>" />
+                                <input name="media_id" type="hidden" value="<?php echo $mediaInfo ? $mediaInfo['id'] : '0'; ?>" />
                                 <h2 class="card-inside-title" style="font-weight:bold;">Tên ảnh:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="name" type="text" value="<?php echo $media_info ? $media_info['media_name'] : ''; ?>" class="form-control" id="name" placeholder="VD: tanhongit" required="" />
+                                            <input name="name" type="text" value="<?php echo $mediaInfo ? $mediaInfo['media_name'] : ''; ?>" class="form-control" id="name" placeholder="VD: tanhongit" required="" />
                                         </div>
                                     </div>
                                 </div>
                                 <h2 class="card-inside-title" style="font-weight:bold;">Chọn ngày tạo mới sản phẩm (bắt buộc):</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-4">
-                                        <input name="createDate" id="createDate" type="date" value="<?php echo $media_info ? $media_info['createDate'] : date('d/m/Y'); ?>" class="form-control" placeholder="Please choose date & time...">
+                                        <input name="createDate" id="createDate" type="date" value="<?php echo $mediaInfo ? $mediaInfo['createDate'] : date('d/m/Y'); ?>" class="form-control" placeholder="Please choose date & time...">
                                     </div>
                                 </div>
                                 <h2 class="card-inside-title" style="font-weight:bold;">Chọn ảnh bạn muốn upload:</h2>

@@ -43,7 +43,7 @@ function updateFeedback()
     save('feedbacks', $feedback);
     header('location:admin.php?controller=feedback');
 }
-function feedback_reply_email($html, $email)
+function feedbackReplyMail($html, $email)
 {
     //sendmail
     require 'vendor/autoload.php';

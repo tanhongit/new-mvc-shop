@@ -3,7 +3,7 @@ $options = array(
     'where' => 'status = 2',
     'order_by' => 'createtime DESC'
 );
-$order_inprocess = get_all('orders', $options);
+$orderInProcess = get_all('orders', $options);
 $status = array(
     0 => 'Chưa xử lý',
     1 => 'Đã xử lý',
@@ -54,7 +54,7 @@ $status = array(
                             </tr>
                         </tfoot>
                         <tbody>
-                            <?php foreach ($order_inprocess as $order) : ?>
+                            <?php foreach ($orderInProcess as $order) : ?>
                                 <tr>
                                     <td><?php echo $order['id'] ?></td>
                                     <td><a href="admin.php?controller=order&amp;action=view&amp;order_id=<?php echo $order['id']; ?>"><?php echo $order['customer']; ?></a></td>

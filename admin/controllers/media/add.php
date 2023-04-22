@@ -5,7 +5,7 @@ permission_user();
 require_once('admin/models/media.php');
 
 if (!empty($_POST)) {
-    media_add();
+    mediaStore();
 }
 
 if (isset($_GET['media_id'])) {
@@ -16,6 +16,6 @@ if (isset($_GET['media_id'])) {
 
 $title = ($mediaId == 0) ? '' : 'Cập nhật ảnh';
 $navMedia = 'class="active open"';
-$media_info = get_a_record('media', $mediaId);
+$mediaInfo = get_a_record('media', $mediaId);
 
 require('admin/views/media/add.php');

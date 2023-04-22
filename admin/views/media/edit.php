@@ -36,15 +36,15 @@
                     <div class="card">
                         <div class="body">
                             <form id="product-form" class="form-horizontal" method="post" action="admin.php?controller=media&action=edit" enctype="multipart/form-data" role="form">
-                                <input name="media_id" type="hidden" value="<?php echo $media_info ? $media_info['id'] : '0'; ?>" />
+                                <input name="media_id" type="hidden" value="<?php echo $mediaInfo ? $mediaInfo['id'] : '0'; ?>" />
                                 <div style="text-align: center;" class="row clearfix">
-                                    <div class="col-sm-12"><img src="public/upload/media/<?php echo $media_info['slug']; ?>"></div>
+                                    <div class="col-sm-12"><img src="public/upload/media/<?php echo $mediaInfo['slug']; ?>"></div>
                                 </div>
                                 <h2 class="card-inside-title" style="font-weight:bold;">Tên ảnh:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="name" type="text" value="<?php echo $media_info ? $media_info['media_name'] : ''; ?>" class="form-control" id="name" placeholder="VD: tanhongit" required="" />
+                                            <input name="name" type="text" value="<?php echo $mediaInfo ? $mediaInfo['media_name'] : ''; ?>" class="form-control" id="name" placeholder="VD: tanhongit" required="" />
                                         </div>
                                     </div>
                                 </div>
@@ -52,7 +52,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input type="text" value="<?php echo $media_info ? $media_info['slug'] : ''; ?>" class="form-control" id="name" placeholder="VD: tanhongit" required="" disabled />
+                                            <input type="text" value="<?php echo $mediaInfo ? $mediaInfo['slug'] : ''; ?>" class="form-control" id="name" placeholder="VD: tanhongit" required="" disabled />
                                         </div>
                                     </div>
                                 </div>

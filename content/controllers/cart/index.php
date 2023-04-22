@@ -4,7 +4,7 @@ if (!empty($_POST)) {
     foreach ($_POST['number'] as $productId => $number) {
         cart_update($productId, $number);
         global $userNav;
-        if (isset($userNav)) update_cart_user_db();
+        if (isset($userNav)) mergeCartSessionWithDB();
     }
     header('location:index.php?controller=cart');
 }

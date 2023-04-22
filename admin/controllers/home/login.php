@@ -6,14 +6,14 @@ require_once('content/models/cart.php');
 if (!empty($_POST)) {
     $email = escape($_POST['email']);
     $password = md5($_POST['password']);
-    user_login($email, $password);
+    userLogin($email, $password);
 }
 
 if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
 
     updateCartSession();
-    update_cart_user_db();
+    mergeCartSessionWithDB();
 
     if ($user['role_id'] == 1 || $user['role_id'] == 2) {
         header('location:admin.php');

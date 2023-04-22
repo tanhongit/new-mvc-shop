@@ -1,5 +1,5 @@
 <?php
-function role_delete($id)
+function roleDestroy($id)
 {
     $id = intval($id);
     global $linkConnectDB;

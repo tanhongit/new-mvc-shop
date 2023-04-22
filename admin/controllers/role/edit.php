@@ -1,12 +1,20 @@
 <?php
+
 permission_user();
 permission_moderator();
+
 require_once('admin/models/roles.php');
+
 if (!empty($_POST)) {
     role_update();
 }
-if (isset($_GET['role_id'])) $roleId = intval($_GET['role_id']); else $roleId=0;
-$title = ($roleId==0) ? 'Thêm quyền truy cập' : 'Sửa quyền truy cập';
-$adminNav  = 'class="active open"';
+
+if (isset($_GET['role_id']))
+    $roleId = intval($_GET['role_id']);
+else $roleId = 0;
+
+$title = ($roleId == 0) ? 'Thêm quyền truy cập' : 'Sửa quyền truy cập';
+$adminNav = 'class="active open"';
 $role = get_a_record('roles', $roleId);
+
 require('admin/views/role/edit.php');

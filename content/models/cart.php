@@ -58,7 +58,7 @@ function updateCartSession()
     }
 }
 //đồng bộ sản phẩm giữa session và db khi người dùng add to cart
-function update_cart_user_db()
+function mergeCartSessionWithDB()
 {
     global $userNav, $linkConnectDB;
     //lấy sản phẩm trong session cart
@@ -177,7 +177,7 @@ function cart_list()
     return $_SESSION['cart'];
 }
 // Xóa giỏ hàng
-function cart_destroy()
+function cartDestroy()
 {
     $_SESSION['cart'] = array();
 }

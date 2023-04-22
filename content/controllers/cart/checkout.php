@@ -26,7 +26,7 @@ if (!empty($_POST)) {
 		);
 		save('order_detail', $orderDetail);
 	}
-	cart_destroy(); //xoá cart sau khi save order db
+	cartDestroy(); //xoá cart sau khi save order db
 	global $userNav;
 	if (isset($userNav)) detroy_cart_user_db(); //xóa đồng bộ cart trên db sau khi đặt hàng
 	$title = 'Đặt hàng thành công - Quán Chị Kòi';

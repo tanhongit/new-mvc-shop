@@ -1,5 +1,5 @@
 <?php
-function post_trash($id)
+function trashPost($id)
 {
     if (isset($_GET['post_id'])) {
         $id = intval($_GET['post_id']);
@@ -8,7 +8,7 @@ function post_trash($id)
     $sql = "UPDATE posts SET post_status='Trash' where id=" . $id;
     mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
-function post_restore($id)
+function restorePost($id)
 {
     if (isset($_GET['post_id'])) {
         $id = intval($_GET['post_id']);
@@ -17,7 +17,7 @@ function post_restore($id)
     $sql = "UPDATE posts SET post_status='Draft' where id=" . $id;
     mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
-function post_draft($id)
+function postDraft($id)
 {
     if (isset($_GET['post_id'])) {
         $id = intval($_GET['post_id']);
@@ -26,7 +26,7 @@ function post_draft($id)
     $sql = "UPDATE posts SET post_status='Draft' where id=" . $id;
     mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
-function post_public($id)
+function publicPost($id)
 {
     if (isset($_GET['post_id'])) {
         $id = intval($_GET['post_id']);
@@ -35,7 +35,7 @@ function post_public($id)
     $sql = 'UPDATE posts SET post_status="Publiced", post_date="' . gmdate('Y-m-d H:i:s', time() + 7 * 3600) . '" where id=' . $id;
     mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
-function post_delete($id)
+function postDelete($id)
 {
     $id = intval($id);
     global $linkConnectDB;
@@ -147,7 +147,7 @@ function post_update()
     //chuyển hướng nếu có cập nhật
     header('location:admin.php?controller=post');
 }
-function post_add()
+function addPost()
 {
     $name = escape($_POST['title']);
     if (strlen($_POST['slug']) >= 5) $slug = slug($_POST['slug']);

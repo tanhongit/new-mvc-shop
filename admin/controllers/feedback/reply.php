@@ -6,7 +6,7 @@ require_once('admin/models/feedbacks.php');
 require_once('admin/models/order.php');
 
 if (!empty($_POST)) {
-    feedback_reply_email($_POST['html-content'], $_POST['feedback_email']);
+    feedbackReplyMail($_POST['html-content'], $_POST['feedback_email']);
 }
 
 if (isset($_GET['feedback_id'])) {

@@ -14,7 +14,7 @@ if (isset($_GET['order_id'])) {
 }
 
 $order = get_a_record('orders', $orderId);
-$orderDetail = order_detail($orderId);
+$orderDetail = orderDetail($orderId);
 
 if (isset($userNav)) {
     $user_action = get_a_record('users', $userNav);

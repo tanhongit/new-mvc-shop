@@ -21,7 +21,7 @@ $navFeedback = 'class="active open"';
 $feedback = get_a_record('feedbacks', $feedbackId);
 
 if ($feedback['order_id'] <> 0) {
-    $orderDetail = order_detail($feedback['order_id']);
+    $orderDetail = orderDetail($feedback['order_id']);
     $order = get_a_record('orders', $feedback['order_id']);
 }
 if ($feedback['product_id'] <> 0) {

@@ -25,7 +25,7 @@
                 </ul>
             </li>
             <li <?= $yourFeedback ?? '' ?>><a href="admin.php?controller=feedback&action=myfeedback"><i class="zmdi zmdi-mail-send"></i><span>Your Feedback</span></a></li>
-            <li <?php if (isset($your_Purchase)) echo $your_Purchase; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Your Purchase</span></a>
+            <li <?= $yourPurchaseNav ?? '' ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Your Purchase</span></a>
                 <ul class="ml-menu">
                     <li><a href="admin.php?controller=purchase">Tất cả</a></li>
                     <li><a href="admin.php?controller=purchase&action=confirmed">Đơn đã xác thực</a></li>

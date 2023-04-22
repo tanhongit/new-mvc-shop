@@ -1,18 +1,22 @@
 <?php
+
 require_once('admin/models/purchase.php');
+
 global $userNav;
+
 if (!empty($userNav)) {
     $options = array(
         'where' => 'status = 2 and user_id =' . $userNav,
         'order_by' => 'createtime DESC'
     );
-    $deliveryOrders  = get_all('orders', $options);
+    $deliveryOrders = get_all('orders', $options);
     $title = 'Đơn hàng đang vận chuyển';
-    $your_Purchase  = 'class="active open"';
+    $yourPurchaseNav = 'class="active open"';
     $status = array(
         0 => 'Đã xác nhận đơn hàng',
         2 => 'Đang giao hàng',
         1 => 'Đã giao hàng'
     );
 }
+
 require('admin/views/purchase/delivery.php');

@@ -16,7 +16,7 @@ if (!empty($_POST)) {
     );
     cart_add($productId, $product['number']);
     global $userNav;
-    if (isset($userNav)) update_cart_user_db();
+    if (isset($userNav)) mergeCartSessionWithDB();
 }
 echo $productId;
 header('location:../../product/' . $productId . '-' . $product_slug);

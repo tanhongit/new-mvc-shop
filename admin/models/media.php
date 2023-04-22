@@ -1,5 +1,5 @@
 <?php
-function media_delete($id)
+function mediaDestroy($id)
 {
     if (isset($_GET['media_id'])) {
         $id = intval($_GET['media_id']);
@@ -13,14 +13,14 @@ function media_delete($id)
     $sql = "DELETE FROM media WHERE id=$id";
     mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
-function media_add()
+function mediaStore()
 {
-    $media_add = array(
+    $mediaStore = array(
         'id' => intval($_POST['media_id']),
         'media_name' => escape($_POST['name']),
         'createDate' => gmdate('Y-m-d H:i:s', time() + 7 * 3600)
     );
-    $mediaId =  save('media', $media_add);
+    $mediaId =  save('media', $mediaStore);
     $slugg = slug($_POST['name']);
     $config = array(
         'name' => $slugg,
@@ -29,15 +29,15 @@ function media_add()
     );
     $images = upload('imggggg', $config);
     if ($images) {
-        $media_add = array(
+        $mediaStore = array(
             'id' => $mediaId,
             'slug' => $images
         );
-        save('media', $media_add);
+        save('media', $mediaStore);
     }
     header('location:admin.php?controller=media');
 }
-function media_update()
+function mediaUpdate()
 {
     $media_edit = array(
         'id' => intval($_POST['media_id']),

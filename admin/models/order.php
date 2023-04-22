@@ -1,5 +1,5 @@
 <?php
-function order_detail($orderId)
+function orderDetail($orderId)
 {
     global $linkConnectDB;
     $sql = "SELECT products.id, products.product_name,products.img1, products.product_price,products.product_typeid, products.percentoff, products.saleoff, order_detail.quantity, products.slug
@@ -16,7 +16,7 @@ function order_detail($orderId)
     }
     return $data;
 }
-function order_delete($id)
+function orderDestroy($id)
 {
     if (isset($_GET['order_id'])) {
         $id = intval($_GET['order_id']);
@@ -25,7 +25,7 @@ function order_delete($id)
     $sql = "DELETE FROM orders WHERE id=$id";
     mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
-function order_complete($id)
+function orderComplete($id)
 {
     $id = intval($_POST['order_id']);
     $order = array(
@@ -34,7 +34,7 @@ function order_complete($id)
     );
     save('orders', $order);
 }
-function order_inprocess($id)
+function orderInProcess($id)
 {
     $id = intval($_POST['order_id']);
     $order = array(

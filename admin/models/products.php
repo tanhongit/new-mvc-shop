@@ -1,5 +1,5 @@
 <?php
-function products_delete($id)
+function postDestroy($id)
 {
     if (isset($_GET['product_id'])) {
         $id = intval($_GET['product_id']);

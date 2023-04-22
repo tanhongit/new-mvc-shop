@@ -147,7 +147,7 @@ function post_update()
     //chuyển hướng nếu có cập nhật
     header('location:admin.php?controller=post');
 }
-function post_add()
+function addPost()
 {
     $name = escape($_POST['title']);
     if (strlen($_POST['slug']) >= 5) $slug = slug($_POST['slug']);

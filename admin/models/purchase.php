@@ -1,5 +1,5 @@
 <?php
-function order_cancell($id)
+function orderCancel($id)
 {
     if (isset($_GET['order_id'])) {
         $id = intval($_GET['order_id']);

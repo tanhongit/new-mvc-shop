@@ -1,9 +1,14 @@
 <?php
+
 permission_user();
+
 require_once('admin/models/posts.php');
+
 $postNav = 'class="active open"';
 $title = 'Thùng rác';
-if (isset($_GET['page'])) $page = intval($_GET['page']);
+
+if (isset($_GET['page']))
+    $page = intval($_GET['page']);
 else $page = 1;
 
 $page = ($page > 0) ? $page : 1;
@@ -23,4 +28,5 @@ $totalRows = get_total('posts', $options);
 $total = ceil($totalRows / $limit);
 
 $pagination = adminPagination($url, $page, $total);
+
 require('admin/views/post/viewtrash.php');

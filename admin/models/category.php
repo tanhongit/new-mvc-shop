@@ -9,7 +9,7 @@ function deleteSubCategory($id)
     );
     $products = get_all('products', $options);
     foreach ($products as $product) {
-        products_delete($product['id']);
+        postDestroy($product['id']);
     }
     global $linkConnectDB;
     $sql = "DELETE FROM subcategory WHERE id=$id";

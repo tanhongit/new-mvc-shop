@@ -9,6 +9,6 @@ if ($_GET['user_id'] == $userNav || $user['role_id'] <> 1) {
     require('admin/views/user/result.php');
     exit;
 } else {
-    user_delete($userId);
+    userDestroy($userId);
 }
 header('location:admin.php?controller=user&action=listall');

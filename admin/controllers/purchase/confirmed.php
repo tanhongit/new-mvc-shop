@@ -9,9 +9,9 @@ if (!empty($userNav)) {
         'where' => 'status = 0 and user_id =' . $userNav,
         'order_by' => 'createtime DESC'
     );
-    $confirmedOrders  = get_all('orders', $options);
+    $confirmedOrders = get_all('orders', $options);
     $title = 'Đơn hàng đã xác nhận';
-    $yourPurchaseNav  = 'class="active open"';
+    $yourPurchaseNav = 'class="active open"';
     $status = array(
         0 => 'Đã xác nhận đơn hàng',
         2 => 'Đang giao hàng',

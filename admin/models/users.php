@@ -37,7 +37,7 @@ function userLogin($input, $password)
     }
     return false;
 }
-function user_delete($id)
+function userDestroy($id)
 {
     $user = get_a_record('users', $id);
     $image = 'public/upload/images/' . $user['user_avatar'];

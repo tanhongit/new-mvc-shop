@@ -1,0 +1,20 @@
+php:
+  risky: false
+  version: 8.1
+  preset: recommended
+  monolithic: true
+  tab-width: 4
+  use-tabs: false
+  finder:
+    exclude:
+      - "modules"
+      - "node_modules"
+      - "nova"
+      - "nova-components"
+      - "storage"
+      - "spark"
+      - "vendor"
+    name: "*.php"
+    not-name:
+      - "*.blade.php"
+      - "_ide_helper.php"

@@ -10,41 +10,35 @@
 * modifying or distribute this file or part of its contents. The contents of
 * this file is part of the Source Code of CKFinder.
 */
-if (!defined('IN_CKFINDER')) exit;
+if (!defined('IN_CKFINDER')) {
+    exit;
+}
 
 /**
- * @package CKFinder
- * @subpackage CommandHandlers
  * @copyright CKSource - Frederico Knabben
  */
 
 /**
- * Include base XML command handler
+ * Include base XML command handler.
  */
-require_once CKFINDER_CONNECTOR_LIB_DIR . "/CommandHandler/XmlCommandHandlerBase.php";
+require_once CKFINDER_CONNECTOR_LIB_DIR.'/CommandHandler/XmlCommandHandlerBase.php';
 
 /**
- * Handle RenameFile command
+ * Handle RenameFile command.
  *
- * @package CKFinder
- * @subpackage CommandHandlers
  * @copyright CKSource - Frederico Knabben
  */
 class CKFinder_Connector_CommandHandler_RenameFile extends CKFinder_Connector_CommandHandler_XmlCommandHandlerBase
 {
     /**
-     * Command name
+     * Command name.
      *
-     * @access private
      * @var string
      */
-    private $command = "RenameFile";
-
+    private $command = 'RenameFile';
 
     /**
-     * handle request and build XML
-     * @access protected
-     *
+     * handle request and build XML.
      */
     protected function buildXml()
     {
@@ -56,20 +50,20 @@ class CKFinder_Connector_CommandHandler_RenameFile extends CKFinder_Connector_Co
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_UNAUTHORIZED);
         }
 
-        if (!isset($_GET["fileName"])) {
+        if (!isset($_GET['fileName'])) {
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_INVALID_NAME);
         }
-        if (!isset($_GET["newFileName"])) {
+        if (!isset($_GET['newFileName'])) {
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_INVALID_NAME);
         }
 
-        $_config =& CKFinder_Connector_Core_Factory::getInstance("Core_Config");
-        $fileName = CKFinder_Connector_Utils_FileSystem::convertToFilesystemEncoding($_GET["fileName"]);
-        $newFileName = CKFinder_Connector_Utils_FileSystem::convertToFilesystemEncoding($_GET["newFileName"]);
+        $_config = &CKFinder_Connector_Core_Factory::getInstance('Core_Config');
+        $fileName = CKFinder_Connector_Utils_FileSystem::convertToFilesystemEncoding($_GET['fileName']);
+        $newFileName = CKFinder_Connector_Utils_FileSystem::convertToFilesystemEncoding($_GET['newFileName']);
 
-        $oRenamedFileNode = new Ckfinder_Connector_Utils_XmlNode("RenamedFile");
+        $oRenamedFileNode = new Ckfinder_Connector_Utils_XmlNode('RenamedFile');
         $this->_connectorNode->addChild($oRenamedFileNode);
-        $oRenamedFileNode->addAttribute("name", CKFinder_Connector_Utils_FileSystem::convertToConnectorEncoding($fileName));
+        $oRenamedFileNode->addAttribute('name', CKFinder_Connector_Utils_FileSystem::convertToConnectorEncoding($fileName));
 
         $resourceTypeInfo = $this->_currentFolder->getResourceTypeConfig();
         if (!$resourceTypeInfo->checkExtension($newFileName)) {
@@ -116,9 +110,9 @@ class CKFinder_Connector_CommandHandler_RenameFile extends CKFinder_Connector_Co
         $bMoved = @rename($filePath, $newFilePath);
 
         if (!$bMoved) {
-            $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_UNKNOWN, "File " . CKFinder_Connector_Utils_FileSystem::convertToConnectorEncoding($fileName) . "has not been renamed");
+            $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_UNKNOWN, 'File '.CKFinder_Connector_Utils_FileSystem::convertToConnectorEncoding($fileName).'has not been renamed');
         } else {
-            $oRenamedFileNode->addAttribute("newName", CKFinder_Connector_Utils_FileSystem::convertToConnectorEncoding($newFileName));
+            $oRenamedFileNode->addAttribute('newName', CKFinder_Connector_Utils_FileSystem::convertToConnectorEncoding($newFileName));
 
             $thumbPath = CKFinder_Connector_Utils_FileSystem::combinePaths($this->_currentFolder->getThumbsServerPath(), $fileName);
             CKFinder_Connector_Utils_FileSystem::unlink($thumbPath);

@@ -10,51 +10,46 @@
 * modifying or distribute this file or part of its contents. The contents of
 * this file is part of the Source Code of CKFinder.
 */
-if (!defined('IN_CKFINDER')) exit;
+if (!defined('IN_CKFINDER')) {
+    exit;
+}
 
 /**
- * @package CKFinder
- * @subpackage CommandHandlers
  * @copyright CKSource - Frederico Knabben
  */
 
 /**
- * Include base command handler
+ * Include base command handler.
  */
-require_once CKFINDER_CONNECTOR_LIB_DIR . "/CommandHandler/CommandHandlerBase.php";
+require_once CKFINDER_CONNECTOR_LIB_DIR.'/CommandHandler/CommandHandlerBase.php';
 /**
- * Include xml utils
+ * Include xml utils.
  */
-require_once CKFINDER_CONNECTOR_LIB_DIR . "/Core/Xml.php";
+require_once CKFINDER_CONNECTOR_LIB_DIR.'/Core/Xml.php';
 
 /**
- * Base XML commands handler
+ * Base XML commands handler.
  *
- * @package CKFinder
- * @subpackage CommandHandlers
  * @copyright CKSource - Frederico Knabben
+ *
  * @abstract
- *
  */
 abstract class CKFinder_Connector_CommandHandler_XmlCommandHandlerBase extends CKFinder_Connector_CommandHandler_CommandHandlerBase
 {
     /**
-     * Connector node - Ckfinder_Connector_Utils_XmlNode object
+     * Connector node - Ckfinder_Connector_Utils_XmlNode object.
      *
      * @var Ckfinder_Connector_Utils_XmlNode
-     * @access protected
      */
     protected $_connectorNode;
 
     /**
-     * send response
-     * @access public
-     *
+     * send response.
      */
     public function sendResponse()
     {
-        $xml =& CKFinder_Connector_Core_Factory::getInstance("Core_Xml");
-        $this->_connectorNode =& $xml->getConnectorNode();
+        $xml = &CKFinder_Connector_Core_Factory::getInstance('Core_Xml');
+        $this->_connectorNode = &$xml->getConnectorNode();
 
         $this->checkConnector();
         if ($this->mustCheckRequest()) {
@@ -63,26 +58,26 @@ abstract class CKFinder_Connector_CommandHandler_XmlCommandHandlerBase extends C
 
         $resourceTypeName = $this->_currentFolder->getResourceTypeName();
         if (!empty($resourceTypeName)) {
-            $this->_connectorNode->addAttribute("resourceType", $this->_currentFolder->getResourceTypeName());
+            $this->_connectorNode->addAttribute('resourceType', $this->_currentFolder->getResourceTypeName());
         }
 
         if ($this->mustAddCurrentFolderNode()) {
-            $_currentFolder = new Ckfinder_Connector_Utils_XmlNode("CurrentFolder");
+            $_currentFolder = new Ckfinder_Connector_Utils_XmlNode('CurrentFolder');
             $this->_connectorNode->addChild($_currentFolder);
-            $_currentFolder->addAttribute("path", CKFinder_Connector_Utils_FileSystem::convertToConnectorEncoding($this->_currentFolder->getClientPath()));
+            $_currentFolder->addAttribute('path', CKFinder_Connector_Utils_FileSystem::convertToConnectorEncoding($this->_currentFolder->getClientPath()));
 
             $this->_errorHandler->setCatchAllErros(true);
             $_url = $this->_currentFolder->getUrl();
-            $_currentFolder->addAttribute("url", is_null($_url) ? "" : CKFinder_Connector_Utils_FileSystem::convertToConnectorEncoding($_url));
+            $_currentFolder->addAttribute('url', is_null($_url) ? '' : CKFinder_Connector_Utils_FileSystem::convertToConnectorEncoding($_url));
             $this->_errorHandler->setCatchAllErros(false);
 
-            $_currentFolder->addAttribute("acl", $this->_currentFolder->getAclMask());
+            $_currentFolder->addAttribute('acl', $this->_currentFolder->getAclMask());
         }
 
         $this->buildXml();
 
-        $_oErrorNode =& $xml->getErrorNode();
-        $_oErrorNode->addAttribute("number", "0");
+        $_oErrorNode = &$xml->getErrorNode();
+        $_oErrorNode->addAttribute('number', '0');
 
         echo $this->_connectorNode->asXML();
         exit;
@@ -91,8 +86,7 @@ abstract class CKFinder_Connector_CommandHandler_XmlCommandHandlerBase extends C
     /**
      * Must check request?
      *
-     * @return boolean
-     * @access protected
+     * @return bool
      */
     protected function mustCheckRequest()
     {
@@ -102,8 +96,7 @@ abstract class CKFinder_Connector_CommandHandler_XmlCommandHandlerBase extends C
     /**
      * Must add CurrentFolder node?
      *
-     * @return boolean
-     * @access protected
+     * @return bool
      */
     protected function mustAddCurrentFolderNode()
     {
@@ -111,8 +104,8 @@ abstract class CKFinder_Connector_CommandHandler_XmlCommandHandlerBase extends C
     }
 
     /**
-     * @access protected
      * @abstract
+     *
      * @return void
      */
     abstract protected function buildXml();

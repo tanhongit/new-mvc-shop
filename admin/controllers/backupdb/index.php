@@ -3,7 +3,7 @@
 permission_user();
 permission_moderator();
 
-require_once('admin/models/backupDB.php');
+require_once 'admin/models/backupDB.php';
 
 $title = 'Backup Cơ sở dữ liệu Dababase';
 $backupDbClass = 'class="active open"';
@@ -13,4 +13,4 @@ if (isset($_POST['backup_database'])) {
     header('location:admin.php?controller=backupdb&action=result');
 }
 
-require('admin/views/backupdb/index.php');
+require 'admin/views/backupdb/index.php';

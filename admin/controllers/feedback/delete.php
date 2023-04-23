@@ -3,7 +3,7 @@
 permission_user();
 permission_moderator();
 
-require_once('admin/models/feedbacks.php');
+require_once 'admin/models/feedbacks.php';
 
 $feedbackId = intval($_GET['feedback_id']);
 deleteFeedback($feedbackId);

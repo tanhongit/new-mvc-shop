@@ -2,7 +2,7 @@
 
 permission_user();
 
-require_once('admin/models/media.php');
+require_once 'admin/models/media.php';
 
 if (!empty($_POST)) {
     mediaStore();
@@ -18,4 +18,4 @@ $title = ($mediaId == 0) ? '' : 'Cập nhật ảnh';
 $navMedia = 'class="active open"';
 $mediaInfo = get_a_record('media', $mediaId);
 
-require('admin/views/media/add.php');
+require 'admin/views/media/add.php';

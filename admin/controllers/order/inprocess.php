@@ -2,7 +2,7 @@
 
 permission_user();
 
-require_once('admin/models/order.php');
+require_once 'admin/models/order.php';
 
 //submit form click
 if (!empty($_POST)) {

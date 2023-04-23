@@ -10,130 +10,117 @@
  * modifying or distribute this file or part of its contents. The contents of
  * this file is part of the Source Code of CKFinder.
  */
-if (!defined('IN_CKFINDER')) exit;
+if (!defined('IN_CKFINDER')) {
+    exit;
+}
 
 /**
- * @package CKFinder
- * @subpackage Config
  * @copyright CKSource - Frederico Knabben
  */
 
 /**
- * This class keeps thumbnails configuration
+ * This class keeps thumbnails configuration.
  *
- * @package CKFinder
- * @subpackage Config
  * @copyright CKSource - Frederico Knabben
  */
 class CKFinder_Connector_Core_ThumbnailsConfig
 {
-
     /**
-     * Url to thumbnails directory
+     * Url to thumbnails directory.
      *
      * @var string
-     * @access private
      */
-    private $_url = "";
+    private $_url = '';
     /**
-	 * Directory where thumbnails are stored
-	 *
-	 * @var string
-	 * @access private
-	 */
-    private $_directory = "";
+     * Directory where thumbnails are stored.
+     *
+     * @var string
+     */
+    private $_directory = '';
     /**
-	 * Are thumbnails enabled
-	 *
-	 * @var boolean
-	 * @access private
-	 */
+     * Are thumbnails enabled.
+     *
+     * @var bool
+     */
     private $_isEnabled = false;
     /**
-	 * Direct access to thumbnails?
-	 *
-	 * @var boolean
-	 * @access private
-	 */
+     * Direct access to thumbnails?
+     *
+     * @var bool
+     */
     private $_directAccess = false;
     /**
-     * Max width for thumbnails
+     * Max width for thumbnails.
      *
      * @var int
-     * @access private
      */
     private $_maxWidth = 100;
     /**
-     * Max height for thumbnails
+     * Max height for thumbnails.
      *
      * @var int
-     * @access private
      */
     private $_maxHeight = 100;
     /**
-     * Quality of thumbnails
+     * Quality of thumbnails.
      *
      * @var int
-     * @access private
      */
     private $_quality = 100;
     /**
      * Are thumbnails of bitmap files enabled?
      *
-     * @var boolean
-     * @access private
+     * @var bool
      */
     private $_bmpSupported = false;
 
-    function __construct($thumbnailsNode)
+    public function __construct($thumbnailsNode)
     {
-        if(extension_loaded('gd') && isset($thumbnailsNode['enabled'])) {
+        if (extension_loaded('gd') && isset($thumbnailsNode['enabled'])) {
             $this->_isEnabled = CKFinder_Connector_Utils_Misc::booleanValue($thumbnailsNode['enabled']);
         }
-        if( isset($thumbnailsNode['directAccess'])) {
+        if (isset($thumbnailsNode['directAccess'])) {
             $this->_directAccess = CKFinder_Connector_Utils_Misc::booleanValue($thumbnailsNode['directAccess']);
         }
-        if( isset($thumbnailsNode['bmpSupported'])) {
+        if (isset($thumbnailsNode['bmpSupported'])) {
             $this->_bmpSupported = CKFinder_Connector_Utils_Misc::booleanValue($thumbnailsNode['bmpSupported']);
         }
-        if(isset($thumbnailsNode['maxWidth'])) {
+        if (isset($thumbnailsNode['maxWidth'])) {
             $_maxWidth = intval($thumbnailsNode['maxWidth']);
-            if($_maxWidth>=0) {
+            if ($_maxWidth >= 0) {
                 $this->_maxWidth = $_maxWidth;
             }
         }
-        if(isset($thumbnailsNode['maxHeight'])) {
+        if (isset($thumbnailsNode['maxHeight'])) {
             $_maxHeight = intval($thumbnailsNode['maxHeight']);
-            if($_maxHeight>=0) {
+            if ($_maxHeight >= 0) {
                 $this->_maxHeight = $_maxHeight;
             }
         }
-        if(isset($thumbnailsNode['quality'])) {
+        if (isset($thumbnailsNode['quality'])) {
             $_quality = intval($thumbnailsNode['quality']);
-            if($_quality>0 && $_quality<=100) {
+            if ($_quality > 0 && $_quality <= 100) {
                 $this->_quality = $_quality;
             }
         }
 
-        if(isset($thumbnailsNode['url'])) {
+        if (isset($thumbnailsNode['url'])) {
             $this->_url = $thumbnailsNode['url'];
         }
         if (!strlen($this->_url)) {
-            $this->_url = "/";
-        }
-        else if(substr($this->_url,-1,1) != "/") {
-            $this->_url .= "/";
+            $this->_url = '/';
+        } elseif (substr($this->_url, -1, 1) != '/') {
+            $this->_url .= '/';
         }
 
-        if(isset($thumbnailsNode['directory'])) {
+        if (isset($thumbnailsNode['directory'])) {
             $this->_directory = $thumbnailsNode['directory'];
         }
     }
 
     /**
-     * Get URL
+     * Get URL.
      *
-     * @access public
      * @return string
      */
     public function getUrl()
@@ -142,9 +129,8 @@ class CKFinder_Connector_Core_ThumbnailsConfig
     }
 
     /**
-     * Get directory
+     * Get directory.
      *
-     * @access public
      * @return string
      */
     public function getDirectory()
@@ -153,10 +139,9 @@ class CKFinder_Connector_Core_ThumbnailsConfig
     }
 
     /**
-     * Get is enabled setting
+     * Get is enabled setting.
      *
-     * @access public
-     * @return boolean
+     * @return bool
      */
     public function getIsEnabled()
     {
@@ -164,10 +149,9 @@ class CKFinder_Connector_Core_ThumbnailsConfig
     }
 
     /**
-     * Get is enabled setting
+     * Get is enabled setting.
      *
-     * @access public
-     * @return boolean
+     * @return bool
      */
     public function getBmpSupported()
     {
@@ -177,8 +161,7 @@ class CKFinder_Connector_Core_ThumbnailsConfig
     /**
      * Is direct access to thumbnails allowed?
      *
-     * @access public
-     * @return boolean
+     * @return bool
      */
     public function getDirectAccess()
     {
@@ -186,9 +169,8 @@ class CKFinder_Connector_Core_ThumbnailsConfig
     }
 
     /**
-     * Get maximum width of a thumbnail
+     * Get maximum width of a thumbnail.
      *
-     * @access public
      * @return int
      */
     public function getMaxWidth()
@@ -197,9 +179,8 @@ class CKFinder_Connector_Core_ThumbnailsConfig
     }
 
     /**
-     * Get maximum height of a thumbnail
+     * Get maximum height of a thumbnail.
      *
-     * @access public
      * @return int
      */
     public function getMaxHeight()
@@ -208,9 +189,8 @@ class CKFinder_Connector_Core_ThumbnailsConfig
     }
 
     /**
-     * Get quality of a thumbnail (1-100)
+     * Get quality of a thumbnail (1-100).
      *
-     * @access public
      * @return int
      */
     public function getQuality()

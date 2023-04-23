@@ -10,41 +10,35 @@
  * modifying or distribute this file or part of its contents. The contents of
  * this file is part of the Source Code of CKFinder.
  */
-if (!defined('IN_CKFINDER')) exit;
+if (!defined('IN_CKFINDER')) {
+    exit;
+}
 
 /**
- * @package CKFinder
- * @subpackage CommandHandlers
  * @copyright CKSource - Frederico Knabben
  */
 
 /**
- * Include base XML command handler
+ * Include base XML command handler.
  */
-require_once CKFINDER_CONNECTOR_LIB_DIR . "/CommandHandler/XmlCommandHandlerBase.php";
+require_once CKFINDER_CONNECTOR_LIB_DIR.'/CommandHandler/XmlCommandHandlerBase.php';
 
 /**
- * Handle RenameFolder command
+ * Handle RenameFolder command.
  *
- * @package CKFinder
- * @subpackage CommandHandlers
  * @copyright CKSource - Frederico Knabben
  */
 class CKFinder_Connector_CommandHandler_RenameFolder extends CKFinder_Connector_CommandHandler_XmlCommandHandlerBase
 {
     /**
-     * Command name
+     * Command name.
      *
-     * @access private
      * @var string
      */
-    private $command = "RenameFolder";
-
+    private $command = 'RenameFolder';
 
     /**
-     * handle request and build XML
-     * @access protected
-     *
+     * handle request and build XML.
      */
     protected function buildXml()
     {
@@ -56,12 +50,12 @@ class CKFinder_Connector_CommandHandler_RenameFolder extends CKFinder_Connector_
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_UNAUTHORIZED);
         }
 
-        if (!isset($_GET["NewFolderName"])) {
+        if (!isset($_GET['NewFolderName'])) {
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_INVALID_NAME);
         }
 
-        $newFolderName = CKFinder_Connector_Utils_FileSystem::convertToFilesystemEncoding($_GET["NewFolderName"]);
-        $_config =& CKFinder_Connector_Core_Factory::getInstance("Core_Config");
+        $newFolderName = CKFinder_Connector_Utils_FileSystem::convertToFilesystemEncoding($_GET['NewFolderName']);
+        $_config = &CKFinder_Connector_Core_Factory::getInstance('Core_Config');
         if ($_config->forceAscii()) {
             $newFolderName = CKFinder_Connector_Utils_FileSystem::convertToAscii($newFolderName);
         }
@@ -72,7 +66,7 @@ class CKFinder_Connector_CommandHandler_RenameFolder extends CKFinder_Connector_
         }
 
         // The root folder cannot be deleted.
-        if ($this->_currentFolder->getClientPath() == "/") {
+        if ($this->_currentFolder->getClientPath() == '/') {
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_INVALID_REQUEST);
         }
 
@@ -95,20 +89,20 @@ class CKFinder_Connector_CommandHandler_RenameFolder extends CKFinder_Connector_
         if (!$bMoved) {
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_ACCESS_DENIED);
         } else {
-            $newThumbsServerPath = dirname($this->_currentFolder->getThumbsServerPath()) . '/' . $newFolderName . '/';
+            $newThumbsServerPath = dirname($this->_currentFolder->getThumbsServerPath()).'/'.$newFolderName.'/';
             if (!@rename($this->_currentFolder->getThumbsServerPath(), $newThumbsServerPath)) {
                 CKFinder_Connector_Utils_FileSystem::unlink($this->_currentFolder->getThumbsServerPath());
             }
         }
 
-        $newFolderPath = preg_replace(",[^/]+/?$,", $newFolderName, $this->_currentFolder->getClientPath()) . '/';
-        $newFolderUrl = $resourceTypeInfo->getUrl() . ltrim($newFolderPath, '/');
+        $newFolderPath = preg_replace(',[^/]+/?$,', $newFolderName, $this->_currentFolder->getClientPath()).'/';
+        $newFolderUrl = $resourceTypeInfo->getUrl().ltrim($newFolderPath, '/');
 
-        $oRenameNode = new Ckfinder_Connector_Utils_XmlNode("RenamedFolder");
+        $oRenameNode = new Ckfinder_Connector_Utils_XmlNode('RenamedFolder');
         $this->_connectorNode->addChild($oRenameNode);
 
-        $oRenameNode->addAttribute("newName", CKFinder_Connector_Utils_FileSystem::convertToConnectorEncoding($newFolderName));
-        $oRenameNode->addAttribute("newPath", CKFinder_Connector_Utils_FileSystem::convertToConnectorEncoding($newFolderPath));
-        $oRenameNode->addAttribute("newUrl", CKFinder_Connector_Utils_FileSystem::convertToConnectorEncoding($newFolderUrl));
+        $oRenameNode->addAttribute('newName', CKFinder_Connector_Utils_FileSystem::convertToConnectorEncoding($newFolderName));
+        $oRenameNode->addAttribute('newPath', CKFinder_Connector_Utils_FileSystem::convertToConnectorEncoding($newFolderPath));
+        $oRenameNode->addAttribute('newUrl', CKFinder_Connector_Utils_FileSystem::convertToConnectorEncoding($newFolderUrl));
     }
 }

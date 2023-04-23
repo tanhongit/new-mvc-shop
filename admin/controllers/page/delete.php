@@ -3,7 +3,7 @@
 permission_user();
 permission_moderator();
 
-require_once('admin/models/posts.php');
+require_once 'admin/models/posts.php';
 
 $pageId = intval($_GET['page_id']);
 postDelete($pageId);

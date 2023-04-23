@@ -3,7 +3,7 @@
 permission_user();
 permission_moderator();
 
-require_once('admin/models/users.php');
+require_once 'admin/models/users.php';
 
 $roleId = intval($_GET['user_id']);
 userDestroy($roleId);

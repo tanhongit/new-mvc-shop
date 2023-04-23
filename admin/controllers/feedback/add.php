@@ -1,7 +1,7 @@
 <?php
 
-require_once('admin/models/feedbacks.php');
-require_once('admin/models/order.php');
+require_once 'admin/models/feedbacks.php';
+require_once 'admin/models/order.php';
 
 if (!empty($_POST)) {
     addFeedbackOrder();
@@ -20,13 +20,13 @@ if (isset($userNav)) {
     $user_action = get_a_record('users', $userNav);
 }
 
-$status = array(
+$status = [
     0 => 'Đã xác nhận',
     1 => 'Đã xử lý',
     2 => 'Đang xử lý',
-    3 => 'Đã bị hủy'
-);
+    3 => 'Đã bị hủy',
+];
 $title = 'Gửi phản hồi của bạn đến Chị Kòi Quán';
 $navFeedback = 'class="active open"';
 
-require('admin/views/feedback/add.php');
+require 'admin/views/feedback/add.php';

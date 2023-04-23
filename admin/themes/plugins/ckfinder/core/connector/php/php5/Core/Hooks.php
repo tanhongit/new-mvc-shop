@@ -10,31 +10,31 @@
  * modifying or distribute this file or part of its contents. The contents of
  * this file is part of the Source Code of CKFinder.
  */
-if (!defined('IN_CKFINDER')) exit;
+if (!defined('IN_CKFINDER')) {
+    exit;
+}
 
 /**
- * @package CKFinder
- * @subpackage Core
  * @copyright CKSource - Frederico Knabben
  */
 class CKFinder_Connector_Core_Hooks
 {
-
     /**
-     * Run user defined hooks
+     * Run user defined hooks.
      *
      * @param string $event
      * @param object $errorHandler
-     * @param array $args
-     * @return boolean (true to continue processing, false otherwise)
+     * @param array  $args
+     *
+     * @return bool (true to continue processing, false otherwise)
      */
-    public static function run($event, $args = array())
+    public static function run($event, $args = [])
     {
         $config = $GLOBALS['config'];
         if (!isset($config['Hooks'])) {
             return true;
         }
-        $hooks =& $config['Hooks'];
+        $hooks = &$config['Hooks'];
 
         if (!is_array($hooks) || !array_key_exists($event, $hooks) || !is_array($hooks[$event])) {
             return true;
@@ -43,11 +43,10 @@ class CKFinder_Connector_Core_Hooks
         $errorHandler = $GLOBALS['connector']->getErrorHandler();
 
         foreach ($hooks[$event] as $i => $hook) {
-
-            $object = NULL;
-            $method = NULL;
-            $function = NULL;
-            $data = NULL;
+            $object = null;
+            $method = null;
+            $function = null;
+            $data = null;
             $passData = false;
 
             /* $hook can be: a function, an object, an array of $functiontion and $data,
@@ -59,19 +58,19 @@ class CKFinder_Connector_Core_Hooks
                 $function = $hook;
             }
             //object
-            else if (is_object($hook)) {
+            elseif (is_object($hook)) {
                 $object = $hooks[$event][$i];
-                $method = "on" . $event;
+                $method = 'on'.$event;
             }
             //array of...
-            else if (is_array($hook)) {
+            elseif (is_array($hook)) {
                 $count = count($hook);
                 if ($count) {
                     //...object
                     if (is_object($hook[0])) {
                         $object = $hooks[$event][$i][0];
                         if ($count < 2) {
-                            $method = "on" . $event;
+                            $method = 'on'.$event;
                         } else {
                             //...object and method
                             $method = $hook[1];
@@ -83,7 +82,7 @@ class CKFinder_Connector_Core_Hooks
                         }
                     }
                     //...function
-                    else if (is_string($hook[0])) {
+                    elseif (is_string($hook[0])) {
                         $function = $hook[0];
                         if ($count > 1) {
                             //...function with data
@@ -96,32 +95,33 @@ class CKFinder_Connector_Core_Hooks
 
             /* If defined, add data to the arguments array */
             if ($passData) {
-                $args = array_merge(array($data), $args);
+                $args = array_merge([$data], $args);
             }
 
             if (isset($object)) {
-                $callback = array($object, $method);
-            }
-            else if (false !== ($pos = strpos($function, '::'))) {
-                $callback = array(substr($function, 0, $pos), substr($function, $pos + 2));
-            }
-            else {
+                $callback = [$object, $method];
+            } elseif (false !== ($pos = strpos($function, '::'))) {
+                $callback = [substr($function, 0, $pos), substr($function, $pos + 2)];
+            } else {
                 $callback = $function;
             }
 
             if (is_callable($callback)) {
                 $ret = call_user_func_array($callback, $args);
-            }
-            else {
+            } else {
                 $functionName = CKFinder_Connector_Core_Hooks::_printCallback($callback);
-                $errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_CUSTOM_ERROR,
-                "CKFinder failed to call a hook: " . $functionName);
+                $errorHandler->throwError(
+                    CKFINDER_CONNECTOR_ERROR_CUSTOM_ERROR,
+                    'CKFinder failed to call a hook: '.$functionName
+                );
+
                 return false;
             }
 
             //String return is a custom error
             if (is_string($ret)) {
                 $errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_CUSTOM_ERROR, $ret);
+
                 return false;
             }
             //hook returned an error code, user error codes start from 50000
@@ -129,19 +129,22 @@ class CKFinder_Connector_Core_Hooks
             //TODO: two custom extensions may be popular and return the same error codes
             //recomendation: create a function that calculates the error codes starting number
             //for an extension, a pool of 100 error codes for each extension should be safe enough
-            else if (is_int($ret)) {
+            elseif (is_int($ret)) {
                 $errorHandler->throwError($ret);
+
                 return false;
             }
             //no value returned
-            else if( $ret === null ) {
+            elseif ($ret === null) {
                 $functionName = CKFinder_Connector_Core_Hooks::_printCallback($callback);
-                $errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_CUSTOM_ERROR,
-                "CKFinder extension returned an invalid value (null)." .
-                "Hook " . $functionName . " should return a value.");
+                $errorHandler->throwError(
+                    CKFINDER_CONNECTOR_ERROR_CUSTOM_ERROR,
+                    'CKFinder extension returned an invalid value (null).'.
+                    'Hook '.$functionName.' should return a value.'
+                );
+
                 return false;
-            }
-            else if (!$ret) {
+            } elseif (!$ret) {
                 return false;
             }
         }
@@ -150,9 +153,10 @@ class CKFinder_Connector_Core_Hooks
     }
 
     /**
-     * Print user friendly name of a callback
+     * Print user friendly name of a callback.
      *
      * @param mixed $callback
+     *
      * @return string
      */
     public static function _printCallback($callback)
@@ -163,11 +167,11 @@ class CKFinder_Connector_Core_Hooks
             } else {
                 $className = strval($callback[0]);
             }
-            $functionName = $className . '::' . strval($callback[1]);
-        }
-        else {
+            $functionName = $className.'::'.strval($callback[1]);
+        } else {
             $functionName = strval($callback);
         }
+
         return $functionName;
     }
 }

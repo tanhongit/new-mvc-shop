@@ -10,43 +10,38 @@
  * modifying or distribute this file or part of its contents. The contents of
  * this file is part of the Source Code of CKFinder.
  */
-if (!defined('IN_CKFINDER')) exit;
+if (!defined('IN_CKFINDER')) {
+    exit;
+}
 
 /**
- * @package CKFinder
- * @subpackage ErrorHandler
  * @copyright CKSource - Frederico Knabben
  */
 
 /**
- * Basic error handler
+ * Basic error handler.
  *
- * @package CKFinder
- * @subpackage ErrorHandler
  * @copyright CKSource - Frederico Knabben
  */
 class CKFinder_Connector_ErrorHandler_Base
 {
     /**
-     * Try/catch emulation, if set to true, error handler will not throw any error
+     * Try/catch emulation, if set to true, error handler will not throw any error.
      *
-     * @var boolean
-     * @access protected
+     * @var bool
      */
     protected $_catchAllErrors = false;
     /**
-     * Array with error numbers that should be ignored
+     * Array with error numbers that should be ignored.
      *
      * @var array[]int
-     * @access protected
      */
-    protected $_skipErrorsArray = array();
+    protected $_skipErrorsArray = [];
 
     /**
-     * Set whether all errors should be ignored
+     * Set whether all errors should be ignored.
      *
-     * @param boolean $newValue
-     * @access public
+     * @param bool $newValue
      */
     public function setCatchAllErros($newValue)
     {
@@ -54,7 +49,7 @@ class CKFinder_Connector_ErrorHandler_Base
     }
 
     /**
-     * Set which errors should be ignored
+     * Set which errors should be ignored.
      *
      * @param array $newArray
      */
@@ -66,11 +61,10 @@ class CKFinder_Connector_ErrorHandler_Base
     }
 
     /**
-     * Throw connector error, return true if error has been thrown, false if error has been catched
+     * Throw connector error, return true if error has been thrown, false if error has been catched.
      *
-     * @param int $number
+     * @param int    $number
      * @param string $text
-     * @access public
      */
     public function throwError($number, $text = false)
     {
@@ -78,8 +72,8 @@ class CKFinder_Connector_ErrorHandler_Base
             return false;
         }
 
-        $_xml =& CKFinder_Connector_Core_Factory::getInstance("Core_Xml");
-        $_xml->raiseError($number,$text);
+        $_xml = &CKFinder_Connector_Core_Factory::getInstance('Core_Xml');
+        $_xml->raiseError($number, $text);
 
         exit;
     }

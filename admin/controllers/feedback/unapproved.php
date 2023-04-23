@@ -2,7 +2,7 @@
 
 permission_user();
 
-require_once('admin/models/feedbacks.php');
+require_once 'admin/models/feedbacks.php';
 
 if (isset($_GET['feedback_id'])) {
     $feedbackId = intval($_GET['feedback_id']);

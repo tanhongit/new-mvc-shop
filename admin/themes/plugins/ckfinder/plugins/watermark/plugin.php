@@ -15,21 +15,27 @@
 
 class Watermark
 {
-    function onAfterFileUpload($currentFolder, $uploadedFile, $sFilePath)
+    public function onAfterFileUpload($currentFolder, $uploadedFile, $sFilePath)
     {
         global $config;
         $watermarkSettings = $config['Plugin_Watermark'];
 
-        $this->createWatermark($sFilePath, $watermarkSettings['source'], $watermarkSettings['marginRight'],
-            $watermarkSettings['marginBottom'], $watermarkSettings['quality'], $watermarkSettings['transparency']);
+        $this->createWatermark(
+            $sFilePath,
+            $watermarkSettings['source'],
+            $watermarkSettings['marginRight'],
+            $watermarkSettings['marginBottom'],
+            $watermarkSettings['quality'],
+            $watermarkSettings['transparency']
+        );
 
         return true;
     }
 
-    function createWatermark($sourceFile, $watermarkFile, $marginLeft = 5, $marginBottom = 5, $quality = 90, $transparency = 100)
+    public function createWatermark($sourceFile, $watermarkFile, $marginLeft = 5, $marginBottom = 5, $quality = 90, $transparency = 100)
     {
         if (!file_exists($watermarkFile)) {
-            $watermarkFile = dirname(__FILE__) . "/" . $watermarkFile;
+            $watermarkFile = dirname(__FILE__).'/'.$watermarkFile;
         }
         if (!file_exists($watermarkFile)) {
             return false;
@@ -41,86 +47,84 @@ class Watermark
             return false;
         }
 
-        switch ($watermarkImageAttr['mime'])
-        {
+        switch ($watermarkImageAttr['mime']) {
             case 'image/gif':
-                {
-                    if (@imagetypes() & IMG_GIF) {
-                        $oWatermarkImage = @imagecreatefromgif($watermarkFile);
-                    } else {
-                        $ermsg = 'GIF images are not supported';
-                    }
+
+                if (@imagetypes() & IMG_GIF) {
+                    $oWatermarkImage = @imagecreatefromgif($watermarkFile);
+                } else {
+                    $ermsg = 'GIF images are not supported';
                 }
+
                 break;
             case 'image/jpeg':
-                {
-                    if (@imagetypes() & IMG_JPG) {
-                        $oWatermarkImage = @imagecreatefromjpeg($watermarkFile) ;
-                    } else {
-                        $ermsg = 'JPEG images are not supported';
-                    }
+
+                if (@imagetypes() & IMG_JPG) {
+                    $oWatermarkImage = @imagecreatefromjpeg($watermarkFile);
+                } else {
+                    $ermsg = 'JPEG images are not supported';
                 }
+
                 break;
             case 'image/png':
-                {
-                    if (@imagetypes() & IMG_PNG) {
-                        $oWatermarkImage = @imagecreatefrompng($watermarkFile) ;
-                    } else {
-                        $ermsg = 'PNG images are not supported';
-                    }
+
+                if (@imagetypes() & IMG_PNG) {
+                    $oWatermarkImage = @imagecreatefrompng($watermarkFile);
+                } else {
+                    $ermsg = 'PNG images are not supported';
                 }
+
                 break;
             case 'image/wbmp':
-                {
-                    if (@imagetypes() & IMG_WBMP) {
-                        $oWatermarkImage = @imagecreatefromwbmp($watermarkFile);
-                    } else {
-                        $ermsg = 'WBMP images are not supported';
-                    }
+
+                if (@imagetypes() & IMG_WBMP) {
+                    $oWatermarkImage = @imagecreatefromwbmp($watermarkFile);
+                } else {
+                    $ermsg = 'WBMP images are not supported';
                 }
+
                 break;
             default:
                 $ermsg = $watermarkImageAttr['mime'].' images are not supported';
                 break;
         }
 
-        switch ($sourceImageAttr['mime'])
-        {
+        switch ($sourceImageAttr['mime']) {
             case 'image/gif':
-                {
-                    if (@imagetypes() & IMG_GIF) {
-                        $oImage = @imagecreatefromgif($sourceFile);
-                    } else {
-                        $ermsg = 'GIF images are not supported';
-                    }
+
+                if (@imagetypes() & IMG_GIF) {
+                    $oImage = @imagecreatefromgif($sourceFile);
+                } else {
+                    $ermsg = 'GIF images are not supported';
                 }
+
                 break;
             case 'image/jpeg':
-                {
-                    if (@imagetypes() & IMG_JPG) {
-                        $oImage = @imagecreatefromjpeg($sourceFile) ;
-                    } else {
-                        $ermsg = 'JPEG images are not supported';
-                    }
+
+                if (@imagetypes() & IMG_JPG) {
+                    $oImage = @imagecreatefromjpeg($sourceFile);
+                } else {
+                    $ermsg = 'JPEG images are not supported';
                 }
+
                 break;
             case 'image/png':
-                {
-                    if (@imagetypes() & IMG_PNG) {
-                        $oImage = @imagecreatefrompng($sourceFile) ;
-                    } else {
-                        $ermsg = 'PNG images are not supported';
-                    }
+
+                if (@imagetypes() & IMG_PNG) {
+                    $oImage = @imagecreatefrompng($sourceFile);
+                } else {
+                    $ermsg = 'PNG images are not supported';
                 }
+
                 break;
             case 'image/wbmp':
-                {
-                    if (@imagetypes() & IMG_WBMP) {
-                        $oImage = @imagecreatefromwbmp($sourceFile);
-                    } else {
-                        $ermsg = 'WBMP images are not supported';
-                    }
+
+                if (@imagetypes() & IMG_WBMP) {
+                    $oImage = @imagecreatefromwbmp($sourceFile);
+                } else {
+                    $ermsg = 'WBMP images are not supported';
                 }
+
                 break;
             default:
                 $ermsg = $sourceImageAttr['mime'].' images are not supported';
@@ -136,25 +140,21 @@ class Watermark
         $dest_x = $sourceImageAttr[0] - $watermark_width - $marginLeft;
         $dest_y = $sourceImageAttr[1] - $watermark_height - $marginBottom;
 
-        if ( $sourceImageAttr['mime'] == 'image/png')
-        {
-            if(function_exists('imagesavealpha') && function_exists('imagecolorallocatealpha') )
-            {
-                 $bg = imagecolorallocatealpha($oImage, 255, 255, 255, 127); // (PHP 4 >= 4.3.2, PHP 5)
-                 imagefill($oImage, 0, 0 , $bg);
-                 imagealphablending($oImage, false);
-                 imagesavealpha($oImage, true);  // (PHP 4 >= 4.3.2, PHP 5)
+        if ($sourceImageAttr['mime'] == 'image/png') {
+            if (function_exists('imagesavealpha') && function_exists('imagecolorallocatealpha')) {
+                $bg = imagecolorallocatealpha($oImage, 255, 255, 255, 127); // (PHP 4 >= 4.3.2, PHP 5)
+                imagefill($oImage, 0, 0, $bg);
+                imagealphablending($oImage, false);
+                imagesavealpha($oImage, true);  // (PHP 4 >= 4.3.2, PHP 5)
             }
         }
         if ($watermarkImageAttr['mime'] == 'image/png') {
             imagecopy($oImage, $oWatermarkImage, $dest_x, $dest_y, 0, 0, $watermark_width, $watermark_height);
-        }
-        else {
+        } else {
             imagecopymerge($oImage, $oWatermarkImage, $dest_x, $dest_y, 0, 0, $watermark_width, $watermark_height, $transparency);
         }
 
-        switch ($sourceImageAttr['mime'])
-        {
+        switch ($sourceImageAttr['mime']) {
             case 'image/gif':
                 imagegif($oImage, $sourceFile);
                 break;
@@ -169,20 +169,19 @@ class Watermark
                 break;
         }
 
-        imageDestroy($oImage);
-        imageDestroy($oWatermarkImage);
+        imagedestroy($oImage);
+        imagedestroy($oWatermarkImage);
     }
 }
 
 $watermark = new Watermark();
-$config['Hooks']['AfterFileUpload'][] = array($watermark, 'onAfterFileUpload');
-if (empty($config['Plugin_Watermark']))
-{
-    $config['Plugin_Watermark'] = array(
-        "source" => "logo.gif",
-        "marginRight" => 5,
-        "marginBottom" => 5,
-        "quality" => 90,
-        "transparency" => 80,
-    );
+$config['Hooks']['AfterFileUpload'][] = [$watermark, 'onAfterFileUpload'];
+if (empty($config['Plugin_Watermark'])) {
+    $config['Plugin_Watermark'] = [
+        'source'       => 'logo.gif',
+        'marginRight'  => 5,
+        'marginBottom' => 5,
+        'quality'      => 90,
+        'transparency' => 80,
+    ];
 }

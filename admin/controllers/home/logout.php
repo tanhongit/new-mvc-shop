@@ -1,6 +1,6 @@
 <?php
 
-require_once('content/models/cart.php');
+require_once 'content/models/cart.php';
 
 global $userNav;
 

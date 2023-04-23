@@ -3,7 +3,7 @@
 permission_user();
 permission_moderator();
 
-require_once('admin/models/shop.php');
+require_once 'admin/models/shop.php';
 
 $categoryId = intval($_GET['cate_id']);
 categoryDestroy($categoryId);

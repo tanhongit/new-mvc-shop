@@ -10,40 +10,37 @@
  * modifying or distribute this file or part of its contents. The contents of
  * this file is part of the Source Code of CKFinder.
  */
-if (!defined('IN_CKFINDER')) exit;
+if (!defined('IN_CKFINDER')) {
+    exit;
+}
 
 /**
- * @package CKFinder
- * @subpackage CommandHandlers
  * @copyright CKSource - Frederico Knabben
  */
 
 /**
- * Include file upload command handler
+ * Include file upload command handler.
  */
-require_once CKFINDER_CONNECTOR_LIB_DIR . "/CommandHandler/FileUpload.php";
+require_once CKFINDER_CONNECTOR_LIB_DIR.'/CommandHandler/FileUpload.php';
 
 /**
- * Handle QuickUpload command
+ * Handle QuickUpload command.
  *
- * @package CKFinder
- * @subpackage CommandHandlers
  * @copyright CKSource - Frederico Knabben
  */
 class CKFinder_Connector_CommandHandler_QuickUpload extends CKFinder_Connector_CommandHandler_FileUpload
 {
     /**
-     * Command name
+     * Command name.
      *
-     * @access protected
      * @var string
      */
-    protected $command = "QuickUpload";
+    protected $command = 'QuickUpload';
 
-    function sendResponse()
+    public function sendResponse()
     {
-        $oRegistry =& CKFinder_Connector_Core_Factory::getInstance("Core_Registry");
-        $oRegistry->set("FileUpload_url", $this->_currentFolder->getUrl());
+        $oRegistry = &CKFinder_Connector_Core_Factory::getInstance('Core_Registry');
+        $oRegistry->set('FileUpload_url', $this->_currentFolder->getUrl());
 
         return parent::sendResponse();
     }

@@ -12,20 +12,21 @@
 *
 * CKFinder extension: prodives command that saves edited file.
 */
-if (!defined('IN_CKFINDER')) exit;
+if (!defined('IN_CKFINDER')) {
+    exit;
+}
 
 /**
- * Include base XML command handler
+ * Include base XML command handler.
  */
-require_once CKFINDER_CONNECTOR_LIB_DIR . "/CommandHandler/XmlCommandHandlerBase.php";
+require_once CKFINDER_CONNECTOR_LIB_DIR.'/CommandHandler/XmlCommandHandlerBase.php';
 
 class CKFinder_Connector_CommandHandler_FileEditor extends CKFinder_Connector_CommandHandler_XmlCommandHandlerBase
 {
     /**
-     * handle request and build XML
-     * @access protected
+     * handle request and build XML.
      */
-    function buildXml()
+    public function buildXml()
     {
         if (empty($_POST['CKFinderCommand']) || $_POST['CKFinderCommand'] != 'true') {
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_INVALID_REQUEST);
@@ -39,14 +40,14 @@ class CKFinder_Connector_CommandHandler_FileEditor extends CKFinder_Connector_Co
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_UNAUTHORIZED);
         }
 
-        if (!isset($_POST["fileName"])) {
+        if (!isset($_POST['fileName'])) {
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_INVALID_NAME);
         }
-        if (!isset($_POST["content"])) {
+        if (!isset($_POST['content'])) {
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_INVALID_REQUEST);
         }
 
-        $fileName = CKFinder_Connector_Utils_FileSystem::convertToFilesystemEncoding($_POST["fileName"]);
+        $fileName = CKFinder_Connector_Utils_FileSystem::convertToFilesystemEncoding($_POST['fileName']);
         $resourceTypeInfo = $this->_currentFolder->getResourceTypeConfig();
 
         if (!$resourceTypeInfo->checkExtension($fileName)) {
@@ -70,9 +71,8 @@ class CKFinder_Connector_CommandHandler_FileEditor extends CKFinder_Connector_Co
         $fp = @fopen($filePath, 'wb');
         if ($fp === false || !flock($fp, LOCK_EX)) {
             $result = false;
-        }
-        else {
-            $result = fwrite($fp, $_POST["content"]);
+        } else {
+            $result = fwrite($fp, $_POST['content']);
             flock($fp, LOCK_UN);
             fclose($fp);
         }
@@ -81,21 +81,18 @@ class CKFinder_Connector_CommandHandler_FileEditor extends CKFinder_Connector_Co
         }
     }
 
-    /**
-     * @access public
-     */
-    function onBeforeExecuteCommand( &$command )
+    public function onBeforeExecuteCommand(&$command)
     {
-        if ( $command == 'SaveFile' )
-        {
+        if ($command == 'SaveFile') {
             $this->sendResponse();
+
             return false;
         }
 
-        return true ;
+        return true;
     }
 }
 
 $CommandHandler_FileEditor = new CKFinder_Connector_CommandHandler_FileEditor();
-$config['Hooks']['BeforeExecuteCommand'][] = array($CommandHandler_FileEditor, "onBeforeExecuteCommand");
+$config['Hooks']['BeforeExecuteCommand'][] = [$CommandHandler_FileEditor, 'onBeforeExecuteCommand'];
 $config['Plugins'][] = 'fileeditor';

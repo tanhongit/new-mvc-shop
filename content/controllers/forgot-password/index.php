@@ -1,1 +1,1 @@
-<?php require('content/views/forgot-password/index.php');
+<?php require 'content/views/forgot-password/index.php';

@@ -10,41 +10,35 @@
  * modifying or distribute this file or part of its contents. The contents of
  * this file is part of the Source Code of CKFinder.
  */
-if (!defined('IN_CKFINDER')) exit;
+if (!defined('IN_CKFINDER')) {
+    exit;
+}
 
 /**
- * @package CKFinder
- * @subpackage CommandHandlers
  * @copyright CKSource - Frederico Knabben
  */
 
 /**
- * Include base XML command handler
+ * Include base XML command handler.
  */
-require_once CKFINDER_CONNECTOR_LIB_DIR . "/CommandHandler/XmlCommandHandlerBase.php";
+require_once CKFINDER_CONNECTOR_LIB_DIR.'/CommandHandler/XmlCommandHandlerBase.php';
 
 /**
- * Handle DeleteFile command
+ * Handle DeleteFile command.
  *
- * @package CKFinder
- * @subpackage CommandHandlers
  * @copyright CKSource - Frederico Knabben
  */
 class CKFinder_Connector_CommandHandler_LoadCookies extends CKFinder_Connector_CommandHandler_XmlCommandHandlerBase
 {
     /**
-     * Command name
+     * Command name.
      *
-     * @access private
      * @var string
      */
-    private $command = "LoadCookies";
-
+    private $command = 'LoadCookies';
 
     /**
-     * handle request and build XML
-     * @access protected
-     *
+     * handle request and build XML.
      */
     protected function buildXml()
     {
@@ -56,15 +50,15 @@ class CKFinder_Connector_CommandHandler_LoadCookies extends CKFinder_Connector_C
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_UNAUTHORIZED);
         }
 
-        $oCookiesNode = new Ckfinder_Connector_Utils_XmlNode("Cookies");
+        $oCookiesNode = new Ckfinder_Connector_Utils_XmlNode('Cookies');
         $this->_connectorNode->addChild($oCookiesNode);
         $i = 0;
         foreach ($_COOKIE as $name => $value) {
-            if (!is_array($value) && strpos($name, "CKFinder_") !== 0) {
-                $oCookieNode[$i] = new Ckfinder_Connector_Utils_XmlNode("Cookie");
+            if (!is_array($value) && strpos($name, 'CKFinder_') !== 0) {
+                $oCookieNode[$i] = new Ckfinder_Connector_Utils_XmlNode('Cookie');
                 $oCookiesNode->addChild($oCookieNode[$i]);
-                $oCookieNode[$i]->addAttribute("name", $name);
-                $oCookieNode[$i]->addAttribute("value", $value);
+                $oCookieNode[$i]->addAttribute('name', $name);
+                $oCookieNode[$i]->addAttribute('value', $value);
                 $i++;
             }
         }

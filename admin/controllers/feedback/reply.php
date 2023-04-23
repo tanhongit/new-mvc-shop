@@ -2,8 +2,8 @@
 
 permission_user();
 
-require_once('admin/models/feedbacks.php');
-require_once('admin/models/order.php');
+require_once 'admin/models/feedbacks.php';
+require_once 'admin/models/order.php';
 
 if (!empty($_POST)) {
     feedbackReplyMail($_POST['html-content'], $_POST['feedback_email']);
@@ -19,4 +19,4 @@ $title = $feedbackId === 0 ? '' : 'Trả lời cho phản hồi của khách hà
 $feedback = get_a_record('feedbacks', $feedbackId);
 $navFeedback = 'class="active open"';
 
-require('admin/views/feedback/reply.php');
+require 'admin/views/feedback/reply.php';

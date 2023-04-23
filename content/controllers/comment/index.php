@@ -1,32 +1,33 @@
 <?php
+
 if (!empty($_POST)) {
     global $userNav;
     if (isset($userNav)) {
-        $comment_add = array(
-            'id' => 0,
+        $comment_add = [
+            'id'         => 0,
             'product_id' => intval($_POST['product_id']),
-            'email' => escape($_POST['email']),
-            'author' => escape($_POST['author']),
-            'content' => escape($_POST['content']),
+            'email'      => escape($_POST['email']),
+            'author'     => escape($_POST['author']),
+            'content'    => escape($_POST['content']),
             'createDate' => gmdate('Y-m-d H:i:s', time() + 7 * 3600),
-            'user_id' => intval($_POST['user_id']),
-            'link_image' => escape($_POST['link_image'])
-        );
+            'user_id'    => intval($_POST['user_id']),
+            'link_image' => escape($_POST['link_image']),
+        ];
     } else {
-        $comment_add = array(
-            'id' => 0,
+        $comment_add = [
+            'id'         => 0,
             'product_id' => intval($_POST['product_id']),
-            'email' => escape($_POST['email']),
-            'author' => escape($_POST['author']),
-            'content' => escape($_POST['content']),
+            'email'      => escape($_POST['email']),
+            'author'     => escape($_POST['author']),
+            'content'    => escape($_POST['content']),
             'createDate' => gmdate('Y-m-d H:i:s', time() + 7 * 3600),
-            'user_id' => intval($_POST['user_id'])
-        );
+            'user_id'    => intval($_POST['user_id']),
+        ];
     }
     save('comments', $comment_add);
     echo "<div class='alert alert-success'><strong>Done!</strong> Bạn đã ghi lời bình luận của bạn lại thành công !! <br>Hãy <a href='javascript: history.go(-1)'>Trở lại sản phẩm</a> hoặc <a href='index.php'>Đến trang chủ</a></div>";
 }
-require('content/views/comment/index.php');
+require 'content/views/comment/index.php';
 // $input = json_decode(file_get_contents('php://input'), true);
 
 // $productID = $input['productID'];

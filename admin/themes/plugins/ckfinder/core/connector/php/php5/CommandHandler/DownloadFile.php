@@ -10,42 +10,37 @@
  * modifying or distribute this file or part of its contents. The contents of
  * this file is part of the Source Code of CKFinder.
  */
-if (!defined('IN_CKFINDER')) exit;
+if (!defined('IN_CKFINDER')) {
+    exit;
+}
 
 /**
- * @package CKFinder
- * @subpackage CommandHandlers
  * @copyright CKSource - Frederico Knabben
  */
 
 /**
- * Handle DownloadFile command
+ * Handle DownloadFile command.
  *
- * @package CKFinder
- * @subpackage CommandHandlers
  * @copyright CKSource - Frederico Knabben
  */
 class CKFinder_Connector_CommandHandler_DownloadFile extends CKFinder_Connector_CommandHandler_CommandHandlerBase
 {
     /**
-     * Command name
+     * Command name.
      *
-     * @access private
      * @var string
      */
-    private $command = "DownloadFile";
+    private $command = 'DownloadFile';
 
     /**
-     * send response (file)
-     * @access public
-     *
+     * send response (file).
      */
     public function sendResponse()
     {
         if (!function_exists('ob_list_handlers') || ob_list_handlers()) {
             @ob_end_clean();
         }
-        header("Content-Encoding: none");
+        header('Content-Encoding: none');
 
         $this->checkConnector();
         $this->checkRequest();
@@ -54,7 +49,7 @@ class CKFinder_Connector_CommandHandler_DownloadFile extends CKFinder_Connector_
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_UNAUTHORIZED);
         }
 
-        $fileName = CKFinder_Connector_Utils_FileSystem::convertToFilesystemEncoding($_GET["FileName"]);
+        $fileName = CKFinder_Connector_Utils_FileSystem::convertToFilesystemEncoding($_GET['FileName']);
         $_resourceTypeInfo = $this->_currentFolder->getResourceTypeConfig();
 
         if (!CKFinder_Connector_Utils_FileSystem::checkFileName($fileName)) {
@@ -72,22 +67,21 @@ class CKFinder_Connector_CommandHandler_DownloadFile extends CKFinder_Connector_
 
         $fileName = CKFinder_Connector_Utils_FileSystem::convertToConnectorEncoding($fileName);
 
-        header("Cache-Control: cache, must-revalidate");
-        header("Pragma: public");
-        header("Expires: 0");
+        header('Cache-Control: cache, must-revalidate');
+        header('Pragma: public');
+        header('Expires: 0');
         if (!empty($_GET['format']) && $_GET['format'] == 'text') {
-            header("Content-Type: text/plain; charset=utf-8");
-        }
-        else {
-            $user_agent = !empty($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : "";
-            $encodedName = str_replace("\"", "\\\"", $fileName);
-            if (strpos($user_agent, "MSIE") !== false) {
-                $encodedName = str_replace(array("+", "%2E"), array(" ", "."), urlencode($encodedName));
+            header('Content-Type: text/plain; charset=utf-8');
+        } else {
+            $user_agent = !empty($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
+            $encodedName = str_replace('"', '\\"', $fileName);
+            if (strpos($user_agent, 'MSIE') !== false) {
+                $encodedName = str_replace(['+', '%2E'], [' ', '.'], urlencode($encodedName));
             }
-            header("Content-type: application/octet-stream; name=\"" . $fileName . "\"");
-            header("Content-Disposition: attachment; filename=\"" . $encodedName. "\"");
+            header('Content-type: application/octet-stream; name="'.$fileName.'"');
+            header('Content-Disposition: attachment; filename="'.$encodedName.'"');
         }
-        header("Content-Length: " . filesize($filePath));
+        header('Content-Length: '.filesize($filePath));
         CKFinder_Connector_Utils_FileSystem::sendFile($filePath);
         exit;
     }

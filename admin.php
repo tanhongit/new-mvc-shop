@@ -2,8 +2,8 @@
 
 session_start();
 
-require_once('lib/model.php');
-require_once('lib/functions.php');
+require_once 'lib/model.php';
+require_once 'lib/functions.php';
 
 if (isset($_GET['controller'])) {
     $controller = $_GET['controller'];
@@ -22,12 +22,9 @@ if (!isset($_SESSION['user'])) {
     $action = 'login';
 }
 
-$file = 'admin/controllers/' . $controller . '/' . $action . '.php';
+$file = 'admin/controllers/'.$controller.'/'.$action.'.php';
 if (file_exists($file)) {
-    require($file);
+    require $file;
 } else {
     show_404();
 }
-
-
-

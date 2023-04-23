@@ -1,7 +1,7 @@
 <?php
 
-require_once('admin/models/users.php');
-require_once('content/models/cart.php');
+require_once 'admin/models/users.php';
+require_once 'content/models/cart.php';
 
 if (!empty($_POST)) {
     $email = escape($_POST['email']);
@@ -23,4 +23,4 @@ if (isset($_SESSION['user'])) {
 }
 $title = 'Administrator - Login Quản Trị Shop';
 
-require('admin/views/home/login.php');
+require 'admin/views/home/login.php';

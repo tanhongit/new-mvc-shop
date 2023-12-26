@@ -5,3 +5,5 @@ vendor
 .gitignore
 .DS_Store
 *.log
+docker/certs
+docker/logs

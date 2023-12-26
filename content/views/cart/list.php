@@ -28,35 +28,35 @@
                     <?php foreach ($cart as $productId => $product) { ?>
                         <tr class="cart_table_item">
                             <td class="product-remove">
-                                <a title="Remove this item" class="remove" href="cart/delete/<?php echo $product['id']; ?>">
+                                <a title="Remove this item" class="remove" href="cart/delete/<?= $product['id']; ?>">
                                     <i class="fa fa-times"></i>
                                 </a>
                             </td>
                             <td class="product-thumbnail">
-                                <a href="product/<?php echo $product['id'] . '-' . slug($product['name']); ?>">
-                                    <img width="100" height="100" alt="<?= $product['name'] ?>" class="img-responsive" src="<?php echo 'public/upload/products/' . $product['image'] ?>">
+                                <a href="product/<?= $product['id'] . '-' . slug($product['name']); ?>">
+                                    <img width="100" height="100" alt="<?= $product['name'] ?>" class="img-responsive" src="<?= 'public/upload/products/' . $product['image'] ?>">
                                 </a>
                             </td>
                             <td class="product-name">
-                                <a href="product/<?php echo $product['id'] . '-' . slug($product['name']); ?>"><?php echo $product['name'] ?></a>
+                                <a href="product/<?= $product['id'] . '-' . slug($product['name']); ?>"><?= $product['name'] ?></a>
                             </td>
                             <td class="product-price">
                                 <?php if ($product["typeid"] == 3) : ?>
-                                    <span class="amount"><?php echo $product ? number_format(($product['price']) - ($product['price']) * ($product['percent_off']) / 100, 0, ',', '.') : 0; ?> VNĐ</span>
+                                    <span class="amount"><?= $product ? number_format(($product['price']) - ($product['price']) * ($product['percent_off']) / 100, 0, ',', '.') : 0; ?> VNĐ</span>
                                 <?php else : ?>
-                                    <span class="amount"><?php echo number_format($product['price'], 0, ',', '.'); ?> VNĐ</span>
+                                    <span class="amount"><?= number_format($product['price'], 0, ',', '.'); ?> VNĐ</span>
                                 <?php endif ?>
                             </td>
                             <td class="product-quantity">
                                 <div class="quantity">
-                                    <input type="number" class="input-text qty text" title="Nhập Để Đổi Số Lượng" value="<?php echo $product['number']; ?>" name="number[<?php echo $product['id']; ?>]" min="1" step="1" max="100">
+                                    <input type="number" class="input-text qty text" title="Nhập Để Đổi Số Lượng" value="<?= $product['number']; ?>" name="number[<?= $product['id']; ?>]" min="1" step="1" max="100">
                                 </div>
                             </td>
                             <td class="product-subtotal">
                                 <?php if ($product["typeid"] == 3) : ?>
-                                    <span class="amount"><?php echo number_format((($product['price']) - ($product['price']) * ($product['percent_off']) / 100) * $product['number'], 0, ',', '.') ?> VNĐ</span>
+                                    <span class="amount"><?= number_format((($product['price']) - ($product['price']) * ($product['percent_off']) / 100) * $product['number'], 0, ',', '.') ?> VNĐ</span>
                                 <?php else : ?>
-                                    <span class="amount"><?php echo number_format($product['price'] * $product['number'], 0, ',', '.') ?> VNĐ</span>
+                                    <span class="amount"><?= number_format($product['price'] * $product['number'], 0, ',', '.') ?> VNĐ</span>
                                 <?php endif ?>
                             </td>
                         </tr>

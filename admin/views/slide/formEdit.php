@@ -7,7 +7,7 @@
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?= PATH_URL . 'home' ?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
                         <li class="breadcrumb-item"><a href="admin.php?controller=slide">Slide</a></li>
-                        <li class="breadcrumb-item active"><?php echo $slide ? 'Cập nhật slide: ' . $slide['slide_name']  : 'Thêm slide mới'; ?></li>
+                        <li class="breadcrumb-item active"><?= $slide ? 'Cập nhật slide: ' . $slide['slide_name']  : 'Thêm slide mới'; ?></li>
                     </ul>
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">
@@ -20,7 +20,7 @@
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="alert alert-warning" role="alert">
-                        <strong><?php echo $slide ? 'Cảnh Báo: </strong> Bạn đang trong trang chỉnh sửa của slide "' . $slide['slide_name'] . '", Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>' : 'Cảnh Báo: </strong> Bạn đang trong trang tạo một slide mới, Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>'; ?>
+                        <strong><?= $slide ? 'Cảnh Báo: </strong> Bạn đang trong trang chỉnh sửa của slide "' . $slide['slide_name'] . '", Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>' : 'Cảnh Báo: </strong> Bạn đang trong trang tạo một slide mới, Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>'; ?>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true"><i class="zmdi zmdi-close"></i></span>
                             </button>
@@ -28,12 +28,12 @@
                     <div class="card">
                         <div class="body">
                             <form id="slide-form" class="form-horizontal" method="post" action="admin.php?controller=slide&amp;action=edit" enctype="multipart/form-data" role="form">
-                                <input name="slide_id" type="hidden" value="<?php echo $slide ? $slide['id'] : '0'; ?>" />
+                                <input name="slide_id" type="hidden" value="<?= $slide ? $slide['id'] : '0'; ?>" />
                                 <h2 class="card-inside-title" style="font-weight:bold;">Tên Slide:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="name" type="text" maxlength="255" value="<?php echo $slide ? $slide['slide_name'] : ''; ?>" class="form-control" id="name" placeholder="Nhập tên slide..." required="" />
+                                            <input name="name" type="text" maxlength="255" value="<?= $slide ? $slide['slide_name'] : ''; ?>" class="form-control" id="name" placeholder="Nhập tên slide..." required="" />
                                         </div>
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@
                                     <div class="row clearfix">
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                <input name="slide_text<?= $i ?>"  maxlength="500" type="text" value="<?php echo $slide ? $slide['slide_text' . $i] : ''; ?>" class="form-control" id="name" placeholder="Nhập text <?= $i ?>..." />
+                                                <input name="slide_text<?= $i ?>"  maxlength="500" type="text" value="<?= $slide ? $slide['slide_text' . $i] : ''; ?>" class="form-control" id="name" placeholder="Nhập text <?= $i ?>..." />
                                             </div>
                                         </div>
                                     </div>
@@ -72,14 +72,14 @@
                                                     <h2 style="text-align: center;">Image <?= $i ?> Hiện tại</h2>
                                                 </div>
                                                 <div style="text-align: center;" class="body">
-                                                    <img style="max-width:320px;" src="public/upload/slides/<?php echo $slide['slide_img' . $i]; ?>" alt="<?php echo $slide['slide_img' . $i]; ?>">
+                                                    <img style="max-width:320px;" src="public/upload/slides/<?= $slide['slide_img' . $i]; ?>" alt="<?= $slide['slide_img' . $i]; ?>">
                                                 </div>
                                             </div>
                                         <?php endif; ?>
                                     </div>
                                 <?php endfor; ?>
                                 <div class="form-group" style="text-align: center;">
-                                    <button class="btn btn-primary waves-effect" type="submit"><?php echo $slide ? 'Cập nhật slide trên' : 'Thêm slide mới'; ?></button>
+                                    <button class="btn btn-primary waves-effect" type="submit"><?= $slide ? 'Cập nhật slide trên' : 'Thêm slide mới'; ?></button>
                                     <a class="btn btn-warning waves-effect" href="admin.php?controller=slide">Trở về</a>
                                 </div>
                             </form>

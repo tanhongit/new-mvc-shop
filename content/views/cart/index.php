@@ -22,7 +22,7 @@ require('content/views/shared/header.php'); ?>
                                                 <strong>Tổng số lượng sản phẩm</strong>
                                             </th>
                                             <td>
-                                                <strong><span class="amount"><?php echo cart_number(); ?></span></strong>
+                                                <strong><span class="amount"><?= cart_number(); ?></span></strong>
                                             </td>
                                         </tr>
                                         <tr class="shipping">
@@ -38,7 +38,7 @@ require('content/views/shared/header.php'); ?>
                                                 <strong>Tổng giá trị giỏ hàng</strong>
                                             </th>
                                             <td>
-                                                <strong><span class="amount"><?php echo number_format(cart_total(), 0, ',', '.'); ?> VNĐ</span></strong>
+                                                <strong><span class="amount"><?= number_format(cart_total(), 0, ',', '.'); ?> VNĐ</span></strong>
                                             </td>
                                         </tr>
                                     </tbody>

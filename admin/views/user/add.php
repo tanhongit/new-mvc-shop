@@ -36,12 +36,12 @@
                     <div class="card">
                         <div class="body">
                             <form id="product-form" class="form-horizontal" method="post" action="admin.php?controller=user&action=add" enctype="multipart/form-data" role="form">
-                                <input name="user_id" type="hidden" value="<?php echo $user_info ? $user_info['id'] : '0'; ?>" />
+                                <input name="user_id" type="hidden" value="<?= $user_info ? $user_info['id'] : '0'; ?>" />
                                 <h2 class="card-inside-title" style="font-weight:bold;">Tên đăng nhập:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="username" type="text" maxlength="50" value="<?php echo $user_info ? $user_info['user_username'] : ''; ?>" class="form-control" id="name" placeholder="VD: tanhongit" required="" />
+                                            <input name="username" type="text" maxlength="50" value="<?= $user_info ? $user_info['user_username'] : ''; ?>" class="form-control" id="name" placeholder="VD: tanhongit" required="" />
                                         </div>
                                     </div>
                                 </div>
@@ -49,7 +49,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="password" type="text" maxlength="50" value="<?php echo $user_info ? $user_info['user_password'] : ''; ?>" class="form-control" id="name" placeholder="Nhap mat khau..." required="" />
+                                            <input name="password" type="text" maxlength="50" value="<?= $user_info ? $user_info['user_password'] : ''; ?>" class="form-control" id="name" placeholder="Nhap mat khau..." required="" />
                                         </div>
                                     </div>
                                 </div>
@@ -57,7 +57,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="name" type="text" maxlength="255" value="<?php echo $user_info ? $user_info['user_name'] : ''; ?>" class="form-control" id="name" placeholder="họ và tên thật..." required="" />
+                                            <input name="name" type="text" maxlength="255" value="<?= $user_info ? $user_info['user_name'] : ''; ?>" class="form-control" id="name" placeholder="họ và tên thật..." required="" />
                                         </div>
                                     </div>
                                 </div>
@@ -65,7 +65,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="email" type="email" maxlength="255" value="<?php echo $user_info ? $user_info['user_email'] : ''; ?>" class="form-control" id="color" placeholder="Nhập email của bạn..." required="" />
+                                            <input name="email" type="email" maxlength="255" value="<?= $user_info ? $user_info['user_email'] : ''; ?>" class="form-control" id="color" placeholder="Nhập email của bạn..." required="" />
                                         </div>
                                     </div>
                                 </div>
@@ -84,7 +84,7 @@
                                 <!-- <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="roleid" type="text" required value="<?php echo $user_info ? $user_info['role_id'] : ''; ?>" class="form-control" id="size" placeholder="( 0=User , 1=Admin, 2=Mod)" />
+                                            <input name="roleid" type="text" required value="<?= $user_info ? $user_info['role_id'] : ''; ?>" class="form-control" id="size" placeholder="( 0=User , 1=Admin, 2=Mod)" />
                                         </div>
                                     </div>
                                 </div> -->
@@ -92,7 +92,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="address" type="text" maxlength="200" value="<?php echo $user_info ? $user_info['user_address'] : ''; ?>" class="form-control" id="material" placeholder="Địa chỉ người dùng ..." required="" />
+                                            <input name="address" type="text" maxlength="200" value="<?= $user_info ? $user_info['user_address'] : ''; ?>" class="form-control" id="material" placeholder="Địa chỉ người dùng ..." required="" />
                                         </div>
                                     </div>
                                 </div>
@@ -100,14 +100,14 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="phone" type="text" pattern="[0-9\.]+" maxlength="20" value="<?php echo $user_info ? $user_info['user_phone'] : ''; ?>" class="form-control" id="totalview" placeholder="0123456789..." />
+                                            <input name="phone" type="text" pattern="[0-9\.]+" maxlength="20" value="<?= $user_info ? $user_info['user_phone'] : ''; ?>" class="form-control" id="totalview" placeholder="0123456789..." />
                                         </div>
                                     </div>
                                 </div>
                                 <h2 class="card-inside-title" style="font-weight:bold;">Chọn ngày tạo mới thành viên (bắt buộc):</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-4">
-                                        <input name="createDate" id="createDate" type="date" value="<?php echo $user_info ? $user_info['createDate'] : date('d/m/Y'); ?>" class="form-control" placeholder="Please choose date & time...">
+                                        <input name="createDate" id="createDate" type="date" value="<?= $user_info ? $user_info['createDate'] : date('d/m/Y'); ?>" class="form-control" placeholder="Please choose date & time...">
                                     </div>
                                 </div>
                                 <h2 class="card-inside-title" style="font-weight:bold;">Chọn ảnh Avatar:</h2>

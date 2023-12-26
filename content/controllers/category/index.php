@@ -1,8 +1,8 @@
 <?php
 if (isset($_GET['id'])) {
-    $cateid = intval($_GET['id']);
+    $categoryId = intval($_GET['id']);
 } else show_404();
-$category = get_a_record('subcategory', $cateid);
+$category = get_a_record('subcategory', $categoryId);
 if (!$category) {
     show_404();
 }
@@ -18,13 +18,13 @@ $limit = 9;
 $offset = ($page - 1) * $limit;
 
 $options = array(
-    'where' => 'sub_category_id =' . $cateid,
+    'where' => 'sub_category_id =' . $categoryId,
     'limit' => $limit,
     'offset' => $offset,
     'order_by' => 'id DESC'
 );
 
-$url = 'category/' . $cateid . '-' . $category['slug'];
+$url = 'category/' . $categoryId . '-' . $category['slug'];
 
 $totalRows = get_total('products', $options);
 $total = ceil($totalRows / $limit);

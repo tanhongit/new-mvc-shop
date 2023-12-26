@@ -69,15 +69,15 @@
                                     <tbody>
                                         <?php foreach ($listMedia as $media) : ?>
                                             <tr>
-                                                <td><?php echo $media['id'] ?></td>
-                                                <td><?php echo '<image src="public/upload/media/' . $media['slug'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
-                                                <td><a href="admin.php?controller=media&amp;action=edit&amp;media_id=<?php echo $media['id']; ?>"><?php echo $media['media_name']; ?></a></td>
+                                                <td><?= $media['id'] ?></td>
+                                                <td><?= '<image src="public/upload/media/' . $media['slug'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
+                                                <td><a href="admin.php?controller=media&amp;action=edit&amp;media_id=<?= $media['id']; ?>"><?= $media['media_name']; ?></a></td>
                                                 <td><?= $media['slug'] ?></td>
-                                                <td><?php echo $media['createDate']; ?></td>
-                                                <td><?php echo pathinfo('public/upload/media/' . $media['slug'], PATHINFO_EXTENSION); ?></td>
-                                                <td><a href="admin.php?controller=media&amp;action=edit&amp;media_id=<?php echo $media['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
-                                                    <a onclick="return confirm('Are you sure to delete?')" href="admin.php?controller=media&amp;action=delete&amp;media_id=<?php echo $media['id']; ?>" class="btn btn-danger waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a>
-                                                    <a href="public/upload/media/<?php echo $media['slug']; ?>" target="_blank" class="btn btn-success waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-eye"></i></a></td>
+                                                <td><?= $media['createDate']; ?></td>
+                                                <td><?= pathinfo('public/upload/media/' . $media['slug'], PATHINFO_EXTENSION); ?></td>
+                                                <td><a href="admin.php?controller=media&amp;action=edit&amp;media_id=<?= $media['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
+                                                    <a onclick="return confirm('Are you sure to delete?')" href="admin.php?controller=media&amp;action=delete&amp;media_id=<?= $media['id']; ?>" class="btn btn-danger waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a>
+                                                    <a href="public/upload/media/<?= $media['slug']; ?>" target="_blank" class="btn btn-success waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-eye"></i></a></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

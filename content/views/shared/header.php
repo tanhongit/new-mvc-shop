@@ -42,9 +42,9 @@ else $url_site = PATH_URL . 'home';
 <html>
 
 <head>
-	<base href="<?php echo PATH_URL; ?>" />
+	<base href="<?= PATH_URL; ?>" />
 	<meta charset="utf-8">
-	<title><?php echo isset($title) ? $title : 'Quán Chị Kòi'; ?></title>
+	<title><?= isset($title) ? $title : 'Quán Chị Kòi'; ?></title>
 	<meta name="keywords" content="Quán Chị Kòi - Phát Triển Bởi TanHongIT" />
 	<meta name="description" content="Quán Chị Kòi">
 	<meta name="author" content="chikoiquan.com">
@@ -78,23 +78,23 @@ else $url_site = PATH_URL . 'home';
 	<script src="public/vendor/modernizr/modernizr.js"></script>
 	<script src="public/js/jquery-3.2.1.min.js"></script>
 	<meta property="og:site_name" content="Quán Chị Kòi" />
-	<meta property="og:title" content="<?php echo isset($title) ? $title : 'Quán Chị Kòi'; ?>" />
-	<meta property="article:tag" content="<?php echo isset($title) ? $title : 'Quán Chị Kòi'; ?>" />
+	<meta property="og:title" content="<?= isset($title) ? $title : 'Quán Chị Kòi'; ?>" />
+	<meta property="article:tag" content="<?= isset($title) ? $title : 'Quán Chị Kòi'; ?>" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="<?php echo $url_site; ?>" />
-	<link rel="canonical" href="<?php echo $url_site; ?>" />
+	<meta property="og:url" content="<?= $url_site; ?>" />
+	<link rel="canonical" href="<?= $url_site; ?>" />
 	<meta property="article:publisher" content="https://www.facebook.com/110895717060461" />
 	<meta property="og:description" content="Buôn bán các loại đồ ăn thức uống, hàng mỹ phẩm, làm đẹp,..." />
-	<meta property="og:image" content="<?php echo $link_image; ?>" />
-	<meta property="og:image:secure_url" content="<?php echo $link_image; ?>" />
+	<meta property="og:image" content="<?= $link_image; ?>" />
+	<meta property="og:image:secure_url" content="<?= $link_image; ?>" />
 	<meta property="og:image:width" content="700" />
 	<meta property="og:image:height" content="345" />
 	<meta property="og:locale" content="vi_VN" />
 	<meta property="fb:app_id" content="517386205818335" />
 	<meta name="twitter:description" content="Buôn bán các loại đồ ăn thức uống, hàng mỹ phẩm, làm đẹp,..." />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="<?php echo isset($title) ? $title : 'Quán Chị Kòi'; ?>" />
-	<meta name="twitter:image" content="<?php echo $link_image; ?>" />
+	<meta name="twitter:title" content="<?= isset($title) ? $title : 'Quán Chị Kòi'; ?>" />
+	<meta name="twitter:image" content="<?= $link_image; ?>" />
 </head>
 
 <body>
@@ -159,7 +159,7 @@ else $url_site = PATH_URL . 'home';
 							</li>
 							<?php foreach ($ccategories as $ccategory) : ?>
 								<li class="dropdown">
-									<a class="dropdown-toggle" href="shop/<?php echo $ccategory['id'] ?>-<?php echo $ccategory['slug'] ?>">
+									<a class="dropdown-toggle" href="shop/<?= $ccategory['id'] ?>-<?= $ccategory['slug'] ?>">
 										<?= $ccategory['category_name'] ?>
 										<i class="fa fa-angle-down"></i>
 									</a>
@@ -170,7 +170,7 @@ else $url_site = PATH_URL . 'home';
 										);
 										$ssubcategory = get_all('subcategory', $options2);
 										foreach ($ssubcategory as $subcate) : ?>
-											<li><a href="category/<?php echo $subcate['id'] ?>-<?php echo $subcate['slug'] ?>"><?= $subcate['subcategory_name'] ?></a></li>
+											<li><a href="category/<?= $subcate['id'] ?>-<?= $subcate['slug'] ?>"><?= $subcate['subcategory_name'] ?></a></li>
 										<?php endforeach; ?>
 									</ul>
 								</li>
@@ -315,7 +315,7 @@ else $url_site = PATH_URL . 'home';
 							<?php endif; ?>
 							<li class="dropdown mega-menu-item mega-menu-shop">
 								<a class="dropdown-toggle mobile-redirect" href="cart">
-									<i class="fa fa-shopping-cart"></i> Giỏ Hàng (<?php echo cart_number(); ?>)
+									<i class="fa fa-shopping-cart"></i> Giỏ Hàng (<?= cart_number(); ?>)
 									<i class="fa fa-angle-down"></i>
 								</a>
 								<ul class="dropdown-menu">
@@ -328,18 +328,18 @@ else $url_site = PATH_URL . 'home';
 															<?php foreach ($cart as $productId => $product_cart) { ?>
 																<tr>
 																	<td class="product-thumbnail">
-																		<a href="product/<?php echo $product_cart['id'] . '-' . slug($product_cart['name']); ?>">
-																			<img width="100" height="100" alt="<?= $product_cart['name'] ?>" class="img-responsive" src="public/upload/products/<?php echo $product_cart['image'] ?>">
+																		<a href="product/<?= $product_cart['id'] . '-' . slug($product_cart['name']); ?>">
+																			<img width="100" height="100" alt="<?= $product_cart['name'] ?>" class="img-responsive" src="public/upload/products/<?= $product_cart['image'] ?>">
 																		</a>
 																	</td>
 																	<td class="product-name">
-																		<a href="product/<?php echo $product_cart['id'] . '-' . slug($product_cart['name']); ?>"><?php echo $product_cart['name'] ?><br><span class="amount"><strong>
+																		<a href="product/<?= $product_cart['id'] . '-' . slug($product_cart['name']); ?>"><?= $product_cart['name'] ?><br><span class="amount"><strong>
 																					<?php if ($product_cart['saleoff'] != 0) echo number_format(($product_cart['price']) - (($product_cart['price'] * $product_cart['percent_off']) / 100), 0, ',', '.');
 																					else echo number_format($product_cart['price'], 0, ',', '.'); ?>
-																					VNĐ</strong> - SLượng: <?php echo $product_cart['number'] ?> </span></a>
+																					VNĐ</strong> - SLượng: <?= $product_cart['number'] ?> </span></a>
 																	</td>
 																	<td class="product-actions">
-																		<a title="Remove this item" class="remove" href="cart/delete/<?php echo $product_cart['id']; ?>">
+																		<a title="Remove this item" class="remove" href="cart/delete/<?= $product_cart['id']; ?>">
 																			<i class="fa fa-times"></i>
 																		</a>
 																	</td>
@@ -361,7 +361,7 @@ else $url_site = PATH_URL . 'home';
 								</ul>
 							</li>
 							<div class="search">
-								<form id="searchForm" action="<?php echo PATH_URL; ?>search/" method="get">
+								<form id="searchForm" action="<?= PATH_URL; ?>search/" method="get">
 									<div class="input-group">
 										<input type="text" class="form-control search" name="keyword" id="q" placeholder="Search..." required>
 										<span class="input-group-btn">

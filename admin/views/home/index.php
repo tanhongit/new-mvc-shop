@@ -136,7 +136,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-assignment"></i> Đơn hàng mới</td>
-                                                    <td><?php echo get_time($order_new['createtime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                                    <td><?= get_time($order_new['createtime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-assignment-alert"></i> Đơn chưa xử lý</td>
@@ -152,7 +152,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-comment-alt-text"></i> Bình luận mới</td>
-                                                    <td><?php echo get_time($comment_new['createDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                                    <td><?= get_time($comment_new['createDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-comment-alert"></i> BLuận Chưa Xử lý</td>
@@ -160,7 +160,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-email-open"></i> Phản hồi mới</td>
-                                                    <td><?php echo get_time($feedback_new['createTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                                    <td><?= get_time($feedback_new['createTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-email"></i> Phản hồi Chưa Xử lý</td>
@@ -168,7 +168,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-reader"></i> Trang mới</td>
-                                                    <td><?php echo get_time($page_new['post_date'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                                    <td><?= get_time($page_new['post_date'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-tab"></i> Trang nháp</td>
@@ -176,7 +176,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-receipt"></i> Bài viết mới</td>
-                                                    <td><?php echo get_time($post_new['post_date'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                                    <td><?= get_time($post_new['post_date'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-assignment-o"></i> Bài viết nháp</td>
@@ -225,7 +225,7 @@
                                                 <?php foreach ($comment_five as $comment) :
                                                     if ($comment['status'] == 0) : ?>
                                                         <tr style="background-color: #FFD18E;">
-                                                            <td><?php echo substr($comment['content'], 0, 150);
+                                                            <td><?= substr($comment['content'], 0, 150);
                                                                 if (strlen($comment['content']) > 150) echo '...'; ?> </td>
                                                             <td><?= $comment['author'] ?></td>
                                                             <td><a title="Approve" class="btn btn-info btn-icon" href="admin.php?controller=comment&action=approved&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-check-circle"></i></a>
@@ -235,7 +235,7 @@
                                                         </tr>
                                                     <?php else : ?>
                                                         <tr>
-                                                            <td><?php echo substr($comment['content'], 0, 150);
+                                                            <td><?= substr($comment['content'], 0, 150);
                                                                 if (strlen($comment['content']) > 150) echo '...'; ?> </td>
                                                             <td><?= $comment['author'] ?></td>
                                                             <td><a title="Unapprove" class="btn btn-default btn-icon" href="admin.php?controller=comment&action=unapproved&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-minus-circle"></i></a>
@@ -377,7 +377,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-account-add"></i> Người dùng mới</td>
-                                                    <td><?php echo $user_new['user_name'] ?></td>
+                                                    <td><?= $user_new['user_name'] ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-accounts"></i> Tổng Số lượng User</td>
@@ -385,7 +385,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-mood-bad"></i> Tổng User chưa Verified</td>
-                                                    <td><?php echo $user_not_veri_total ?></td>
+                                                    <td><?= $user_not_veri_total ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-receipt"></i> Tổng số Bài viết</td>
@@ -393,7 +393,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-reader"></i> Tổng số Trang</td>
-                                                    <td><?php echo $total_page ?></td>
+                                                    <td><?= $total_page ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-delete"></i> Trang & Bài viết rác</td>

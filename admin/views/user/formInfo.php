@@ -28,11 +28,11 @@
                         <table id="info" class="table">
                             <tr>
                                 <td><strong>Họ và tên</strong></td>
-                                <td><?php echo $user_info['user_name']; ?></td>
+                                <td><?= $user_info['user_name']; ?></td>
                             </tr>
                             <tr>
                                 <td><strong>Tên Đăng nhập</strong> </td>
-                                <td><?php echo $user_info['user_username']; ?></td>
+                                <td><?= $user_info['user_username']; ?></td>
                             </tr>
                             <tr>
                                 <td><strong>Quyền hạn</strong> </td>
@@ -44,29 +44,29 @@
                             </tr>
                             <tr>
                                 <td><strong>Email</strong> </td>
-                                <td><?php echo $user_info['user_email']; ?></td>
+                                <td><?= $user_info['user_email']; ?></td>
                             </tr>
                             <tr>
                                 <td><strong>Địa chỉ</strong> </td>
-                                <td><?php echo $user_info['user_address']; ?></td>
+                                <td><?= $user_info['user_address']; ?></td>
                             </tr>
                             <tr>
                                 <td><strong>Di động</strong> </td>
-                                <td><?php echo $user_info['user_phone']; ?></td>
+                                <td><?= $user_info['user_phone']; ?></td>
                             </tr>
                             <tr>
                                 <td><strong>Ngày đăng ký tài khoản</strong> </td>
-                                <td><?php echo $user_info['createDate']; ?></td>
+                                <td><?= $user_info['createDate']; ?></td>
                             </tr>
                             <tr>
                                 <td><strong>Avatar</strong> </td>
-                                <td><img style="max-width:250px;" src="public/upload/images/<?php echo $user_info['user_avatar']; ?>" alt="<?php echo $user_info['user_name']; ?>"> </td>
+                                <td><img style="max-width:250px;" src="public/upload/images/<?= $user_info['user_avatar']; ?>" alt="<?= $user_info['user_name']; ?>"> </td>
                             </tr>
                         </table>
                     </div>
                     <div class="form-group" style="text-align: center;">
-                        <a class="btn btn-primary waves-effect" href="admin.php?controller=user&action=edit&amp;user_id=<?php echo $user_info['id']; ?>">Chỉnh sửa Thông Tin</a>
-                        <a class="btn btn-primary waves-effect" href="admin.php?controller=user&action=change-password&amp;user_id=<?php echo $user_info['id']; ?>">Đổi mật khẩu</a>
+                        <a class="btn btn-primary waves-effect" href="admin.php?controller=user&action=edit&amp;user_id=<?= $user_info['id']; ?>">Chỉnh sửa Thông Tin</a>
+                        <a class="btn btn-primary waves-effect" href="admin.php?controller=user&action=change-password&amp;user_id=<?= $user_info['id']; ?>">Đổi mật khẩu</a>
                         <a class="btn btn-warning waves-effect" href="admin.php?controller=user&action=listall">Trở về</a>
                     </div>
                 </div>

@@ -8,7 +8,7 @@ require('content/views/shared/header.php'); ?>
             <div class="row">
                 <div class="col-md-12">
                     <ul class="breadcrumb">
-                        <li><a href="<?php echo PATH_URL; ?>home">Home</a></li>
+                        <li><a href="<?= PATH_URL; ?>home">Home</a></li>
                         <li class="active">404</li>
                     </ul>
                 </div>
@@ -32,14 +32,14 @@ require('content/views/shared/header.php'); ?>
                 <div class="col-md-4">
                     <h4>Dưới đây là một số liên kết hữu ích</h4>
                     <ul class="nav nav-list primary">
-                        <li><a href="<?php echo PATH_URL; ?>home">Trang chủ</a></li>
+                        <li><a href="<?= PATH_URL; ?>home">Trang chủ</a></li>
                         <li><a href="<?= $link_about ?>">Về chúng tôi</a></li>
                         <li><a href="<?= $link_contact ?>">Liên hệ</a></li>
                     </ul>
                 </div>
             </div>
         </section>
-        <form action="<?php echo PATH_URL; ?>search/" method="get">
+        <form action="<?= PATH_URL; ?>search/" method="get">
             <div class="input-group input-group-lg">
                 <input class="form-control" placeholder="Search..." name="keyword" id="s" type="text">
                 <span class="input-group-btn">

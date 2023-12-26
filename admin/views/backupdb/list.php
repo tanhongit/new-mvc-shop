@@ -65,7 +65,7 @@
                                             $link_connect_file = 'admin/database/' . $filename;
                                             $stt++; ?>
                                             <tr>
-                                                <td><?php echo $stt ?></td>
+                                                <td><?= $stt ?></td>
                                                 <td><?= $filename ?></td>
                                                 <td>
                                                     <form action="admin.php?controller=backupdb&action=delete" method="post">

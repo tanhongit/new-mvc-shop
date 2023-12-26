@@ -50,10 +50,10 @@ $feedbacks = get_all('feedbacks', $options);
                             <?php foreach ($feedbacks as $feedback) :
                                 if ($feedback['status'] == 1) : ?>
                                     <tr>
-                                        <td><?php echo $feedback['name'] ?> |<?= $feedback['user_id'] ?></td>
+                                        <td><?= $feedback['name'] ?> |<?= $feedback['user_id'] ?></td>
                                         <td><?= get_time($feedback['createTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                         <td><?= $feedback['email'] ?></td>
-                                        <td><?php echo $feedback['phone'] ?></td>
+                                        <td><?= $feedback['phone'] ?></td>
                                         <td><?php
                                             if (strlen($feedback['subject']) > 200) {
                                                 echo substr($feedback['subject'], 0, 200) . '...';
@@ -68,10 +68,10 @@ $feedbacks = get_all('feedbacks', $options);
                                     </tr>
                                 <?php else : ?>
                                     <tr style="background-color: #FFD18E;">
-                                        <td><?php echo $feedback['name'] ?> |<?= $feedback['user_id'] ?></td>
+                                        <td><?= $feedback['name'] ?> |<?= $feedback['user_id'] ?></td>
                                         <td><?= get_time($feedback['createTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                         <td><?= $feedback['email'] ?></td>
-                                        <td><?php echo $feedback['phone'] ?></td>
+                                        <td><?= $feedback['phone'] ?></td>
                                         <td><?php
                                             if (strlen($feedback['subject']) > 200) {
                                                 echo substr($feedback['subject'], 0, 200) . '...';

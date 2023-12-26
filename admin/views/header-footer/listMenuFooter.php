@@ -67,7 +67,7 @@
                                                 <td><?= $stt ?></td>
                                                 <td><?= $link['menu_name'] ?></td>
                                                 <td><?= $link['menu_url'] ?></td>
-                                                <td><a href="admin.php?controller=header-footer&amp;action=editMenuFooter&amp;menu_footer_id=<?php echo $link['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a></td>
+                                                <td><a href="admin.php?controller=header-footer&amp;action=editMenuFooter&amp;menu_footer_id=<?= $link['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>
@@ -115,7 +115,7 @@
                                                 <td><?= $stt ?></td>
                                                 <td><?= $link['menu_name'] ?></td>
                                                 <td><?= $link['menu_url'] ?></td>
-                                                <td><a href="admin.php?controller=header-footer&amp;action=editMenuFooter&amp;menu_footer_id=<?php echo $link['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a></td>
+                                                <td><a href="admin.php?controller=header-footer&amp;action=editMenuFooter&amp;menu_footer_id=<?= $link['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

@@ -81,7 +81,7 @@
                                         ?>
                                             <tr>
                                                 <td><?= $stt; ?></td>
-                                                <td><a href="product/<?php echo $product['id']; ?>-<?= $product['slug'] ?>"><?php echo number_format($product['product_price'], 0, ',', '.') ?>đ</a></td>
+                                                <td><a href="product/<?= $product['id']; ?>-<?= $product['slug'] ?>"><?= number_format($product['product_price'], 0, ',', '.') ?>đ</a></td>
                                                 <td><?php if (is_file("public/upload/products/" . $product['img1'])) echo '<image src="public/upload/products/' . $product['img1'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
                                                 <td><?= number_format($product['product_price'], 0, ',', '.') ?></td>
                                                 <td><? if ($product['saleoff'] == 1) echo ($product['product_price'] - (($product['product_price']) * ($product['percentoff']) / 100)); ?></td>
@@ -94,7 +94,7 @@
                                         <?php endforeach; ?>
                                     </tbody>
                                 </table>
-                                <h3 style="font-weight: bold;text-align: center;">Thành tổng tiền : <?php echo number_format($order_total, 0, ',', '.'); ?> VNĐ</h3>
+                                <h3 style="font-weight: bold;text-align: center;">Thành tổng tiền : <?= number_format($order_total, 0, ',', '.'); ?> VNĐ</h3>
                                 <h3 style="font-weight: bold; color: red; text-align: center;"><b> <?= $status[$order['status']] ?></b></h3>
                             </div>
                         </div>
@@ -104,27 +104,27 @@
                         <table id="info" class="table">
                             <tr>
                                 <td><strong>Họ và tên</strong></td>
-                                <td><?php echo $order['customer']; ?></td>
+                                <td><?= $order['customer']; ?></td>
                             </tr>
                             <tr>
                                 <td><strong>Tỉnh/ Thành phố</strong> </td>
-                                <td><?php echo $order['province']; ?></td>
+                                <td><?= $order['province']; ?></td>
                             </tr>
                             <tr>
                                 <td><strong>Địa chỉ</strong> </td>
-                                <td><?php echo $order['address']; ?></td>
+                                <td><?= $order['address']; ?></td>
                             </tr>
                             <tr>
                                 <td><strong>Di động</strong> </td>
-                                <td><?php echo $order['phone']; ?></td>
+                                <td><?= $order['phone']; ?></td>
                             </tr>
                             <tr>
                                 <td><strong>Thời gian</strong> </td>
-                                <td><?php echo $order['createtime']; ?></td>
+                                <td><?= $order['createtime']; ?></td>
                             </tr>
                             <tr>
                                 <td><strong>Tin nhắn từ khách hàng</strong> </td>
-                                <td><?php echo $order['message']; ?></td>
+                                <td><?= $order['message']; ?></td>
                             </tr>
                         </table>
                         <div style="text-align: center;" class=""><a class="btn btn-warning waves-effect" href="javascript: history.go(-1)">Trở về</a></div>

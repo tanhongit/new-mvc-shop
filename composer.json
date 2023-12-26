@@ -7,7 +7,8 @@
     "php",
     "php-mvc",
     "php-mvc-shop",
-    "php-mvc-shop-project"
+    "php-mvc-shop-project",
+    "mvc-shop"
   ],
   "homepage": "https://tanhongit.com",
   "authors": [
@@ -19,7 +20,7 @@
   ],
   "license": "MIT",
   "require": {
-    "phpmailer/phpmailer": "^6.1",
+    "phpmailer/phpmailer": "^v6.9",
     "ext-mysqli": "*"
   },
   "support": {

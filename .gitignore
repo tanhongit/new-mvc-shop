@@ -1,5 +1,7 @@
 .idea
-.composer.lock
+composer.lock
 .vscode
 vendor
 .gitignore
+.DS_Store
+*.log

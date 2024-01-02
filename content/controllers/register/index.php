@@ -19,7 +19,7 @@ if (!empty($_POST)) {
         'order_by' => 'id',
     );
     //lấy id người đăng ký để resend
-    $user_of_email = get_all('users', $get_user_email_option);
+    $user_of_email = getAll('users', $get_user_email_option);
     foreach ($user_of_email as $user) {
         if ($user['user_email'] == $email) {
             $get_userid_of_email = $user['id'];

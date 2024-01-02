@@ -14,7 +14,7 @@ if (isset($_GET['cate_id']))
 else $categoryId = 0;
 
 $title = ($categoryId == 0) ? 'Thêm danh mục' : 'Sửa danh mục';
-$category = get_a_record('categories', $categoryId);
+$category = getRecord('categories', $categoryId);
 $navCategory = 'class="active open"';
 
 require('admin/views/shop/edit.php');

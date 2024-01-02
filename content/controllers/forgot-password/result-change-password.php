@@ -10,7 +10,7 @@ if (isset($_POST['id'])) {
     $newpassword = md5($_POST['newpassword']);
     $confirmNewPassword = md5($_POST['confirmNewPassword']);
 
-    $user = get_a_record('users', $id);
+    $user = getRecord('users', $id);
     $email = $user['user_email'];
     if ($newpassword == $user['user_password']) {
         echo "<div style='padding-top: 200px' class='container'><div class='alert alert-danger' style='text-align: center;'><strong>NO!</strong> Việc thay đổi mật khẩu có vấn đề. Mật khẩu mới của bạn vừa nhập là mật khẩu của bạn hiện tại đó. <br><br>Bạn đã nhớ lại mật khẩu của mình chưa <i class='zmdi zmdi-favorite'></i> !! <br><a href='javascript: history.go(-1)'>Trở lại</a> hoặc <a href='index.php'>Đến trang chủ</a></div></div>";

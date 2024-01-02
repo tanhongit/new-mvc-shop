@@ -11,7 +11,7 @@ if (mysqli_num_rows(mysqli_query($linkConnectDB, "SELECT id FROM users WHERE id=
     exit;
 }
 global $userNav;
-$loginUser = get_a_record('users', $userNav);
+$loginUser = getRecord('users', $userNav);
 if ($userId != $userNav && $loginUser['role_id'] == 0) {
     header('location:index.php');
     exit;
@@ -19,5 +19,5 @@ if ($userId != $userNav && $loginUser['role_id'] == 0) {
     header('location:admin.php');
     exit;
 }
-$user_info = get_a_record('users', $userId);
+$user_info = getRecord('users', $userId);
 require('admin/views/user/info.php');

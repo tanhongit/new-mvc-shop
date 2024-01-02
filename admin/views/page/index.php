@@ -56,7 +56,7 @@
                                             </td>
                                             <td><?= $page['post_slug'] ?></td>
                                             <td class="hidden-md-down">
-                                                <?php $user = get_a_record('users', $page['post_author']); ?>
+                                                <?php $user = getRecord('users', $page['post_author']); ?>
                                                 <ul class="list-unstyled team-info margin-0">
                                                     <li><?= $user['user_name'] ?> </li>
                                                     <li><img src="public/upload/images/<?= $user['user_avatar'] ?>" alt="Avatar"></li>

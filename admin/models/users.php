@@ -39,7 +39,7 @@ function userLogin($input, $password)
 }
 function userDestroy($id)
 {
-    $user = get_a_record('users', $id);
+    $user = getRecord('users', $id);
     $image = 'public/upload/images/' . $user['user_avatar'];
     if (is_file($image)) {
         unlink($image);
@@ -69,7 +69,7 @@ function changePassword($id, $newpassword, $currentPassword)
         require 'vendor/autoload.php';
         include 'lib/config/sendmail.php';
         $mail = new PHPMailer(true);
-        $user = get_a_record('users', $id);
+        $user = getRecord('users', $id);
         $email = $user['user_email'];
         try {
             //content
@@ -112,7 +112,7 @@ function changePassword($id, $newpassword, $currentPassword)
 function user_update()
 {
     global $userNav;
-    $user_login = get_a_record('users', $userNav);
+    $user_login = getRecord('users', $userNav);
     if ($_POST['user_id'] <> 0) $editTime = gmdate('Y-m-d H:i:s', time() + 7 * 3600);
     else $editTime = '0000-00-00 00:00:00';
 
@@ -137,7 +137,7 @@ function user_update()
         require('admin/views/user/result.php');
         exit;
     } else {
-        $get_currentEmail_user = get_a_record('users', $_POST['user_id']);
+        $get_currentEmail_user = getRecord('users', $_POST['user_id']);
         $currentEmail = $get_currentEmail_user['user_email'];
         $userId =  save('users', $user_edit);
         $avatar_name = 'avatar-user' . $userId . '-' . slug($_POST['username']);
@@ -155,7 +155,7 @@ function user_update()
             );
             save('users', $user_edit);
         }
-        $user_edited = get_a_record('users', $userId);
+        $user_edited = getRecord('users', $userId);
         if ($user_edited['user_email'] != $currentEmail) {
             //send mail
             require 'vendor/autoload.php';

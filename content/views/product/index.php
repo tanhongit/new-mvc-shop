@@ -293,7 +293,7 @@
                     <div class="col-md-12">
                         <h2>Sản phẩm <strong>Liên quan danh mục</strong></h2>
                     </div>
-                    <?php $product_related = get_all('products', array(
+                    <?php $product_related = getAll('products', array(
                         'limit' => '8',
                         'where' => $subcategories['id'] . '=sub_category_id and id<>' . $product['id'], //liên quan theo category
                         'offset' => '0',

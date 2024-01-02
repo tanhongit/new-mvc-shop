@@ -3,7 +3,7 @@ $options = array(
     'order_by' => 'id desc',
     'where' => 'order_id<>0'
 );
-$feedbacks = get_all('feedbacks', $options);
+$feedbacks = getAll('feedbacks', $options);
 ?>
 <!-- Basic Examples -->
 <div class="row clearfix">
@@ -51,7 +51,7 @@ $feedbacks = get_all('feedbacks', $options);
                                 if ($feedback['status'] == 1) : ?>
                                     <tr>
                                         <td><?= $feedback['name'] ?> |<?= $feedback['user_id'] ?></td>
-                                        <td><?= get_time($feedback['createTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                        <td><?= getTime($feedback['createTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                         <td><?= $feedback['email'] ?></td>
                                         <td><?= $feedback['phone'] ?></td>
                                         <td><?php
@@ -69,7 +69,7 @@ $feedbacks = get_all('feedbacks', $options);
                                 <?php else : ?>
                                     <tr style="background-color: #FFD18E;">
                                         <td><?= $feedback['name'] ?> |<?= $feedback['user_id'] ?></td>
-                                        <td><?= get_time($feedback['createTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                        <td><?= getTime($feedback['createTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                         <td><?= $feedback['email'] ?></td>
                                         <td><?= $feedback['phone'] ?></td>
                                         <td><?php

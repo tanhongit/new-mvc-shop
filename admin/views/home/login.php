@@ -1,5 +1,5 @@
 <?php
-$contacts = get_a_record('contacts', 1); ?>
+$contacts = getRecord('contacts', 1); ?>
 <!doctype html>
 <html class="no-js " lang="en">
 

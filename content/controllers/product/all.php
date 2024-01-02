@@ -13,9 +13,9 @@ $options = array(
 );
 
 $url = 'index.php?controller=product&action=all';
-$totalRows = get_total('products', $options);
+$totalRows = getTotal('products', $options);
 $total = ceil($totalRows / $limit);
 $pagination = pagination($url, $page, $total);
 
-$products_all = get_all('products', $options);
+$products_all = getAll('products', $options);
 require('content/views/product/all.php');

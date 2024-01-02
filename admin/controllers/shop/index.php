@@ -9,7 +9,7 @@ $options = array(
     'order_by' => 'id'
 );
 $title = 'Nhóm Danh mục sản phẩm';
-$categories = get_all('categories', $options);
+$categories = getAll('categories', $options);
 $navCategory = 'class="active open"';
 
 //load view

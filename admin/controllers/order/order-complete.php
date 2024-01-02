@@ -6,7 +6,7 @@ $options = array(
     'where' => 'status = 1',
     'order_by' => 'createtime DESC'
 );
-$orderComplete = get_all('orders', $options);
+$orderComplete = getAll('orders', $options);
 
 $title = 'Đơn hàng đã xử lý';
 $orderNav = 'class="active open"';

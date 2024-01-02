@@ -15,9 +15,9 @@ else $postId = 0;
 
 $title = 'Sửa trang - Chị Kòi Quán';
 $pageNav = 'class="active open"';
-$post = get_a_record('posts', $postId);
+$post = getRecord('posts', $postId);
 global $userNav;
-$loginUser = get_a_record('users', $userNav);
+$loginUser = getRecord('users', $userNav);
 
 if ($loginUser['role_id'] == 2) {
     if ($post['post_author'] == $userNav)

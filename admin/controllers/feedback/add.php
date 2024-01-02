@@ -13,11 +13,11 @@ if (isset($_GET['order_id'])) {
     $orderId = 0;
 }
 
-$order = get_a_record('orders', $orderId);
+$order = getRecord('orders', $orderId);
 $orderDetail = orderDetail($orderId);
 
 if (isset($userNav)) {
-    $user_action = get_a_record('users', $userNav);
+    $user_action = getRecord('users', $userNav);
 }
 
 $status = array(

@@ -2,7 +2,7 @@
 if (isset($_GET['id'])) {
     $type_id = intval($_GET['id']);
 } else show_404();
-$type = get_a_record('types', $type_id);
+$type = getRecord('types', $type_id);
 if (!$type) show_404();
 
 if (isset($_GET['page'])) $page = intval($_GET['page']);
@@ -18,9 +18,9 @@ $options = array(
     'order_by' => 'id DESC'
 );
 $url = 'type/' . $type_id . '-' . $type['slug'];
-$totalRows = get_total('products', $options);
+$totalRows = getTotal('products', $options);
 $total = ceil($totalRows / $limit);
-$products = get_all('products', $options);
+$products = getAll('products', $options);
 $pagination = pagination($url, $page, $total);
 
 if ($type['id'] != 0) {

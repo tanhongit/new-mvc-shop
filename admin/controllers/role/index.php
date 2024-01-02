@@ -18,6 +18,6 @@ $options = array(
 );
 $title = 'Danh sách quyền truy cập website';
 $adminNav = 'class="active open"';
-$roles = get_all('roles', $options);
+$roles = getAll('roles', $options);
 
 require('admin/views/role/index.php');

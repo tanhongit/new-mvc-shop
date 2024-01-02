@@ -9,7 +9,7 @@ function cart_add($productId, $number)
         $_SESSION['cart'][$productId]['number'] += $number;
     } else {
         //lấy thông tin sản phẩm từ CSDL và lưu vào giỏ hàng
-        $product = get_a_record('products', $productId);
+        $product = getRecord('products', $productId);
 
         $_SESSION['cart'][$productId] = array(
             'id' => $productId,
@@ -32,7 +32,7 @@ function updateCartSession()
             'order_by' => 'id asc',
             'where' => 'user_id=' . $userNav
         );
-        $product_of_user = get_all('cart_user', $option);
+        $product_of_user = getAll('cart_user', $option);
         if (!empty($product_of_user)) {
             foreach ($product_of_user as $product) {
                 if (isset($_SESSION['cart'][$product['product_id']]) && mysqli_num_rows(mysqli_query($linkConnectDB, "SELECT product_id FROM cart_user WHERE product_id=" . $product['product_id']  . "")) == 1) {
@@ -40,7 +40,7 @@ function updateCartSession()
                     $_SESSION['cart'][$product['product_id']]['number'] += $product['number'];
                 } else {
                     //lấy thông tin sản phẩm từ CSDL và lưu vào giỏ hàng
-                    $info_product = get_a_record('products', $product['product_id']);
+                    $info_product = getRecord('products', $product['product_id']);
                     $_SESSION['cart'][$product['product_id']] = array(
                         'id' => $product['product_id'],
                         'name' => $info_product['product_name'],
@@ -72,7 +72,7 @@ function mergeCartSessionWithDB()
                 'where' => 'user_id=' . $userNav
             );
             //duyệt mảng cart_user với user là người đang đăng nhập
-            $cart_users = get_all('cart_user', $option_cart_user);
+            $cart_users = getAll('cart_user', $option_cart_user);
             foreach ($cart_users as $cart_user) {
                 if ($cart_user['product_id'] == $product_cart['id']) {
                     $status = 1;

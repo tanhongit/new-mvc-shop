@@ -38,7 +38,7 @@
                                 <tr>
                                     <td><?= $stt ?></td>
                                     <td><?= $feedback['name'] ?></td>
-                                    <td><?= get_time($feedback['createTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                    <td><?= getTime($feedback['createTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                     <td><?= $feedback['email'] ?></td>
                                     <td><?= $feedback['phone'] ?></td>
                                     <td><?= $feedback['subject'] ?></td>

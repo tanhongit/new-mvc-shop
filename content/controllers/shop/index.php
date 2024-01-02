@@ -2,9 +2,9 @@
 if (isset($_GET['id'])) {
     $shop_id = intval($_GET['id']);
 } else show_404();
-$category = get_a_record('categories', $shop_id);
+$category = getRecord('categories', $shop_id);
 if (!$category) show_404();
-$categories = get_all('categories', array(
+$categories = getAll('categories', array(
     'select' => 'id, category_name',
     'order_by' => 'category_position ASC'
 ));
@@ -24,10 +24,10 @@ $options = array(
 );
 
 $url = 'shop/' . $shop_id . '-' . $category['slug'];
-$totalRows = get_total('products', $options);
+$totalRows = getTotal('products', $options);
 $total = ceil($totalRows / $limit);
 
-$products = get_all('products', $options);
+$products = getAll('products', $options);
 $pagination = pagination($url, $page, $total);
 
 if ($category['id'] != 0) {

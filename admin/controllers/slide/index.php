@@ -7,5 +7,5 @@ $options = array(
 );
 $navHF = 'class="active open"';
 $title = 'Slide Show HomePage';
-$slides = get_all('slides', $options);
+$slides = getAll('slides', $options);
 require('admin/views/slide/index.php');

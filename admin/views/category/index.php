@@ -68,7 +68,7 @@
                                                 <td><?= $subcategory['id'] ?></td>
                                                 <td><a href="admin.php?controller=category&amp;action=edit&amp;sub_cate_id=<?= $subcategory['id']; ?>"><?= $subcategory['subcategory_name']; ?></a></td>
                                                 <td><?= $subcategory['slug'] ?></td>
-                                                <td><?php $category = get_a_record('categories', $subcategory['category_id']);
+                                                <td><?php $category = getRecord('categories', $subcategory['category_id']);
                                                     if ($category['id'] != 0) {
                                                         echo $category['category_name'];
                                                     }

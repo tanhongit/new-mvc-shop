@@ -2,15 +2,15 @@
 $get_id = array(
     'order_by' => 'id'
 );
-$sub_cate = get_all('subcategory', $get_id);
-$shops = get_all('categories', $get_id);
-$types = get_all('types', $get_id);
-$product_top = get_all('products', array(
+$sub_cate = getAll('subcategory', $get_id);
+$shops = getAll('categories', $get_id);
+$types = getAll('types', $get_id);
+$product_top = getAll('products', array(
     'limit' => '6',
     'offset' => '0',
     'order_by' => 'totalView DESC'
 ));
-$product_new = get_all('products', array(
+$product_new = getAll('products', array(
     'limit' => '5',
     'offset' => '0',
     'order_by' => 'id DESC'

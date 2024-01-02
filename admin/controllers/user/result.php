@@ -2,7 +2,7 @@
 require_once('admin/models/users.php');
 if (isset($_POST['id_change'])) {
     global $userNav;
-    $loginUser = get_a_record('users', $userNav);
+    $loginUser = getRecord('users', $userNav);
     if ($_POST['id_change'] != $userNav && $loginUser['role_id'] == 0) {
         header('location:index.php');
     }

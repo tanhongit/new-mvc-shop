@@ -19,7 +19,7 @@ if (!empty($_POST['email'])) {
         $option = array(
             'order' => 'id'
         );
-        $users = get_all('users', $option);
+        $users = getAll('users', $option);
         foreach ($users as $user) {
             if ($user['user_email'] == $email) {
                 $verification_Code = $user['verificationCode'];

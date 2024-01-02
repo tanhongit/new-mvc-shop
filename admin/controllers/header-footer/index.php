@@ -11,6 +11,6 @@ if (!empty($_POST)) {
 
 $title = 'Sửa header footer website';
 $navHF = 'class="active open"';
-$contact = get_a_record('contacts', 1);
+$contact = getRecord('contacts', 1);
 
 require('admin/views/header-footer/index.php');

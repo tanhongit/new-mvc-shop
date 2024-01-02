@@ -13,10 +13,10 @@ $options = array(
 );
 
 $url = 'admin.php?controller=order';
-$totalRows = get_total('orders', $options);
+$totalRows = getTotal('orders', $options);
 $title = 'Đơn hàng';
 $orderNav = 'class="active open"';
-$orders = get_all('orders', $options);
+$orders = getAll('orders', $options);
 
 $status = array(
     0 => 'Chưa xử lý',

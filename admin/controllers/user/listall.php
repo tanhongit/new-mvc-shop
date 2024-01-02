@@ -7,5 +7,5 @@ $options = array(
 );
 $title = 'Danh sách Thành viên';
 $nav_user = 'class="active open"';
-$list_user = get_all('users', $options);
+$list_user = getAll('users', $options);
 require('admin/views/user/listall.php');

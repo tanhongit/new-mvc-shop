@@ -33,7 +33,7 @@
                                     <div class="col-sm-8">
                                         <input name="post_id" type="hidden" value="<?= $post ? $post['id'] : '0'; ?>" />
                                         <?php global $userNav;
-                                        $get_user_by = get_a_record('users', $userNav) ?>
+                                        $get_user_by = getRecord('users', $userNav) ?>
                                         <?php if (isset($post)) : ?>
                                             <input name="editby" type="hidden" value="<?= $get_user_by['user_name']; ?>" /><?php else : ?>
                                             <input name="createby" type="hidden" value="<?= $get_user_by['id']; ?>" /><?php endif; ?>

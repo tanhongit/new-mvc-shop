@@ -9,7 +9,7 @@ if (!empty($userNav)) {
         'where' => 'user_id =' . $userNav,
         'order_by' => 'createtime DESC'
     );
-    $orders = get_all('orders', $options);
+    $orders = getAll('orders', $options);
     $title = 'Tất cả đơn hàng của bạn';
     $yourPurchaseNav = 'class="active open"';
     $status = array(

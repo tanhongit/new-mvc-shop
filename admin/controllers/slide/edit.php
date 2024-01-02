@@ -10,5 +10,5 @@ if (isset($_GET['slide_id'])) $slideId = intval($_GET['slide_id']);
 else $slideId = 0;
 $title = ($slideId == 0) ? 'Thêm slides' : 'Sửa slides';
 $navHF = 'class="active open"';
-$slide = get_a_record('slides', $slideId);
+$slide = getRecord('slides', $slideId);
 require('admin/views/slide/edit.php');

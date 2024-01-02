@@ -8,7 +8,7 @@ if (!empty($_GET['id'])) {
     $option = array(
         'order_by' => 'id'
     );
-    $get_user_notActive = get_all('users', $option);
+    $get_user_notActive = getAll('users', $option);
     foreach ($get_user_notActive as $user) {
         if ($user['id'] == $_GET['id']) {
             $email = $user['user_email'];

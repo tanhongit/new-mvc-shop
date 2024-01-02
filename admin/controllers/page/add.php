@@ -12,7 +12,7 @@ if (isset($_GET['post_id']))
     $postId = intval($_GET['post_id']);
 else $postId = 0;
 
-$post = get_a_record('posts', $postId);
+$post = getRecord('posts', $postId);
 $pageNav = 'class="active open"';
 $title = 'Thêm trang mới - Chị Kòi Quán';
 

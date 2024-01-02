@@ -5,9 +5,9 @@ require_once('admin/models/posts.php');
 
 $postId = intval($_GET['post_id']);
 
-$post = get_a_record('posts', $postId);
+$post = getRecord('posts', $postId);
 global $userNav;
-$loginUser = get_a_record('users', $userNav);
+$loginUser = getRecord('users', $userNav);
 
 if ($loginUser['role_id'] == 2) {
     if ($post['post_author'] == $userNav) {

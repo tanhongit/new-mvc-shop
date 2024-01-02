@@ -9,6 +9,6 @@ $options = array(
 );
 $title = 'Media List';
 $navMedia = 'class="active open"';
-$listMedia = get_all('media', $options);
+$listMedia = getAll('media', $options);
 
 require('admin/views/media/index.php');

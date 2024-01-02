@@ -3,7 +3,7 @@ $option = array(
     'order_by' => 'id desc',
     'where' => 'status=0'
 );
-$feedbacks_pending = get_all('feedbacks', $option);
+$feedbacks_pending = getAll('feedbacks', $option);
 ?>
 <!-- Basic Examples -->
 <div class="row clearfix">
@@ -51,7 +51,7 @@ $feedbacks_pending = get_all('feedbacks', $option);
                             <?php foreach ($feedbacks_pending as $feedback) : ?>
                                 <tr>
                                     <td><?= $feedback['name'] ?> |<?= $feedback['user_id'] ?></td>
-                                    <td><?= get_time($feedback['createTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                    <td><?= getTime($feedback['createTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                     <td><?= $feedback['email'] ?></td>
                                     <td><?= $feedback['phone'] ?></td>
                                     <td><?php

@@ -6,7 +6,7 @@ $option_slug_product = array(
     'select' => 'slug',
     'where' => 'id=' . $productId
 );
-$product_slugs = get_all('products', $option_slug_product);
+$product_slugs = getAll('products', $option_slug_product);
 foreach ($product_slugs as $slug) {
     $product_slug = $slug['slug'];
 }

@@ -1,10 +1,10 @@
 <?php
 
-define('DB_HOST', 'db_server');
-define('DB_PORT', 3306);
-define('DB_USER', 'root');
-define('DB_PASS', 'root');
-define('DB_NAME', 'chikoi');
+const DB_HOST = 'db_server';
+const DB_PORT = 3306;
+const DB_USER = 'root';
+const DB_PASS = 'root';
+const DB_NAME = 'chikoi';
 
 if (isset($_SESSION['user'])) {
     $userNav = $_SESSION['user']['id'];

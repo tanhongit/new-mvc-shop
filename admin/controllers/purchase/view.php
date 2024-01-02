@@ -6,7 +6,7 @@ if (isset($_GET['order_id']))
     $orderId = intval($_GET['order_id']);
 else $orderId = 0;
 
-$order = get_a_record('orders', $orderId);
+$order = getRecord('orders', $orderId);
 
 if (!$order) {
     show_404();

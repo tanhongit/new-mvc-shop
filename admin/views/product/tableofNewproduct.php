@@ -3,7 +3,7 @@ $options = array(
     'where' => 'product_typeid = 2',
     'order_by' => 'createDate'
 );
-$products = get_all('products', $options); ?>
+$products = getAll('products', $options); ?>
 <!-- Basic Examples -->
 <div class="row clearfix">
     <div class="col-lg-12">

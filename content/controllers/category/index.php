@@ -2,11 +2,11 @@
 if (isset($_GET['id'])) {
     $categoryId = intval($_GET['id']);
 } else show_404();
-$category = get_a_record('subcategory', $categoryId);
+$category = getRecord('subcategory', $categoryId);
 if (!$category) {
     show_404();
 }
-$categories = get_all('subcategory', array(
+$categories = getAll('subcategory', array(
     'select' => 'id, subcategory_name',
     'order_by' => 'id ASC'
 ));
@@ -26,13 +26,13 @@ $options = array(
 
 $url = 'category/' . $categoryId . '-' . $category['slug'];
 
-$totalRows = get_total('products', $options);
+$totalRows = getTotal('products', $options);
 $total = ceil($totalRows / $limit);
 
-$products = get_all('products', $options);
+$products = getAll('products', $options);
 $pagination = pagination($url, $page, $total);
 
-$subcategories = get_a_record('subcategory', $_GET["id"]);
+$subcategories = getRecord('subcategory', $_GET["id"]);
 if ($subcategories['id'] != 0) {
     $breadCrumb = $subcategories['subcategory_name'];
 }

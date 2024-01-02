@@ -9,11 +9,11 @@ $linkOptions = array(
 );
 $title = 'Danh sách link Footer';
 $navHF = 'class="active open"';
-$menuFooterLinks = get_all('menu_footers', $linkOptions);
+$menuFooterLinks = getAll('menu_footers', $linkOptions);
 $titleOptions = array(
     'order_by' => 'id ASC',
     'where' => 'parent=1'
 );
-$titleFooterLinks = get_all('menu_footers', $titleOptions);
+$titleFooterLinks = getAll('menu_footers', $titleOptions);
 
 require('admin/views/header-footer/listMenuFooter.php');

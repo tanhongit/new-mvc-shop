@@ -8,6 +8,6 @@ $option = array(
     'order_by' => 'id desc',
     'where' => 'user_id=' . $userNav
 );
-$feedbacks = get_all('feedbacks', $option);
+$feedbacks = getAll('feedbacks', $option);
 
 require('admin/views/feedback/myfeedback.php');

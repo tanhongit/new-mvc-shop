@@ -20,10 +20,10 @@ $options = array(
     'offset' => $offset,
     'order_by' => 'id DESC'
 );
-$pages = get_all('posts', $options);
+$pages = getAll('posts', $options);
 
 $url = 'admin.php?controller=page&action=viewtrash';
-$totalRows = get_total('posts', $options);
+$totalRows = getTotal('posts', $options);
 $total = ceil($totalRows / $limit);
 
 $pagination = adminPagination($url, $page, $total);

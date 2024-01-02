@@ -7,7 +7,7 @@ $options = array(
     'order_by' => 'createtime DESC'
 );
 
-$orderComplete = get_all('orders', $options);
+$orderComplete = getAll('orders', $options);
 
 $title = 'Đơn hàng đã bị hủy';
 $orderNav = 'class="active open"';

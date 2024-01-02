@@ -50,7 +50,7 @@ require('content/views/comment/index.php');
 
 // $option = array('product_id' => intval($productID));
 
-// $commentList = get_all('comments',$option);
+// $commentList = getAll('comments',$option);
 
 // echo json_encode($commentList);
 // echo 'aaaa';

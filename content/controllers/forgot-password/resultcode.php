@@ -5,7 +5,7 @@ if (!empty($_GET['code'])) {
         'order_by' => 'id'
     );
     $verifi_id_user = 0;
-    $user_need_change_pass = get_all('users', $select_user_option);
+    $user_need_change_pass = getAll('users', $select_user_option);
     foreach ($user_need_change_pass as $user) {
         if ($user['verificationCode'] == $_GET['code']) {
             $verifi_id_user = 1;

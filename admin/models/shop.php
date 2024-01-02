@@ -7,7 +7,7 @@ function categoryDestroy($id)
         'select' => 'id',
         'where' => 'category_id=' . $id
     );
-    $products = get_all('products', $options);
+    $products = getAll('products', $options);
     foreach ($products as $product) {
         postDestroy($product['id']);
     }

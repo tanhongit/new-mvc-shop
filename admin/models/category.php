@@ -7,7 +7,7 @@ function deleteSubCategory($id)
         'select' => 'id',
         'where' => 'sub_category_id=' . $id
     );
-    $products = get_all('products', $options);
+    $products = getAll('products', $options);
     foreach ($products as $product) {
         postDestroy($product['id']);
     }

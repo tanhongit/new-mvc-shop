@@ -90,7 +90,7 @@
                             <form id="product-form" class="form-horizontal" method="post" action="admin.php?controller=product&amp;action=edit" enctype="multipart/form-data" role="form">
                                 <input name="product_id" type="hidden" value="<?= $product ? $product['id'] : '0'; ?>" />
                                 <?php global $userNav;
-                                $get_user_by = get_a_record('users', $userNav) ?>
+                                $get_user_by = getRecord('users', $userNav) ?>
                                 <?php if (isset($product)) : ?>
                                     <input name="editby" type="hidden" value="<?= $get_user_by['user_name']; ?>" />
                                     <input name="createby" type="hidden" value="<?= $product['createBy']; ?>" />

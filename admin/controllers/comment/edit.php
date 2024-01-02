@@ -15,18 +15,18 @@ if (isset($_GET['comment_id'])) {
 }
 
 $title = $commentId === 0 ? '' : 'Sửa phần bình luận của khách hàng';
-$comment = get_a_record('comments', $commentId);
+$comment = getRecord('comments', $commentId);
 
 if ($comment['post_id'] <> 0) {
-    $post = get_a_record('posts', $comment['post_id']);
+    $post = getRecord('posts', $comment['post_id']);
 }
 
 if ($comment['page_id'] <> 0) {
-    $page = get_a_record('posts', $comment['page_id']);
+    $page = getRecord('posts', $comment['page_id']);
 }
 
 if ($comment['product_id'] <> 0) {
-    $product = get_a_record('products', $comment['product_id']);
+    $product = getRecord('products', $comment['product_id']);
 }
 
 $navComment = 'class="active open"';

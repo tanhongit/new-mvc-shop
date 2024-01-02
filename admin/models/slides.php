@@ -2,7 +2,7 @@
 function slide_delete($id)
 {
     $id = intval($id);
-    $slide = get_a_record('slides', $id);
+    $slide = getRecord('slides', $id);
     $image1 = 'public/upload/slides/' . $slide['slide_img1'];
     if (is_file($image1)) {
         unlink($image1);

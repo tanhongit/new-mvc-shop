@@ -4,11 +4,11 @@ $cart = cart_list();
 $options = array(
 	'order_by' => 'id'
 );
-$ccategories = get_all('categories', $options);
+$ccategories = getAll('categories', $options);
 $contact_option = array(
 	'where' => 'id=1'
 );
-$contacts = get_all('contacts', $contact_option);
+$contacts = getAll('contacts', $contact_option);
 foreach ($contacts as $contact) {
 	$phone = preg_replace("/([0-9]{3})([0-9]{4})/", "$1-$2", $contact['phone']);
 	$phone2 = preg_replace("/([0-9]{3})([0-9]{4})/", "$1-$2", $contact['phone_2']);
@@ -29,9 +29,9 @@ $options_menu_footer = array(
 
 	'offset' => 15
 );
-$menu_footers = get_all('menu_footers', $options_menu_footer);
+$menu_footers = getAll('menu_footers', $options_menu_footer);
 global $userNav;
-$user_login = get_a_record('users', $userNav);
+$user_login = getRecord('users', $userNav);
 
 if (isset($image_product)) $link_image = $image_product;
 else $link_image = PATH_URL . 'public/img/bang-hieu-chikoishop.jpg';
@@ -168,7 +168,7 @@ else $url_site = PATH_URL . 'home';
 										$options2 = array(
 											'where' => $ccategory['id'] . '=category_id'
 										);
-										$ssubcategory = get_all('subcategory', $options2);
+										$ssubcategory = getAll('subcategory', $options2);
 										foreach ($ssubcategory as $subcate) : ?>
 											<li><a href="category/<?= $subcate['id'] ?>-<?= $subcate['slug'] ?>"><?= $subcate['subcategory_name'] ?></a></li>
 										<?php endforeach; ?>

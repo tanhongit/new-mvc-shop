@@ -4,7 +4,7 @@ require_once('content/models/cart.php');
 
 global $userNav;
 
-$user_login = get_a_record('users', $userNav);
+$user_login = getRecord('users', $userNav);
 
 unset($_SESSION['user']);
 cartDestroy();

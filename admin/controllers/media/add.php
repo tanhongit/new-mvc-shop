@@ -16,6 +16,6 @@ if (isset($_GET['media_id'])) {
 
 $title = ($mediaId == 0) ? '' : 'Cập nhật ảnh';
 $navMedia = 'class="active open"';
-$mediaInfo = get_a_record('media', $mediaId);
+$mediaInfo = getRecord('media', $mediaId);
 
 require('admin/views/media/add.php');

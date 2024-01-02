@@ -17,11 +17,11 @@ $options = array(
     'order_by' => 'id DESC'
 );
 $url = 'index.php?controller=search&keyword=' . $keyword;
-$totalRows = get_total('products', $options);
+$totalRows = getTotal('products', $options);
 $total = ceil($totalRows / $limit);
 
 //data
-$products = get_all('products', $options);
+$products = getAll('products', $options);
 $pagination = pagination($url, $page, $total);
 //load view
 require('content/views/search/index.php');

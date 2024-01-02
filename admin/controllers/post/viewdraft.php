@@ -21,10 +21,10 @@ $options = array(
     'offset' => $offset,
     'order_by' => 'id DESC'
 );
-$posts = get_all('posts', $options);
+$posts = getAll('posts', $options);
 
 $url = 'admin.php?controller=post&action=viewdraft';
-$totalRows = get_total('posts', $options);
+$totalRows = getTotal('posts', $options);
 $total = ceil($totalRows / $limit);
 
 $pagination = adminPagination($url, $page, $total);

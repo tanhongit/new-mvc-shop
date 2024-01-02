@@ -3,8 +3,8 @@ require_once('content/models/posts.php');
 if (isset($_GET['id'])) {
     $postId = intval($_GET['id']);
 } else show_404();
-$page = get_a_record('posts', $postId);
-$user = get_a_record('users', $page['post_author']);
+$page = getRecord('posts', $postId);
+$user = getRecord('users', $page['post_author']);
 if (!$page || $page['post_status'] <> 'Publiced') {
     show_404();
 } else   updateCountView($postId);

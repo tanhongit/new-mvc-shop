@@ -3,7 +3,7 @@ $option = array(
     'order_by' => 'id desc',
     'where' => 'status=2'
 );
-$comments = get_all('comments', $option);
+$comments = getAll('comments', $option);
 ?>
 <!-- Basic Examples -->
 <div class="row clearfix">
@@ -42,13 +42,13 @@ $comments = get_all('comments', $option);
                         </tfoot>
                         <tbody>
                             <?php foreach ($comments as $comment) :
-                                if ($comment['product_id'] <> 0) $product = get_a_record('products', $comment['product_id']);
-                                elseif ($comment['post_id'] <> 0) $post = get_a_record('posts', $comment['post_id']);
-                                elseif ($comment['page_id'] <> 0) $page = get_a_record('posts', $comment['page_id']); ?>
+                                if ($comment['product_id'] <> 0) $product = getRecord('products', $comment['product_id']);
+                                elseif ($comment['post_id'] <> 0) $post = getRecord('posts', $comment['post_id']);
+                                elseif ($comment['page_id'] <> 0) $page = getRecord('posts', $comment['page_id']); ?>
                                 <tr>
                                     <td>
                                         <?= '<image src="public/upload/images/' . $comment['link_image'] . '?time=' . time() . '" style="max-width:20px;" />'; ?>
-                                        <strong><?= $comment['author'] ?></strong> | <strong><?= get_time($comment['createDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></strong>
+                                        <strong><?= $comment['author'] ?></strong> | <strong><?= getTime($comment['createDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></strong>
                                         <br><?php if ($comment['product_id'] <> 0) { ?>
                                             <a target="_blank" href="<?= PATH_URL . 'product/' . $product['id'] . '-' . $product['slug'] ?>"><?= PATH_URL . 'product/' . $product['id'] . '-' . $product['slug'] ?></a>
                                         <?php } elseif ($comment['post_id'] <> 0) { ?>

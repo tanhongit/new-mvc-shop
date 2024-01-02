@@ -3,7 +3,7 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2><? ?></h2>
+                    <h2><?php ?></h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?= PATH_URL . 'home' ?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
                         <li class="breadcrumb-item"><a href="admin.php?controller=category">Danh mục con</a></li>
@@ -53,7 +53,9 @@
                                         <select name="category_id" class="form-control show-tick">
                                             <?php foreach ($categories as $category) {
                                                 $selected = '';
-                                                if ($product && ($product['category_id'] == $category['id'])) $selected = 'selected=""';
+                                                if ($product && ($product['category_id'] == $category['id'])) {
+                                                    $selected = 'selected=""';
+                                                }
                                                 echo '<option value="' . $category['id'] . '" ' . $selected . '>' . $category['category_name'] . '</option>';
                                             } ?>
                                         </select>

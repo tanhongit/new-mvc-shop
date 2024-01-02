@@ -69,10 +69,10 @@
                                                 <td><a href="admin.php?controller=category&amp;action=edit&amp;sub_cate_id=<?= $subcategory['id']; ?>"><?= $subcategory['subcategory_name']; ?></a></td>
                                                 <td><?= $subcategory['slug'] ?></td>
                                                 <td><?php $category = getRecord('categories', $subcategory['category_id']);
-                                                    if ($category['id'] != 0) {
-                                                        echo $category['category_name'];
-                                                    }
-                                                    ?></td>
+                                            if ($category['id'] != 0) {
+                                                echo $category['category_name'];
+                                            }
+                                            ?></td>
                                                 <td><a href="category/<?= $category['id']; ?>-<?= $category['slug'] ?>" target="_blank" class="btn btn-success waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-eye"></i></a>
                                                     <a href="admin.php?controller=category&amp;action=edit&amp;sub_cate_id=<?= $subcategory['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
                                                     <a onclick="return confirm('Are you sure to delete?')" href="admin.php?controller=category&amp;action=delete&amp;sub_cate_id=<?= $subcategory['id'] ?>" class="btn btn-danger waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>

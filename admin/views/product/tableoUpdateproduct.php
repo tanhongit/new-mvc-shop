@@ -1,8 +1,8 @@
 <?php
 
-$options_product_update = array(
-    'order_by' => 'editDate DESC'
-);
+$options_product_update = [
+    'order_by' => 'editDate DESC',
+];
 $total_product_update = getAll('products', $options_product_update); ?>
 <!-- Basic Examples -->
 <div class="row clearfix">

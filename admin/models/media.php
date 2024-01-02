@@ -1,9 +1,12 @@
 <?php
+
 function mediaDestroy($id)
 {
     if (isset($_GET['media_id'])) {
         $id = intval($_GET['media_id']);
-    } else show_404();
+    } else {
+        show_404();
+    }
     $media = getRecord('media', $id);
     $image = 'public/upload/media/' . $media['slug'];
     if (is_file($image)) {
@@ -15,47 +18,47 @@ function mediaDestroy($id)
 }
 function mediaStore()
 {
-    $mediaStore = array(
+    $mediaStore = [
         'id' => intval($_POST['media_id']),
         'media_name' => escape($_POST['name']),
-        'createDate' => gmdate('Y-m-d H:i:s', time() + 7 * 3600)
-    );
-    $mediaId =  save('media', $mediaStore);
+        'createDate' => gmdate('Y-m-d H:i:s', time() + 7 * 3600),
+    ];
+    $mediaId = save('media', $mediaStore);
     $slugg = slug($_POST['name']);
-    $config = array(
+    $config = [
         'name' => $slugg,
-        'upload_path'  => 'public/upload/media/',
+        'upload_path' => 'public/upload/media/',
         'allowed_exts' => 'jpg|jpeg|png|gif',
-    );
+    ];
     $images = upload('imggggg', $config);
     if ($images) {
-        $mediaStore = array(
+        $mediaStore = [
             'id' => $mediaId,
-            'slug' => $images
-        );
+            'slug' => $images,
+        ];
         save('media', $mediaStore);
     }
     header('location:admin.php?controller=media');
 }
 function mediaUpdate()
 {
-    $media_edit = array(
+    $media_edit = [
         'id' => intval($_POST['media_id']),
         'media_name' => escape($_POST['name']),
-    );
-    $mediaId =  save('media', $media_edit);
+    ];
+    $mediaId = save('media', $media_edit);
     $slugg = slug($_POST['name']);
-    $config = array(
+    $config = [
         'name' => $slugg,
-        'upload_path'  => 'public/upload/media/',
+        'upload_path' => 'public/upload/media/',
         'allowed_exts' => 'jpg|jpeg|png|gif',
-    );
+    ];
     $images = upload('imggggg', $config);
     if ($images) {
-        $media_edit = array(
+        $media_edit = [
             'id' => $mediaId,
-            'slug' => $images
-        );
+            'slug' => $images,
+        ];
         save('media', $media_edit);
     }
     header('location:admin.php?controller=media');

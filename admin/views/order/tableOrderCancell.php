@@ -1,15 +1,15 @@
 <?php
-$options = array(
+$options = [
     'where' => 'status = 3',
-    'order_by' => 'createtime DESC'
-);
+    'order_by' => 'createtime DESC',
+];
 $order_noprocess = getAll('orders', $options);
-$status = array(
+$status = [
     0 => 'Chưa xử lý',
     1 => 'Đã xử lý',
     2 => 'Đang xử lý',
-    3 => 'Đã bị hủy'
-); ?>
+    3 => 'Đã bị hủy',
+]; ?>
 <!-- Basic Examples -->
 <div class="row clearfix">
     <div class="col-lg-12">

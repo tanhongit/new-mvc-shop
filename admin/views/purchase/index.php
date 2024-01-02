@@ -27,7 +27,9 @@
         <div class="container-fluid">
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12">
-                    <?php if (empty($orders)) echo '<h2 style="text-align: center;">Chưa có đơn hàng nào</h2>'; ?>
+                    <?php if (empty($orders)) {
+                        echo '<h2 style="text-align: center;">Chưa có đơn hàng nào</h2>';
+                    } ?>
                     <?php foreach ($orders as $order) :
                         $orderDetail = purchase_order_detail($order['id']); ?>
                         <div class="card">

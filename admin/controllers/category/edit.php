@@ -9,10 +9,10 @@ if (!empty($_POST)) {
     updateSubCategory();
 }
 
-$categories = getAll('categories', array(
+$categories = getAll('categories', [
     'select' => 'id,category_name',
-    'order_by' => 'id'
-));
+    'order_by' => 'id',
+]);
 
 if (isset($_GET['sub_cate_id'])) {
     $subCateId = intval($_GET['sub_cate_id']);

@@ -5,8 +5,11 @@
         <div class="row">
             <div class="col-md-12">
                 <h2 class="shorter"><strong>Gửi phản hồi của bạn đến Chị Kòi Quán</strong></h2>
-                <?php if (isset($userNav)) echo '<p>Bạn đang đăng nhập với người dùng: <a href="admin.php?controller=user&action=info&user_id=' . $userNav . '"><b>' . $user_action['user_name'] . '</b></a></p>';
-                else echo '<p>Bạn đã có tài khoản người dùng? <a href="admin.php">Nhấn vào đây đăng nhập.</a></p>' ?>
+                <?php if (isset($userNav)) {
+                    echo '<p>Bạn đang đăng nhập với người dùng: <a href="admin.php?controller=user&action=info&user_id=' . $userNav . '"><b>' . $user_action['user_name'] . '</b></a></p>';
+                } else {
+                    echo '<p>Bạn đã có tài khoản người dùng? <a href="admin.php">Nhấn vào đây đăng nhập.</a></p>';
+                } ?>
             </div>
         </div>
         <div class="row">
@@ -26,7 +29,9 @@
                                     <input type="hidden" name="feedback_id" value="0">
                                     <?php if ($product <> 0) { ?>
                                         <input type="hidden" class="form-control" name="product_id" value="<?= $product['id'] ?>">
-                                    <?php } else echo '<input type="hidden" class="form-control" name="product_id" value="0">' ?>
+                                    <?php } else {
+                                        echo '<input type="hidden" class="form-control" name="product_id" value="0">';
+                                    } ?>
                                     <?php if (!isset($userNav)) : ?>
                                         <input type="hidden" class="form-control" name="user_id" value="0">
                                         <div class="row">
@@ -100,8 +105,11 @@
                                     </a>
                                     <span class="product-thumb-info-content">
                                         <a href="product/<?= $product['id']; ?>-<?= $product['slug']; ?>">
-                                            <h4 title="<?= $product['product_name']; ?>"><?php if (strlen($product['product_name']) > 50) echo substr($product['product_name'], 0, 57) . '...';
-                                                                                                else echo $product['product_name'];  ?></h4>
+                                            <h4 title="<?= $product['product_name']; ?>"><?php if (strlen($product['product_name']) > 50) {
+                                                echo substr($product['product_name'], 0, 57) . '...';
+                                            } else {
+                                                echo $product['product_name'];
+                                            }  ?></h4>
                                             <span class="price">
                                                 <?php if ($product['saleoff'] != 0) { ?>
                                                     <del><span class="amount"><?= number_format($product['product_price'], 0, ',', '.');  ?></span></del>

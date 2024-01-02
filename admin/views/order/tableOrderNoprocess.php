@@ -1,14 +1,14 @@
 <?php
-$options = array(
+$options = [
     'where' => 'status = 0',
-    'order_by' => 'createtime DESC'
-);
+    'order_by' => 'createtime DESC',
+];
 $order_noprocess = getAll('orders', $options);
-$status = array(
+$status = [
     0 => 'Chưa xử lý',
     1 => 'Đã xử lý',
-    2 => 'Đang xử lý'
-); ?>
+    2 => 'Đang xử lý',
+]; ?>
 <!-- Basic Examples -->
 <div class="row clearfix">
     <div class="col-lg-12">

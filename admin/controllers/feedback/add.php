@@ -20,12 +20,12 @@ if (isset($userNav)) {
     $user_action = getRecord('users', $userNav);
 }
 
-$status = array(
+$status = [
     0 => 'Đã xác nhận',
     1 => 'Đã xử lý',
     2 => 'Đang xử lý',
-    3 => 'Đã bị hủy'
-);
+    3 => 'Đã bị hủy',
+];
 $title = 'Gửi phản hồi của bạn đến Chị Kòi Quán';
 $navFeedback = 'class="active open"';
 

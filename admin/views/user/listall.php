@@ -77,9 +77,13 @@
                                                 <td><a href="admin.php?controller=user&amp;action=edit&amp;user_id=<?= $user['id']; ?>"><?= $user['user_name']; ?></a></td>
                                                 <td><?= $user['user_username'] ?></td>
                                                 <td><?= '<image src="public/upload/images/' . $user['user_avatar'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
-                                                <td><?php if ($user['role_id'] == 1) echo 'Admin';
-                                                    elseif ($user['role_id'] == 2) echo 'Moderator';
-                                                    else echo 'User' ?></td>
+                                                <td><?php if ($user['role_id'] == 1) {
+                                                    echo 'Admin';
+                                                } elseif ($user['role_id'] == 2) {
+                                                    echo 'Moderator';
+                                                } else {
+                                                    echo 'User';
+                                                } ?></td>
                                                 <td><?= $user['createDate'] ?></td>
                                                 <td><?= $user['user_phone'] ?></td>
                                                 <td><?= $user['user_email'] ?></td>

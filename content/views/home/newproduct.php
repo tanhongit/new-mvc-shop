@@ -33,8 +33,11 @@
 									</a>
 									<span class="product-thumb-info-content">
 										<a href="product/<?= $new_product['id']; ?>-<?= $new_product['slug']; ?>/">
-											<h4 title="<?= $new_product['product_name']; ?>"><?php if (strlen($new_product['product_name']) > 50) echo substr($new_product['product_name'], 0, 57) . '...';
-																									else echo $new_product['product_name'];  ?></h4>
+											<h4 title="<?= $new_product['product_name']; ?>"><?php if (strlen($new_product['product_name']) > 50) {
+											    echo substr($new_product['product_name'], 0, 57) . '...';
+											} else {
+											    echo $new_product['product_name'];
+											}  ?></h4>
 											<span class="price">
 												<?php if ($new_product['saleoff'] != 0) { ?>
 													<del title="<?= $new_product['product_name']; ?>"><span class="amount"><?= number_format($new_product['product_price'], 0, ',', '.');  ?></span></del>

@@ -5,9 +5,9 @@ permission_moderator();
 
 require_once('admin/models/category.php');
 
-$options = array(
-    'order_by' => 'id'
-);
+$options = [
+    'order_by' => 'id',
+];
 $title = 'Danh mục sản phẩm';
 $subcategories = getAll('subcategory', $options);
 $navCategory = 'class="active open"';

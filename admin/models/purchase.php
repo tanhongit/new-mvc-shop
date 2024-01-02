@@ -1,9 +1,12 @@
 <?php
+
 function orderCancel($id)
 {
     if (isset($_GET['order_id'])) {
         $id = intval($_GET['order_id']);
-    } else show_404();
+    } else {
+        show_404();
+    }
     global $linkConnectDB;
     $sql = "UPDATE orders SET status=3,editTime='" . gmdate('Y-m-d H:i:s', time() + 7 * 3600) . "' where id=" . $id;
     mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
@@ -16,12 +19,13 @@ function purchase_order_detail($orderId)
 			INNER JOIN products ON products.id=order_detail.product_id
 			WHERE order_detail.order_id=$orderId";
     $query = mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
-    $data = array();
+    $data = [];
     if (mysqli_num_rows($query) > 0) {
         while ($row = mysqli_fetch_assoc($query)) {
             $data[] = $row;
         }
         mysqli_free_result($query);
     }
+
     return $data;
 }

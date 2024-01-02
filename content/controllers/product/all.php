@@ -1,16 +1,20 @@
 <?php
-if (isset($_GET['page'])) $page = intval($_GET['page']);
-else $page = 1;
+
+if (isset($_GET['page'])) {
+    $page = intval($_GET['page']);
+} else {
+    $page = 1;
+}
 
 $page = ($page > 0) ? $page : 1;
 $limit = 12;
 $offset = ($page - 1) * $limit;
 
-$options = array(
+$options = [
     'order_by' => 'id desc',
     'limit' => $limit,
     'offset' => $offset,
-);
+];
 
 $url = 'index.php?controller=product&action=all';
 $totalRows = getTotal('products', $options);

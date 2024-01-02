@@ -1,28 +1,34 @@
 <?php
+
 if (isset($_GET['id'])) {
     $categoryId = intval($_GET['id']);
-} else show_404();
+} else {
+    show_404();
+}
 $category = getRecord('subcategory', $categoryId);
 if (!$category) {
     show_404();
 }
-$categories = getAll('subcategory', array(
+$categories = getAll('subcategory', [
     'select' => 'id, subcategory_name',
-    'order_by' => 'id ASC'
-));
-if (isset($_GET['page'])) $page = intval($_GET['page']);
-else $page = 1;
+    'order_by' => 'id ASC',
+]);
+if (isset($_GET['page'])) {
+    $page = intval($_GET['page']);
+} else {
+    $page = 1;
+}
 
 $page = ($page > 0) ? $page : 1;
 $limit = 9;
 $offset = ($page - 1) * $limit;
 
-$options = array(
+$options = [
     'where' => 'sub_category_id =' . $categoryId,
     'limit' => $limit,
     'offset' => $offset,
-    'order_by' => 'id DESC'
-);
+    'order_by' => 'id DESC',
+];
 
 $url = 'category/' . $categoryId . '-' . $category['slug'];
 

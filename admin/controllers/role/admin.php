@@ -4,9 +4,9 @@ permission_user();
 
 require_once('admin/models/users.php');
 
-$options = array(
-    'order_by' => 'id ASC'
-);
+$options = [
+    'order_by' => 'id ASC',
+];
 $title = 'Danh sách Admin';
 $adminNav = 'class="active open"';
 $list_user = getAll('users', $options);

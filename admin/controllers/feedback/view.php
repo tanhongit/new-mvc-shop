@@ -27,7 +27,7 @@ $status = [
     0 => 'Đã xác nhận',
     1 => 'Đã xử lý - Done',
     2 => 'Đang xử lý - giao hàng',
-    3 => 'Đã bị hủy'
+    3 => 'Đã bị hủy',
 ];
 $navFeedback = 'class="active open"';
 

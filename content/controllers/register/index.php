@@ -1,23 +1,24 @@
 <?php
+
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
-use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
 
 if (!empty($_POST)) {
-    $user_add = array(
+    $user_add = [
         'id' => 0,
         'user_username' => escape($_POST['username']),
         'user_password' => md5($_POST['password']),
         'user_email' => escape($_POST['email']),
-        'createDate' => gmdate('Y-m-d H:i:s', time() + 7 * 3600)
-    );
+        'createDate' => gmdate('Y-m-d H:i:s', time() + 7 * 3600),
+    ];
     global $linkConnectDB;
     $username = addslashes($_POST['username']);
     $email = addslashes($_POST['email']);
-    $get_user_email_option = array(
+    $get_user_email_option = [
         'order_by' => 'id',
-    );
+    ];
     //lấy id người đăng ký để resend
     $user_of_email = getAll('users', $get_user_email_option);
     foreach ($user_of_email as $user) {
@@ -45,6 +46,7 @@ if (!empty($_POST)) {
         require 'vendor/autoload.php';
         include 'lib/config/sendmail.php';
         $mail = new PHPMailer(true);
+
         try {
             $verificationCode = md5(uniqid("Emsel của bạn chưa active. Nhấn vào đây để active nhé!", true)); //https://www.php.net/manual/en/function.uniqid
             $verificationLink = PATH_URL . "index.php?controller=register&action=activate&code=" . $verificationCode;
@@ -83,10 +85,10 @@ if (!empty($_POST)) {
         } catch (Exception $e) {
             echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
         }
-        $verificationCode_add = array(
+        $verificationCode_add = [
             'id' => $userId,
-            'verificationCode' => $verificationCode
-        );
+            'verificationCode' => $verificationCode,
+        ];
         save('users', $verificationCode_add);
         echo "<div style='padding-top: 200px' class='container'><div style='text-align: center;' class='alert alert-success'><strong>Done! Mã kích hoạt</strong> đã được gửi đến email: <strong>" . $email . "</strong>. <br><br>Vui lòng mở hộp thư đến email của bạn và nhấp vào liên kết đã cho để bạn có thể đăng nhập. <br><br><br>Email chưa được xác minh này đã được lưu vào Database.</div></div>";
     }

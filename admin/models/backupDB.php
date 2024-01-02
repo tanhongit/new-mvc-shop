@@ -1,10 +1,11 @@
 <?php
+
 function backup_db()
 {
     global $linkConnectDB;
     // Lưu trữ tất cả tên Table vào một mảng
     $return = '';
-    $allTables = array();
+    $allTables = [];
     $result = mysqli_query($linkConnectDB, 'SHOW TABLES');
     while ($row = mysqli_fetch_row($result)) {
         $allTables[] = $row[0];
@@ -41,8 +42,9 @@ function backup_db()
 
     // Tạo thư mục Backup
     $folder = 'admin/database/';
-    if (!is_dir($folder))
+    if (!is_dir($folder)) {
         mkdir($folder, 0777, true);
+    }
     chmod($folder, 0777);
     // Đặt tên file
     $date = date('Y-m-d-H-i-s', time() + 7 * 3600);

@@ -1,8 +1,8 @@
 <?php
-$options = array(
+$options = [
     'order_by' => 'id desc',
-    'where' => 'order_id<>0'
-);
+    'where' => 'order_id<>0',
+];
 $feedbacks = getAll('feedbacks', $options);
 ?>
 <!-- Basic Examples -->
@@ -57,7 +57,9 @@ $feedbacks = getAll('feedbacks', $options);
                                         <td><?php
                                             if (strlen($feedback['subject']) > 200) {
                                                 echo substr($feedback['subject'], 0, 200) . '...';
-                                            } else echo $feedback['subject']; ?></td>
+                                            } else {
+                                                echo $feedback['subject'];
+                                            } ?></td>
                                         <td>
                                             <a title="UnApprove" class="btn btn-default btn-icon" href="admin.php?controller=feedback&action=unapproved&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-minus-circle"></i></a>
                                             <a onclick="return confirm('Are you sure to delete?')" title="Delete" class="btn btn-danger btn-icon" href="admin.php?controller=feedback&action=delete&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-delete"></i></a>
@@ -75,7 +77,9 @@ $feedbacks = getAll('feedbacks', $options);
                                         <td><?php
                                             if (strlen($feedback['subject']) > 200) {
                                                 echo substr($feedback['subject'], 0, 200) . '...';
-                                            } else echo $feedback['subject']; ?></td>
+                                            } else {
+                                                echo $feedback['subject'];
+                                            } ?></td>
                                         <td>
                                             <a title="Approve" class="btn btn-info btn-icon" href="admin.php?controller=feedback&action=approved&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-check-circle"></i></a>
                                             <a onclick="return confirm('Are you sure to delete?')" title="Delete" class="btn btn-danger btn-icon" href="admin.php?controller=feedback&action=delete&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-delete"></i></a>

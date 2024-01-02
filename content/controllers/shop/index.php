@@ -1,27 +1,35 @@
 <?php
+
 if (isset($_GET['id'])) {
     $shop_id = intval($_GET['id']);
-} else show_404();
+} else {
+    show_404();
+}
 $category = getRecord('categories', $shop_id);
-if (!$category) show_404();
-$categories = getAll('categories', array(
+if (!$category) {
+    show_404();
+}
+$categories = getAll('categories', [
     'select' => 'id, category_name',
-    'order_by' => 'category_position ASC'
-));
+    'order_by' => 'category_position ASC',
+]);
 
-if (isset($_GET['page'])) $page = intval($_GET['page']);
-else $page = 1;
+if (isset($_GET['page'])) {
+    $page = intval($_GET['page']);
+} else {
+    $page = 1;
+}
 
 $page = ($page > 0) ? $page : 1;
 $limit = 9;
 $offset = ($page - 1) * $limit;
 
-$options = array(
+$options = [
     'where' => 'category_id=' . $shop_id,
     'limit' => $limit,
     'offset' => $offset,
-    'order_by' => 'id DESC'
-);
+    'order_by' => 'id DESC',
+];
 
 $url = 'shop/' . $shop_id . '-' . $category['slug'];
 $totalRows = getTotal('products', $options);

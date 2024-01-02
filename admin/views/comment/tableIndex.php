@@ -34,9 +34,13 @@
                         </tfoot>
                         <tbody>
                             <?php foreach ($comments as $comment) :
-                                if ($comment['product_id'] <> 0) $product = getRecord('products', $comment['product_id']);
-                                elseif ($comment['post_id'] <> 0) $post = getRecord('posts', $comment['post_id']);
-                                elseif ($comment['page_id'] <> 0) $page = getRecord('posts', $comment['page_id']);
+                                if ($comment['product_id'] <> 0) {
+                                    $product = getRecord('products', $comment['product_id']);
+                                } elseif ($comment['post_id'] <> 0) {
+                                    $post = getRecord('posts', $comment['post_id']);
+                                } elseif ($comment['page_id'] <> 0) {
+                                    $page = getRecord('posts', $comment['page_id']);
+                                }
                                 if ($comment['status'] == 1) : ?>
                                     <tr>
                                         <td>

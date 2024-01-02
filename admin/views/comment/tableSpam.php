@@ -1,8 +1,8 @@
 <?php
-$option = array(
+$option = [
     'order_by' => 'id desc',
-    'where' => 'status=3'
-);
+    'where' => 'status=3',
+];
 $comments = getAll('comments', $option);
 ?>
 <!-- Basic Examples -->
@@ -42,9 +42,13 @@ $comments = getAll('comments', $option);
                         </tfoot>
                         <tbody>
                             <?php foreach ($comments as $comment) :
-                                if ($comment['product_id'] <> 0) $product = getRecord('products', $comment['product_id']);
-                                elseif ($comment['post_id'] <> 0) $post = getRecord('posts', $comment['post_id']);
-                                elseif ($comment['page_id'] <> 0) $page = getRecord('posts', $comment['page_id']); ?>
+                                if ($comment['product_id'] <> 0) {
+                                    $product = getRecord('products', $comment['product_id']);
+                                } elseif ($comment['post_id'] <> 0) {
+                                    $post = getRecord('posts', $comment['post_id']);
+                                } elseif ($comment['page_id'] <> 0) {
+                                    $page = getRecord('posts', $comment['page_id']);
+                                } ?>
                                 <tr>
                                     <td>
                                         <?= '<image src="public/upload/images/' . $comment['link_image'] . '?time=' . time() . '" style="max-width:20px;" />'; ?>

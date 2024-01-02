@@ -1,42 +1,48 @@
 <?php
 include_once('content/models/cart.php');
 $cart = cart_list();
-$options = array(
-	'order_by' => 'id'
-);
+$options = [
+    'order_by' => 'id',
+];
 $ccategories = getAll('categories', $options);
-$contact_option = array(
-	'where' => 'id=1'
-);
+$contact_option = [
+    'where' => 'id=1',
+];
 $contacts = getAll('contacts', $contact_option);
 foreach ($contacts as $contact) {
-	$phone = preg_replace("/([0-9]{3})([0-9]{4})/", "$1-$2", $contact['phone']);
-	$phone2 = preg_replace("/([0-9]{3})([0-9]{4})/", "$1-$2", $contact['phone_2']);
-	$link_contact = $contact['link_Contact'];
-	$email_contact = $contact['email'];
-	$link_Facebook = $contact['link_Facebook'];
-	$link_Twitter = $contact['link_Twitter'];
-	$address_contact = $contact['address'];
-	$zalo_contact = $contact['zalo'];
-	$linkedin_contact = $contact['link_linkedin'];
-	$link_about = $contact['link_about'];
-	$about_footer = $contact['about_footer'];
-	$link_logo = $contact['link_Logo'];
-	$favicon = $contact['favicon'];
+    $phone = preg_replace("/([0-9]{3})([0-9]{4})/", "$1-$2", $contact['phone']);
+    $phone2 = preg_replace("/([0-9]{3})([0-9]{4})/", "$1-$2", $contact['phone_2']);
+    $link_contact = $contact['link_Contact'];
+    $email_contact = $contact['email'];
+    $link_Facebook = $contact['link_Facebook'];
+    $link_Twitter = $contact['link_Twitter'];
+    $address_contact = $contact['address'];
+    $zalo_contact = $contact['zalo'];
+    $linkedin_contact = $contact['link_linkedin'];
+    $link_about = $contact['link_about'];
+    $about_footer = $contact['about_footer'];
+    $link_logo = $contact['link_Logo'];
+    $favicon = $contact['favicon'];
 }
-$options_menu_footer = array(
-	'order_by' => 'id',
+$options_menu_footer = [
+    'order_by' => 'id',
 
-	'offset' => 15
-);
+    'offset' => 15,
+];
 $menu_footers = getAll('menu_footers', $options_menu_footer);
 global $userNav;
 $user_login = getRecord('users', $userNav);
 
-if (isset($image_product)) $link_image = $image_product;
-else $link_image = PATH_URL . 'public/img/bang-hieu-chikoishop.jpg';
-if (isset($url_product)) $url_site = PATH_URL . $url_product . '/';
-else $url_site = PATH_URL . 'home';
+if (isset($image_product)) {
+    $link_image = $image_product;
+} else {
+    $link_image = PATH_URL . 'public/img/bang-hieu-chikoishop.jpg';
+}
+if (isset($url_product)) {
+    $url_site = PATH_URL . $url_product . '/';
+} else {
+    $url_site = PATH_URL . 'home';
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -165,11 +171,11 @@ else $url_site = PATH_URL . 'home';
 									</a>
 									<ul class="dropdown-menu">
 										<?php
-										$options2 = array(
-											'where' => $ccategory['id'] . '=category_id'
-										);
-										$ssubcategory = getAll('subcategory', $options2);
-										foreach ($ssubcategory as $subcate) : ?>
+                                        $options2 = [
+                                            'where' => $ccategory['id'] . '=category_id',
+                                        ];
+							    $ssubcategory = getAll('subcategory', $options2);
+							    foreach ($ssubcategory as $subcate) : ?>
 											<li><a href="category/<?= $subcate['id'] ?>-<?= $subcate['slug'] ?>"><?= $subcate['subcategory_name'] ?></a></li>
 										<?php endforeach; ?>
 									</ul>
@@ -282,8 +288,11 @@ else $url_site = PATH_URL . 'home';
 							<?php else : ?>
 								<li class="dropdown mega-menu-item mega-menu-signin signin logged" id="headerAccount">
 									<a class="dropdown-toggle" href="admin.php">
-										<?php if (!isset($user_login['user_avatar'])) echo '<i class="fa fa-user"></i>';
-										else echo '<img style="max-width: 25px;  border-radius: 15px 15px 15px 15px;" src="public/upload/images/' . $user_login['user_avatar'] . '" alt="' . $user_login['user_name'] . '">'; ?> <?= $user_login['user_username'] ?>
+										<?php if (!isset($user_login['user_avatar'])) {
+										    echo '<i class="fa fa-user"></i>';
+										} else {
+										    echo '<img style="max-width: 25px;  border-radius: 15px 15px 15px 15px;" src="public/upload/images/' . $user_login['user_avatar'] . '" alt="' . $user_login['user_name'] . '">';
+										} ?> <?= $user_login['user_username'] ?>
 										<i class="fa fa-angle-down"></i>
 									</a>
 									<ul class="dropdown-menu">
@@ -295,9 +304,13 @@ else $url_site = PATH_URL . 'home';
 															<div class="img-thumbnail">
 																<img src="public/upload/images/<?= $user_login['user_avatar'] ?>" alt="<?= $user_login['user_name'] ?>">
 															</div>
-															<p><strong><?= $user_login['user_name'] ?></strong><span><?php if ($user_login['role_id'] == 0) echo 'Khách hàng';
-																														elseif ($user_login['role_id'] == 1) echo 'Admin';
-																														else echo 'Moderator'; ?></span></p>
+															<p><strong><?= $user_login['user_name'] ?></strong><span><?php if ($user_login['role_id'] == 0) {
+															    echo 'Khách hàng';
+															} elseif ($user_login['role_id'] == 1) {
+															    echo 'Admin';
+															} else {
+															    echo 'Moderator';
+															} ?></span></p>
 														</div>
 													</div>
 													<div class="col-md-6">
@@ -334,8 +347,11 @@ else $url_site = PATH_URL . 'home';
 																	</td>
 																	<td class="product-name">
 																		<a href="product/<?= $product_cart['id'] . '-' . slug($product_cart['name']); ?>"><?= $product_cart['name'] ?><br><span class="amount"><strong>
-																					<?php if ($product_cart['saleoff'] != 0) echo number_format(($product_cart['price']) - (($product_cart['price'] * $product_cart['percent_off']) / 100), 0, ',', '.');
-																					else echo number_format($product_cart['price'], 0, ',', '.'); ?>
+																					<?php if ($product_cart['saleoff'] != 0) {
+																					    echo number_format(($product_cart['price']) - (($product_cart['price'] * $product_cart['percent_off']) / 100), 0, ',', '.');
+																					} else {
+																					    echo number_format($product_cart['price'], 0, ',', '.');
+																					} ?>
 																					VNĐ</strong> - SLượng: <?= $product_cart['number'] ?> </span></a>
 																	</td>
 																	<td class="product-actions">

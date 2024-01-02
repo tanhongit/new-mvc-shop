@@ -28,10 +28,10 @@ if ($feedback['product_id'] <> 0) {
     $product = getRecord('products', $feedback['product_id']);
 }
 
-$status = array(
+$status = [
     0 => 'Đã xác nhận',
     1 => 'Đã xử lý - Done',
     2 => 'Đang xử lý - giao hàng',
-    3 => 'Đã bị hủy'
-);
+    3 => 'Đã bị hủy',
+];
 require('admin/views/feedback/edit.php');

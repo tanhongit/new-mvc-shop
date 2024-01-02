@@ -1,8 +1,8 @@
 <?php
-$options = array(
+$options = [
     'where' => 'product_typeid = 3',
-    'order_by' => 'createDate'
-);
+    'order_by' => 'createDate',
+];
 $products = getAll('products', $options); ?>
 <!-- Basic Examples -->
 <div class="row clearfix">

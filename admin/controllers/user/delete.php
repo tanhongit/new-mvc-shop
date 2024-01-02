@@ -1,4 +1,5 @@
 <?php
+
 permission_user();
 require_once('admin/models/users.php');
 $userId = intval($_GET['user_id']);

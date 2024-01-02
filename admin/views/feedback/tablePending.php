@@ -1,8 +1,8 @@
 <?php
-$option = array(
+$option = [
     'order_by' => 'id desc',
-    'where' => 'status=0'
-);
+    'where' => 'status=0',
+];
 $feedbacks_pending = getAll('feedbacks', $option);
 ?>
 <!-- Basic Examples -->
@@ -57,7 +57,9 @@ $feedbacks_pending = getAll('feedbacks', $option);
                                     <td><?php
                                         if (strlen($feedback['subject']) > 200) {
                                             echo substr($feedback['subject'], 0, 200) . '...';
-                                        } else echo $feedback['subject']; ?></td>
+                                        } else {
+                                            echo $feedback['subject'];
+                                        } ?></td>
                                     <td>
                                         <a title="Approve" class="btn btn-info btn-icon" href="admin.php?controller=feedback&action=approved&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-check-circle"></i></a>
                                         <a onclick="return confirm('Are you sure to delete?')" title="Delete" class="btn btn-danger btn-icon" href="admin.php?controller=feedback&action=delete&feedback_id=<?= $feedback['id'] ?>"> <i class="zmdi zmdi-delete"></i></a>

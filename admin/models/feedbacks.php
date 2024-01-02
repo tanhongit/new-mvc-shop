@@ -1,11 +1,11 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
 
 function addFeedbackOrder()
 {
-    $feedback_add = array(
+    $feedback_add = [
         'id' => intval($_POST['feedback_id']),
         'name' => escape($_POST['name']),
         'createTime' => gmdate('Y-m-d H:i:s', time() + 7 * 3600),
@@ -15,8 +15,8 @@ function addFeedbackOrder()
         'user_id' => intval($_POST['user_id']),
         'product_id' => 0,
         'order_id' => intval($_POST['order_id']),
-        'status' => 0
-    );
+        'status' => 0,
+    ];
     save('feedbacks', $feedback_add);
     echo "<div style='padding-top: 200px' class='container'><div style='text-align: center;' class='alert alert-success'><strong>Done!</strong> Thư phản hồi của bạn đã được gửi đến hệ thống của quán Chị Kòi. Cảm ơn bạn đã gửi lại phải hồi về quán. <br><br>Hãy đến <a href='admin.php'>Dashboard</a></div></div>";
     require('content/views/feedback/result.php');
@@ -31,7 +31,7 @@ function deleteFeedback($id)
 }
 function updateFeedback()
 {
-    $feedback = array(
+    $feedback = [
         'id' => intval($_POST['feedback_id']),
         'name' => escape($_POST['name']),
         'email' => escape($_POST['email']),
@@ -39,7 +39,7 @@ function updateFeedback()
         'subject' => escape($_POST['subject']),
         'editTime' => gmdate('Y-m-d H:i:s', time() + 7 * 3600),
         'status' => intval($_POST['status']),
-    );
+    ];
     save('feedbacks', $feedback);
     header('location:admin.php?controller=feedback');
 }
@@ -49,6 +49,7 @@ function feedbackReplyMail($html, $email)
     require 'vendor/autoload.php';
     include 'lib/config/sendmail.php';
     $mail = new PHPMailer(true);
+
     try {
         //content
         $htmlStr = $html;
@@ -84,7 +85,9 @@ function approveFeedback($id)
 {
     if (isset($_GET['feedback_id'])) {
         $id = intval($_GET['feedback_id']);
-    } else show_404();
+    } else {
+        show_404();
+    }
     global $linkConnectDB;
     $sql = "UPDATE feedbacks SET status=1 where id=" . $id;
     mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
@@ -93,7 +96,9 @@ function unApproveFeedback($id)
 {
     if (isset($_GET['feedback_id'])) {
         $id = intval($_GET['feedback_id']);
-    } else show_404();
+    } else {
+        show_404();
+    }
     global $linkConnectDB;
     $sql = "UPDATE feedbacks SET status=0 where id=" . $id;
     mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));

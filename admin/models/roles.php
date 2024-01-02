@@ -1,4 +1,5 @@
 <?php
+
 function roleDestroy($id)
 {
     $id = intval($id);
@@ -8,11 +9,11 @@ function roleDestroy($id)
 }
 function role_update()
 {
-    $role = array(
+    $role = [
         'id' => intval($_POST['role_id']),
         'role_name' => escape($_POST['name']),
-        'role_desc' => ($_POST['description'])
-    );
+        'role_desc' => ($_POST['description']),
+    ];
     save('roles', $role);
     header('location:admin.php?controller=role');
 }

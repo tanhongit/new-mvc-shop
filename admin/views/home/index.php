@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="container-fluid">
-        <?php if ($userInfoNav['role_id']  == 0) : ?>
+        <?php if ($userInfoNav['role_id'] == 0) : ?>
             <div class="row clearfix">
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card widget_2 big_icon sales">
@@ -226,7 +226,9 @@
                                                     if ($comment['status'] == 0) : ?>
                                                         <tr style="background-color: #FFD18E;">
                                                             <td><?= substr($comment['content'], 0, 150);
-                                                                if (strlen($comment['content']) > 150) echo '...'; ?> </td>
+                                                        if (strlen($comment['content']) > 150) {
+                                                            echo '...';
+                                                        } ?> </td>
                                                             <td><?= $comment['author'] ?></td>
                                                             <td><a title="Approve" class="btn btn-info btn-icon" href="admin.php?controller=comment&action=approved&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-check-circle"></i></a>
                                                                 <a title="Add Trash" class="btn btn-danger btn-icon" href="admin.php?controller=comment&action=trash-action&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-delete"></i></a>
@@ -236,7 +238,9 @@
                                                     <?php else : ?>
                                                         <tr>
                                                             <td><?= substr($comment['content'], 0, 150);
-                                                                if (strlen($comment['content']) > 150) echo '...'; ?> </td>
+                                                        if (strlen($comment['content']) > 150) {
+                                                            echo '...';
+                                                        } ?> </td>
                                                             <td><?= $comment['author'] ?></td>
                                                             <td><a title="Unapprove" class="btn btn-default btn-icon" href="admin.php?controller=comment&action=unapproved&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-minus-circle"></i></a>
                                                                 <a title="Add Trash" class="btn btn-danger btn-icon" href="admin.php?controller=comment&action=trash-action&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-delete"></i></a>

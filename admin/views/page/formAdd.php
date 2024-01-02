@@ -3,7 +3,7 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2><? ?></h2>
+                    <h2><?php ?></h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?= PATH_URL . 'home' ?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
                         <li class="breadcrumb-item"><a href="admin.php">Blog</a></li>
@@ -33,7 +33,7 @@
                                     <div class="col-sm-8">
                                         <input name="post_id" type="hidden" value="<?= $post ? $post['id'] : '0'; ?>" />
                                         <?php global $userNav;
-                                        $get_user_by = getRecord('users', $userNav) ?>
+                    $get_user_by = getRecord('users', $userNav) ?>
                                         <?php if (isset($post)) : ?>
                                             <input name="editby" type="hidden" value="<?= $get_user_by['user_name']; ?>" /><?php else : ?>
                                             <input name="createby" type="hidden" value="<?= $get_user_by['id']; ?>" /><?php endif; ?>

@@ -1,8 +1,9 @@
 <?php
+
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
-use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
 
 require_once('admin/models/users.php');
 if (isset($_POST['id'])) {
@@ -17,16 +18,17 @@ if (isset($_POST['id'])) {
     } elseif (strlen($_POST['newpassword']) < 8) {
         echo "<div style='padding-top: 200px' class='container'><div style='text-align: center;' class='alert alert-danger'><strong>NO!</strong> Việc thay đổi mật khẩu thất bại. Mật khẩu bạn nhập phải dài từ 8 ký tự trở lên !! <br><a href='javascript: history.go(-1)'>Trở lại</a> hoặc <a href='index.php'>Đến Trang chủ</a></div></div>";
     } elseif ($newpassword == $confirmNewPassword) {
-        $options = array(
+        $options = [
             'id' => $id,
-            'user_password' => $newpassword
-        );
+            'user_password' => $newpassword,
+        ];
         save('users', $options);
 
         //send mail
         require 'vendor/autoload.php';
         include 'lib/config/sendmail.php';
         $mail = new PHPMailer(true);
+
         try {
             //content
             $htmlStr = "";
@@ -63,6 +65,8 @@ if (isset($_POST['id'])) {
             echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
         }
         echo '<div style="padding-top: 200px" class="container"><div class="alert alert-success" style="text-align: center;"><strong>Tốt!</strong> Bạn đã thay đổi mật khẩu thành công. Và một tin nhắn thông báo đã được gửi đến Email của người dùng này. Hãy đến trang <a href="admin.php?controller=home&action=login">Đăng nhập</a> và đăng nhập lại.!!</div></div>';
-    } else echo "<div style='padding-top: 200px' class='container'><div class='alert alert-danger' style='text-align: center;'><strong>NO!</strong> Việc thay đổi mật khẩu có vấn đề. Ô nhập xác thực mật khẩu không đúng với mật khẩu mới mà bạn nhập vào !! <br><a href='javascript: history.go(-1)'>Trở lại</a> hoặc <a href='index.php'>Đến trang chủ</a></div></div>";
+    } else {
+        echo "<div style='padding-top: 200px' class='container'><div class='alert alert-danger' style='text-align: center;'><strong>NO!</strong> Việc thay đổi mật khẩu có vấn đề. Ô nhập xác thực mật khẩu không đúng với mật khẩu mới mà bạn nhập vào !! <br><a href='javascript: history.go(-1)'>Trở lại</a> hoặc <a href='index.php'>Đến trang chủ</a></div></div>";
+    }
 }
 require('content/views/forgot-password/result.php');

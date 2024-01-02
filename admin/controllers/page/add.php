@@ -8,9 +8,11 @@ if (!empty($_POST)) {
     page_add();
 }
 
-if (isset($_GET['post_id']))
+if (isset($_GET['post_id'])) {
     $postId = intval($_GET['post_id']);
-else $postId = 0;
+} else {
+    $postId = 0;
+}
 
 $post = getRecord('posts', $postId);
 $pageNav = 'class="active open"';

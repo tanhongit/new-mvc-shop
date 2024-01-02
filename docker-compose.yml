@@ -2,6 +2,7 @@ version: '3.9'
 
 networks:
   new_mvc_shop:
+    driver: bridge
 
 services:
   server:
@@ -19,10 +20,12 @@ services:
       - 'DATABASE_URL=mysql://${MYSQL_USER:-root}:${MYSQL_PASS:-root}@db_server:3306/${MYSQL_DB:-new_mvc_shop_db}'
     volumes:
       - ./:/var/www/html
-      - ./docker/sites-enabled:/etc/apache2/sites-enabled
-      - ./docker/php/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./docker/sites-available:/etc/apache2/sites-available
+      - ./docker/php/php.ini:/usr/local/etc/php/conf.d/extra-php-config.ini
       - ./docker/certs:/var/www/certs
       - ./docker/logs:/var/www/logs
+    depends_on:
+      - db_server
     networks:
       - new_mvc_shop
 
@@ -40,10 +43,6 @@ services:
     volumes:
       - db_data:/var/lib/mysql
       - ./docker/db/mariadb/my.cnf:/etc/mysql/conf.d/my.cnf
-    healthcheck:
-      test: mysqladmin ping -h ${IP_DB_SERVER:-127.0.0.1} -u root --password=${MYSQL_ROOT_PASS:-root}
-      interval: 5s
-      retries: 5
     networks:
       - new_mvc_shop
 

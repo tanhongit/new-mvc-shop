@@ -5,9 +5,17 @@ session_start();
 require_once('lib/model.php');
 require_once('lib/functions.php');
 
-$controller = $_GET['controller'] ?? 'home';
+if (isset($_GET['controller']) && '' != $_GET['controller']) {
+    $controller = $_GET['controller'];
+} else {
+    $controller = 'home';
+}
 
-$action = $_GET['action'] ?? 'index';
+if (isset($_GET['action']) && '' != $_GET['action']) {
+    $action = $_GET['action'];
+} else {
+    $action = 'index';
+}
 
 if (!isset($_SESSION['user'])) {
     $controller = 'home';

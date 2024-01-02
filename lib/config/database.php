@@ -7,16 +7,14 @@ define('DB_PASS', 'root');
 define('DB_NAME', 'chikoi');
 
 if (isset($_SESSION['user'])) {
-    $user_nav = $_SESSION['user']['id'];
+    $userNav = $_SESSION['user']['id'];
 }
 
-$linkConnectDB = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
-
-if ($linkConnectDB->connect_error) {
-    throw new Exception('Connection error: ' . $linkConnectDB->connect_error);
+try {
+    $linkConnectDB = connect();
+} catch (Exception $e) {
+    die($e->getMessage());
 }
-
-mysqli_set_charset($linkConnectDB, 'utf8');
 
 /**
  * @return mysqli
@@ -25,6 +23,25 @@ function getLinkConnectDB(): mysqli
 {
     global $linkConnectDB;
     return $linkConnectDB;
+}
+
+/**
+ * Establish a database connection.
+ *
+ * @return mysqli
+ * @throws Exception
+ */
+function connect(): mysqli
+{
+        $linkConnectDB = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
+
+        if ($linkConnectDB->connect_error) {
+            throw new Exception('Connection error: ' . $linkConnectDB->connect_error);
+        }
+
+        $linkConnectDB->set_charset('utf8mb4');
+
+        return $linkConnectDB;
 }
 
 /**
@@ -39,7 +56,6 @@ function getLinkConnectDB(): mysqli
 function executeQuery(string $sql, array $params = []): mysqli_stmt
 {
     global $linkConnectDB;
-
     $stmt = $linkConnectDB->prepare($sql);
 
     if (!$stmt) {

@@ -22,13 +22,13 @@ function get_a_record($table, $id, $select = '*')
 /**
  * Get data in table by options
  *
- * @param $table
+ * @param  string  $table
  * @param  array  $options
  *
  * @return array
  * @throws Exception
  */
-function get_all($table, array $options = []): array
+function get_all(string $table, array $options = []): array
 {
     $select = isset($options['select']) ? $options['select'] : '*';
     $where = isset($options['where']) ? 'WHERE ' . $options['where'] : '';
@@ -44,7 +44,14 @@ function get_all($table, array $options = []): array
     return $result;
 }
 
-function get_total($table, $options = array())
+/**
+ * @param  string  $table
+ * @param  array  $options
+ *
+ * @return mixed
+ * @throws Exception
+ */
+function get_total(string $table, array $options = []): mixed
 {
     $where = isset($options['where']) ? 'WHERE ' . $options['where'] : '';
     $sql = "SELECT COUNT(*) as total FROM `$table` $where";
@@ -52,6 +59,7 @@ function get_total($table, $options = array())
     $query = executeQuery($sql);
     $result = $query->get_result()->fetch_assoc();
     $query->close();
+
     return $result['total'];
 }
 

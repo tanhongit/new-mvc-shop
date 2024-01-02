@@ -1,0 +1,62 @@
+version: '3.9'
+
+networks:
+  new_mvc_shop:
+    driver: bridge
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+      args:
+        - PHP_VERSION_SELECTED=${PHP_VERSION_SELECTED:-8.2}
+    container_name: '${APP_NAME:-new_mvc_shop}-server'
+    ports:
+      - '${APP_PORT:-85}:80'
+      - '${SSL_PORT:-445}:443'
+    working_dir: /var/www/html
+    environment:
+      - 'DATABASE_URL=mysql://${MYSQL_USER:-root}:${MYSQL_PASS:-root}@db_server:3306/${MYSQL_DB:-new_mvc_shop_db}'
+    volumes:
+      - ./:/var/www/html
+      - ./docker/sites-available:/etc/apache2/sites-available
+      - ./docker/php/php.ini:/usr/local/etc/php/conf.d/extra-php-config.ini
+      - ./docker/certs:/var/www/certs
+      - ./docker/logs:/var/www/logs
+    depends_on:
+      - db_server
+    networks:
+      - new_mvc_shop
+
+  db_server:
+    image: mariadb
+    container_name: '${APP_NAME:-new_mvc_shop}-db'
+    restart: always
+    ports:
+      - '${DB_PORT:-13306}:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASS:-root}'
+      MYSQL_USER: '${MYSQL_USER:-root}'
+      MYSQL_PASSWORD: '${MYSQL_PASS:-root}'
+      MYSQL_DATABASE: '${MYSQL_DB:-new_mvc_shop_db}'
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./docker/db/mariadb/my.cnf:/etc/mysql/conf.d/my.cnf
+    networks:
+      - new_mvc_shop
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: ${APP_NAME:-new_mvc_shop}-phpmyadmin
+    restart: always
+    ports:
+      - '${PHPMYADMIN_PORT:-9011}:${APP_PORT:-85}'
+    environment:
+      PMA_HOST: db_server
+      UPLOAD_LIMIT: ${PHPMYADMIN_UPLOAD_LIMIT:-1024M}
+    networks:
+      - new_mvc_shop
+
+volumes:
+  db_data:

@@ -4,11 +4,11 @@
         <hr class="tall">
         <div class="row">
             <ul class="breadcrumb">
-                <li><a href="<?php echo PATH_URL; ?>home">Home</a></li>
+                <li><a href="<?= PATH_URL; ?>home">Home</a></li>
                 <li><a
-                        href="category/<?php echo $subcategories['id'] . '-' . $subcategories['slug']; ?>"><?php echo $breadCrumb ?></a>
+                        href="category/<?= $subcategories['id'] . '-' . $subcategories['slug']; ?>"><?= $breadCrumb ?></a>
                 </li>
-                <li class="active"><?php echo $product['product_name'] ?></li>
+                <li class="active"><?= $product['product_name'] ?></li>
             </ul>
         </div>
         <div class="row">
@@ -20,7 +20,7 @@
                                 <div class="thumbnail">
                                     <img alt="<?= $product['product_name'] ?>"
                                         class="img-responsive img-rounded img-fluid"
-                                        src="public/upload/products/<?php echo $product['img1'] ?>">
+                                        src="public/upload/products/<?= $product['img1'] ?>">
                                 </div>
                             </div>
                             <?php if (strlen($product['img2']) > 1) { ?>
@@ -28,7 +28,7 @@
                                 <div class="thumbnail">
                                     <img alt="<?= $product['product_name'] ?>"
                                         class="img-responsive img-rounded img-fluid"
-                                        src="public/upload/products/<?php echo $product['img2'] ?>">
+                                        src="public/upload/products/<?= $product['img2'] ?>">
                                 </div>
                             </div>
                             <?php }
@@ -37,7 +37,7 @@
                                 <div class="thumbnail">
                                     <img alt="<?= $product['product_name'] ?>"
                                         class="img-responsive img-rounded img-fluid"
-                                        src="public/upload/products/<?php echo $product['img3'] ?>">
+                                        src="public/upload/products/<?= $product['img3'] ?>">
                                 </div>
                             </div>
                             <?php }
@@ -46,7 +46,7 @@
                                 <div class="thumbnail">
                                     <img alt="<?= $product['product_name'] ?>"
                                         class="img-responsive img-rounded img-fluid"
-                                        src="public/upload/products/<?php echo $product['img4'] ?>">
+                                        src="public/upload/products/<?= $product['img4'] ?>">
                                 </div>
                             </div>
                             <?php endif; ?>
@@ -54,24 +54,24 @@
                     </div>
                     <div class="col-md-6">
                         <div class="summary entry-summary">
-                            <h1 class="shorter"><strong><?php echo $product['product_name'] ?></strong></h1>
+                            <h1 class="shorter"><strong><?= $product['product_name'] ?></strong></h1>
                             <p class="price">
                                 <?php if ($product['saleoff'] != 0) { ?>
                                 <del><span
-                                        class="amount"><?php echo number_format($product['product_price'], 0, ',', '.');  ?></span></del>
+                                        class="amount"><?= number_format($product['product_price'], 0, ',', '.');  ?></span></del>
                                 <ins><span
-                                        class="amount"><?php echo number_format(($product['product_price']) - (($product['product_price'] * $product['percentoff']) / 100), 0, ',', '.'); ?>
+                                        class="amount"><?= number_format(($product['product_price']) - (($product['product_price'] * $product['percentoff']) / 100), 0, ',', '.'); ?>
                                         VNĐ</span></ins>
                                 <?php } else { ?>
                                 <ins><span
-                                        class="amount"><?php echo number_format($product['product_price'], 0, ',', '.');  ?>
+                                        class="amount"><?= number_format($product['product_price'], 0, ',', '.');  ?>
                                         VNĐ</span></ins>
                                 <?php } ?>
                             </p>
-                            <p class="taller"><?php echo $product['product_description'] ?>. </p>
+                            <p class="taller"><?= $product['product_description'] ?>. </p>
                             <form enctype="multipart/form-data" method="post" class="cart"
-                                action="cart/add/<?php echo $product['id']; ?>">
-                                <input type="hidden" name="slug" value="<?php echo $product['slug']; ?>">
+                                action="cart/add/<?= $product['id']; ?>">
+                                <input type="hidden" name="slug" value="<?= $product['slug']; ?>">
                                 <div class="quantity">
                                     <input type="number" class="input-text qty text" title="Nhập Để Đổi Số Lượng"
                                         value="1" name="number_cart" min="1" step="1" max="100">
@@ -81,7 +81,7 @@
                             </form>
                             <div class="product_meta">
                                 <span class="posted_in">Danh Mục Con: <a rel="tag"
-                                        href="category/<?php echo $subcategories['id'] . '-' . $subcategories['slug']; ?>"><?php echo $breadCrumb ?></a></span>
+                                        href="category/<?= $subcategories['id'] . '-' . $subcategories['slug']; ?>"><?= $breadCrumb ?></a></span>
                             </div>
                             <hr class="tall">
                             <div class="feedback">
@@ -102,7 +102,7 @@
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="productDetail">
-                                    <p><?php echo $product['product_detail'] ?></p>
+                                    <p><?= $product['product_detail'] ?></p>
                                 </div>
                                 <div class="tab-pane" id="productInfo">
                                     <table class="table table-striped push-top">
@@ -112,7 +112,7 @@
                                                     Size:
                                                 </th>
                                                 <td>
-                                                    <?php echo $product['product_size'] ?>
+                                                    <?= $product['product_size'] ?>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -120,7 +120,7 @@
                                                     Colors
                                                 </th>
                                                 <td>
-                                                    <?php echo $product['product_color'] ?>
+                                                    <?= $product['product_color'] ?>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -128,7 +128,7 @@
                                                     Material
                                                 </th>
                                                 <td>
-                                                    <?php echo $product['product_material'] ?>
+                                                    <?= $product['product_material'] ?>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -136,7 +136,7 @@
                                                     Total View
                                                 </th>
                                                 <td>
-                                                    <?php echo $product['totalView'] ?> View
+                                                    <?= $product['totalView'] ?> View
                                                 </td>
                                             </tr>
                                             <tr>
@@ -177,7 +177,7 @@
                                         <div class="col-md-12">
                                             <form action="index.php?controller=comment" id="submitReview" method="post">
                                                 <input name="product_id" type="hidden" value="<?= $product['id'] ?>">
-                                                <input name="user_id" type="hidden" value="<?php echo $userNav ? $userNav : '0'; ?> ">
+                                                <input name="user_id" type="hidden" value="<?= $userNav ? $userNav : '0'; ?> ">
                                                 <div class="row">
                                                     <?php if (!isset($userNav)) : ?>
                                                         <div class="form-group">
@@ -217,7 +217,7 @@
 
                                             <!-- <div class="row">
                                                 <input name="product_id" id="product_id" type="hidden" value="<?= $product['id'] ?>">
-                                                <input name="user_id" id="user_id" type="hidden" value="<?php echo $userNav ? $userNav : '0'; ?> ">
+                                                <input name="user_id" id="user_id" type="hidden" value="<?= $userNav ? $userNav : '0'; ?> ">
                                                 <?php if (!isset($userNav)) : ?>
                                                     <input name="link_image" type="hidden" id="link_image"
                                                         value="author-comment.png">
@@ -286,7 +286,7 @@
                     </div>
                 </div>
                 <div class="fb-comments"
-                    data-href="<?php echo PATH_URL . 'product/' . $product['id'] . '-' . $product['slug']; ?>"
+                    data-href="<?= PATH_URL . 'product/' . $product['id'] . '-' . $product['slug']; ?>"
                     data-width="100%" data-numposts="5"></div>
                 <hr class="tall" />
                 <div class="row">
@@ -307,18 +307,18 @@
                         <li class="col-sm-3 col-xs-12 product">
                             <?php if ($related_product['saleoff'] != 0) : ?>
                             <a href="type/3-san-pham-dang-giam-gia">
-                                <span class="onsale">-<?php echo $related_product['percentoff']; ?>%</span>
+                                <span class="onsale">-<?= $related_product['percentoff']; ?>%</span>
                             </a>
                             <?php endif; ?>
                             <span class="product-thumb-info">
-                                <form action="cart/add/<?php echo $related_product['id']; ?>" method="post">
+                                <form action="cart/add/<?= $related_product['id']; ?>" method="post">
                                     <input type="hidden" name="number_cart" value="1">
                                     <a class="add-to-cart-product"><button type="submit"
-                                            href="cart/add/<?php echo $related_product['id']; ?>"><i
+                                            href="cart/add/<?= $related_product['id']; ?>"><i
                                                 class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button></a>
                                 </form>
                                 <a
-                                    href="product/<?php echo $related_product['id']; ?>-<?php echo $related_product['slug']; ?>">
+                                    href="product/<?= $related_product['id']; ?>-<?= $related_product['slug']; ?>">
                                     <span class="product-thumb-info-image">
                                         <span class="product-thumb-info-act">
                                             <span class="product-thumb-info-act-left"><em>Lượt xem</em></span>
@@ -326,26 +326,26 @@
                                                     Chi tiết</em></span>
                                         </span>
                                         <img alt="<?= $related_product['product_name'] ?>" class="img-responsive"
-                                            src="public/upload/products/<?php echo $related_product['img1']; ?>">
+                                            src="public/upload/products/<?= $related_product['img1']; ?>">
                                     </span>
                                 </a>
                                 <span class="product-thumb-info-content">
                                     <a
-                                        href="product/<?php echo $related_product['id']; ?>-<?php echo $related_product['slug']; ?>">
-                                        <h4 title="<?php echo $related_product['product_name']; ?>">
+                                        href="product/<?= $related_product['id']; ?>-<?= $related_product['slug']; ?>">
+                                        <h4 title="<?= $related_product['product_name']; ?>">
                                             <?php if (strlen($related_product['product_name']) > 50) echo substr($related_product['product_name'], 0, 57) . '...';
                                                                                                         else echo $related_product['product_name'];  ?>
                                         </h4>
                                         <span class="price">
                                             <?php if ($related_product['saleoff'] != 0) { ?>
                                             <del><span
-                                                    class="amount"><?php echo number_format($related_product['product_price'], 0, ',', '.');  ?></span></del>
+                                                    class="amount"><?= number_format($related_product['product_price'], 0, ',', '.');  ?></span></del>
                                             <ins><span
-                                                    class="amount"><?php echo number_format(($related_product['product_price']) - (($related_product['product_price'] * $related_product['percentoff']) / 100), 0, ',', '.'); ?>
+                                                    class="amount"><?= number_format(($related_product['product_price']) - (($related_product['product_price'] * $related_product['percentoff']) / 100), 0, ',', '.'); ?>
                                                     VNĐ</span></ins>
                                             <?php } else { ?>
                                             <ins><span
-                                                    class="amount"><?php echo number_format($related_product['product_price'], 0, ',', '.');  ?>
+                                                    class="amount"><?= number_format($related_product['product_price'], 0, ',', '.');  ?>
                                                     VNĐ</span></ins>
                                             <?php } ?>
                                         </span>

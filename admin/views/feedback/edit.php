@@ -82,7 +82,7 @@
                                             ?>
                                                 <tr>
                                                     <td><?= $stt; ?></td>
-                                                    <td><a href="product/<?php echo $product['id']; ?>-<?= $product['slug'] ?>"><?php echo $product['product_name']; ?></a></td>
+                                                    <td><a href="product/<?= $product['id']; ?>-<?= $product['slug'] ?>"><?= $product['product_name']; ?></a></td>
                                                     <td><?php if (is_file("public/upload/products/" . $product['img1'])) echo '<image src="public/upload/products/' . $product['img1'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
                                                     <td><?= number_format($product['product_price'], 0, ',', '.') ?></td>
                                                     <td><? if ($product['saleoff'] == 1) echo ($product['product_price'] - (($product['product_price']) * ($product['percentoff']) / 100)); ?></td>
@@ -95,7 +95,7 @@
                                             <?php endforeach; ?>
                                         </tbody>
                                     </table>
-                                    <h3 style="font-weight: bold;text-align: center;">Thành tổng tiền : <?php echo number_format($order_total, 0, ',', '.'); ?> VNĐ</h3>
+                                    <h3 style="font-weight: bold;text-align: center;">Thành tổng tiền : <?= number_format($order_total, 0, ',', '.'); ?> VNĐ</h3>
                                     <h3 style="font-weight: bold; color: red; text-align: center;"><b> <?= $status[$order['status']] ?></b></h3>
                                 </div>
                             </div>
@@ -133,13 +133,13 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><?php echo $product['id'] ?></td>
-                                                <td><a href="admin.php?controller=product&amp;action=edit&amp;product_id=<?php echo $product['id']; ?>"><?php echo $product['product_name']; ?></a></td>
-                                                <td><?php echo $product ? number_format($product['product_price'], 0, ',', '.') : 0; ?></td>
+                                                <td><?= $product['id'] ?></td>
+                                                <td><a href="admin.php?controller=product&amp;action=edit&amp;product_id=<?= $product['id']; ?>"><?= $product['product_name']; ?></a></td>
+                                                <td><?= $product ? number_format($product['product_price'], 0, ',', '.') : 0; ?></td>
                                                 <td><?php if ($product["saleoff"] == 1) echo number_format(($product['product_price'] - (($product['product_price']) * ($product['percentoff']) / 100)), 0, ',', '.'); ?></td>
-                                                <td><?php echo $product['createDate'] ?></td>
-                                                <td><?php echo '<image src="public/upload/products/' . $product['img1'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
-                                                <td><?php echo $product['totalView'] ?></td>
+                                                <td><?= $product['createDate'] ?></td>
+                                                <td><?= '<image src="public/upload/products/' . $product['img1'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
+                                                <td><?= $product['totalView'] ?></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -152,12 +152,12 @@
                 <h2 style="font-weight: bold;">Phần chỉnh sửa</h2>
                 <div class="col-lg-12">
                     <form id="product-form" class="form-horizontal" method="post" action="admin.php?controller=feedback&action=edit" enctype="multipart/form-data" role="form">
-                        <input name="feedback_id" type="hidden" value="<?php echo $feedback ? $feedback['id'] : '0'; ?>" />
+                        <input name="feedback_id" type="hidden" value="<?= $feedback ? $feedback['id'] : '0'; ?>" />
                         <h4 class="card-inside-title" style="font-weight:bold;">Họ và tên:</h4>
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="name" type="text" maxlength="250" value="<?php echo $feedback ? $feedback['name'] : ''; ?>" class="form-control" id="name" placeholder="họ và tên thật..." required="" />
+                                    <input name="name" type="text" maxlength="250" value="<?= $feedback ? $feedback['name'] : ''; ?>" class="form-control" id="name" placeholder="họ và tên thật..." required="" />
                                 </div>
                             </div>
                         </div>
@@ -165,7 +165,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="email" type="email" maxlength="250" value="<?php echo $feedback ? $feedback['email'] : ''; ?>" class="form-control" id="color" placeholder="Nhập email của bạn..." required="" />
+                                    <input name="email" type="email" maxlength="250" value="<?= $feedback ? $feedback['email'] : ''; ?>" class="form-control" id="color" placeholder="Nhập email của bạn..." required="" />
                                 </div>
                             </div>
                         </div>
@@ -173,7 +173,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="phone" pattern="[0-9\.]+" type="text" maxlength="20" value="<?php echo $feedback ? $feedback['phone'] : ''; ?>" class="form-control" id="totalview" required placeholder="0123456789..." />
+                                    <input name="phone" pattern="[0-9\.]+" type="text" maxlength="20" value="<?= $feedback ? $feedback['phone'] : ''; ?>" class="form-control" id="totalview" required placeholder="0123456789..." />
                                 </div>
                             </div>
                         </div>
@@ -181,7 +181,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <textarea name="subject" type="text" class="form-control" id="totalview" required placeholder="Nội dung phản hồi..."><?php echo $feedback ? $feedback['subject'] : ''; ?></textarea>
+                                    <textarea name="subject" type="text" class="form-control" id="totalview" required placeholder="Nội dung phản hồi..."><?= $feedback ? $feedback['subject'] : ''; ?></textarea>
                                 </div>
                             </div>
                         </div>

@@ -35,7 +35,7 @@
                     <div class="card">
                         <div class="body">
                             <form id="product-form" class="form-horizontal" method="post" action="admin.php?controller=user&action=result" enctype="multipart/form-data" role="form">
-                                <input name="id_change" type="hidden" value="<?php echo $user_info ? $user_info['id'] : '0'; ?>" />
+                                <input name="id_change" type="hidden" value="<?= $user_info ? $user_info['id'] : '0'; ?>" />
                                 <div class="row clearfix">
                                     <div class="col-sm-6">
                                         <h2 class="card-inside-title" style="font-weight:bold;">Mật khẩu hiện tại:</h2>
@@ -67,7 +67,7 @@
                                 <br><br>
                                 <div class="form-group" style="text-align: center;">
                                     <button class="btn btn-primary waves-effect" type="submit">Xác nhận đổi mật khẩu mới</button>
-                                    <a class="btn btn-warning waves-effect" href="admin.php?controller=user&action=info&amp;user_id=<?php echo $user_info['id']; ?>">Trở về</a>
+                                    <a class="btn btn-warning waves-effect" href="admin.php?controller=user&action=info&amp;user_id=<?= $user_info['id']; ?>">Trở về</a>
                                 </div>
                             </form>
                         </div>

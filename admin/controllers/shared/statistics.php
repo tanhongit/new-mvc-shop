@@ -153,7 +153,7 @@ else $feedback_ratio = 0;
 $options_comments = array(
     'order_by' => 'id DESC'
 );
-$total_rows_comment = get_total('comments', $options_comments);
+$totalRows_comment = get_total('comments', $options_comments);
 
 $options_comments_mine = array(
     'order_by' => 'id DESC',
@@ -205,7 +205,7 @@ $options_comment_accept = array(
     'where' => 'status=1'
 );
 $total_comment_accept = get_total('comments', $options_comment_accept);
-if ($total_comment_accept != 0) $comment_ratio = $total_comment_accept / $total_rows_comment * 100;
+if ($total_comment_accept != 0) $comment_ratio = $total_comment_accept / $totalRows_comment * 100;
 else $comment_ratio = 0;
 
 //posts

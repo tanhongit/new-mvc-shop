@@ -46,28 +46,28 @@
                                         <?php foreach ($cart as $productId => $product) { ?>
                                             <tr class="cart_table_item">
                                                 <td class="product-thumbnail">
-                                                    <a href="product/<?php echo $product['id'] . '-' . slug($product['name']); ?>">
-                                                        <img width="100" height="100" alt="<?=$product['name']?>" class="img-responsive" src="<?php echo 'public/upload/products/' . $product['image'] ?>">
+                                                    <a href="product/<?= $product['id'] . '-' . slug($product['name']); ?>">
+                                                        <img width="100" height="100" alt="<?=$product['name']?>" class="img-responsive" src="<?= 'public/upload/products/' . $product['image'] ?>">
                                                     </a>
                                                 </td>
                                                 <td class="product-name">
-                                                    <a href="product/<?php echo $product['id'] . '-' . slug($product['name']); ?>"><?php echo $product['name'] ?></a>
+                                                    <a href="product/<?= $product['id'] . '-' . slug($product['name']); ?>"><?= $product['name'] ?></a>
                                                 </td>
                                                 <td class="product-price">
                                                     <?php if ($product["typeid"] == 3) : ?>
-                                                        <span class="amount"><?php echo $product ? number_format(($product['price']) - ($product['price']) * ($product['percent_off']) / 100, 0, ',', '.') : 0; ?> VNĐ</span>
+                                                        <span class="amount"><?= $product ? number_format(($product['price']) - ($product['price']) * ($product['percent_off']) / 100, 0, ',', '.') : 0; ?> VNĐ</span>
                                                     <?php else : ?>
-                                                        <span class="amount"><?php echo number_format($product['price'], 0, ',', '.'); ?> VNĐ</span>
+                                                        <span class="amount"><?= number_format($product['price'], 0, ',', '.'); ?> VNĐ</span>
                                                     <?php endif ?>
                                                 </td>
                                                 <td class="product-quantity">
-                                                    <?php echo $product['number']; ?>
+                                                    <?= $product['number']; ?>
                                                 </td>
                                                 <td class="product-subtotal">
                                                     <?php if ($product["typeid"] == 3) : ?>
-                                                        <span class="amount"><?php echo number_format((($product['price']) - ($product['price']) * ($product['percent_off']) / 100) * $product['number'], 0, ',', '.') ?> VNĐ</span>
+                                                        <span class="amount"><?= number_format((($product['price']) - ($product['price']) * ($product['percent_off']) / 100) * $product['number'], 0, ',', '.') ?> VNĐ</span>
                                                     <?php else : ?>
-                                                        <span class="amount"><?php echo number_format($product['price'] * $product['number'], 0, ',', '.') ?> VNĐ</span>
+                                                        <span class="amount"><?= number_format($product['price'] * $product['number'], 0, ',', '.') ?> VNĐ</span>
                                                     <?php endif ?>
                                                 </td>
                                             </tr><?php } ?>
@@ -82,7 +82,7 @@
                                                 <strong>Tổng số sản phẩm</strong>
                                             </th>
                                             <td>
-                                                <strong><span class="amount"><?php echo cart_number(); ?></span></strong>
+                                                <strong><span class="amount"><?= cart_number(); ?></span></strong>
                                             </td>
                                         </tr>
                                         <tr class="total">
@@ -90,7 +90,7 @@
                                                 <strong>Tổng giá trị giỏ hàng</strong>
                                             </th>
                                             <td>
-                                                <strong><span class="amount"><?php echo number_format(cart_total(), 0, ',', '.'); ?> VNĐ</span></strong>
+                                                <strong><span class="amount"><?= number_format(cart_total(), 0, ',', '.'); ?> VNĐ</span></strong>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -204,7 +204,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <input name="cart_total" type="hidden" value="<?php echo cart_total() ? cart_total() : '0'; ?>" />
+                                    <input name="cart_total" type="hidden" value="<?= cart_total() ? cart_total() : '0'; ?>" />
                                     <div class="form-group" style="text-align: center">
                                         <button type="submit" class="btn btn-primary"><i class="fa  fa-check-square-o"></i> Đặt hàng</button>
                                     </div>
@@ -223,7 +223,7 @@
                                 <strong>Tổng số sản phẩm</strong>
                             </th>
                             <td>
-                                <strong><span class="amount"><?php echo cart_number(); ?></span></strong>
+                                <strong><span class="amount"><?= cart_number(); ?></span></strong>
                             </td>
                         </tr>
                         <tr class="total">
@@ -231,7 +231,7 @@
                                 <strong>Tổng giá trị giỏ hàng</strong>
                             </th>
                             <td>
-                                <strong><span class="amount"><?php echo number_format(cart_total(), 0, ',', '.'); ?> VNĐ</span></strong>
+                                <strong><span class="amount"><?= number_format(cart_total(), 0, ',', '.'); ?> VNĐ</span></strong>
                             </td>
                         </tr>
                     </tbody>

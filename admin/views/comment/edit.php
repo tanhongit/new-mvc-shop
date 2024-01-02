@@ -37,12 +37,12 @@
                         <a target="_blank" href="<?= PATH_URL . 'page/' . $page['id'] . '-' . $page['post_slug'] ?>"><?= PATH_URL . 'page/' . $page['id'] . '-' . $page['post_slug'] ?></a>
                     <?php } ?>
                     <form id="product-form" class="form-horizontal" method="post" action="admin.php?controller=comment&action=edit" enctype="multipart/form-data" role="form">
-                        <input name="comment_id" type="hidden" value="<?php echo $comment ? $comment['id'] : '0'; ?>" />
+                        <input name="comment_id" type="hidden" value="<?= $comment ? $comment['id'] : '0'; ?>" />
                         <h4 class="card-inside-title" style="font-weight:bold;">Họ và tên:</h4>
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="name" type="text" value="<?php echo $comment ? $comment['author'] : ''; ?>" class="form-control" id="name" placeholder="họ và tên thật..." required="" />
+                                    <input name="name" type="text" value="<?= $comment ? $comment['author'] : ''; ?>" class="form-control" id="name" placeholder="họ và tên thật..." required="" />
                                 </div>
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="email" type="email" maxlength="100" value="<?php echo $comment ? $comment['email'] : ''; ?>" class="form-control" id="color" placeholder="Nhập email của bạn..." required="" />
+                                    <input name="email" type="email" maxlength="100" value="<?= $comment ? $comment['email'] : ''; ?>" class="form-control" id="color" placeholder="Nhập email của bạn..." required="" />
                                 </div>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <textarea name="subject" type="text" class="form-control" id="ckeditor" required placeholder="Nội dung phản hồi..."><?php echo $comment ? $comment['content'] : ''; ?></textarea>
+                                    <textarea name="subject" type="text" class="form-control" id="ckeditor" required placeholder="Nội dung phản hồi..."><?= $comment ? $comment['content'] : ''; ?></textarea>
                                 </div>
                             </div>
                         </div>

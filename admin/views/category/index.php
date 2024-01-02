@@ -65,16 +65,16 @@
                                     <tbody>
                                         <?php foreach ($subcategories as $subcategory) : ?>
                                             <tr>
-                                                <td><?php echo $subcategory['id'] ?></td>
-                                                <td><a href="admin.php?controller=category&amp;action=edit&amp;sub_cate_id=<?php echo $subcategory['id']; ?>"><?php echo $subcategory['subcategory_name']; ?></a></td>
-                                                <td><?php echo $subcategory['slug'] ?></td>
+                                                <td><?= $subcategory['id'] ?></td>
+                                                <td><a href="admin.php?controller=category&amp;action=edit&amp;sub_cate_id=<?= $subcategory['id']; ?>"><?= $subcategory['subcategory_name']; ?></a></td>
+                                                <td><?= $subcategory['slug'] ?></td>
                                                 <td><?php $category = get_a_record('categories', $subcategory['category_id']);
                                                     if ($category['id'] != 0) {
                                                         echo $category['category_name'];
                                                     }
                                                     ?></td>
-                                                <td><a href="category/<?php echo $category['id']; ?>-<?php echo $category['slug'] ?>" target="_blank" class="btn btn-success waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-eye"></i></a>
-                                                    <a href="admin.php?controller=category&amp;action=edit&amp;sub_cate_id=<?php echo $subcategory['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
+                                                <td><a href="category/<?= $category['id']; ?>-<?= $category['slug'] ?>" target="_blank" class="btn btn-success waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-eye"></i></a>
+                                                    <a href="admin.php?controller=category&amp;action=edit&amp;sub_cate_id=<?= $subcategory['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
                                                     <a onclick="return confirm('Are you sure to delete?')" href="admin.php?controller=category&amp;action=delete&amp;sub_cate_id=<?= $subcategory['id'] ?>" class="btn btn-danger waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
                                             </tr>
                                         <?php endforeach; ?>

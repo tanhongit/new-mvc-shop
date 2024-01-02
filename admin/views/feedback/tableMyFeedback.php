@@ -37,11 +37,11 @@
                             foreach ($feedbacks as $feedback) : $stt++; ?>
                                 <tr>
                                     <td><?= $stt ?></td>
-                                    <td><?php echo $feedback['name'] ?></td>
+                                    <td><?= $feedback['name'] ?></td>
                                     <td><?= get_time($feedback['createTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                     <td><?= $feedback['email'] ?></td>
-                                    <td><?php echo $feedback['phone'] ?></td>
-                                    <td><?php echo $feedback['subject'] ?></td>
+                                    <td><?= $feedback['phone'] ?></td>
+                                    <td><?= $feedback['subject'] ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

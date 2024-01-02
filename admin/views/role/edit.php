@@ -29,12 +29,12 @@
                 <h2 style="font-weight: bold;">Chỉnh sửa mô tả quyền truy cập (Role)</h2>
                 <div class="col-lg-12">
                     <form id="product-form" class="form-horizontal" method="post" action="admin.php?controller=role&amp;action=edit" enctype="multipart/form-data" role="form">
-                        <input name="role_id" type="hidden" value="<?php echo $role ? $role['id'] : '0'; ?>" />
+                        <input name="role_id" type="hidden" value="<?= $role ? $role['id'] : '0'; ?>" />
                         <h4 class="card-inside-title" style="font-weight:bold;">Tên Role</h4>
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="name" type="text" maxlength="255" value="<?php echo $role ? $role['role_name'] : ''; ?>" class="form-control" id="name" placeholder="VD: admin, mod, super mod..." required=""/>
+                                    <input name="name" type="text" maxlength="255" value="<?= $role ? $role['role_name'] : ''; ?>" class="form-control" id="name" placeholder="VD: admin, mod, super mod..." required=""/>
                                 </div>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="description" maxlength="500" type="text" value="<?php echo $role ? $role['role_desc'] : ''; ?>" class="form-control" id="name" placeholder="Hé lô quát do nem..." required="" />
+                                    <input name="description" maxlength="500" type="text" value="<?= $role ? $role['role_desc'] : ''; ?>" class="form-control" id="name" placeholder="Hé lô quát do nem..." required="" />
                                 </div>
                             </div>
                         </div>

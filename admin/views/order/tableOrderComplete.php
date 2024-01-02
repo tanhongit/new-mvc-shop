@@ -45,17 +45,17 @@
                         <tbody>
                             <?php foreach ($orderComplete as $order) : ?>
                                 <tr>
-                                    <td><?php echo $order['id'] ?></td>
-                                    <td><a href="admin.php?controller=order&amp;action=view&amp;order_id=<?php echo $order['id']; ?>"><?php echo $order['customer']; ?></a></td>
+                                    <td><?= $order['id'] ?></td>
+                                    <td><a href="admin.php?controller=order&amp;action=view&amp;order_id=<?= $order['id']; ?>"><?= $order['customer']; ?></a></td>
                                     <?php if ($order['user_id'] <> 0) : $user_order = get_a_record('users', $order['user_id']) ?>
                                         <td><?= $user_order['user_username'] ?> | <?= $user_order['id'] ?></td>
                                     <?php else : ?>
                                         <td></td>
                                     <?php endif; ?>
-                                    <td><?php echo $order['createtime'] ?></td>
-                                    <td><?php echo number_format($order['cart_total'], 0, ',', '.') ?></td>
-                                    <td><?php echo $status[$order['status']]; ?></td>
-                                    <td><a href="admin.php?controller=order&amp;action=view&amp;order_id=<?php echo $order['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-eye"></i></a></td>
+                                    <td><?= $order['createtime'] ?></td>
+                                    <td><?= number_format($order['cart_total'], 0, ',', '.') ?></td>
+                                    <td><?= $status[$order['status']]; ?></td>
+                                    <td><a href="admin.php?controller=order&amp;action=view&amp;order_id=<?= $order['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-eye"></i></a></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

@@ -81,7 +81,7 @@
                                         ?>
                                             <tr>
                                                 <td><?= $stt; ?></td>
-                                                <td><a href="product/<?php echo $product['id']; ?>-<?= $product['slug'] ?>"><?php echo $product['product_name']; ?></a></td>
+                                                <td><a href="product/<?= $product['id']; ?>-<?= $product['slug'] ?>"><?= $product['product_name']; ?></a></td>
                                                 <td><?php if (is_file("public/upload/products/" . $product['img1'])) echo '<image src="public/upload/products/' . $product['img1'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
                                                 <td><?= number_format($product['product_price'], 0, ',', '.') ?></td>
                                                 <td><? if ($product['saleoff'] == 1) echo ($product['product_price'] - (($product['product_price']) * ($product['percentoff']) / 100)); ?></td>
@@ -94,7 +94,7 @@
                                         <?php endforeach; ?>
                                     </tbody>
                                 </table>
-                                <h3 style="font-weight: bold;text-align: center;">Thành tổng tiền : <?php echo number_format($order_total, 0, ',', '.'); ?> VNĐ</h3>
+                                <h3 style="font-weight: bold;text-align: center;">Thành tổng tiền : <?= number_format($order_total, 0, ',', '.'); ?> VNĐ</h3>
                                 <h3 style="font-weight: bold; color: red; text-align: center;"><b> <?= $status[$order['status']] ?></b></h3>
                             </div>
                         </div>

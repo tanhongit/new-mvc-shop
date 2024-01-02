@@ -51,15 +51,15 @@ $products = get_all('products', $options); ?>
                         <tbody>
                             <?php foreach ($products as $product) : ?>
                                 <tr>
-                                    <td><?php echo $product['id'] ?></td>
-                                    <td><a href="admin.php?controller=product&amp;action=edit&amp;product_id=<?php echo $product['id']; ?>"><?php echo $product['product_name']; ?></a></td>
-                                    <td><?php echo $product ? number_format($product['product_price'], 0, ',', '.') : 0; ?></td>
+                                    <td><?= $product['id'] ?></td>
+                                    <td><a href="admin.php?controller=product&amp;action=edit&amp;product_id=<?= $product['id']; ?>"><?= $product['product_name']; ?></a></td>
+                                    <td><?= $product ? number_format($product['product_price'], 0, ',', '.') : 0; ?></td>
                                     <td><?php if ($product["saleoff"] == 1) echo number_format(($product['product_price'] - (($product['product_price']) * ($product['percentoff']) / 100)), 0, ',', '.'); ?></td>
-                                    <td><?php echo $product['createDate'] ?></td>
-                                    <td><?php echo '<image src="public/upload/products/' . $product['img1'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
-                                    <td><?php echo $product['totalView'] ?></td>
-                                    <td><a href="product/<?php echo $product['id']; ?>-<?php echo $product['slug'] ?>" target="_blank" class="btn btn-success waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-eye"></i></a>
-                                        <a href="admin.php?controller=product&amp;action=edit&amp;product_id=<?php echo $product['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
+                                    <td><?= $product['createDate'] ?></td>
+                                    <td><?= '<image src="public/upload/products/' . $product['img1'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
+                                    <td><?= $product['totalView'] ?></td>
+                                    <td><a href="product/<?= $product['id']; ?>-<?= $product['slug'] ?>" target="_blank" class="btn btn-success waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-eye"></i></a>
+                                        <a href="admin.php?controller=product&amp;action=edit&amp;product_id=<?= $product['id']; ?>" class="btn btn-warning waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-edit"></i></a>
                                         <a onclick="return confirm('Are you sure to delete?')" href="admin.php?controller=product&amp;action=delete&amp;product_id=<?= $product['id'] ?>" class="btn btn-danger waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-delete"></i></a></td>
                                 </tr>
                             <?php endforeach; ?>

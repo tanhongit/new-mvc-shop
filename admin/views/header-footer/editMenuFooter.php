@@ -29,12 +29,12 @@
                 <h2 style="font-weight: bold;">Chỉnh sửa thông tin cho link</h2>
                 <div class="col-lg-12">
                     <form id="product-form" class="form-horizontal" method="post" action="admin.php?controller=header-footer&amp;action=editMenuFooter" enctype="multipart/form-data" role="form">
-                        <input name="menu_footer_id" type="hidden" value="<?php echo $menuFooter ? $menuFooter['id'] : '0'; ?>" />
+                        <input name="menu_footer_id" type="hidden" value="<?= $menuFooter ? $menuFooter['id'] : '0'; ?>" />
                         <h4 class="card-inside-title" style="font-weight:bold;">Tên mô tả cho link</h4>
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="name" type="text" maxlength="150" value="<?php echo $menuFooter ? $menuFooter['menu_name'] : ''; ?>" class="form-control" id="name" placeholder="VD: tanhongit.com, Trang chủ Tân Hồng IT..." required="" />
+                                    <input name="name" type="text" maxlength="150" value="<?= $menuFooter ? $menuFooter['menu_name'] : ''; ?>" class="form-control" id="name" placeholder="VD: tanhongit.com, Trang chủ Tân Hồng IT..." required="" />
                                 </div>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="menu_url" maxlength="255" type="text" value="<?php echo $menuFooter ? $menuFooter['menu_url'] : ''; ?>" class="form-control" id="name" placeholder="https://tanhongit.com..."/>
+                                    <input name="menu_url" maxlength="255" type="text" value="<?= $menuFooter ? $menuFooter['menu_url'] : ''; ?>" class="form-control" id="name" placeholder="https://tanhongit.com..."/>
                                 </div>
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input name="menu_description" maxlength="255" type="text" value="<?php echo $menuFooter ? $menuFooter['menu_description'] : ''; ?>" class="form-control" id="name" placeholder="Trang web buôn bán vâng vâng..."/>
+                                    <input name="menu_description" maxlength="255" type="text" value="<?= $menuFooter ? $menuFooter['menu_description'] : ''; ?>" class="form-control" id="name" placeholder="Trang web buôn bán vâng vâng..."/>
                                 </div>
                             </div>
                         </div>

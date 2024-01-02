@@ -7,7 +7,7 @@
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?= PATH_URL . 'home' ?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
                         <li class="breadcrumb-item"><a href="admin.php?controller=category">Danh mục con</a></li>
-                        <li class="breadcrumb-item active"><?php echo $subcategory ? 'Cập nhật danh mục con : ' . $subcategory['subcategory_name'] : 'Thêm danh mục con mới'; ?></li>
+                        <li class="breadcrumb-item active"><?= $subcategory ? 'Cập nhật danh mục con : ' . $subcategory['subcategory_name'] : 'Thêm danh mục con mới'; ?></li>
                     </ul>
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">
@@ -21,7 +21,7 @@
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="alert alert-warning" role="alert">
-                        <strong><?php echo $subcategory ? 'Cảnh Báo: </strong> Bạn đang trong trang chỉnh sửa của nhóm danh mục "' . $subcategory['subcategory_name'] . '", Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>' : 'Cảnh Báo: </strong> Bạn đang trong trang tạo một nhóm danh mục mới, Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>'; ?>
+                        <strong><?= $subcategory ? 'Cảnh Báo: </strong> Bạn đang trong trang chỉnh sửa của nhóm danh mục "' . $subcategory['subcategory_name'] . '", Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>' : 'Cảnh Báo: </strong> Bạn đang trong trang tạo một nhóm danh mục mới, Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>'; ?>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true"><i class="zmdi zmdi-close"></i></span>
                             </button>
@@ -29,12 +29,12 @@
                     <div class="card">
                         <div class="body">
                             <form id="product-form" class="form-horizontal" method="post" enctype="multipart/form-data" role="form">
-                                <input name="sub_cate_id" type="hidden" value="<?php echo $subcategory ? $subcategory['id'] : '0'; ?>" />
+                                <input name="sub_cate_id" type="hidden" value="<?= $subcategory ? $subcategory['id'] : '0'; ?>" />
                                 <h2 class="card-inside-title" style="font-weight:bold;">Tên danh mục con:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="name" type="text" value="<?php echo $subcategory ? $subcategory['subcategory_name'] : ''; ?>" class="form-control" id="name" placeholder="Nhập tên sản nhóm danh mục..." required="" />
+                                            <input name="name" type="text" value="<?= $subcategory ? $subcategory['subcategory_name'] : ''; ?>" class="form-control" id="name" placeholder="Nhập tên sản nhóm danh mục..." required="" />
                                         </div>
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="slug" type="text" value="<?php echo $subcategory ? $subcategory['slug'] : ''; ?>" class="form-control" id="slug" placeholder="Đường dẫn link sẽ tự động được tạo giống với tên danh mục..." required="" disabled />
+                                            <input name="slug" type="text" value="<?= $subcategory ? $subcategory['slug'] : ''; ?>" class="form-control" id="slug" placeholder="Đường dẫn link sẽ tự động được tạo giống với tên danh mục..." required="" disabled />
                                         </div>
                                     </div>
                                 </div>
@@ -61,7 +61,7 @@
                                 </div>
                                 <br><br>
                                 <div class="form-group" style="text-align: center;">
-                                    <button class="btn btn-primary waves-effect" type="submit"><?php echo $subcategory ? 'Cập nhật danh mục con trên' : 'Thêm danh mục con mới'; ?></button>
+                                    <button class="btn btn-primary waves-effect" type="submit"><?= $subcategory ? 'Cập nhật danh mục con trên' : 'Thêm danh mục con mới'; ?></button>
                                     <a class="btn btn-warning waves-effect" href="admin.php?controller=category">Trở về</a>
                                 </div>
                             </form>

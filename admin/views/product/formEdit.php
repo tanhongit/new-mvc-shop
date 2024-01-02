@@ -7,7 +7,7 @@
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?= PATH_URL . 'home' ?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
                         <li class="breadcrumb-item"><a href="admin.php?controller=product">Product</a></li>
-                        <li class="breadcrumb-item active"><?php echo $product ? 'Cập nhật sản phẩm: ' . $product['product_name']  : 'Thêm sản phẩm mới'; ?></li>
+                        <li class="breadcrumb-item active"><?= $product ? 'Cập nhật sản phẩm: ' . $product['product_name']  : 'Thêm sản phẩm mới'; ?></li>
                     </ul>
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">
@@ -20,7 +20,7 @@
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="alert alert-warning" role="alert">
-                        <strong><?php echo $product ? 'Cảnh Báo: </strong> Bạn đang trong trang chỉnh sửa của sản phẩm "' . $product['product_name'] . '", Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>' : 'Cảnh Báo: </strong> Bạn đang trong trang tạo một sản phẩm mới, Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>'; ?>
+                        <strong><?= $product ? 'Cảnh Báo: </strong> Bạn đang trong trang chỉnh sửa của sản phẩm "' . $product['product_name'] . '", Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>' : 'Cảnh Báo: </strong> Bạn đang trong trang tạo một sản phẩm mới, Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>'; ?>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true"><i class="zmdi zmdi-close"></i></span>
                             </button>
@@ -32,7 +32,7 @@
                                 <table id="info" class="table">
                                     <tr>
                                         <td><strong>Tên sản phẩm</strong></td>
-                                        <td><?php echo $product['product_name']; ?></td>
+                                        <td><?= $product['product_name']; ?></td>
                                     </tr>
                                     <tr>
                                         <td><strong>Loại sản phẩm</strong></td>
@@ -53,32 +53,32 @@
                                     </tr>
                                     <tr>
                                         <td><strong>Color</strong> </td>
-                                        <td><?php echo $product['product_color']; ?></td>
+                                        <td><?= $product['product_color']; ?></td>
                                     </tr>
                                     <tr>
                                         <td><strong>Size</strong> </td>
-                                        <td><?php echo $product['product_size']; ?></td>
+                                        <td><?= $product['product_size']; ?></td>
                                     </tr>
                                     <tr>
                                         <td><strong>Material</strong> </td>
-                                        <td><?php echo $product['product_material']; ?></td>
+                                        <td><?= $product['product_material']; ?></td>
                                     </tr>
                                     <tr>
                                         <td><strong>Total View</strong> </td>
-                                        <td><?php echo $product['totalView']; ?></td>
+                                        <td><?= $product['totalView']; ?></td>
                                     </tr>
                                     <tr>
                                         <td><strong>Price</strong> </td>
-                                        <td><?php echo $product['product_price']; ?> VNĐ</td>
+                                        <td><?= $product['product_price']; ?> VNĐ</td>
                                     </tr>
                                     <?php if ($product['saleoff'] == 1) { ?>
                                         <tr>
                                             <td><strong>Percent Off</strong> </td>
-                                            <td><?php echo $product['percentoff']; ?> %</td>
+                                            <td><?= $product['percentoff']; ?> %</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Price (Sale)</strong> </td>
-                                            <td><?php echo $product['product_price'] - $product['product_price'] * $product['percentoff'] / 100; ?> VNĐ</td>
+                                            <td><?= $product['product_price'] - $product['product_price'] * $product['percentoff'] / 100; ?> VNĐ</td>
                                         </tr>
                                     <?php } ?>
                                 </table>
@@ -88,19 +88,19 @@
                     <div class="card">
                         <div class="body">
                             <form id="product-form" class="form-horizontal" method="post" action="admin.php?controller=product&amp;action=edit" enctype="multipart/form-data" role="form">
-                                <input name="product_id" type="hidden" value="<?php echo $product ? $product['id'] : '0'; ?>" />
+                                <input name="product_id" type="hidden" value="<?= $product ? $product['id'] : '0'; ?>" />
                                 <?php global $userNav;
                                 $get_user_by = get_a_record('users', $userNav) ?>
                                 <?php if (isset($product)) : ?>
-                                    <input name="editby" type="hidden" value="<?php echo $get_user_by['user_name']; ?>" />
-                                    <input name="createby" type="hidden" value="<?php echo $product['createBy']; ?>" />
+                                    <input name="editby" type="hidden" value="<?= $get_user_by['user_name']; ?>" />
+                                    <input name="createby" type="hidden" value="<?= $product['createBy']; ?>" />
                                 <?php else : ?>
-                                    <input name="createby" type="hidden" value="<?php echo $get_user_by['user_name']; ?>" /><?php endif; ?>
+                                    <input name="createby" type="hidden" value="<?= $get_user_by['user_name']; ?>" /><?php endif; ?>
                                 <h2 class="card-inside-title" style="font-weight:bold;">Tên Sản Phẩm:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="name" max='500' type="text" value="<?php echo $product ? $product['product_name'] : ''; ?>" class="form-control" id="name" placeholder="Nhập tên sản phẩm..." required="" />
+                                            <input name="name" max='500' type="text" value="<?= $product ? $product['product_name'] : ''; ?>" class="form-control" id="name" placeholder="Nhập tên sản phẩm..." required="" />
                                         </div>
                                     </div>
                                 </div>
@@ -109,7 +109,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="slug" type="text" value="<?php echo $product ? $product['slug'] : ''; ?>" class="form-control" id="slug" placeholder="Nhập đường dẫn link sản phẩm..." />
+                                            <input name="slug" type="text" value="<?= $product ? $product['slug'] : ''; ?>" class="form-control" id="slug" placeholder="Nhập đường dẫn link sản phẩm..." />
                                         </div>
                                     </div>
                                 </div>
@@ -153,7 +153,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="price" type="type" maxlength="11" value="<?php echo $product ? $product['product_price'] : 0; ?>" class="form-control" id="price" placeholder="0" pattern="[0-9\.]+" required="" />
+                                            <input name="price" type="type" maxlength="11" value="<?= $product ? $product['product_price'] : 0; ?>" class="form-control" id="price" placeholder="0" pattern="[0-9\.]+" required="" />
                                         </div>
                                     </div>
                                 </div>
@@ -161,7 +161,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="color" type="text" maxlength="250" value="<?php echo $product ? $product['product_color'] : ''; ?>" class="form-control" id="color" placeholder="Color..." required="" />
+                                            <input name="color" type="text" maxlength="250" value="<?= $product ? $product['product_color'] : ''; ?>" class="form-control" id="color" placeholder="Color..." required="" />
                                         </div>
                                     </div>
                                 </div>
@@ -169,7 +169,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="size" type="text" required maxlength="100" value="<?php echo $product ? $product['product_size'] : ''; ?>" class="form-control" id="size" placeholder="Size ..." />
+                                            <input name="size" type="text" required maxlength="100" value="<?= $product ? $product['product_size'] : ''; ?>" class="form-control" id="size" placeholder="Size ..." />
                                         </div>
                                     </div>
                                 </div>
@@ -177,7 +177,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="material" type="text" maxlength="250" value="<?php echo $product ? $product['product_material'] : ''; ?>" class="form-control" id="material" placeholder="Material ..." required="" />
+                                            <input name="material" type="text" maxlength="250" value="<?= $product ? $product['product_material'] : ''; ?>" class="form-control" id="material" placeholder="Material ..." required="" />
                                         </div>
                                     </div>
                                 </div>
@@ -185,7 +185,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="totalview" pattern="[0-9\.]+" type="text" maxlength="11" value="<?php echo $product ? $product['totalView'] : ''; ?>" class="form-control" id="totalview" placeholder="Lượt view..." />
+                                            <input name="totalview" pattern="[0-9\.]+" type="text" maxlength="11" value="<?= $product ? $product['totalView'] : ''; ?>" class="form-control" id="totalview" placeholder="Lượt view..." />
                                         </div>
                                     </div>
                                 </div>
@@ -219,21 +219,21 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="percent_off" type="text" maxlength="11" value="<?php echo $product ? $product['percentoff'] : ''; ?>" class="form-control" id="percent_off" pattern="[0-9\.]+" placeholder="Number Precent Off ..." />
+                                            <input name="percent_off" type="text" maxlength="11" value="<?= $product ? $product['percentoff'] : ''; ?>" class="form-control" id="percent_off" pattern="[0-9\.]+" placeholder="Number Precent Off ..." />
                                         </div>
                                     </div>
                                 </div>
                                 <h2 class="card-inside-title" style="font-weight:bold;">Chọn ngày tạo mới sản phẩm:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-4">
-                                        <input name="createdate" id="createdate" type="date" value="<?php echo $product ? $product['createDate'] : date('d/m/Y'); ?>" class="form-control" placeholder="Please choose date & time...">
+                                        <input name="createdate" id="createdate" type="date" value="<?= $product ? $product['createDate'] : date('d/m/Y'); ?>" class="form-control" placeholder="Please choose date & time...">
                                     </div>
                                 </div>
                                 <h2 class="card-inside-title" style="font-weight:bold;">Thông tin sơ sơ về sản phẩm:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <textarea class="form-control" name="description" placeholder="Thông tin sản phẩm..."><?php echo $product ? $product['product_description'] : ''; ?></textarea>
+                                            <textarea class="form-control" name="description" placeholder="Thông tin sản phẩm..."><?= $product ? $product['product_description'] : ''; ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -241,7 +241,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <textarea class="form-control" name="detail" id="ckeditor" placeholder="Chi tiết sản phẩm..."><?php echo $product ? $product['product_detail'] : ''; ?></textarea>
+                                            <textarea class="form-control" name="detail" id="ckeditor" placeholder="Chi tiết sản phẩm..."><?= $product ? $product['product_detail'] : ''; ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -251,7 +251,7 @@
                                             <div>
                                                 <h4>Ảnh đại diện</h4>
                                                 <?php if (strlen($product['img1']) <> 0) { ?>
-                                                    <img style="max-width:250px;" src="public/upload/products/<?php echo $product['img1']; ?>">
+                                                    <img style="max-width:250px;" src="public/upload/products/<?= $product['img1']; ?>">
                                                 <?php } else echo '<h6>Vị trí này chưa có ảnh</h6>'; ?>
                                             </div>
                                         </div>
@@ -259,7 +259,7 @@
                                             <div>
                                                 <h4>Ảnh 2</h4>
                                                 <?php if (strlen($product['img2']) <> 0) { ?>
-                                                    <img style="max-width:250px;" src="public/upload/products/<?php echo $product['img2']; ?>">
+                                                    <img style="max-width:250px;" src="public/upload/products/<?= $product['img2']; ?>">
                                                 <?php } else echo '<h6>Vị trí này chưa có ảnh</h6>'; ?>
                                             </div>
                                         </div>
@@ -267,7 +267,7 @@
                                             <div>
                                                 <h4>Ảnh 3</h4>
                                                 <?php if (strlen($product['img3']) <> 0) { ?>
-                                                    <img style="max-width:250px;" src="public/upload/products/<?php echo $product['img3']; ?>">
+                                                    <img style="max-width:250px;" src="public/upload/products/<?= $product['img3']; ?>">
                                                 <?php } else echo '<h6>Vị trí này chưa có ảnh</h6>'; ?>
                                             </div>
                                         </div>
@@ -275,7 +275,7 @@
                                             <div>
                                                 <h4>Ảnh 4</h4>
                                                 <?php if (strlen($product['img4']) <> 0) { ?>
-                                                    <img style="max-width:250px;" src="public/upload/products/<?php echo $product['img4']; ?>">
+                                                    <img style="max-width:250px;" src="public/upload/products/<?= $product['img4']; ?>">
                                                 <?php } else echo '<h6>Vị trí này chưa có ảnh</h6>'; ?>
                                             </div>
                                         </div>
@@ -317,7 +317,7 @@
                                 </div>
                                 <br><br>
                                 <div class="form-group" style="text-align: center;">
-                                    <button class="btn btn-primary waves-effect" type="submit"><?php echo $product ? 'Cập nhật sản phẩm trên' : 'Thêm sản phẩm mới'; ?></button>
+                                    <button class="btn btn-primary waves-effect" type="submit"><?= $product ? 'Cập nhật sản phẩm trên' : 'Thêm sản phẩm mới'; ?></button>
                                     <a class="btn btn-warning waves-effect" href="admin.php?controller=product">Trở về</a>
                                 </div>
                             </form>

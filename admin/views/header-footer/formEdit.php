@@ -7,7 +7,7 @@
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?= PATH_URL . 'home' ?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
                         <li class="breadcrumb-item"><a href="admin.php?controller=header-footer">Contact</a></li>
-                        <li class="breadcrumb-item active"><?php echo $contact ? '' . $contact['contact_name']  : ''; ?></li>
+                        <li class="breadcrumb-item active"><?= $contact ? '' . $contact['contact_name']  : ''; ?></li>
                     </ul>
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">
@@ -20,7 +20,7 @@
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="alert alert-warning" role="alert">
-                        <strong><?php echo $contact ? 'Cảnh Báo: </strong> Bạn đang trong trang chỉnh sửa của phần header-footer "' . $contact['contact_name'] . '", Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>' : 'Cảnh Báo: </strong> Bạn đang trong trang tạo một contact mới, Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>'; ?>
+                        <strong><?= $contact ? 'Cảnh Báo: </strong> Bạn đang trong trang chỉnh sửa của phần header-footer "' . $contact['contact_name'] . '", Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>' : 'Cảnh Báo: </strong> Bạn đang trong trang tạo một contact mới, Hãy cẩn trọng!!! <a target="_blank" href="#"> Xem tài liệu hướng dẫn</a>'; ?>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true"><i class="zmdi zmdi-close"></i></span>
                             </button>
@@ -28,12 +28,12 @@
                     <div class="card">
                         <div class="body">
                             <form id="contact-form" class="form-horizontal" method="post" action="admin.php?controller=header-footer" enctype="multipart/form-data" role="form">
-                                <input name="contact_id" type="hidden" value="<?php echo $contact ? $contact['id'] : '0'; ?>" />
+                                <input name="contact_id" type="hidden" value="<?= $contact ? $contact['id'] : '0'; ?>" />
                                 <h2 class="card-inside-title" style="font-weight:bold;">Tên contact:</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input name="name" type="text" maxlength="255" value="<?php echo $contact ? $contact['contact_name'] : ''; ?>" class="form-control" id="name" placeholder="Nhập tên contact..." required="" />
+                                            <input name="name" type="text" maxlength="255" value="<?= $contact ? $contact['contact_name'] : ''; ?>" class="form-control" id="name" placeholder="Nhập tên contact..." required="" />
                                         </div>
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@
                                             <h2 style="text-align: center;">Icon Favicon Hiện tại</h2>
                                         </div>
                                         <div style="text-align: center;" class="body">
-                                            <img style="max-width:320px;" src="public/img/<?php echo $contact['favicon']; ?>">
+                                            <img style="max-width:320px;" src="public/img/<?= $contact['favicon']; ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -71,7 +71,7 @@
                                             <h2 style="text-align: center;">Image Logo Hiện tại</h2>
                                         </div>
                                         <div style="text-align: center;" class="body">
-                                            <img style="max-width:320px;" src="public/img/<?php echo $contact['link_Logo']; ?>">
+                                            <img style="max-width:320px;" src="public/img/<?= $contact['link_Logo']; ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -186,7 +186,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group" style="text-align: center;">
-                                    <button class="btn btn-primary waves-effect" type="submit"><?php echo $contact ? 'Cập nhật lại header footer' : ''; ?></button>
+                                    <button class="btn btn-primary waves-effect" type="submit"><?= $contact ? 'Cập nhật lại header footer' : ''; ?></button>
                                     <a class="btn btn-warning waves-effect" href="admin.php">Trở về</a>
                                 </div>
                             </form>

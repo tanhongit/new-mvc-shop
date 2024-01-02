@@ -18,7 +18,7 @@ $product_new = get_all('products', array(
 ?>
 <aside class="sidebar">
     <h3 style="font-weight: bold;">Tìm kiếm</h3>
-    <form action="<?php echo PATH_URL; ?>search/" method="get">
+    <form action="<?= PATH_URL; ?>search/" method="get">
         <div class="input-group input-group-lg">
             <input class="form-control" placeholder="Search..." name="keyword" id="s" type="text">
             <span class="input-group-btn">
@@ -29,13 +29,13 @@ $product_new = get_all('products', array(
     <hr />
     <h3 style="font-weight: bold;">Danh mục</h3>
     <?php foreach ($types as $type) { ?>
-        <a href="type/<?php echo $type['id'] . '-' . $type['slug']; ?>"><span class="label label-dark"><?php echo $type['type_name'] ?></span></a>
+        <a href="type/<?= $type['id'] . '-' . $type['slug']; ?>"><span class="label label-dark"><?= $type['type_name'] ?></span></a>
     <?php } ?><br>
     <?php foreach ($sub_cate as $cate) { ?>
-        <a href="category/<?php echo $cate['id'] . '-' . $cate['slug']; ?>"><span class="label label-dark"><?php echo $cate['subcategory_name'] ?></span></a>
+        <a href="category/<?= $cate['id'] . '-' . $cate['slug']; ?>"><span class="label label-dark"><?= $cate['subcategory_name'] ?></span></a>
     <?php } ?>
     <?php foreach ($shops as $shop) { ?>
-        <a href="shop/<?php echo $shop['id'] . '-' . $shop['slug']; ?>"><span class="label label-dark"><?php echo $shop['category_name'] ?></span></a>
+        <a href="shop/<?= $shop['id'] . '-' . $shop['slug']; ?>"><span class="label label-dark"><?= $shop['category_name'] ?></span></a>
     <?php } ?>
     <hr />
     <h4 style="font-weight: bold;">SẢN PHẨM HÀNG ĐẦU</h4>

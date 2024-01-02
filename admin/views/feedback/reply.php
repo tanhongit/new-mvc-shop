@@ -32,19 +32,19 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <h5>Tên người gửi phản hồi</h5>
-                                <input name="name" type="text" disabled value="<?php echo $feedback ? $feedback['name'] : ''; ?>" class="form-control" id="name" placeholder="họ và tên thật..." required="" />
+                                <input name="name" type="text" disabled value="<?= $feedback ? $feedback['name'] : ''; ?>" class="form-control" id="name" placeholder="họ và tên thật..." required="" />
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <h5>Email của người gửi phản hồi</h5>
-                                <input name="email" type="text" disabled value="<?php echo $feedback ? $feedback['email'] : ''; ?>" class="form-control" id="color" placeholder="Nhập email của bạn..." required="" />
+                                <input name="email" type="text" disabled value="<?= $feedback ? $feedback['email'] : ''; ?>" class="form-control" id="color" placeholder="Nhập email của bạn..." required="" />
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <h5>SĐT của người gửi phản hồi</h5>
-                                <input name="phone" type="text" disabled value="<?php echo $feedback ? $feedback['phone'] : ''; ?>" class="form-control" id="totalview" required placeholder="0123456789..." />
+                                <input name="phone" type="text" disabled value="<?= $feedback ? $feedback['phone'] : ''; ?>" class="form-control" id="totalview" required placeholder="0123456789..." />
                             </div>
                         </div>
                     </div>
@@ -52,13 +52,13 @@
                     <div class="row clearfix">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <textarea name="subject" disabled type="text" class="form-control" id="totalview" required placeholder="Nội dung phản hồi..."><?php echo $feedback ? $feedback['subject'] : ''; ?></textarea>
+                                <textarea name="subject" disabled type="text" class="form-control" id="totalview" required placeholder="Nội dung phản hồi..."><?= $feedback ? $feedback['subject'] : ''; ?></textarea>
                             </div>
                         </div>
                     </div>
                     <br><br>
                     <form id="product-form" class="form-horizontal" method="post" action="admin.php?controller=feedback&action=reply" enctype="multipart/form-data" role="form">
-                        <input name="feedback_email" type="hidden" value="<?php echo $feedback ? $feedback['email'] : ''; ?>" />
+                        <input name="feedback_email" type="hidden" value="<?= $feedback ? $feedback['email'] : ''; ?>" />
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">

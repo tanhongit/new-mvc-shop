@@ -1,6 +1,9 @@
 <?php
 require('config/database.php');
 require('config/config.php');
+
+$linkConnectDB = getLinkConnectDB();
+
 //lấy giá trị bảng theo id
 function get_a_record($table, $id, $select = '*')
 {
@@ -15,34 +18,43 @@ function get_a_record($table, $id, $select = '*')
     }
     return $data;
 }
-//lấy giá trị bảng theo yêu cầu tuỳ ý của option
-function get_all($table, $options = array())
+
+/**
+ * Get data in table by options
+ *
+ * @param $table
+ * @param  array  $options
+ *
+ * @return array
+ * @throws Exception
+ */
+function get_all($table, array $options = []): array
 {
     $select = isset($options['select']) ? $options['select'] : '*';
     $where = isset($options['where']) ? 'WHERE ' . $options['where'] : '';
     $order_by = isset($options['order_by']) ? 'ORDER BY ' . $options['order_by'] : '';
     $limit = isset($options['offset']) && isset($options['limit']) ? 'LIMIT ' . $options['offset'] . ',' . $options['limit'] : '';
-    global $linkConnectDB;
+
     $sql = "SELECT $select FROM `$table` $where $order_by $limit";
-    $query = mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
-    $data = array();
-    if (mysqli_num_rows($query) > 0) {
-        while ($row = mysqli_fetch_assoc($query)) {
-            $data[] = $row;
-        }
-        mysqli_free_result($query);
-    }
-    return $data;
+
+    $query = executeQuery($sql);
+    $result = $query->get_result()->fetch_all(MYSQLI_ASSOC);
+    $query->close();
+
+    return $result;
 }
+
 function get_total($table, $options = array())
 {
-    global $linkConnectDB;
     $where = isset($options['where']) ? 'WHERE ' . $options['where'] : '';
     $sql = "SELECT COUNT(*) as total FROM `$table` $where";
-    $query = mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
-    $row = mysqli_fetch_assoc($query);
-    return $row['total'];
+
+    $query = executeQuery($sql);
+    $result = $query->get_result()->fetch_assoc();
+    $query->close();
+    return $result['total'];
 }
+
 function save($table, $data = array())
 {
     $values = array();

@@ -92,7 +92,7 @@
                     <div class="card widget_2 big_icon domains">
                         <div class="body">
                             <h6>Tổng Comment</h6>
-                            <h2><?= $total_rows_comment ?> <small class="info">Chưa chấp nhận: <?= $total_comment_noaccept ?></small></h2>
+                            <h2><?= $totalRows_comment ?> <small class="info">Chưa chấp nhận: <?= $total_comment_noaccept ?></small></h2>
                             <small>Thống kê bình luận đã chấp nhận</small>
                             <div class="progress">
                                 <div class="progress-bar l-green" role="progressbar" aria-valuenow="<?= $comment_ratio ?>" aria-valuemin="0" aria-valuemax="100" <?= 'style="width:' . $comment_ratio . '%;"' ?>></div>
@@ -246,7 +246,7 @@
                                                 <?php endif;
                                                 endforeach; ?>
                                                 <tr>
-                                                    <td><strong><a href="admin.php?controller=comment">All</a> (<?= $total_rows_comment ?>) | Mine (<?= $total_mine_comment ?>) | <a href="admin.php?controller=comment&action=pending">Pending</a> (<?= $total_comment_noaccept ?>) | <a href="admin.php?controller=comment">Approved</a> (<?= $total_comment_accept ?>) | <a href="admin.php?controller=comment&action=spam">Spam</a> (<?= $total_comment_spam ?>) | <a href="admin.php?controller=comment&action=trash">Trash</a> (<?= $total_comment_trash ?>)</strong></td>
+                                                    <td><strong><a href="admin.php?controller=comment">All</a> (<?= $totalRows_comment ?>) | Mine (<?= $total_mine_comment ?>) | <a href="admin.php?controller=comment&action=pending">Pending</a> (<?= $total_comment_noaccept ?>) | <a href="admin.php?controller=comment">Approved</a> (<?= $total_comment_accept ?>) | <a href="admin.php?controller=comment&action=spam">Spam</a> (<?= $total_comment_spam ?>) | <a href="admin.php?controller=comment&action=trash">Trash</a> (<?= $total_comment_trash ?>)</strong></td>
                                                 </tr>
                                             </tbody>
                                         </table>

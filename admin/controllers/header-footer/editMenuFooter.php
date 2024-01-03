@@ -25,6 +25,6 @@ if (mysqli_num_rows(mysqli_query($linkConnectDB, "SELECT id FROM menu_footers WH
 
 $title = 'Sửa menu link footer website';
 $navHF = 'class="active open"';
-$menuFooter = get_a_record('menu_footers', $menuFooterId);
+$menuFooter = getRecord('menu_footers', $menuFooterId);
 
 require('admin/views/header-footer/editMenuFooter.php');

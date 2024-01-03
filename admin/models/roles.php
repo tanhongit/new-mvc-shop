@@ -1,18 +1,32 @@
 <?php
-function roleDestroy($id)
+
+/**
+ * @param  int  $id
+ *
+ * @return void
+ */
+function roleDestroy(int $id): void
 {
-    $id = intval($id);
-    global $linkConnectDB;
-    $sql = "DELETE FROM roles WHERE id=$id";
-    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
+    $sql = "DELETE FROM roles WHERE id = ?";
+
+    try {
+        $stmt = executeQuery($sql, [$id]);
+        $stmt->close();
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
 }
-function role_update()
+
+/**
+ * @return void
+ */
+function role_update(): void
 {
-    $role = array(
+    $role = [
         'id' => intval($_POST['role_id']),
         'role_name' => escape($_POST['name']),
-        'role_desc' => ($_POST['description'])
-    );
+        'role_desc' => ($_POST['description']),
+    ];
     save('roles', $role);
     header('location:admin.php?controller=role');
 }

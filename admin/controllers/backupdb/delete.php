@@ -9,5 +9,5 @@ if (isset($_POST['linkFile'])) {
     delete_file_backup($_POST['linkFile']);
     header('location:admin.php?controller=backupdb&action=list');
 } else {
-    show_404();
+    show404NotFound();
 }

@@ -60,10 +60,12 @@
                                     </tfoot>
                                     <tbody>
                                         <?php $stt = 0; //https://xuanthulab.net/lay-thong-tin-he-thong-file-thu-muc-trong-php-cung-directoryiterator.html
-                                        foreach (new DirectoryIterator('admin/database') as $filename) :
-                                            if ($filename->isDot() || $filename == '.htaccess') continue;
-                                            $link_connect_file = 'admin/database/' . $filename;
-                                            $stt++; ?>
+foreach (new DirectoryIterator('admin/database') as $filename) :
+    if ($filename->isDot() || $filename == '.htaccess') {
+        continue;
+    }
+    $link_connect_file = 'admin/database/' . $filename;
+    $stt++; ?>
                                             <tr>
                                                 <td><?= $stt ?></td>
                                                 <td><?= $filename ?></td>

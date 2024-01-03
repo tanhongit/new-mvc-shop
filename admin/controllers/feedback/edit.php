@@ -18,20 +18,20 @@ if (isset($_GET['feedback_id'])) {
 
 $title = $feedbackId === 0 ? '' : 'Sửa phần phản hồi của khách hàng';
 $navFeedback = 'class="active open"';
-$feedback = get_a_record('feedbacks', $feedbackId);
+$feedback = getRecord('feedbacks', $feedbackId);
 
 if ($feedback['order_id'] <> 0) {
     $orderDetail = orderDetail($feedback['order_id']);
-    $order = get_a_record('orders', $feedback['order_id']);
+    $order = getRecord('orders', $feedback['order_id']);
 }
 if ($feedback['product_id'] <> 0) {
-    $product = get_a_record('products', $feedback['product_id']);
+    $product = getRecord('products', $feedback['product_id']);
 }
 
-$status = array(
+$status = [
     0 => 'Đã xác nhận',
     1 => 'Đã xử lý - Done',
     2 => 'Đang xử lý - giao hàng',
-    3 => 'Đã bị hủy'
-);
+    3 => 'Đã bị hủy',
+];
 require('admin/views/feedback/edit.php');

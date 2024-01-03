@@ -1,9 +1,9 @@
 <?php
-$options = array(
+$options = [
     'where' => 'product_typeid = 3',
-    'order_by' => 'createDate'
-);
-$products = get_all('products', $options); ?>
+    'order_by' => 'createDate',
+];
+$products = getAll('products', $options); ?>
 <!-- Basic Examples -->
 <div class="row clearfix">
     <div class="col-lg-12">

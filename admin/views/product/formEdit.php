@@ -3,11 +3,11 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2><? ?></h2>
+                    <h2><?php ?></h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?= PATH_URL . 'home' ?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
                         <li class="breadcrumb-item"><a href="admin.php?controller=product">Product</a></li>
-                        <li class="breadcrumb-item active"><?= $product ? 'Cập nhật sản phẩm: ' . $product['product_name']  : 'Thêm sản phẩm mới'; ?></li>
+                        <li class="breadcrumb-item active"><?= $product ? 'Cập nhật sản phẩm: ' . $product['product_name'] : 'Thêm sản phẩm mới'; ?></li>
                     </ul>
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">
@@ -37,19 +37,25 @@
                                     <tr>
                                         <td><strong>Loại sản phẩm</strong></td>
                                         <td><?php foreach ($types as $type) {
-                                                if ($product && ($product['product_typeid'] == $type['id']))  echo  $type['type_name'];
-                                            } ?></td>
+                                            if ($product && ($product['product_typeid'] == $type['id'])) {
+                                                echo  $type['type_name'];
+                                            }
+                                        } ?></td>
                                     <tr></tr>
                                     <td><strong>Thuộc nhóm danh mục</strong> </td>
                                     <td><?php foreach ($categories as $category) {
-                                            if ($product && ($product['category_id'] == $category['id']))  echo  $category['category_name'];
-                                        } ?></td>
+                                        if ($product && ($product['category_id'] == $category['id'])) {
+                                            echo  $category['category_name'];
+                                        }
+                                    } ?></td>
                                     </tr>
                                     <tr>
                                         <td><strong>Thuộc danh mục con</strong> </td>
                                         <td><?php foreach ($subcategories as $subcategory) {
-                                                if ($product && ($product['sub_category_id'] == $subcategory['id'])) echo $subcategory['subcategory_name'];
-                                            } ?></td>
+                                            if ($product && ($product['sub_category_id'] == $subcategory['id'])) {
+                                                echo $subcategory['subcategory_name'];
+                                            }
+                                        } ?></td>
                                     </tr>
                                     <tr>
                                         <td><strong>Color</strong> </td>
@@ -90,7 +96,7 @@
                             <form id="product-form" class="form-horizontal" method="post" action="admin.php?controller=product&amp;action=edit" enctype="multipart/form-data" role="form">
                                 <input name="product_id" type="hidden" value="<?= $product ? $product['id'] : '0'; ?>" />
                                 <?php global $userNav;
-                                $get_user_by = get_a_record('users', $userNav) ?>
+                    $get_user_by = getRecord('users', $userNav) ?>
                                 <?php if (isset($product)) : ?>
                                     <input name="editby" type="hidden" value="<?= $get_user_by['user_name']; ?>" />
                                     <input name="createby" type="hidden" value="<?= $product['createBy']; ?>" />
@@ -119,7 +125,9 @@
                                         <select name="type_id" class="form-control show-tick">
                                             <?php foreach ($types as $type) {
                                                 $selected = '';
-                                                if ($product && ($product['product_typeid'] == $type['id'])) $selected = 'selected=""';
+                                                if ($product && ($product['product_typeid'] == $type['id'])) {
+                                                    $selected = 'selected=""';
+                                                }
                                                 echo '<option value="' . $type['id'] . '" ' . $selected . '>' . $type['type_name'] . '</option>';
                                             } ?>
                                         </select>
@@ -131,7 +139,9 @@
                                         <select name="category_id" class="form-control show-tick">
                                             <?php foreach ($categories as $category) {
                                                 $selected = '';
-                                                if ($product && ($product['category_id'] == $category['id'])) $selected = 'selected=""';
+                                                if ($product && ($product['category_id'] == $category['id'])) {
+                                                    $selected = 'selected=""';
+                                                }
                                                 echo '<option value="' . $category['id'] . '" ' . $selected . '>' . $category['category_name'] . '</option>';
                                             } ?>
                                         </select>
@@ -143,7 +153,9 @@
                                         <select name="subcategory_id" class="form-control show-tick">
                                             <?php foreach ($subcategories as $subcategory) {
                                                 $selected = '';
-                                                if ($product && ($product['sub_category_id'] == $subcategory['id'])) $selected = 'selected=""';
+                                                if ($product && ($product['sub_category_id'] == $subcategory['id'])) {
+                                                    $selected = 'selected=""';
+                                                }
                                                 echo '<option value="' . $subcategory['id'] . '" ' . $selected . '>' . $subcategory['subcategory_name'] . '</option>';
                                             } ?>
                                         </select>
@@ -195,11 +207,15 @@
                                         <div class="form-group">
                                             <?php if (isset($product)) : ?>
                                                 <div class="radio inlineblock m-r-20">
-                                                    <input type="radio" name="status" id="male" class="with-gap" value="1" <?php if ($product['saleoff'] == "1") echo "checked"; ?>>
+                                                    <input type="radio" name="status" id="male" class="with-gap" value="1" <?php if ($product['saleoff'] == "1") {
+                                                        echo "checked";
+                                                    } ?>>
                                                     <label for="male">Bật giảm giá</label>
                                                 </div>
                                                 <div class="radio inlineblock">
-                                                    <input type="radio" name="status" id="Female" class="with-gap" <?php if ($product['saleoff'] == "0") echo "checked"; ?> value="0">
+                                                    <input type="radio" name="status" id="Female" class="with-gap" <?php if ($product['saleoff'] == "0") {
+                                                        echo "checked";
+                                                    } ?> value="0">
                                                     <label for="Female">Không giảm giá</label>
                                                 </div>
                                             <?php else : ?>
@@ -252,7 +268,9 @@
                                                 <h4>Ảnh đại diện</h4>
                                                 <?php if (strlen($product['img1']) <> 0) { ?>
                                                     <img style="max-width:250px;" src="public/upload/products/<?= $product['img1']; ?>">
-                                                <?php } else echo '<h6>Vị trí này chưa có ảnh</h6>'; ?>
+                                                <?php } else {
+                                                    echo '<h6>Vị trí này chưa có ảnh</h6>';
+                                                } ?>
                                             </div>
                                         </div>
                                         <div style="text-align: center;" class="col-lg-3 col-md-4">
@@ -260,7 +278,9 @@
                                                 <h4>Ảnh 2</h4>
                                                 <?php if (strlen($product['img2']) <> 0) { ?>
                                                     <img style="max-width:250px;" src="public/upload/products/<?= $product['img2']; ?>">
-                                                <?php } else echo '<h6>Vị trí này chưa có ảnh</h6>'; ?>
+                                                <?php } else {
+                                                    echo '<h6>Vị trí này chưa có ảnh</h6>';
+                                                } ?>
                                             </div>
                                         </div>
                                         <div style="text-align: center;" class="col-lg-3 col-md-4">
@@ -268,7 +288,9 @@
                                                 <h4>Ảnh 3</h4>
                                                 <?php if (strlen($product['img3']) <> 0) { ?>
                                                     <img style="max-width:250px;" src="public/upload/products/<?= $product['img3']; ?>">
-                                                <?php } else echo '<h6>Vị trí này chưa có ảnh</h6>'; ?>
+                                                <?php } else {
+                                                    echo '<h6>Vị trí này chưa có ảnh</h6>';
+                                                } ?>
                                             </div>
                                         </div>
                                         <div style="text-align: center;" class="col-lg-3 col-md-4">
@@ -276,7 +298,9 @@
                                                 <h4>Ảnh 4</h4>
                                                 <?php if (strlen($product['img4']) <> 0) { ?>
                                                     <img style="max-width:250px;" src="public/upload/products/<?= $product['img4']; ?>">
-                                                <?php } else echo '<h6>Vị trí này chưa có ảnh</h6>'; ?>
+                                                <?php } else {
+                                                    echo '<h6>Vị trí này chưa có ảnh</h6>';
+                                                } ?>
                                             </div>
                                         </div>
                                     </div>

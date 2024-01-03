@@ -1,7 +1,8 @@
 <?php
+
 function feedback_add()
 {
-    $feedback_add = array(
+    $feedback_add = [
         'id' => intval($_POST['feedback_id']),
         'name' => escape($_POST['name']),
         'createTime' => gmdate('Y-m-d H:i:s', time() + 7 * 3600),
@@ -11,8 +12,8 @@ function feedback_add()
         'user_id' => intval($_POST['user_id']),
         'product_id' => intval($_POST['product_id']),
         'order_id' => 0,
-        'status' => 0
-    );
+        'status' => 0,
+    ];
     $phone = addslashes($_POST['phone']);
     $email = addslashes($_POST['email']);
     if (!preg_match("/([a-z0-9_]+|[a-z0-9_]+\.[a-z0-9_]+)@(([a-z0-9]|[a-z0-9]+\.[a-z0-9]+)+\.([a-z]{2,4}))/i", $email)) {

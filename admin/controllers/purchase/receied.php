@@ -5,18 +5,18 @@ require_once('admin/models/purchase.php');
 global $userNav;
 
 if (!empty($userNav)) {
-    $options = array(
+    $options = [
         'where' => 'status = 1 and user_id =' . $userNav,
-        'order_by' => 'createtime DESC'
-    );
-    $receiedOrders = get_all('orders', $options);
+        'order_by' => 'createtime DESC',
+    ];
+    $receiedOrders = getAll('orders', $options);
     $title = 'Đơn hàng đã nhận';
     $yourPurchaseNav = 'class="active open"';
-    $status = array(
+    $status = [
         0 => 'Đã xác nhận đơn hàng',
         2 => 'Đang giao hàng',
-        1 => 'Đã giao hàng'
-    );
+        1 => 'Đã giao hàng',
+    ];
 }
 
 require('admin/views/purchase/receied.php');

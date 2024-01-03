@@ -1,10 +1,13 @@
 <?php
+
 function postDestroy($id)
 {
     if (isset($_GET['product_id'])) {
         $id = intval($_GET['product_id']);
-    } else show_404();
-    $product = get_a_record('products', $id);
+    } else {
+        show404NotFound();
+    }
+    $product = getRecord('products', $id);
     $image = 'public/upload/products/' . $product['img1'];
     if (is_file($image)) {
         unlink($image);
@@ -27,20 +30,32 @@ function postDestroy($id)
 }
 function product_update()
 {
-    if (isset($_POST['editby'])) $editby = $_POST['editby'];
-    else $editby = NULL;
+    if (isset($_POST['editby'])) {
+        $editby = $_POST['editby'];
+    } else {
+        $editby = null;
+    }
 
-    if ($_POST['product_id'] <> 0) $editDate = gmdate('Y-m-d H:i:s', time() + 7 * 3600);
-    else $editDate = '0000-00-00 00:00:00';
+    if ($_POST['product_id'] <> 0) {
+        $editDate = gmdate('Y-m-d H:i:s', time() + 7 * 3600);
+    } else {
+        $editDate = '0000-00-00 00:00:00';
+    }
 
-    if ($_POST['createdate'] == NULL || $_POST['createdate'] == 'dd/mm/yyyy') $createDate = date('Y-m-d H:i:s', time() + 7 * 3600);
-    else $createDate = $_POST['createdate'];
+    if ($_POST['createdate'] == null || $_POST['createdate'] == 'dd/mm/yyyy') {
+        $createDate = date('Y-m-d H:i:s', time() + 7 * 3600);
+    } else {
+        $createDate = $_POST['createdate'];
+    }
 
     $name = escape($_POST['name']);
-    if (strlen($_POST['slug']) >= 5) $slug = slug($_POST['slug']);
-    else $slug = slug($name);
+    if (strlen($_POST['slug']) >= 5) {
+        $slug = slug($_POST['slug']);
+    } else {
+        $slug = slug($name);
+    }
 
-    $product = array(
+    $product = [
         'id' => intval($_POST['product_id']),
         'category_id' => intval($_POST['category_id']),
         'sub_category_id' => intval($_POST['subcategory_id']),
@@ -59,71 +74,71 @@ function product_update()
         'product_detail' => ($_POST['detail']),
         'createBy' => escape($_POST['createby']),
         'editBy' => escape($editby),
-        'editDate' => $editDate
-    );
+        'editDate' => $editDate,
+    ];
     $productId = save('products', $product);
     //upload ảnh 1 của product
     $image_name1 = $slug . '-' . $productId . 'img1';
-    $config1 = array(
+    $config1 = [
         'name' => $image_name1,
-        'upload_path'  => 'public/upload/products/',
+        'upload_path' => 'public/upload/products/',
         'allowed_exts' => 'jpg|jpeg|png|gif',
-    );
+    ];
     $image1 = upload('img1', $config1);
-    //cập nhật ảnh mới lên database 
+    //cập nhật ảnh mới lên database
     if ($image1) {
-        $product = array(
+        $product = [
             'id' => $productId,
-            'img1' => $image1
-        );
+            'img1' => $image1,
+        ];
         save('products', $product);
     }
     //upload ảnh 2 của product
     $image_name2 = $slug . '-' . $productId . 'img2';
-    $config2 = array(
+    $config2 = [
         'name' => $image_name2,
-        'upload_path'  => 'public/upload/products/',
+        'upload_path' => 'public/upload/products/',
         'allowed_exts' => 'jpg|jpeg|png|gif',
-    );
+    ];
     $image2 = upload('img2', $config2);
     //cập nhật ảnh mới lên database
     if ($image2) {
-        $product = array(
+        $product = [
             'id' => $productId,
-            'img2' => $image2
-        );
+            'img2' => $image2,
+        ];
         save('products', $product);
     }
     //upload ảnh 3 của product
     $image_name3 = $slug . '-' . $productId . 'img3';
-    $config3 = array(
+    $config3 = [
         'name' => $image_name3,
-        'upload_path'  => 'public/upload/products/',
+        'upload_path' => 'public/upload/products/',
         'allowed_exts' => 'jpg|jpeg|png|gif',
-    );
+    ];
     $image3 = upload('img3', $config3);
-    //cập nhật ảnh mới lên database 
+    //cập nhật ảnh mới lên database
     if ($image3) {
-        $product = array(
+        $product = [
             'id' => $productId,
-            'img3' => $image3
-        );
+            'img3' => $image3,
+        ];
         save('products', $product);
     }
     //upload ảnh 4 của product
     $image_name4 = $slug . '-' . $productId . 'img4';
-    $config4 = array(
+    $config4 = [
         'name' => $image_name4,
-        'upload_path'  => 'public/upload/products/',
+        'upload_path' => 'public/upload/products/',
         'allowed_exts' => 'jpg|jpeg|png|gif',
-    );
+    ];
     $image4 = upload('img4', $config4);
-    //cập nhật ảnh mới lên database 
+    //cập nhật ảnh mới lên database
     if ($image4) {
-        $product = array(
+        $product = [
             'id' => $productId,
-            'img4' => $image4
-        );
+            'img4' => $image4,
+        ];
         save('products', $product);
     }
     //chuyển hướng nếu có cập nhật

@@ -1,5 +1,7 @@
 <?php
-if (isset($_GET['id'])) $id = $_GET['id'];
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+}
 ?>
 <!doctype html>
 <html class="no-js " lang="en">

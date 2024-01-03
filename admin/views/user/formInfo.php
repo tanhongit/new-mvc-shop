@@ -37,10 +37,12 @@
                             <tr>
                                 <td><strong>Quyền hạn</strong> </td>
                                 <td><strong><?php if ($user_info['role_id'] == 0) {
-                                                echo 'Người đăng ký';
-                                            } elseif ($user_info['role_id'] == 1) {
-                                                echo 'Admin - Quản trị viên';
-                                            } else echo 'Moderator'; ?></strong></td>
+                                    echo 'Người đăng ký';
+                                } elseif ($user_info['role_id'] == 1) {
+                                    echo 'Admin - Quản trị viên';
+                                } else {
+                                    echo 'Moderator';
+                                } ?></strong></td>
                             </tr>
                             <tr>
                                 <td><strong>Email</strong> </td>

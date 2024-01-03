@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="container-fluid">
-        <?php if ($userInfoNav['role_id']  == 0) : ?>
+        <?php if ($userInfoNav['role_id'] == 0) : ?>
             <div class="row clearfix">
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card widget_2 big_icon sales">
@@ -136,7 +136,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-assignment"></i> Đơn hàng mới</td>
-                                                    <td><?= get_time($order_new['createtime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                                    <td><?= getTime($order_new['createtime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-assignment-alert"></i> Đơn chưa xử lý</td>
@@ -152,7 +152,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-comment-alt-text"></i> Bình luận mới</td>
-                                                    <td><?= get_time($comment_new['createDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                                    <td><?= getTime($comment_new['createDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-comment-alert"></i> BLuận Chưa Xử lý</td>
@@ -160,7 +160,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-email-open"></i> Phản hồi mới</td>
-                                                    <td><?= get_time($feedback_new['createTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                                    <td><?= getTime($feedback_new['createTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-email"></i> Phản hồi Chưa Xử lý</td>
@@ -168,7 +168,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-reader"></i> Trang mới</td>
-                                                    <td><?= get_time($page_new['post_date'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                                    <td><?= getTime($page_new['post_date'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-tab"></i> Trang nháp</td>
@@ -176,7 +176,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-receipt"></i> Bài viết mới</td>
-                                                    <td><?= get_time($post_new['post_date'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                                    <td><?= getTime($post_new['post_date'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-assignment-o"></i> Bài viết nháp</td>
@@ -226,7 +226,9 @@
                                                     if ($comment['status'] == 0) : ?>
                                                         <tr style="background-color: #FFD18E;">
                                                             <td><?= substr($comment['content'], 0, 150);
-                                                                if (strlen($comment['content']) > 150) echo '...'; ?> </td>
+                                                        if (strlen($comment['content']) > 150) {
+                                                            echo '...';
+                                                        } ?> </td>
                                                             <td><?= $comment['author'] ?></td>
                                                             <td><a title="Approve" class="btn btn-info btn-icon" href="admin.php?controller=comment&action=approved&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-check-circle"></i></a>
                                                                 <a title="Add Trash" class="btn btn-danger btn-icon" href="admin.php?controller=comment&action=trash-action&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-delete"></i></a>
@@ -236,7 +238,9 @@
                                                     <?php else : ?>
                                                         <tr>
                                                             <td><?= substr($comment['content'], 0, 150);
-                                                                if (strlen($comment['content']) > 150) echo '...'; ?> </td>
+                                                        if (strlen($comment['content']) > 150) {
+                                                            echo '...';
+                                                        } ?> </td>
                                                             <td><?= $comment['author'] ?></td>
                                                             <td><a title="Unapprove" class="btn btn-default btn-icon" href="admin.php?controller=comment&action=unapproved&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-minus-circle"></i></a>
                                                                 <a title="Add Trash" class="btn btn-danger btn-icon" href="admin.php?controller=comment&action=trash-action&comment_id=<?= $comment['id'] ?>"> <i class="zmdi zmdi-delete"></i></a>
@@ -373,7 +377,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-case-check"></i> Sản phẩm mới cập nhật</td>
-                                                    <td><?= get_time($product_update['editDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
+                                                    <td><?= getTime($product_update['editDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><i class="zmdi zmdi-account-add"></i> Người dùng mới</td>

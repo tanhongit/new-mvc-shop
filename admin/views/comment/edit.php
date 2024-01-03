@@ -67,15 +67,21 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <div class="radio inlineblock m-r-20">
-                                        <input type="radio" name="status" id="male" class="with-gap" value="1" <?php if ($comment['status'] == "1") echo "checked"; ?>>
+                                        <input type="radio" name="status" id="male" class="with-gap" value="1" <?php if ($comment['status'] == "1") {
+                                            echo "checked";
+                                        } ?>>
                                         <label for="male">Approve</label>
                                     </div>
                                     <div class="radio inlineblock">
-                                        <input type="radio" name="status" id="Female" class="with-gap" <?php if ($comment['status'] == "0") echo "checked"; ?> value="0">
+                                        <input type="radio" name="status" id="Female" class="with-gap" <?php if ($comment['status'] == "0") {
+                                            echo "checked";
+                                        } ?> value="0">
                                         <label for="Female">Pending</label>
                                     </div>
                                     <div class="radio inlineblock">
-                                        <input type="radio" name="status" id="Female" class="with-gap" <?php if ($comment['status'] == "3") echo "checked"; ?> value="3">
+                                        <input type="radio" name="status" id="Female" class="with-gap" <?php if ($comment['status'] == "3") {
+                                            echo "checked";
+                                        } ?> value="3">
                                         <label for="Female">Spam</label>
                                     </div>
                                 </div>

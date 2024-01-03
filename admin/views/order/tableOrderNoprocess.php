@@ -1,14 +1,14 @@
 <?php
-$options = array(
+$options = [
     'where' => 'status = 0',
-    'order_by' => 'createtime DESC'
-);
-$order_noprocess = get_all('orders', $options);
-$status = array(
+    'order_by' => 'createtime DESC',
+];
+$order_noprocess = getAll('orders', $options);
+$status = [
     0 => 'Chưa xử lý',
     1 => 'Đã xử lý',
-    2 => 'Đang xử lý'
-); ?>
+    2 => 'Đang xử lý',
+]; ?>
 <!-- Basic Examples -->
 <div class="row clearfix">
     <div class="col-lg-12">
@@ -58,7 +58,7 @@ $status = array(
                                 <tr>
                                     <td><?= $order['id'] ?></td>
                                     <td><a href="admin.php?controller=order&amp;action=view&amp;order_id=<?= $order['id']; ?>"><?= $order['customer']; ?></a></td>
-                                    <?php if ($order['user_id'] <> 0) : $user_order = get_a_record('users', $order['user_id']) ?>
+                                    <?php if ($order['user_id'] <> 0) : $user_order = getRecord('users', $order['user_id']) ?>
                                         <td><?= $user_order['user_username'] ?> | <?= $user_order['id'] ?></td>
                                     <?php else : ?>
                                         <td></td>

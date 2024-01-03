@@ -1,7 +1,7 @@
 <?php
-$contacts = get_a_record('contacts', 1);
+$contacts = getRecord('contacts', 1);
 global $userNav;
-$userInfoNav = get_a_record('users', $userNav) ?>
+$userInfoNav = getRecord('users', $userNav) ?>
 <!doctype html>
 <html class="no-js " lang="en">
 

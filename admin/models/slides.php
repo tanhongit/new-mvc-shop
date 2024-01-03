@@ -1,8 +1,9 @@
 <?php
+
 function slide_delete($id)
 {
     $id = intval($id);
-    $slide = get_a_record('slides', $id);
+    $slide = getRecord('slides', $id);
     $image1 = 'public/upload/slides/' . $slide['slide_img1'];
     if (is_file($image1)) {
         unlink($image1);
@@ -30,7 +31,7 @@ function slide_delete($id)
 function slide_update()
 {
     $name = escape($_POST['name']);
-    $slides = array(
+    $slides = [
         'id' => intval($_POST['slide_id']),
         'slide_name' => escape($_POST['name']),
         'slide_text1' => escape($_POST['slide_text1']),
@@ -38,77 +39,77 @@ function slide_update()
         'slide_text3' => escape($_POST['slide_text3']),
         'slide_text4' => escape($_POST['slide_text4']),
         'slide_text5' => escape($_POST['slide_text5']),
-        'status' => intval($_POST['status'])
-    );
+        'status' => intval($_POST['status']),
+    ];
     $slideId = save('slides', $slides);
     $image_name1 = 'image1' . '-' . $slideId . '-' . slug($name);
-    $config = array(
+    $config = [
         'name' => $image_name1,
         'upload_path' => 'public/upload/slides/',
         'allowed_exts' => 'jpg|jpeg|png|gif',
-    );
+    ];
     $image1 = upload('image1', $config); //$field = name of input
     if ($image1) {
-        $slides = array(
+        $slides = [
             'id' => $slideId,
-            'slide_img1' => $image1
-        );
+            'slide_img1' => $image1,
+        ];
         save('slides', $slides);
     }
     $image_name2 = 'image2' . '-' . $slideId . '-' . slug($name);
-    $config = array(
+    $config = [
         'name' => $image_name2,
         'upload_path' => 'public/upload/slides/',
         'allowed_exts' => 'jpg|jpeg|png|gif',
-    );
+    ];
     $image2 = upload('image2', $config);
     if ($image2) {
-        $slides = array(
+        $slides = [
             'id' => $slideId,
-            'slide_img2' => $image2
-        );
+            'slide_img2' => $image2,
+        ];
         save('slides', $slides);
     }
     $image_name3 = 'image3' . '-' . $slideId . '-' . slug($name);
-    $config = array(
+    $config = [
         'name' => $image_name3,
         'upload_path' => 'public/upload/slides/',
         'allowed_exts' => 'jpg|jpeg|png|gif',
-    );
+    ];
     $image3 = upload('image3', $config);
     if ($image3) {
-        $slides = array(
+        $slides = [
             'id' => $slideId,
-            'slide_img3' => $image3
-        );
+            'slide_img3' => $image3,
+        ];
         save('slides', $slides);
     }
     $image_name4 = 'image4' . '-' . $slideId . '-' . slug($name);
-    $config = array(
+    $config = [
         'name' => $image_name4,
         'upload_path' => 'public/upload/slides/',
         'allowed_exts' => 'jpg|jpeg|png|gif',
-    );
+    ];
     $image4 = upload('image4', $config);
     if ($image4) {
-        $slides = array(
+        $slides = [
             'id' => $slideId,
-            'slide_img4' => $image4
-        );
+            'slide_img4' => $image4,
+        ];
         save('slides', $slides);
     }
     $image_name5 = 'image5' . '-' . $slideId . '-' . slug($name);
-    $config = array(
+    $config = [
         'name' => $image_name5,
         'upload_path' => 'public/upload/slides/',
         'allowed_exts' => 'jpg|jpeg|png|gif',
-    );
+    ];
     $image5 = upload('image5', $config);
     if ($image5) {
-        $slides = array(
+        $slides = [
             'id' => $slideId,
-            'slide_img5' => $image5
-        );
+            'slide_img5' => $image5,
+        ];
         save('slides', $slides);
     }
     header('location:admin.php?controller=slide');

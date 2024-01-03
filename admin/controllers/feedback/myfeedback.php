@@ -4,10 +4,10 @@ $title = 'Tất cả phản hồi của bạn';
 $navFeedback = $yourFeedback = 'class="active open"';
 global $userNav;
 
-$option = array(
+$option = [
     'order_by' => 'id desc',
-    'where' => 'user_id=' . $userNav
-);
-$feedbacks = get_all('feedbacks', $option);
+    'where' => 'user_id=' . $userNav,
+];
+$feedbacks = getAll('feedbacks', $option);
 
 require('admin/views/feedback/myfeedback.php');

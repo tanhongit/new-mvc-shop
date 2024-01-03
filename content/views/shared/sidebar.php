@@ -1,20 +1,20 @@
 <?php
-$get_id = array(
-    'order_by' => 'id'
-);
-$sub_cate = get_all('subcategory', $get_id);
-$shops = get_all('categories', $get_id);
-$types = get_all('types', $get_id);
-$product_top = get_all('products', array(
+$get_id = [
+    'order_by' => 'id',
+];
+$sub_cate = getAll('subcategory', $get_id);
+$shops = getAll('categories', $get_id);
+$types = getAll('types', $get_id);
+$product_top = getAll('products', [
     'limit' => '6',
     'offset' => '0',
-    'order_by' => 'totalView DESC'
-));
-$product_new = get_all('products', array(
+    'order_by' => 'totalView DESC',
+]);
+$product_new = getAll('products', [
     'limit' => '5',
     'offset' => '0',
-    'order_by' => 'id DESC'
-));
+    'order_by' => 'id DESC',
+]);
 ?>
 <aside class="sidebar">
     <h3 style="font-weight: bold;">Tìm kiếm</h3>
@@ -52,8 +52,11 @@ $product_new = get_all('products', array(
                 <div class="post-info">
                     <a href="product/<?= $topview_product['id'] . '-' . slug($topview_product['product_name']) ?>"><?= $topview_product['product_name'] ?></a>
                     <div class="post-meta">
-                        <?php if ($topview_product['saleoff'] != 0) echo number_format(($topview_product['product_price']) - (($topview_product['product_price'] * $topview_product['percentoff']) / 100), 0, ',', '.') . ' VNĐ';
-                        else echo number_format($topview_product['product_price'], 0, ',', '.') . ' VNĐ'; ?>
+                        <?php if ($topview_product['saleoff'] != 0) {
+                            echo number_format(($topview_product['product_price']) - (($topview_product['product_price'] * $topview_product['percentoff']) / 100), 0, ',', '.') . ' VNĐ';
+                        } else {
+                            echo number_format($topview_product['product_price'], 0, ',', '.') . ' VNĐ';
+                        } ?>
                     </div>
                 </div>
             </li>
@@ -74,8 +77,11 @@ $product_new = get_all('products', array(
                     <div class="post-info">
                         <a href="product/<?= $topview_product['id'] . '-' . slug($topview_product['product_name']) ?>"><?= $topview_product['product_name'] ?></a>
                         <div class="post-meta">
-                            <?php if ($topview_product['saleoff'] != 0) echo number_format(($topview_product['product_price']) - (($topview_product['product_price'] * $topview_product['percentoff']) / 100), 0, ',', '.') . ' VNĐ';
-                            else echo number_format($topview_product['product_price'], 0, ',', '.') . ' VNĐ'; ?>
+                            <?php if ($topview_product['saleoff'] != 0) {
+                                echo number_format(($topview_product['product_price']) - (($topview_product['product_price'] * $topview_product['percentoff']) / 100), 0, ',', '.') . ' VNĐ';
+                            } else {
+                                echo number_format($topview_product['product_price'], 0, ',', '.') . ' VNĐ';
+                            } ?>
                         </div>
                     </div>
                 </li>

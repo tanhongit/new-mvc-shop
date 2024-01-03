@@ -16,7 +16,7 @@ if (isset($_GET['feedback_id'])) {
 }
 
 $title = $feedbackId === 0 ? '' : 'Trả lời cho phản hồi của khách hàng';
-$feedback = get_a_record('feedbacks', $feedbackId);
+$feedback = getRecord('feedbacks', $feedbackId);
 $navFeedback = 'class="active open"';
 
 require('admin/views/feedback/reply.php');

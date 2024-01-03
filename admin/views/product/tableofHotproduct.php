@@ -1,9 +1,9 @@
 <?php
-$options = array(
+$options = [
     'where' => 'product_typeid = 1',
-    'order_by' => 'createDate'
-);
-$products = get_all('products', $options); ?>
+    'order_by' => 'createDate',
+];
+$products = getAll('products', $options); ?>
 <!-- Basic Examples -->
 <div class="row clearfix">
     <div class="col-lg-12">
@@ -54,7 +54,9 @@ $products = get_all('products', $options); ?>
                                     <td><?= $product['id'] ?></td>
                                     <td><a href="admin.php?controller=product&amp;action=edit&amp;product_id=<?= $product['id']; ?>"><?= $product['product_name']; ?></a></td>
                                     <td><?= $product ? number_format($product['product_price'], 0, ',', '.') : 0; ?></td>
-                                    <td><?php if ($product["saleoff"] == 1) echo number_format(($product['product_price'] - (($product['product_price']) * ($product['percentoff']) / 100)), 0, ',', '.'); ?></td>
+                                    <td><?php if ($product["saleoff"] == 1) {
+                                        echo number_format(($product['product_price'] - (($product['product_price']) * ($product['percentoff']) / 100)), 0, ',', '.');
+                                    } ?></td>
                                     <td><?= $product['createDate'] ?></td>
                                     <td><?= '<image src="public/upload/products/' . $product['img1'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
                                     <td><?= $product['totalView'] ?></td>

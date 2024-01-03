@@ -1,11 +1,14 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
 
-function addFeedbackOrder()
+/**
+ * @return void
+ */
+function addFeedbackOrder(): void
 {
-    $feedback_add = array(
+    $feedback_add = [
         'id' => intval($_POST['feedback_id']),
         'name' => escape($_POST['name']),
         'createTime' => gmdate('Y-m-d H:i:s', time() + 7 * 3600),
@@ -15,23 +18,34 @@ function addFeedbackOrder()
         'user_id' => intval($_POST['user_id']),
         'product_id' => 0,
         'order_id' => intval($_POST['order_id']),
-        'status' => 0
-    );
+        'status' => 0,
+    ];
     save('feedbacks', $feedback_add);
-    echo "<div style='padding-top: 200px' class='container'><div style='text-align: center;' class='alert alert-success'><strong>Done!</strong> Thư phản hồi của bạn đã được gửi đến hệ thống của quán Chị Kòi. Cảm ơn bạn đã gửi lại phải hồi về quán. <br><br>Hãy đến <a href='admin.php'>Dashboard</a></div></div>";
-    require('content/views/feedback/result.php');
-    exit;
 }
-function deleteFeedback($id)
+
+/**
+ * @param  int  $id
+ *
+ * @return void
+ */
+function deleteFeedback(int $id): void
 {
-    global $linkConnectDB;
-    $id = intval($id);
-    $sql = "DELETE FROM feedbacks WHERE id=$id";
-    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
+    $sql = "DELETE FROM feedbacks WHERE id = ?";
+
+    try {
+        $stmt = executeQuery($sql, [$id]);
+        $stmt->close();
+    } catch (\Exception $e) {
+        die($e->getMessage());
+    }
 }
-function updateFeedback()
+
+/**
+ * @return void
+ */
+function updateFeedback(): void
 {
-    $feedback = array(
+    $feedback = [
         'id' => intval($_POST['feedback_id']),
         'name' => escape($_POST['name']),
         'email' => escape($_POST['email']),
@@ -39,7 +53,7 @@ function updateFeedback()
         'subject' => escape($_POST['subject']),
         'editTime' => gmdate('Y-m-d H:i:s', time() + 7 * 3600),
         'status' => intval($_POST['status']),
-    );
+    ];
     save('feedbacks', $feedback);
     header('location:admin.php?controller=feedback');
 }
@@ -49,6 +63,7 @@ function feedbackReplyMail($html, $email)
     require 'vendor/autoload.php';
     include 'lib/config/sendmail.php';
     $mail = new PHPMailer(true);
+
     try {
         //content
         $htmlStr = $html;
@@ -80,21 +95,37 @@ function feedbackReplyMail($html, $email)
         echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
     }
 }
-function approveFeedback($id)
+
+/**
+ * @param  int  $id
+ *
+ * @return void
+ */
+function approveFeedback(int $id): void
 {
-    if (isset($_GET['feedback_id'])) {
-        $id = intval($_GET['feedback_id']);
-    } else show_404();
-    global $linkConnectDB;
-    $sql = "UPDATE feedbacks SET status=1 where id=" . $id;
-    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
+    $sql = "UPDATE feedbacks SET status=1 where id= ?";
+
+    try {
+        $stmt = executeQuery($sql, [$id]);
+        $stmt->close();
+    } catch (\Exception $e) {
+        die($e->getMessage());
+    }
 }
-function unApproveFeedback($id)
+
+/**
+ * @param  int  $id
+ *
+ * @return void
+ */
+function unApproveFeedback(int $id): void
 {
-    if (isset($_GET['feedback_id'])) {
-        $id = intval($_GET['feedback_id']);
-    } else show_404();
-    global $linkConnectDB;
-    $sql = "UPDATE feedbacks SET status=0 where id=" . $id;
-    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
+    $sql = "UPDATE feedbacks SET status=0 where id= ?";
+
+    try {
+        $stmt = executeQuery($sql, [$id]);
+        $stmt->close();
+    } catch (\Exception $e) {
+        die($e->getMessage());
+    }
 }

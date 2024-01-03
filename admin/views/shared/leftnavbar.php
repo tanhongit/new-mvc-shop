@@ -10,15 +10,21 @@
                     <a class="image" href="admin.php?controller=user&action=info&user_id=<?= $userNav ?>"><img src="public/upload/images/<?= $userInfoNav['user_avatar'] ?>" alt="User"></a>
                     <div class="detail">
                         <h4><?= $userInfoNav['user_name'] ?></h4>
-                        <small><?php if ($userInfoNav['role_id'] == 1) echo 'Admin';
-                                elseif ($userInfoNav['role_id'] == 2) echo 'Moderator';
-                                else echo "User"; ?></small>
+                        <small><?php if ($userInfoNav['role_id'] == 1) {
+                            echo 'Admin';
+                        } elseif ($userInfoNav['role_id'] == 2) {
+                            echo 'Moderator';
+                        } else {
+                            echo "User";
+                        } ?></small>
                     </div>
                 </div>
             </li>
             <li class="open"><a href="<?= PATH_URL ?>home" target="_blank"><i class="zmdi zmdi-home"></i><span>Quay lại SHOP</span></a></li>
             <li <?= $homeNav ?? '' ?>><a href="admin.php"><i class="zmdi zmdi-view-dashboard"></i><span>Bảng điều khiển</span></a></li>
-            <li <?php if (isset($nav_profile)) echo $nav_profile; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
+            <li <?php if (isset($nav_profile)) {
+                echo $nav_profile;
+            } ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
                 <ul class="ml-menu">
                     <li><a href="admin.php?controller=user&action=info&user_id=<?= $userNav ?>">Your profile</a></li>
                     <li><a href="admin.php?controller=user&action=change-password&user_id=<?= $userInfoNav['id'] ?>">Change your Password</a></li>
@@ -101,14 +107,18 @@
                         <li><a href="admin.php?controller=order&amp;action=order-cancell">Đơn hàng đã bị hủy</a></li>
                     </ul>
                 </li>
-                <li <?php if (isset($nav_user)) echo $nav_user; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>User</span></a>
+                <li <?php if (isset($nav_user)) {
+                    echo $nav_user;
+                } ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>User</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=user&action=info&user_id=<?= $userNav ?>">Your Profile</a></li>
                         <li><a href="admin.php?controller=user&action=listall">List Profile</a></li>
                         <li><a href="admin.php?controller=user&action=add">Add New User</a></li>
                     </ul>
                 </li>
-                <li <?php if (isset($navMedia)) echo $navMedia; ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-collection-folder-image"></i><span>Media</span></a>
+                <li <?php if (isset($navMedia)) {
+                    echo $navMedia;
+                } ?>><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-collection-folder-image"></i><span>Media</span></a>
                     <ul class="ml-menu">
                         <li><a href="admin.php?controller=media&action=image-gallery">Product Image Gallery</a></li>
                         <li><a href="admin.php?controller=media">Library Media Upload</a></li>

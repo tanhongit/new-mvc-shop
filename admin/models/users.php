@@ -1,8 +1,9 @@
 <?php
+
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
-use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
 
 function userLogin($input, $password)
 {
@@ -14,7 +15,7 @@ function userLogin($input, $password)
     //     $type = "user_email";
     // } else {
     //     $type = "user_username";
-    // } 
+    // }
     // $sql = "SELECT * FROM users WHERE $type='$input' AND user_password='$password' LIMIT 0,1";
 
     // //cách 2
@@ -33,13 +34,15 @@ function userLogin($input, $password)
         $_SESSION['user'] = mysqli_fetch_assoc($query);
         global $userNav;
         $userNav = $_SESSION['user']['id'];
+
         return true;
     }
+
     return false;
 }
 function userDestroy($id)
 {
-    $user = get_a_record('users', $id);
+    $user = getRecord('users', $id);
     $image = 'public/upload/images/' . $user['user_avatar'];
     if (is_file($image)) {
         unlink($image);
@@ -54,23 +57,24 @@ function changePassword($id, $newpassword, $currentPassword)
     global $linkConnectDB;
     $sql = "Update users SET user_password='$newpassword' WHERE id='$id' AND user_password = '$currentPassword'";
     mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
-    $rows =  mysqli_affected_rows($linkConnectDB); //Gets the number of affected rows in a previous MySQL operation
+    $rows = mysqli_affected_rows($linkConnectDB); //Gets the number of affected rows in a previous MySQL operation
     if ($rows <> 1) {
         return  "<div style='padding-top: 200px' class='container'><div class='alert alert-danger' style='text-align: center;'><strong>NO!</strong> Việc thay đổi mật khẩu có vấn đề. Bạn đã nhập mật khẩu hiện tại không đúng !! <br><a href='javascript: history.go(-1)'>Trở lại</a> hoặc <a href='admin.php'>Đến Dashboard</a></div></div>" . mysqli_error($linkConnectDB);
     } else {
-        $options = array(
+        $options = [
             'id' => $id,
             'user_password' => $newpassword,
-            'editTime' => gmdate('Y-m-d H:i:s', time() + 7 * 3600)
+            'editTime' => gmdate('Y-m-d H:i:s', time() + 7 * 3600),
 
-        );
+        ];
         save('users', $options);
         //sendmail
         require 'vendor/autoload.php';
         include 'lib/config/sendmail.php';
         $mail = new PHPMailer(true);
-        $user = get_a_record('users', $id);
+        $user = getRecord('users', $id);
         $email = $user['user_email'];
+
         try {
             //content
             $htmlStr = "";
@@ -106,20 +110,27 @@ function changePassword($id, $newpassword, $currentPassword)
         } catch (Exception $e) {
             echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
         }
+
         return '<div style="padding-top: 200px" class="container"><div class="alert alert-success" style="text-align: center;"><strong>Tốt!</strong> Bạn đã thay đổi mật khẩu thành công. Và một tin nhắn thông báo đã được gửi đến Email của người dùng này. Hãy <a href="admin.php?controller=home&action=logout">Đăng xuất</a> và đăng nhập lại.!!</div></div>';
     }
 }
 function user_update()
 {
     global $userNav;
-    $user_login = get_a_record('users', $userNav);
-    if ($_POST['user_id'] <> 0) $editTime = gmdate('Y-m-d H:i:s', time() + 7 * 3600);
-    else $editTime = '0000-00-00 00:00:00';
+    $user_login = getRecord('users', $userNav);
+    if ($_POST['user_id'] <> 0) {
+        $editTime = gmdate('Y-m-d H:i:s', time() + 7 * 3600);
+    } else {
+        $editTime = '0000-00-00 00:00:00';
+    }
 
-    if (isset($_POST['roleid']) && $user_login['role_id'] == 1) $roleid = $_POST['roleid'];
-    else $roleid = $user_login['role_id'];
+    if (isset($_POST['roleid']) && $user_login['role_id'] == 1) {
+        $roleid = $_POST['roleid'];
+    } else {
+        $roleid = $user_login['role_id'];
+    }
 
-    $user_edit = array(
+    $user_edit = [
         'id' => intval($_POST['user_id']),
         'user_email' => escape($_POST['email']),
         'user_username' => escape($_POST['username']),
@@ -127,8 +138,8 @@ function user_update()
         'user_address' => escape($_POST['address']),
         'user_phone' => escape($_POST['phone']),
         'editTime' => $editTime,
-        'role_id' => $roleid
-    );
+        'role_id' => $roleid,
+    ];
     global $linkConnectDB;
     $email_check = addslashes($_POST['email']);
     $id_check = intval($_POST['user_id']);
@@ -137,31 +148,32 @@ function user_update()
         require('admin/views/user/result.php');
         exit;
     } else {
-        $get_currentEmail_user = get_a_record('users', $_POST['user_id']);
+        $get_currentEmail_user = getRecord('users', $_POST['user_id']);
         $currentEmail = $get_currentEmail_user['user_email'];
-        $userId =  save('users', $user_edit);
+        $userId = save('users', $user_edit);
         $avatar_name = 'avatar-user' . $userId . '-' . slug($_POST['username']);
-        $config = array(
+        $config = [
             'name' => $avatar_name,
-            'upload_path'  => 'public/upload/images/',
+            'upload_path' => 'public/upload/images/',
             'allowed_exts' => 'jpg|jpeg|png|gif',
-        );
+        ];
         $avatar = upload('imagee', $config);
         //cập nhật ảnh mới
         if ($avatar) {
-            $user_edit = array(
+            $user_edit = [
                 'id' => $userId,
-                'user_avatar' => $avatar
-            );
+                'user_avatar' => $avatar,
+            ];
             save('users', $user_edit);
         }
-        $user_edited = get_a_record('users', $userId);
+        $user_edited = getRecord('users', $userId);
         if ($user_edited['user_email'] != $currentEmail) {
             //send mail
             require 'vendor/autoload.php';
             include 'lib/config/sendmail.php';
             $email = $user_edited['user_email'];
             $mail = new PHPMailer(true);
+
             try {
                 $verificationCode = md5(uniqid("Email của bạn vừa mới đổi đó và chưa active đâu. Nhấn vào đây để active nhé! Yêu bạn 3 nghìn", true)); //https://www.php.net/manual/en/function.uniqid
                 $verificationLink = PATH_URL . "index.php?controller=register&action=reactivate&code=" . $verificationCode;
@@ -200,11 +212,11 @@ function user_update()
             } catch (Exception $e) {
                 echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
             }
-            $verificationCode_add = array(
+            $verificationCode_add = [
                 'id' => $userId,
                 'verificationCode' => $verificationCode,
-                'verified' => 0
-            );
+                'verified' => 0,
+            ];
             save('users', $verificationCode_add);
         }
         header('location:admin.php?controller=user&action=info&user_id=' . intval($_POST['user_id']));
@@ -212,7 +224,7 @@ function user_update()
 }
 function user_add()
 {
-    $user_add = array(
+    $user_add = [
         'id' => intval($_POST['user_id']),
         'user_username' => escape($_POST['username']),
         'user_password' => md5($_POST['password']),
@@ -221,8 +233,8 @@ function user_add()
         'user_name' => escape($_POST['name']),
         'user_address' => escape($_POST['address']),
         'createDate' => gmdate('Y-m-d H:i:s', time() + 7 * 3600),
-        'user_phone' => escape($_POST['phone'])
-    );
+        'user_phone' => escape($_POST['phone']),
+    ];
     global $linkConnectDB;
     $username = addslashes($_POST['username']);
     $email = addslashes($_POST['email']);
@@ -243,25 +255,26 @@ function user_add()
         require('admin/views/user/addresult.php');
         exit;
     } else {
-        $userId =  save('users', $user_add);
+        $userId = save('users', $user_add);
         $avatar_name = 'avatar-user' . $userId . '-' . slug($_POST['username']);
-        $config = array(
+        $config = [
             'name' => $avatar_name,
-            'upload_path'  => 'public/upload/images/',
+            'upload_path' => 'public/upload/images/',
             'allowed_exts' => 'jpg|jpeg|png|gif',
-        );
+        ];
         $avatar = upload('imagee', $config);
         if ($avatar) {
-            $user_add = array(
+            $user_add = [
                 'id' => $userId,
-                'user_avatar' => $avatar
-            );
+                'user_avatar' => $avatar,
+            ];
             save('users', $user_add);
         }
         //send mail
         require 'vendor/autoload.php';
         include 'lib/config/sendmail.php';
         $mail = new PHPMailer(true);
+
         try {
             $verificationCode = md5(uniqid("Email của bạn vừa mới đổi đó và chưa active đâu. Nhấn vào đây để active nhé! Yêu bạn 3 nghìn", true)); //https://www.php.net/manual/en/function.uniqid
             $verificationLink = PATH_URL . "index.php?controller=register&action=activate&code=" . $verificationCode;
@@ -300,11 +313,11 @@ function user_add()
         } catch (Exception $e) {
             echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
         }
-        $verificationCode_add = array(
+        $verificationCode_add = [
             'id' => $userId,
             'verificationCode' => $verificationCode,
-            'verified' => 0
-        );
+            'verified' => 0,
+        ];
         save('users', $verificationCode_add);
         header('location:admin.php?controller=user&action=info&user_id=' . $userId);
     }

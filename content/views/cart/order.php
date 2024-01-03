@@ -5,8 +5,11 @@
         <div class="row">
             <div class="col-md-12">
                 <h2 class="shorter"><strong>Thủ tục thanh toán và đặt hàng</strong></h2>
-                <?php if (!isset($userNav)) echo '<p>Phản hồi của khách hàng? <a href="admin.php">Nhấn vào đây để đăng nhập.</a></p>';
-                else echo '<p>Phản hồi của Bạn? <strong><a href="index.php&controller=feedback">Nhấn vào đây để gửi phản hồi.</a></strong></p>' ?>
+                <?php if (!isset($userNav)) {
+                    echo '<p>Phản hồi của khách hàng? <a href="admin.php">Nhấn vào đây để đăng nhập.</a></p>';
+                } else {
+                    echo '<p>Phản hồi của Bạn? <strong><a href="index.php&controller=feedback">Nhấn vào đây để gửi phản hồi.</a></strong></p>';
+                } ?>
             </div>
         </div>
         <div class="row">

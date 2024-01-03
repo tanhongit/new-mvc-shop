@@ -71,25 +71,31 @@
                                     <tbody>
                                         <?php
                                         $stt = 0;
-                                        $order_total = 0;
-                                        foreach ($orderDetail as $product) :
-                                            $stt++;
-                                            if ($product["product_typeid"] == 3) {
-                                                $order_total += ($product['product_price'] - (($product['product_price']) * ($product['percentoff']) / 100)) * $product['quantity'];
-                                            } else
-                                                $order_total += $product['product_price'] * $product['quantity'];
-                                        ?>
+$order_total = 0;
+foreach ($orderDetail as $product) :
+    $stt++;
+    if ($product["product_typeid"] == 3) {
+        $order_total += ($product['product_price'] - (($product['product_price']) * ($product['percentoff']) / 100)) * $product['quantity'];
+    } else {
+        $order_total += $product['product_price'] * $product['quantity'];
+    }
+    ?>
                                             <tr>
                                                 <td><?= $stt; ?></td>
                                                 <td><a href="product/<?= $product['id']; ?>-<?= $product['slug'] ?>"><?= $product['product_name']; ?></a></td>
-                                                <td><?php if (is_file("public/upload/products/" . $product['img1'])) echo '<image src="public/upload/products/' . $product['img1'] . '?time=' . time() . '" style="max-width:50px;" />'; ?></td>
+                                                <td><?php if (is_file("public/upload/products/" . $product['img1'])) {
+                                                    echo '<image src="public/upload/products/' . $product['img1'] . '?time=' . time() . '" style="max-width:50px;" />';
+                                                } ?></td>
                                                 <td><?= number_format($product['product_price'], 0, ',', '.') ?></td>
-                                                <td><? if ($product['saleoff'] == 1) echo ($product['product_price'] - (($product['product_price']) * ($product['percentoff']) / 100)); ?></td>
+                                                <td><?php if ($product['saleoff'] == 1) {
+                                                    echo($product['product_price'] - (($product['product_price']) * ($product['percentoff']) / 100));
+                                                } ?></td>
                                                 <td><?= $product['quantity'] ?></td>
                                                 <td><?php if ($product["product_typeid"] == 3) {
-                                                        echo number_format((($product['product_price'] - (($product['product_price']) * ($product['percentoff']) / 100)) * $product['quantity']), 0, ',', '.');
-                                                    } else
-                                                        echo number_format($product['product_price'] * $product['quantity'], 0, ',', '.'); ?></td>
+                                                    echo number_format((($product['product_price'] - (($product['product_price']) * ($product['percentoff']) / 100)) * $product['quantity']), 0, ',', '.');
+                                                } else {
+                                                    echo number_format($product['product_price'] * $product['quantity'], 0, ',', '.');
+                                                } ?></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

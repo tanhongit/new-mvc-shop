@@ -1,4 +1,5 @@
 <?php
+
 function orderDetail($orderId)
 {
     global $linkConnectDB;
@@ -7,39 +8,50 @@ function orderDetail($orderId)
 			INNER JOIN products ON products.id=order_detail.product_id
 			WHERE order_detail.order_id=$orderId";
     $query = mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
-    $data = array();
+    $data = [];
     if (mysqli_num_rows($query) > 0) {
         while ($row = mysqli_fetch_assoc($query)) {
             $data[] = $row;
         }
         mysqli_free_result($query);
     }
+
     return $data;
 }
 function orderDestroy($id)
 {
     if (isset($_GET['order_id'])) {
         $id = intval($_GET['order_id']);
-    } else show_404();
+    } else {
+        show404NotFound();
+    }
     global $linkConnectDB;
     $sql = "DELETE FROM orders WHERE id=$id";
     mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
-function orderComplete($id)
+
+/**
+ * @return void
+ */
+function orderComplete(): void
 {
     $id = intval($_POST['order_id']);
-    $order = array(
+    $order = [
         'id' => $id,
-        'status' => 1
-    );
+        'status' => 1,
+    ];
     save('orders', $order);
 }
-function orderInProcess($id)
+
+/**
+ * @return void
+ */
+function orderInProcess(): void
 {
     $id = intval($_POST['order_id']);
-    $order = array(
+    $order = [
         'id' => $id,
-        'status' => 2
-    );
+        'status' => 2,
+    ];
     save('orders', $order);
 }

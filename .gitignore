@@ -7,3 +7,4 @@ vendor
 *.log
 docker/certs
 docker/logs
+.php-cs-fixer.cache

@@ -2,7 +2,7 @@
 <div role="main" class="main">
     <?php
     require 'slide.php';
-    require 'newproduct.php'; ?>
+require 'newproduct.php'; ?>
     <div class="home-concept">
         <div class="container">
 
@@ -44,9 +44,9 @@
         </div>
     </div>
     <?php
-    require 'hotproduct.php';
-    require 'saleproduct.php';
-    ?>
+require 'hotproduct.php';
+require 'saleproduct.php';
+?>
 </div>
 <?php
 require('content/views/shared/footer.php');

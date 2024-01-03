@@ -1,14 +1,15 @@
 <?php
+
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
-use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
 
 if (!empty($_GET['id'])) {
-    $option = array(
-        'order_by' => 'id'
-    );
-    $get_user_notActive = get_all('users', $option);
+    $option = [
+        'order_by' => 'id',
+    ];
+    $get_user_notActive = getAll('users', $option);
     foreach ($get_user_notActive as $user) {
         if ($user['id'] == $_GET['id']) {
             $email = $user['user_email'];
@@ -20,6 +21,7 @@ if (!empty($_GET['id'])) {
     require 'vendor/autoload.php';
     include 'lib/config/sendmail.php';
     $mail = new PHPMailer(true);
+
     try {
         $verificationLink = PATH_URL . "index.php?controller=register&action=activate&code=" . $verification_Code;
         //content

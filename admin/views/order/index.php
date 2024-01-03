@@ -74,7 +74,7 @@
                                             <tr>
                                                 <td><?= $order['id'] ?></td>
                                                 <td><a href="admin.php?controller=order&amp;action=view&amp;order_id=<?= $order['id']; ?>"><?= $order['customer']; ?></a></td>
-                                                <?php if ($order['user_id'] <> 0) : $user_order = get_a_record('users', $order['user_id']) ?>
+                                                <?php if ($order['user_id'] <> 0) : $user_order = getRecord('users', $order['user_id']) ?>
                                                     <td><?= $user_order['user_username'] ?> | <?= $user_order['id'] ?></td>
                                                 <?php else : ?>
                                                     <td></td>
@@ -82,15 +82,19 @@
                                                 <td><?= $order['createtime'] ?></td>
                                                 <td><?= number_format($order['cart_total'], 0, ',', '.') ?></td>
                                                 <td><?= $status[$order['status']]; ?></td>
-                                                <td><a href="admin.php?controller=order&amp;action=view&amp;order_id=<?= $order['id']; ?>" class="btn btn-<?php if ($order['status'] == 0) echo 'warning';
-                                                                                                                                                                    elseif ($order['status'] == 1) echo 'success';
-                                                                                                                                                                    else echo 'primary' ?> waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-<?php if ($order['status'] == 0) {
-                                                                                                                                                                                                                                                                echo 'eyedropper';
-                                                                                                                                                                                                                                                            } elseif ($order['status'] == 1) {
-                                                                                                                                                                                                                                                                echo 'eye';
-                                                                                                                                                                                                                                                            } else {
-                                                                                                                                                                                                                                                                echo 'assignment-check';
-                                                                                                                                                                                                                                                            } ?>"></i></a></td>
+                                                <td><a href="admin.php?controller=order&amp;action=view&amp;order_id=<?= $order['id']; ?>" class="btn btn-<?php if ($order['status'] == 0) {
+                                                    echo 'warning';
+                                                } elseif ($order['status'] == 1) {
+                                                    echo 'success';
+                                                } else {
+                                                    echo 'primary';
+                                                } ?> waves-effect waves-float btn-sm waves-green"><i class="zmdi zmdi-<?php if ($order['status'] == 0) {
+                                                    echo 'eyedropper';
+                                                } elseif ($order['status'] == 1) {
+                                                    echo 'eye';
+                                                } else {
+                                                    echo 'assignment-check';
+                                                } ?>"></i></a></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

@@ -3,11 +3,11 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2><? ?></h2>
+                    <h2><?php ?></h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?= PATH_URL . 'home' ?>"><i class="zmdi zmdi-home"></i> ChiKoi</a></li>
                         <li class="breadcrumb-item"><a href="admin.php?controller=slide">Slide</a></li>
-                        <li class="breadcrumb-item active"><?= $slide ? 'Cập nhật slide: ' . $slide['slide_name']  : 'Thêm slide mới'; ?></li>
+                        <li class="breadcrumb-item active"><?= $slide ? 'Cập nhật slide: ' . $slide['slide_name'] : 'Thêm slide mới'; ?></li>
                     </ul>
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">
@@ -40,11 +40,15 @@
                                 <h2 class="card-inside-title" style="font-weight:bold;">Status kích hoạt hiện trên trang chủ:</h2>
                                 <div class="form-group">
                                     <div class="radio inlineblock m-r-20">
-                                        <input type="radio" name="status" id="male" class="with-gap" value="1" <?php if (isset($slide) && $slide['status'] == "1") echo "checked"; ?>>
+                                        <input type="radio" name="status" id="male" class="with-gap" value="1" <?php if (isset($slide) && $slide['status'] == "1") {
+                                            echo "checked";
+                                        } ?>>
                                         <label for="male">Kích hoạt</label>
                                     </div>
                                     <div class="radio inlineblock">
-                                        <input type="radio" name="status" id="Female" class="with-gap" <?php if (isset($slide) && $slide['status'] == "0") echo "checked"; ?> value="0">
+                                        <input type="radio" name="status" id="Female" class="with-gap" <?php if (isset($slide) && $slide['status'] == "0") {
+                                            echo "checked";
+                                        } ?> value="0">
                                         <label for="Female">Không kích hoạt</label>
                                     </div>
                                 </div>

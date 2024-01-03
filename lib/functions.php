@@ -1,27 +1,46 @@
 <?php
-// php.net
-function show_404()
+
+use JetBrains\PhpStorm\NoReturn;
+
+function show404NotFound(): void
 {
     header('HTTP/1.1 404 Not Found', true, 404);
     require('404.php');
     exit();
 }
-//Thoát các ký tự đặc biệt trong chuỗi
-function escape($str)
+
+/**
+ * Thoát các ký tự đặc biệt trong chuỗi
+ *
+ * @param  string  $str
+ *
+ * @return string
+ */
+function escape(string $str): string
 {
     global $linkConnectDB;
     return mysqli_real_escape_string($linkConnectDB, $str);
 }
-function pagination($url, $page, $total)
+
+/**
+ * @param  string  $url
+ * @param $page
+ * @param $total
+ *
+ * @return string
+ */
+function pagination(string $url, $page, $total): string
 {
-    $adjacents = 2;
+    $adjacent = 2;
     $out = '<ul class="pagination pull-right">';
+
     //first
     if ($page == 1) {
         $out .= '<li class="disabled"><span>Đầu</span></li>';
     } else {
         $out .= '<li><a href="' . $url . '">Đầu</a></li>';
     }
+
     // previous
     if ($page == 1) {
         $out .= '<li class="disabled"><span><i class="fa fa-chevron-left"></i></span></li>';
@@ -30,9 +49,9 @@ function pagination($url, $page, $total)
     } else {
         $out .= '<li><a href="' . $url . '&amp;page=' . ($page - 1) . '"><i class="fa fa-chevron-left"></i></a></li>';
     }
-    $pmin = ($page > $adjacents) ? ($page - $adjacents) : 1;
-    $pmax = ($page < ($total - $adjacents)) ? ($page + $adjacents) : $total;
-    for ($i = $pmin; $i <= $pmax; $i++) {
+    $min = ($page > $adjacent) ? ($page - $adjacent) : 1;
+    $max = ($page < ($total - $adjacent)) ? ($page + $adjacent) : $total;
+    for ($i = $min; $i <= $max; $i++) {
         if ($i == $page) {
             $out .= '<li class="active"><span>' . $i . '</span></li>';
         } elseif ($i == 1) {
@@ -41,12 +60,14 @@ function pagination($url, $page, $total)
             $out .= '<li><a href="' . $url . "&amp;page=" . $i . '">' . $i . '</a></li>';
         }
     }
+
     // next
     if ($page < $total) {
         $out .= '<li><a href="' . $url . '&amp;page=' . ($page + 1) . '"><i class="fa fa-chevron-right"></i></a></li>';
     } else {
         $out .= '<li class="disabled"><span><i class="fa fa-chevron-right"></i></span></li>';
     }
+
     //last
     if ($page < $total) {
         $out .= '<li><a href="' . $url . '&amp;page=' . $total . '">Cuối</a></li>';
@@ -58,58 +79,47 @@ function pagination($url, $page, $total)
     return $out;
 }
 
-//chuyển đổi name sang slug
-function stringURL($str)
+/**
+ * Change string to slug format
+ *
+ * @param $str
+ *
+ * @return array|string|string[]|null
+ */
+function convert_name($str): array|string|null
 {
-    $str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
-    $str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/", 'e', $str);
-    $str = preg_replace("/(ì|í|ị|ỉ|ĩ)/", 'i', $str);
-    $str = preg_replace("/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/", 'o', $str);
-    $str = preg_replace("/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/", 'u', $str);
-    $str = preg_replace("/(ỳ|ý|ỵ|ỷ|ỹ)/", 'y', $str);
-    $str = preg_replace("/(đ)/", 'd', $str);
-    $str = preg_replace("/(À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ)/", 'A', $str);
-    $str = preg_replace("/(È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ)/", 'E', $str);
-    $str = preg_replace("/(Ì|Í|Ị|Ỉ|Ĩ)/", 'I', $str);
-    $str = preg_replace("/(Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ)/", 'O', $str);
-    $str = preg_replace("/(Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ)/", 'U', $str);
-    $str = preg_replace("/(Ỳ|Ý|Ỵ|Ỷ|Ỹ)/", 'Y', $str);
-    $str = preg_replace("/(Đ)/", 'D', $str);
-    $str = preg_replace("/[^A-Za-z0-9 ]/", '', $str);
-    $str = preg_replace("/\s+/", ' ', $str);
-    $str = trim($str);
-    return $str;
+    $str = preg_replace("/[àáạảãâầấậẩẫăằắặẳẵ]/iu", 'a', $str);
+    $str = preg_replace("/[èéẹẻẽêềếệểễ]/iu", 'e', $str);
+    $str = preg_replace("/[ìíịỉĩ]/iu", 'i', $str);
+    $str = preg_replace("/[òóọỏõôồốộổỗơờớợởỡ]/iu", 'o', $str);
+    $str = preg_replace("/[ùúụủũưừứựửữ]/iu", 'u', $str);
+    $str = preg_replace("/[ỳýỵỷỹ]/iu", 'y', $str);
+    $str = preg_replace("/[đ]/iu", 'd', $str);
+    $str = preg_replace("/[ÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴ]/iu", 'A', $str);
+    $str = preg_replace("/[ÈÉẸẺẼÊỀẾỆỂỄ]/iu", 'E', $str);
+    $str = preg_replace("/[ÌÍỊỈĨ]/iu", 'I', $str);
+    $str = preg_replace("/[ÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠ]/iu", 'O', $str);
+    $str = preg_replace("/[ÙÚỤỦŨƯỪỨỰỬỮ]/iu", 'U', $str);
+    $str = preg_replace("/[ỲÝỴỶỸ]/iu", 'Y', $str);
+    $str = preg_replace("/[Đ]/iu", 'D', $str);
+    $str = preg_replace("/[\“\”\‘\’\,\!\&\;\@\#\%\~\`\=\_\'\]\[\}\{\)\(\+\^]/", '-', $str);
+    return preg_replace("/( )/", '-', $str);
 }
-function convert_name($str)
-{
-    $str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
-    $str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/", 'e', $str);
-    $str = preg_replace("/(ì|í|ị|ỉ|ĩ)/", 'i', $str);
-    $str = preg_replace("/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/", 'o', $str);
-    $str = preg_replace("/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/", 'u', $str);
-    $str = preg_replace("/(ỳ|ý|ỵ|ỷ|ỹ)/", 'y', $str);
-    $str = preg_replace("/(đ)/", 'd', $str);
-    $str = preg_replace("/(À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ)/", 'A', $str);
-    $str = preg_replace("/(È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ)/", 'E', $str);
-    $str = preg_replace("/(Ì|Í|Ị|Ỉ|Ĩ)/", 'I', $str);
-    $str = preg_replace("/(Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ)/", 'O', $str);
-    $str = preg_replace("/(Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ)/", 'U', $str);
-    $str = preg_replace("/(Ỳ|Ý|Ỵ|Ỷ|Ỹ)/", 'Y', $str);
-    $str = preg_replace("/(Đ)/", 'D', $str);
-    $str = preg_replace("/(\“|\”|\‘|\’|\,|\!|\&|\;|\@|\#|\%|\~|\`|\=|\_|\'|\]|\[|\}|\{|\)|\(|\+|\^)/", '-', $str);
-    $str = preg_replace("/( )/", '-', $str);
-    return $str;
-}
-function slug($str)
+
+/**
+ * @param $str
+ *
+ * @return array|string|string[]
+ */
+function slug($str): array|string
 {
     $str = convert_name($str);
-    $str = strtolower($str); //mb_strtolower($str, 'UTF-8');
-    $str = str_replace(' ', '-', $str);
-    return $str;
+    $str = strtolower($str);
+    return str_replace(' ', '-', $str);
 }
 
 //only admin
-function upload($field, $config = array())
+function upload($field, $config = [])
 {
     $options = array(
         'name' => '',
@@ -140,36 +150,54 @@ function upload($field, $config = array())
     move_uploaded_file($file["tmp_name"], $file_path);
     return $name;
 }
-//permission users
-function permission_user()
+
+/**
+ * @return void
+ */
+function permission_user(): void
 {
     global $userNav;
-    $user_login = get_a_record('users', $userNav);
+    $user_login = getRecord('users', $userNav);
     if ($user_login['role_id'] == 0) {
         header('location:index.php');
         exit;
     }
 }
-function permission_moderator()
+
+/**
+ * @return void
+ */
+function permission_moderator(): void
 {
     global $userNav;
-    $user_login = get_a_record('users', $userNav);
+    $user_login = getRecord('users', $userNav);
     if ($user_login['role_id'] == 2) {
         header('location:admin.php');
         exit;
     }
 }
-//pagination admin
-function adminPagination($url, $page, $total)
+
+/**
+ * Pagination for admin
+ *
+ * @param  string  $url
+ * @param $page
+ * @param $total
+ *
+ * @return string
+ */
+function adminPagination(string $url, $page, $total): string
 {
-    $adjacents = 2;
+    $adjacent = 2;
     $out = '<ul class="pagination pagination-primary mt-4">';
+
     //first
     if ($page == 1) {
         $out .= '<li class="page-item disabled"><span class="page-link">Đầu</span></li>';
     } else {
         $out .= '<li class="page-item"><a style="color: blueviolet" class="page-link" href="' . $url . '">Đầu</a></li>';
     }
+
     // previous
     if ($page == 1) {
         $out .= '<li class="page-item disabled"><span class="page-link"><i class="zmdi zmdi-arrow-left"></i></span></li>';
@@ -178,9 +206,9 @@ function adminPagination($url, $page, $total)
     } else {
         $out .= '<li class="page-item"><a class="page-link" href="' . $url . '&amp;page=' . ($page - 1) . '"><i class="zmdi zmdi-arrow-left"></i></a></li>';
     }
-    $pmin = ($page > $adjacents) ? ($page - $adjacents) : 1;
-    $pmax = ($page < ($total - $adjacents)) ? ($page + $adjacents) : $total;
-    for ($i = $pmin; $i <= $pmax; $i++) {
+    $min = ($page > $adjacent) ? ($page - $adjacent) : 1;
+    $max = ($page < ($total - $adjacent)) ? ($page + $adjacent) : $total;
+    for ($i = $min; $i <= $max; $i++) {
         if ($i == $page) {
             $out .= '<li class="page-item active"><span class="page-link">' . $i . '</span></li>';
         } elseif ($i == 1) {
@@ -189,12 +217,14 @@ function adminPagination($url, $page, $total)
             $out .= '<li class="page-item"><a class="page-link" href="' . $url . "&amp;page=" . $i . '">' . $i . '</a></li>';
         }
     }
+
     // next
     if ($page < $total) {
         $out .= '<li class="page-item"><a class="page-link" href="' . $url . '&amp;page=' . ($page + 1) . '"><i class="zmdi zmdi-arrow-right"></i></a></li>';
     } else {
         $out .= '<li class="page-item disabled"><span class="page-link"><i class="zmdi zmdi-arrow-right"></i></span></li>';
     }
+
     //last
     if ($page < $total) {
         $out .= '<li class="page-item"><a style="color: blueviolet" class="page-link" href="' . $url . '&amp;page=' . $total . '">Cuối</a></li>';
@@ -203,4 +233,16 @@ function adminPagination($url, $page, $total)
     }
     $out .= '</ul>';
     return $out;
+}
+
+/**
+ * @return void
+ */
+#[NoReturn] function dd(): void
+{
+    echo '<pre>';
+    foreach (func_get_args() as $arg) {
+        var_dump($arg);
+    }
+    die;
 }

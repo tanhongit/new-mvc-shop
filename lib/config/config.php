@@ -1,5 +1,6 @@
 <?php
-define('BASE_URL', 'new-mvc-shop');
-define('PATH_URL', '/');
-define('PATH_URL_IMG', PATH_URL . '/public/upload/images/');
-define('PATH_URL_IMG_PRODUCT', PATH_URL . '/public/upload/products/');
+
+const BASE_URL = 'new-mvc-shop';
+const PATH_URL = '/';
+const PATH_URL_IMG = PATH_URL.'/public/upload/images/';
+const PATH_URL_IMG_PRODUCT = PATH_URL.'/public/upload/products/';

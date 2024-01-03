@@ -13,11 +13,11 @@ if (isset($_POST['role_id'])) {
 }
 
 $url = 'admin.php?controller=role';
-$options = array(
-    'order_by' => 'id ASC'
-);
+$options = [
+    'order_by' => 'id ASC',
+];
 $title = 'Danh sách quyền truy cập website';
 $adminNav = 'class="active open"';
-$roles = get_all('roles', $options);
+$roles = getAll('roles', $options);
 
 require('admin/views/role/index.php');

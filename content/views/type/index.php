@@ -10,7 +10,9 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h1 class="shorter"><strong><?= $type['type_name'] ?></strong></h1>
-                        <p>Hiển thị <?php if ($totalRows >= 9) echo '1–9 trong '; ?><?= $totalRows; ?> kết quả.</p>
+                        <p>Hiển thị <?php if ($totalRows >= 9) {
+                            echo '1–9 trong ';
+                        } ?><?= $totalRows; ?> kết quả.</p>
                     </div>
                 </div>
 
@@ -40,8 +42,11 @@
                                     </a>
                                     <span class="product-thumb-info-content">
                                         <a href="product/<?= $product['id']; ?>-<?= $product['slug']; ?>">
-                                        <h4 title="<?= $product['product_name']; ?>"><?php if (strlen($product['product_name']) > 50) echo substr($product['product_name'], 0, 57) . '...';
-																									else echo $product['product_name'];  ?></h4>
+                                        <h4 title="<?= $product['product_name']; ?>"><?php if (strlen($product['product_name']) > 50) {
+                                            echo substr($product['product_name'], 0, 57) . '...';
+                                        } else {
+                                            echo $product['product_name'];
+                                        }  ?></h4>
                                             <span class="price">
                                                 <?php if ($product['saleoff'] != 0) { ?>
                                                     <del><span class="amount"><?= number_format($product['product_price'], 0, ',', '.');  ?></span></del>

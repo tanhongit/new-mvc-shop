@@ -4,19 +4,26 @@ require('config/config.php');
 
 $linkConnectDB = getLinkConnectDB();
 
-//lấy giá trị bảng theo id
-function get_a_record($table, $id, $select = '*')
+/**
+ * Get data in table by id
+ *
+ * @param  string  $table
+ * @param $id
+ * @param  string  $select
+ *
+ * @return array|false|null
+ */
+function getRecord(string $table, $id, string $select = '*'): false|array|null
 {
     $id = intval($id);
-    global $linkConnectDB;
+
     $sql = "SELECT $select FROM `$table` WHERE id=$id";
-    $query = mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
-    $data = NULL;
-    if (mysqli_num_rows($query) > 0) {
-        $data = mysqli_fetch_assoc($query);
-        mysqli_free_result($query);
-    }
-    return $data;
+
+    $query = executeQuery($sql);
+    $result = $query->get_result()->fetch_assoc();
+    $query->close();
+
+    return $result;
 }
 
 /**
@@ -26,11 +33,10 @@ function get_a_record($table, $id, $select = '*')
  * @param  array  $options
  *
  * @return array
- * @throws Exception
  */
-function get_all(string $table, array $options = []): array
+function getAll(string $table, array $options = []): array
 {
-    $select = isset($options['select']) ? $options['select'] : '*';
+    $select = $options['select'] ?? '*';
     $where = isset($options['where']) ? 'WHERE ' . $options['where'] : '';
     $order_by = isset($options['order_by']) ? 'ORDER BY ' . $options['order_by'] : '';
     $limit = isset($options['offset']) && isset($options['limit']) ? 'LIMIT ' . $options['offset'] . ',' . $options['limit'] : '';
@@ -45,13 +51,14 @@ function get_all(string $table, array $options = []): array
 }
 
 /**
+ * Get total data in table by options
+ *
  * @param  string  $table
  * @param  array  $options
  *
  * @return mixed
- * @throws Exception
  */
-function get_total(string $table, array $options = []): mixed
+function getTotal(string $table, array $options = []): mixed
 {
     $where = isset($options['where']) ? 'WHERE ' . $options['where'] : '';
     $sql = "SELECT COUNT(*) as total FROM `$table` $where";
@@ -96,49 +103,57 @@ function save_and_get_result($table, $data = array())
     }
     echo $result;
 }
-//lựa chọn bảng theo một mảng
-function select_a_record($table, $options = array(), $select = '*')
+
+/**
+ * Get the data in the table according to the arbitrary request of options
+ *
+ * @param  string  $table
+ * @param  array  $options
+ *
+ * @return array|false|null
+ */
+function getByOptions(string $table, array $options = []): false|array|null
 {
-    $select = isset($options['select']) ? $options['select'] : '*';
+    $select = $options['select'] ?? '*';
     $where = isset($options['where']) ? 'WHERE ' . $options['where'] : '';
+    $join = isset($options['join']) ? 'LEFT JOIN ' . $options['join'] : '';
     $order_by = isset($options['order_by']) ? 'ORDER BY ' . $options['order_by'] : '';
     $limit = isset($options['offset']) && isset($options['limit']) ? 'LIMIT ' . $options['offset'] . ',' . $options['limit'] : '';
-    global $linkConnectDB;
-    $sql = "SELECT $select FROM `$table` $where $order_by $limit";
-    $query = mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
-    $data = NULL;
-    if (mysqli_num_rows($query) > 0) {
-        $data = mysqli_fetch_assoc($query);
-        mysqli_free_result($query);
-    }
-    return $data;
-}
-function get_time($timePost, $timeReply)
-{
-    $datePost = date_parse_from_format('Y:m:d H:i:s', $timePost);
-    $dateReply = date_parse_from_format('Y:m:d H:i:s', $timeReply);
-    $tsPost = mktime($datePost['hour'], $datePost['minute'], $datePost['second'], $datePost['month'], $datePost['day'], $datePost['year']);
-    $tsReply = mktime($dateReply['hour'], $dateReply['minute'], $dateReply['second'], $dateReply['month'], $dateReply['day'], $dateReply['year']);
-    $distance = $tsReply - $tsPost;
 
-    switch ($distance) {
-        case ($distance < 60):
-            $result = ($distance == 1) ? $distance . ' second ago' : $distance . ' seconds ago';
-            break;
-        case ($distance >= 60 && $distance < 3600):
-            $minute = round($distance / 60);
-            $result = ($minute == 1) ? $minute . ' minute ago' : $minute . ' minutes ago';
-            break;
-        case ($distance >= 3600 && $distance < 86400):
-            $hour = round($distance / 3600);
-            $result = ($hour == 1) ? $hour . ' hour ago' : $hour . ' hours ago';
-            break;
-        case (round($distance / 86400) == 1):
-            $result = 'Yesterday at ' . date('H:i:s', $tsReply);
-            break;
-        default:
-            $result = date('d/m/Y \a\t H:i:s', $tsPost);
-            break;
+    $sql = "SELECT $select FROM `$table` $join $where $order_by $limit";
+
+    $query = executeQuery($sql);
+    $result = $query->get_result()->fetch_assoc();
+    $query->close();
+
+    return $result;
+}
+
+/**
+ * @param $timePost
+ * @param $timeReply
+ *
+ * @return string
+ */
+function getTime($timePost, $timeReply): string
+{
+    $datePost = new DateTime($timePost);
+    $dateReply = new DateTime($timeReply);
+    $interval = $datePost->diff($dateReply);
+
+    if ($interval->y == 0 && $interval->m == 0 && $interval->d == 0) {
+        if ($interval->h == 0 && $interval->i == 0) {
+            $result = ($interval->s == 1) ? '1 second ago' : $interval->s . ' seconds ago';
+        } elseif ($interval->h == 0) {
+            $result = ($interval->i == 1) ? '1 minute ago' : $interval->i . ' minutes ago';
+        } else {
+            $result = ($interval->h == 1) ? '1 hour ago' : $interval->h . ' hours ago';
+        }
+    } elseif ($interval->d == 1) {
+        $result = 'Yesterday at ' . $dateReply->format('H:i:s');
+    } else {
+        $result = $datePost->format('d/m/Y \a\t H:i:s');
     }
+
     return $result;
 }

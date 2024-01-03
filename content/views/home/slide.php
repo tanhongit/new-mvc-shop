@@ -44,7 +44,7 @@
 				<div class="col-md-4">
 					<div class="get-started">
 						<a href="search" class="btn btn-lg btn-primary">Đi đến trang tìm kiếm!</a>
-						<div class="learn-more">hoặc đến <a href="<?= $link_about ?>">Thông tin quán.</a></div>
+						<div class="learn-more">hoặc đến <a href="<?= $aboutUrl ?>">Thông tin quán.</a></div>
 					</div>
 				</div>
 			</div>

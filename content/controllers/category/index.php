@@ -1,38 +1,44 @@
 <?php
+
 if (isset($_GET['id'])) {
     $categoryId = intval($_GET['id']);
-} else show_404();
-$category = get_a_record('subcategory', $categoryId);
-if (!$category) {
-    show_404();
+} else {
+    show404NotFound();
 }
-$categories = get_all('subcategory', array(
+$category = getRecord('subcategory', $categoryId);
+if (!$category) {
+    show404NotFound();
+}
+$categories = getAll('subcategory', [
     'select' => 'id, subcategory_name',
-    'order_by' => 'id ASC'
-));
-if (isset($_GET['page'])) $page = intval($_GET['page']);
-else $page = 1;
+    'order_by' => 'id ASC',
+]);
+if (isset($_GET['page'])) {
+    $page = intval($_GET['page']);
+} else {
+    $page = 1;
+}
 
 $page = ($page > 0) ? $page : 1;
 $limit = 9;
 $offset = ($page - 1) * $limit;
 
-$options = array(
+$options = [
     'where' => 'sub_category_id =' . $categoryId,
     'limit' => $limit,
     'offset' => $offset,
-    'order_by' => 'id DESC'
-);
+    'order_by' => 'id DESC',
+];
 
 $url = 'category/' . $categoryId . '-' . $category['slug'];
 
-$totalRows = get_total('products', $options);
+$totalRows = getTotal('products', $options);
 $total = ceil($totalRows / $limit);
 
-$products = get_all('products', $options);
+$products = getAll('products', $options);
 $pagination = pagination($url, $page, $total);
 
-$subcategories = get_a_record('subcategory', $_GET["id"]);
+$subcategories = getRecord('subcategory', $_GET["id"]);
 if ($subcategories['id'] != 0) {
     $breadCrumb = $subcategories['subcategory_name'];
 }

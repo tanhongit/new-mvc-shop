@@ -73,7 +73,7 @@
                                     <div class="icon-circle bg-blue"><i class="zmdi zmdi-account"></i></div>
                                     <div class="menu-info">
                                         <h4><?= $user_total_7day ?> New Members joined 7 day</h4>
-                                        <p><i class="zmdi zmdi-time"></i> <?= get_time($user_new['createDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?> </p>
+                                        <p><i class="zmdi zmdi-time"></i> <?= getTime($user_new['createDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?> </p>
                                     </div>
                                 </a>
                             </li>
@@ -82,7 +82,7 @@
                                     <div class="icon-circle bg-amber"><i class="zmdi zmdi-shopping-cart"></i></div>
                                     <div class="menu-info">
                                         <h4><?= $total_order_noprosess ?> Đơn hàng mới</h4>
-                                        <p><i class="zmdi zmdi-time"></i> <?= get_time($order_new['createtime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?> </p>
+                                        <p><i class="zmdi zmdi-time"></i> <?= getTime($order_new['createtime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?> </p>
                                     </div>
                                 </a>
                             </li>
@@ -91,7 +91,7 @@
                                     <div class="icon-circle bg-red"><i class="zmdi zmdi-delete"></i></div>
                                     <div class="menu-info">
                                         <h4>Có đơn hàng <b>bị hủy</b></h4>
-                                        <p><i class="zmdi zmdi-time"></i> <?= get_time($order_cancell['editTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?> </p>
+                                        <p><i class="zmdi zmdi-time"></i> <?= getTime($order_cancell['editTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?> </p>
                                     </div>
                                 </a>
                             </li>
@@ -100,7 +100,7 @@
                                     <div class="icon-circle bg-green"><i class="zmdi zmdi-edit"></i></div>
                                     <div class="menu-info">
                                         <h4><b><?= $user_update['user_name'] ?></b> Vừa cập nhật tài khoản</h4>
-                                        <p><i class="zmdi zmdi-time"></i> <?= get_time($user_update['editTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?> </p>
+                                        <p><i class="zmdi zmdi-time"></i> <?= getTime($user_update['editTime'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?> </p>
                                     </div>
                                 </a>
                             </li>
@@ -109,7 +109,7 @@
                                     <div class="icon-circle bg-grey"><i class="zmdi zmdi-comment-text"></i></div>
                                     <div class="menu-info">
                                         <h4><b><?= $comment_new['author'] ?></b> Vừa bình luận</h4>
-                                        <p><i class="zmdi zmdi-time"></i> <?= get_time($comment_new['createDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?> </p>
+                                        <p><i class="zmdi zmdi-time"></i> <?= getTime($comment_new['createDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?> </p>
                                     </div>
                                 </a>
                             </li>
@@ -118,7 +118,7 @@
                                     <div class="icon-circle bg-purple"><i class="zmdi zmdi-refresh"></i></div>
                                     <div class="menu-info">
                                         <h4><b><?= $product_update['editBy'] ?></b> Vừa cập nhật sản phẩm</h4>
-                                        <p><i class="zmdi zmdi-time"></i> <?= get_time($product_update['editDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?> </p>
+                                        <p><i class="zmdi zmdi-time"></i> <?= getTime($product_update['editDate'], gmdate('Y:m:d H:i:s', time() + 7 * 3600)) ?> </p>
                                     </div>
                                 </a>
                             </li>

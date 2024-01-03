@@ -21,6 +21,7 @@
   ],
   "license": "MIT",
   "require": {
+    "php": "^8.0",
     "phpmailer/phpmailer": "^v6.9",
     "vlucas/phpdotenv": "^v5.6",
     "ext-mysqli": "*"

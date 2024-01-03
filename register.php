@@ -1,6 +1,7 @@
-<?php 
+<?php
 require_once('lib/model.php');
-$contacts = get_a_record('contacts', 1); ?>
+$contacts = getRecord('contacts', 1);
+?>
 <!doctype html>
 <html class="no-js " lang="en">
 
@@ -65,7 +66,7 @@ $contacts = get_a_record('contacts', 1); ?>
                     <div class="copyright text-center">
                         &copy;
                         <script>
-                            document.write(new Date().getFullYear())
+                            document.write(new Date().getFullYear().toString())
                         </script>,
                         <span>Thiết kế: <a href="https://thememakker.com/" target="_blank">ThemeMakker</a></span><span> - Phát triển bởi <a href="https://tanhongit.com" target="_blank">TanHongIT</a></span>
                     </div>

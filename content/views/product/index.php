@@ -144,8 +144,11 @@
                                                     Giảm giá
                                                 </th>
                                                 <td>
-                                                    <?php if ($product['saleoff'] != 0) echo $product['percentoff'];
-                                                    else echo '0'; ?> %
+                                                    <?php if ($product['saleoff'] != 0) {
+                                                        echo $product['percentoff'];
+                                                    } else {
+                                                        echo '0';
+                                                    } ?> %
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -293,12 +296,12 @@
                     <div class="col-md-12">
                         <h2>Sản phẩm <strong>Liên quan danh mục</strong></h2>
                     </div>
-                    <?php $product_related = get_all('products', array(
+                    <?php $product_related = getAll('products', [
                         'limit' => '8',
                         'where' => $subcategories['id'] . '=sub_category_id and id<>' . $product['id'], //liên quan theo category
                         'offset' => '0',
-                        'order_by' => 'totalView DESC'
-                    )); ?>
+                        'order_by' => 'totalView DESC',
+                    ]); ?>
                     <ul class="products product-thumb-info-list">
                         <?php if (empty($product_related)) : ?>
                         <h3 class="col-sm-12">Không có sản phẩm liên quan nào.</h3>
@@ -333,8 +336,11 @@
                                     <a
                                         href="product/<?= $related_product['id']; ?>-<?= $related_product['slug']; ?>">
                                         <h4 title="<?= $related_product['product_name']; ?>">
-                                            <?php if (strlen($related_product['product_name']) > 50) echo substr($related_product['product_name'], 0, 57) . '...';
-                                                                                                        else echo $related_product['product_name'];  ?>
+                                            <?php if (strlen($related_product['product_name']) > 50) {
+                                                echo substr($related_product['product_name'], 0, 57) . '...';
+                                            } else {
+                                                echo $related_product['product_name'];
+                                            }  ?>
                                         </h4>
                                         <span class="price">
                                             <?php if ($related_product['saleoff'] != 0) { ?>
@@ -359,7 +365,7 @@
             </div>
             <div class="col-md-3">
                 <?php $get_sidebar_with_only_product = 0;
-                require('content/views/shared/sidebar.php'); ?>
+require('content/views/shared/sidebar.php'); ?>
             </div>
         </div>
     </div>

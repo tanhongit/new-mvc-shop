@@ -23,7 +23,7 @@ function orderDestroy($id)
     if (isset($_GET['order_id'])) {
         $id = intval($_GET['order_id']);
     } else {
-        show_404();
+        show404NotFound();
     }
     global $linkConnectDB;
     $sql = "DELETE FROM orders WHERE id=$id";

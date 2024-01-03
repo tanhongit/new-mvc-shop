@@ -86,7 +86,7 @@ function approveFeedback($id)
     if (isset($_GET['feedback_id'])) {
         $id = intval($_GET['feedback_id']);
     } else {
-        show_404();
+        show404NotFound();
     }
     global $linkConnectDB;
     $sql = "UPDATE feedbacks SET status=1 where id=" . $id;
@@ -97,7 +97,7 @@ function unApproveFeedback($id)
     if (isset($_GET['feedback_id'])) {
         $id = intval($_GET['feedback_id']);
     } else {
-        show_404();
+        show404NotFound();
     }
     global $linkConnectDB;
     $sql = "UPDATE feedbacks SET status=0 where id=" . $id;

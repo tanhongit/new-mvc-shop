@@ -5,7 +5,7 @@ function trashPost($id)
     if (isset($_GET['post_id'])) {
         $id = intval($_GET['post_id']);
     } else {
-        show_404();
+        show404NotFound();
     }
     global $linkConnectDB;
     $sql = "UPDATE posts SET post_status='Trash' where id=" . $id;
@@ -16,7 +16,7 @@ function restorePost($id)
     if (isset($_GET['post_id'])) {
         $id = intval($_GET['post_id']);
     } else {
-        show_404();
+        show404NotFound();
     }
     global $linkConnectDB;
     $sql = "UPDATE posts SET post_status='Draft' where id=" . $id;
@@ -27,7 +27,7 @@ function postDraft($id)
     if (isset($_GET['post_id'])) {
         $id = intval($_GET['post_id']);
     } else {
-        show_404();
+        show404NotFound();
     }
     global $linkConnectDB;
     $sql = "UPDATE posts SET post_status='Draft' where id=" . $id;
@@ -38,7 +38,7 @@ function publicPost($id)
     if (isset($_GET['post_id'])) {
         $id = intval($_GET['post_id']);
     } else {
-        show_404();
+        show404NotFound();
     }
     global $linkConnectDB;
     $sql = 'UPDATE posts SET post_status="Publiced", post_date="' . gmdate('Y-m-d H:i:s', time() + 7 * 3600) . '" where id=' . $id;

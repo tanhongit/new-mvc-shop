@@ -5,7 +5,7 @@ function postDestroy($id)
     if (isset($_GET['product_id'])) {
         $id = intval($_GET['product_id']);
     } else {
-        show_404();
+        show404NotFound();
     }
     $product = getRecord('products', $id);
     $image = 'public/upload/products/' . $product['img1'];

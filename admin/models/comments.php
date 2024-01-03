@@ -5,7 +5,7 @@ function approveComment($id)
     if (isset($_GET['comment_id'])) {
         $id = intval($_GET['comment_id']);
     } else {
-        show_404();
+        show404NotFound();
     }
     global $linkConnectDB;
     $sql = "UPDATE comments SET status=1 where id=" . $id;
@@ -16,7 +16,7 @@ function spamComment($id)
     if (isset($_GET['comment_id'])) {
         $id = intval($_GET['comment_id']);
     } else {
-        show_404();
+        show404NotFound();
     }
     global $linkConnectDB;
     $sql = "UPDATE comments SET status=3 where id=" . $id;
@@ -27,7 +27,7 @@ function trashComment($id)
     if (isset($_GET['comment_id'])) {
         $id = intval($_GET['comment_id']);
     } else {
-        show_404();
+        show404NotFound();
     }
     global $linkConnectDB;
     $sql = "UPDATE comments SET status=2 where id=" . $id;
@@ -38,7 +38,7 @@ function unApprovedComment($id)
     if (isset($_GET['comment_id'])) {
         $id = intval($_GET['comment_id']);
     } else {
-        show_404();
+        show404NotFound();
     }
     global $linkConnectDB;
     $sql = "UPDATE comments SET status=0 where id=" . $id;

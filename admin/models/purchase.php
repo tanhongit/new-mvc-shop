@@ -5,7 +5,7 @@ function orderCancel($id)
     if (isset($_GET['order_id'])) {
         $id = intval($_GET['order_id']);
     } else {
-        show_404();
+        show404NotFound();
     }
     global $linkConnectDB;
     $sql = "UPDATE orders SET status=3,editTime='" . gmdate('Y-m-d H:i:s', time() + 7 * 3600) . "' where id=" . $id;

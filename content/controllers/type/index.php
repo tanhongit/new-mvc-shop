@@ -3,11 +3,11 @@
 if (isset($_GET['id'])) {
     $type_id = intval($_GET['id']);
 } else {
-    show_404();
+    show404NotFound();
 }
 $type = getRecord('types', $type_id);
 if (!$type) {
-    show_404();
+    show404NotFound();
 }
 
 if (isset($_GET['page'])) {

@@ -4,12 +4,12 @@ require_once('content/models/products.php');
 if (isset($_GET['id'])) {
     $productId = intval($_GET['id']);
 } else {
-    show_404();
+    show404NotFound();
 }
 $product = getRecord('products', $productId);
 
 if (!$product) {
-    show_404();
+    show404NotFound();
 } else {
     updateCountView($productId);
 }

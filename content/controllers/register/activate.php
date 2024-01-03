@@ -11,8 +11,7 @@ if (!empty($_GET['code'])) {
         }
     }
     if (!isset($verifi_id_user)) {
-        show_404();
-        exit;
+        show404NotFound();
     }
     $user_edit = [
         'id' => $verifi_id_user,

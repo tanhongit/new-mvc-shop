@@ -13,7 +13,7 @@ if (isset($_GET['order_id'])) {
 $order = getRecord('orders', $orderId);
 
 if (!$order) {
-    show_404();
+    show404NotFound();
 }
 
 $title = 'Chi tiết đơn hàng';

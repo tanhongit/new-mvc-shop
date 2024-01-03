@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-9">
                 <h4>Thông tin</h4>
-                <p><?= $about_footer ?><a href="<?= $link_about ?>" class="btn-flat btn-xs">Xem thêm <i class="fa fa-arrow-right"></i></a></p>
+                <p><?= $about_footer ?><a href="<?= $aboutUrl ?>" class="btn-flat btn-xs">Xem thêm <i class="fa fa-arrow-right"></i></a></p>
                 <hr class="light">
                 <div class="row">
                     <div class="col-md-3">

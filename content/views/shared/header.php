@@ -12,14 +12,14 @@ $contacts = getAll('contacts', $contact_option);
 foreach ($contacts as $contact) {
     $phone = preg_replace("/([0-9]{3})([0-9]{4})/", "$1-$2", $contact['phone']);
     $phone2 = preg_replace("/([0-9]{3})([0-9]{4})/", "$1-$2", $contact['phone_2']);
-    $link_contact = $contact['link_Contact'];
+    $contactUrl = $contact['link_Contact'];
     $email_contact = $contact['email'];
     $link_Facebook = $contact['link_Facebook'];
     $link_Twitter = $contact['link_Twitter'];
     $address_contact = $contact['address'];
     $zalo_contact = $contact['zalo'];
     $linkedin_contact = $contact['link_linkedin'];
-    $link_about = $contact['link_about'];
+    $aboutUrl = $contact['link_about'];
     $about_footer = $contact['about_footer'];
     $link_logo = $contact['link_Logo'];
     $favicon = $contact['favicon'];
@@ -116,10 +116,10 @@ if (isset($url_product)) {
 				<nav>
 					<ul class="nav nav-pills nav-top">
 						<li>
-							<a href="<?= $link_about ?>"><i class="fa fa-angle-right"></i>Thông tin</a>
+							<a href="<?= $aboutUrl ?>"><i class="fa fa-angle-right"></i>Thông tin</a>
 						</li>
 						<li>
-							<a href="<?= $link_contact ?>"><i class="fa fa-headphones"></i>Liên hệ</a>
+							<a href="<?= $contactUrl ?>"><i class="fa fa-headphones"></i>Liên hệ</a>
 						</li>
 						<?php if (!isset($user_login)) : ?>
 							<li>
@@ -157,8 +157,8 @@ if (isset($url_product)) {
 									<li class="dropdown-submenu">
 										<a href="javascript:void(0);">Về Chị Kòi Quán</a>
 										<ul class="dropdown-menu">
-											<li><a href="<?= $link_contact ?>">Liên hệ</a></li>
-											<li><a href="<?= $link_about ?>">Thông tin về quán</a></li>
+											<li><a href="<?= $contactUrl ?>">Liên hệ</a></li>
+											<li><a href="<?= $aboutUrl ?>">Thông tin về quán</a></li>
 										</ul>
 									</li>
 								</ul>

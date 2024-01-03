@@ -1,65 +1,75 @@
 <?php
 
-function mediaDestroy($id)
+/**
+ * @param  int  $id
+ *
+ * @return void
+ */
+function mediaDestroy(int $id): void
 {
     if (isset($_GET['media_id'])) {
         $id = intval($_GET['media_id']);
     } else {
-        show_404();
+        show404NotFound();
     }
+
     $media = getRecord('media', $id);
     $image = 'public/upload/media/' . $media['slug'];
     if (is_file($image)) {
         unlink($image);
     }
-    global $linkConnectDB;
-    $sql = "DELETE FROM media WHERE id=$id";
-    mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
+
+    $sql = "DELETE FROM media WHERE id = ?";
+
+    try {
+        $stmt = executeQuery($sql, [$id]);
+        $stmt->close();
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
 }
-function mediaStore()
+
+/**
+ * @return void
+ */
+function mediaStore(): void
 {
-    $mediaStore = [
+    $data = [
         'id' => intval($_POST['media_id']),
         'media_name' => escape($_POST['name']),
         'createDate' => gmdate('Y-m-d H:i:s', time() + 7 * 3600),
     ];
-    $mediaId = save('media', $mediaStore);
-    $slugg = slug($_POST['name']);
-    $config = [
-        'name' => $slugg,
-        'upload_path' => 'public/upload/media/',
-        'allowed_exts' => 'jpg|jpeg|png|gif',
-    ];
-    $images = upload('imggggg', $config);
-    if ($images) {
-        $mediaStore = [
-            'id' => $mediaId,
-            'slug' => $images,
-        ];
-        save('media', $mediaStore);
-    }
-    header('location:admin.php?controller=media');
+    mediaSave($data);
 }
-function mediaUpdate()
+
+/**
+ * @return void
+ */
+function mediaUpdate(): void
 {
-    $media_edit = [
+    $data = [
         'id' => intval($_POST['media_id']),
         'media_name' => escape($_POST['name']),
     ];
-    $mediaId = save('media', $media_edit);
-    $slugg = slug($_POST['name']);
+    mediaSave($data);
+}
+
+function mediaSave(array $data): void
+{
+    $mediaId = save('media', $data);
+    $slug = slug($_POST['name']);
     $config = [
-        'name' => $slugg,
-        'upload_path' => 'public/upload/media/',
+        'name' => $slug,
+        'upload_path' => '/public/upload/media/',
         'allowed_exts' => 'jpg|jpeg|png|gif',
     ];
     $images = upload('imggggg', $config);
     if ($images) {
-        $media_edit = [
+        $mediaData = [
             'id' => $mediaId,
             'slug' => $images,
         ];
-        save('media', $media_edit);
+        save('media', $mediaData);
     }
     header('location:admin.php?controller=media');
 }

@@ -6,7 +6,7 @@ $option = [
 ];
 $posts = getRecord('posts', $option);
 if (empty($posts)) {
-    show_404();
+    show404NotFound();
 }
 $title = 'All Posts - Quán Chị Kòi';
 //load view

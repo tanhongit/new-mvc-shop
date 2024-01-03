@@ -3,11 +3,11 @@
 if (isset($_GET['id'])) {
     $categoryId = intval($_GET['id']);
 } else {
-    show_404();
+    show404NotFound();
 }
 $category = getRecord('subcategory', $categoryId);
 if (!$category) {
-    show_404();
+    show404NotFound();
 }
 $categories = getAll('subcategory', [
     'select' => 'id, subcategory_name',

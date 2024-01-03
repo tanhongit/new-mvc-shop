@@ -29,7 +29,11 @@ function orderDestroy($id)
     $sql = "DELETE FROM orders WHERE id=$id";
     mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
-function orderComplete($id)
+
+/**
+ * @return void
+ */
+function orderComplete(): void
 {
     $id = intval($_POST['order_id']);
     $order = [
@@ -38,7 +42,11 @@ function orderComplete($id)
     ];
     save('orders', $order);
 }
-function orderInProcess($id)
+
+/**
+ * @return void
+ */
+function orderInProcess(): void
 {
     $id = intval($_POST['order_id']);
     $order = [

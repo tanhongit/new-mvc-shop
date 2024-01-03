@@ -71,15 +71,15 @@
                                     <tbody>
                                         <?php
                                         $stt = 0;
-                                        $order_total = 0;
-                                        foreach ($orderDetail as $product) :
-                                            $stt++;
-                                            if ($product["product_typeid"] == 3) {
-                                                $order_total += ($product['product_price'] - (($product['product_price']) * ($product['percentoff']) / 100)) * $product['quantity'];
-                                            } else {
-                                                $order_total += $product['product_price'] * $product['quantity'];
-                                            }
-                                            ?>
+$order_total = 0;
+foreach ($orderDetail as $product) :
+    $stt++;
+    if ($product["product_typeid"] == 3) {
+        $order_total += ($product['product_price'] - (($product['product_price']) * ($product['percentoff']) / 100)) * $product['quantity'];
+    } else {
+        $order_total += $product['product_price'] * $product['quantity'];
+    }
+    ?>
                                             <tr>
                                                 <td><?= $stt; ?></td>
                                                 <td><a href="product/<?= $product['id']; ?>-<?= $product['slug'] ?>"><?= $product['product_name']; ?></a></td>

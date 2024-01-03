@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\NoReturn;
+
 function show404NotFound(): void
 {
     header('HTTP/1.1 404 Not Found', true, 404);
@@ -117,7 +119,7 @@ function slug($str): array|string
 }
 
 //only admin
-function upload($field, $config = array())
+function upload($field, $config = [])
 {
     $options = array(
         'name' => '',
@@ -231,4 +233,16 @@ function adminPagination(string $url, $page, $total): string
     }
     $out .= '</ul>';
     return $out;
+}
+
+/**
+ * @return void
+ */
+#[NoReturn] function dd(): void
+{
+    echo '<pre>';
+    foreach (func_get_args() as $arg) {
+        var_dump($arg);
+    }
+    die;
 }

@@ -7,12 +7,6 @@
  */
 function mediaDestroy(int $id): void
 {
-    if (isset($_GET['media_id'])) {
-        $id = intval($_GET['media_id']);
-    } else {
-        show404NotFound();
-    }
-
     $media = getRecord('media', $id);
     $image = 'public/upload/media/' . $media['slug'];
     if (is_file($image)) {
@@ -60,7 +54,7 @@ function mediaSave(array $data): void
     $slug = slug($_POST['name']);
     $config = [
         'name' => $slug,
-        'upload_path' => '/public/upload/media/',
+        'upload_path' => '../public/upload/media/',
         'allowed_exts' => 'jpg|jpeg|png|gif',
     ];
     $images = upload('imggggg', $config);

@@ -1,7 +1,9 @@
 <?php
+
 require_once('lib/statistics.php');
 $session = session_id();
 $time = time();
+
 //$time_check = $time - 30; //Ấn định thời gian là 10 phút
 
 // function get_client_ip_env()
@@ -20,7 +22,6 @@ $time = time();
 // Function to get the client ip address
 function get_client_ip_env()
 {
-    $ipaddress = '';
     if (getenv('HTTP_CLIENT_IP'))
         $ipaddress = getenv('HTTP_CLIENT_IP');
     else if (getenv('HTTP_X_FORWARDED_FOR'))
@@ -37,6 +38,7 @@ function get_client_ip_env()
         $ipaddress = 'UNKNOWN';
     return $ipaddress;
 }
+
 // // Function to get the client ip address
 // function get_client_ip_server() {
 //     $ipaddress = '';
@@ -59,18 +61,19 @@ function get_client_ip_env()
 // }
 $ip = get_client_ip_env();
 $browser = $_SERVER['HTTP_USER_AGENT'];
+$date = gmdate('Y-m-d H:i:s', time() + 7 * 3600);
 
-global $linkConnectDB;
-$date =  gmdate('Y-m-d H:i:s', time() + 7 * 3600);
-$sql = "SELECT * FROM users_online WHERE session='$session'";
-$result = mysqli_query($linkConnectDB, $sql);
-$count = mysqli_num_rows($result);
-if ($count == "0") { //Truy cập lần đầu
-    // //sql2
+$options = [
+    'session' => $session,
+];
+$count = getTotal('users_online', $options);
+
+if ($count == 0) { //Truy cập lần đầu
     insert_user_online($session, $time, $ip, $browser, $date);
 } else { //Truy cập lần 2
     update_user_online($session, $time, $ip, $browser, $date);
 }
+
 // $sql3 = "SELECT * FROM users_online";
 // $result3 = mysqli_query($linkConnectDB, $sql3);
 // $count_user_online = mysqli_num_rows($result3);

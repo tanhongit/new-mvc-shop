@@ -43,7 +43,6 @@ if (!empty($_POST)) {
         // Load Composer's autoloader
         $userId = save('users', $user_add);
         //send mail
-        require 'vendor/autoload.php';
         include 'lib/config/sendmail.php';
         $mail = new PHPMailer(true);
 

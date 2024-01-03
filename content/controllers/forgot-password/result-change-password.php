@@ -25,7 +25,6 @@ if (isset($_POST['id'])) {
         save('users', $options);
 
         //send mail
-        require 'vendor/autoload.php';
         include 'lib/config/sendmail.php';
         $mail = new PHPMailer(true);
 

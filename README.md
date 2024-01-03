@@ -12,9 +12,11 @@ Support this project :stuck_out_tongue_winking_eye: :pray:
 </p>
 
 # 1. Configuration requirements
-
-    - Version PHP 7.2 and above (-> 8.1)
+    - Web Server: Apache
+    - Version PHP >= 8.0
     - OpenSSL PHP Extension
+    - Composer (Please install composer before running this project)
+    - MySQL >= 8.0 (or MariaDB >= 10.0)
 
 # 2. Technology
 - Pure PHP language
@@ -55,7 +57,7 @@ This is the path to the database file for you to download: [`/admin/database/***
 
 Create a new database on **PHPMyAdmin** at your server, then import the .sql file that you just downloaded.
 
-# 5. Request appropriate edits
+# 5. Request configuration
 
 After a clone my repository to the local computer, you need to edit some code to be able to connect to the database and help the site works.
 
@@ -87,16 +89,27 @@ define('DB_PASS', '');
 define('DB_NAME', 'chikoi');
 ```
 
-### 5.2 Edit .htaccess
+### 5.3 Edit .htaccess
 
 Change RewriteBase - Recommend the path that matches your host address.
 
------------------------------------------------
-
-so we will have:
+So we will have:
 ```
 RewriteBase /
 ```
+
+-----------------------------------------------
+
+> **Note**: This applies to the case where your project is in a subfolder, and you want it accessible from a subpath URL.
+>
+>**EXAMPLE**:
+>```
+>http://localhost/new-mvc-shop/
+>``` 
+> So we will have:
+> ```
+> RewriteBase /new-mvc-shop/
+> ```
 
 ### 5.4 Edit SMTP Mail
 
@@ -120,8 +133,8 @@ Path: [`/lib/config/sendmail.php`](https://github.com/TanHongIT/new-mvc-shop/tre
 
 # 6. Demo
 
-1. Front-End: [http://tanhongit.epizy.com/new-mvc-shop/home](http://tanhongit.epizy.com/new-mvc-shop/home)
-2. Back-End: [http://tanhongit.epizy.com/new-mvc-shop/admin.php](http://tanhongit.epizy.com/new-mvc-shop/admin.php)
+1. Front-End: [https://chikoiquan.tanhongit.com](https://chikoiquan.tanhongit.com)
+2. Back-End: [https://chikoiquan.tanhongit.com/admin.php](https://chikoiquan.tanhongit.com/admin.php)
 
 > **_Account login on Backend_**
 
@@ -154,6 +167,8 @@ Admin:
 
 **Admin Manager Page**
 ![Image](https://imgur.com/xOpAmb4.png)
+
+![Image](https://imgur.com/u8lXnsz.png)
 
 ---------------------------------------------------------------------------------
 

@@ -1,4 +1,5 @@
 <?php
+// this file is used by php-cs-fixer to format the code
 
 $finder = Symfony\Component\Finder\Finder::create()
     ->in([

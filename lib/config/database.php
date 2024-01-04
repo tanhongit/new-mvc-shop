@@ -4,7 +4,7 @@ define("DB_HOST", $_ENV['DB_HOST'] ?? 'db_server');
 define("DB_PORT", $_ENV['DB_PORT'] ?? '3306');
 define("DB_USER", $_ENV['DB_USER'] ?? 'root');
 define("DB_PASS", $_ENV['DB_PASS'] ?? 'root');
-define("DB_NAME", $_ENV['DB_NAME'] ?? 'chikoi');
+define("DB_NAME", $_ENV['DB_NAME'] ?? 'new_mvc_shop_db');
 
 if (isset($_SESSION['user'])) {
     $userNav = $_SESSION['user']['id'];

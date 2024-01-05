@@ -12,9 +12,11 @@ Support this project :stuck_out_tongue_winking_eye: :pray:
 </p>
 
 # 1. Configuration requirements
-
-    - Version PHP 7.2 and above (-> 8.1)
+    - Web Server: Apache
+    - Version PHP >= 8.0
     - OpenSSL PHP Extension
+    - Composer (Please install composer before running this project)
+    - MySQL >= 8.0 (or MariaDB >= 10.0)
 
 # 2. Technology
 - Pure PHP language
@@ -55,59 +57,97 @@ This is the path to the database file for you to download: [`/admin/database/***
 
 Create a new database on **PHPMyAdmin** at your server, then import the .sql file that you just downloaded.
 
-# 5. Request appropriate edits
+# 5. Request configuration
+
+Clone the project to your computer:
+
+```bash
+git clone https://github.com/tanhongit/new-mvc-shop.git
+```
+
+Run composer install:
+
+```bash
+composer install
+```
+
+Copy the .env.example file to .env:
+
+```bash
+cp .env.example .env
+```
 
 After a clone my repository to the local computer, you need to edit some code to be able to connect to the database and help the site works.
 
-### 5.1 Edit Config
+## 5.1 Edit Config
 
-You need to change the path in the '**config.php**' file to match the location of this source code on your server and must match the domain you registered.
+You need to change the path in the '**.env**' file to match the location of this source code on your server and must match the domain you registered.
 
-Path: [`/lib/config/config.php`](https://github.com/TanHongIT/new-mvc-shop/tree/master/lib/config)
-
-```php
-<?php
-define('BASE_URL', 'new-mvc-shop');
-define('PATH_URL', '/');
-define('PATH_URL_IMG', PATH_URL . 'public/upload/images/');
-define('PATH_URL_IMG_PRODUCT', PATH_URL . 'public/upload/products/');
-```
-### 5.2 Edit Connect Database
-
-You need to change the connection information to the database after you have cloned my repository so that the website can work.
-
-Path: [`/lib/config/database.php`](https://github.com/TanHongIT/new-mvc-shop/tree/master/lib/config)
-
-This is the path to the database file for you to download: [`/admin/database/***.sql`](https://github.com/TanHongIT/new-mvc-shop/tree/master/admin/database)
-
-```php
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'chikoi');
+```dotenv
+PATH_URL=/
+PATH_URL_IMG=public/upload/images/
+PATH_URL_IMG_PRODUCT=public/upload/products/
 ```
 
-### 5.2 Edit .htaccess
+> **Note:**
+> 
+> The path of the config file that is using these environment variables is located at: [`/lib/config/config.php`](https://github.com/TanHongIT/new-mvc-shop/tree/master/lib/config/config.php)
+
+## 5.2 Edit Connect Database
+
+You need to change the connection information and import sql file to the database after you have cloned my repository so that the website can work.
+
+This is the path to the sql file for you to import to your database:
+[`/admin/database/***.sql`](https://github.com/TanHongIT/new-mvc-shop/tree/master/admin/database)
+
+And change the connection information to match your database in .env file:
+
+```dotenv
+DB_HOST=db_server
+DB_PORT=3306
+DB_USER=root
+DB_PASS=root
+DB_NAME=chikoi
+```
+
+> **Note:**
+>
+> The path of the database config file that is using these environment variables is located at: [`/lib/config/database.php`](https://github.com/TanHongIT/new-mvc-shop/tree/master/lib/config/database.php)
+
+## 5.3 Edit .htaccess
 
 Change RewriteBase - Recommend the path that matches your host address.
 
------------------------------------------------
-
-so we will have:
+So we will have:
 ```
 RewriteBase /
 ```
+
+-----------------------------------------------
+
+> **Note**: This applies to the case where your project is in a subfolder, and you want it accessible from a subpath URL.
+>
+>**EXAMPLE**:
+>```
+>http://localhost/new-mvc-shop/
+>``` 
+> So we will have:
+> ```
+> RewriteBase /new-mvc-shop/
+> ```
 
 ### 5.4 Edit SMTP Mail
 
 > The third thing: 
 You need to change the information about **SMTP Mail** to be able to use some functions about user account authentication, change passwords, notify users, ...
 
-```php
-define('SMTP_HOST','smtp.gmail.com');
-define('SMTP_PORT','465');
-define('SMTP_UNAME','add_your_mail');
-define('SMTP_PWORD','add_your_application_password_from_your_mail');
+Update the following information in the **.env** file:
+
+```dotenv
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_UNAME=add_your_mail
+SMTP_PWORD=add_your_application_password_from_your_mail
 ```
 
 Change the value of the constant **SMTP_UNAME** and **SMTP_PWORD** to match the configuration you added on your Gmail.
@@ -116,12 +156,15 @@ Tips: https://support.google.com/accounts/answer/185833?hl=en
 
 **Where SMTP_PWORD is the application password for your _gmail.com_ account.**
 
-Path: [`/lib/config/sendmail.php`](https://github.com/TanHongIT/new-mvc-shop/tree/master/lib/config)
+> **Note:**
+>
+> The path of the email config file that is using these environment variables is located at: [`/lib/config/sendmail.php`](https://github.com/TanHongIT/new-mvc-shop/tree/master/lib/config/sendmail.php)
+
 
 # 6. Demo
 
-1. Front-End: [http://tanhongit.epizy.com/new-mvc-shop/home](http://tanhongit.epizy.com/new-mvc-shop/home)
-2. Back-End: [http://tanhongit.epizy.com/new-mvc-shop/admin.php](http://tanhongit.epizy.com/new-mvc-shop/admin.php)
+1. Front-End: [https://chikoiquan.tanhongit.com](https://chikoiquan.tanhongit.com)
+2. Back-End: [https://chikoiquan.tanhongit.com/admin.php](https://chikoiquan.tanhongit.com/admin.php)
 
 > **_Account login on Backend_**
 
@@ -154,6 +197,8 @@ Admin:
 
 **Admin Manager Page**
 ![Image](https://imgur.com/xOpAmb4.png)
+
+![Image](https://imgur.com/u8lXnsz.png)
 
 ---------------------------------------------------------------------------------
 

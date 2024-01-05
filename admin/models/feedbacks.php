@@ -60,7 +60,6 @@ function updateFeedback(): void
 function feedbackReplyMail($html, $email)
 {
     //sendmail
-    require 'vendor/autoload.php';
     include 'lib/config/sendmail.php';
     $mail = new PHPMailer(true);
 

@@ -69,7 +69,6 @@ function changePassword($id, $newpassword, $currentPassword)
         ];
         save('users', $options);
         //sendmail
-        require 'vendor/autoload.php';
         include 'lib/config/sendmail.php';
         $mail = new PHPMailer(true);
         $user = getRecord('users', $id);
@@ -169,7 +168,6 @@ function user_update()
         $user_edited = getRecord('users', $userId);
         if ($user_edited['user_email'] != $currentEmail) {
             //send mail
-            require 'vendor/autoload.php';
             include 'lib/config/sendmail.php';
             $email = $user_edited['user_email'];
             $mail = new PHPMailer(true);
@@ -271,7 +269,6 @@ function user_add()
             save('users', $user_add);
         }
         //send mail
-        require 'vendor/autoload.php';
         include 'lib/config/sendmail.php';
         $mail = new PHPMailer(true);
 

@@ -34,7 +34,7 @@ services:
     container_name: '${APP_NAME:-new_mvc_shop}-db'
     restart: always
     ports:
-      - '${DB_PORT:-13306}:3306'
+      - '${MYSQL_PORT:-13306}:3306'
     environment:
       MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASS:-root}'
       MYSQL_USER: '${MYSQL_USER:-root}'

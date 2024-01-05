@@ -1,14 +1,16 @@
 <?php
 
-if (isset($_GET['id'])) {
-    $categoryId = intval($_GET['id']);
-} else {
+if (!isset($_GET['id'])) {
     show404NotFound();
 }
+
+$categoryId = intval($_GET['id']);
+
 $category = getRecord('subcategory', $categoryId);
 if (!$category) {
     show404NotFound();
 }
+
 $categories = getAll('subcategory', [
     'select' => 'id, subcategory_name',
     'order_by' => 'id ASC',

@@ -18,7 +18,6 @@ if (!empty($_GET['id'])) {
         }
     }
     //send mail
-    require 'vendor/autoload.php';
     include 'lib/config/sendmail.php';
     $mail = new PHPMailer(true);
 

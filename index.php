@@ -5,6 +5,13 @@
  * Github: https://github.com/TanHongIT
  */
 
+use Dotenv\Dotenv;
+
+require __DIR__ . '/vendor/autoload.php';
+
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 session_start();
 
 require_once('lib/model.php');

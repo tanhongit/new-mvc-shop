@@ -6,7 +6,7 @@ $time = time();
 
 //$time_check = $time - 30; //Ấn định thời gian là 10 phút
 
-// function get_client_ip_env()
+// function getClientIpEnv()
 // {
 // if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
 //     $ip = $_SERVER['HTTP_CLIENT_IP'];
@@ -19,8 +19,13 @@ $time = time();
 // }
 
 //https://www.virendrachandak.com/techtalk/getting-real-client-ip-address-in-php-2/  http://tanvietblog.com/2013/09/15/php-lay-dia-chi-ip-cua-khach-vieng-tham
-// Function to get the client ip address
-function get_client_ip_env()
+
+/**
+ * Function to get the client ip address
+ *
+ * @return bool|array|string
+ */
+function getClientIpEnv(): bool|array|string
 {
     if (getenv('HTTP_CLIENT_IP'))
         $ipaddress = getenv('HTTP_CLIENT_IP');
@@ -59,7 +64,8 @@ function get_client_ip_env()
 
 //     return $ipaddress;
 // }
-$ip = get_client_ip_env();
+
+$ip = getClientIpEnv();
 $browser = $_SERVER['HTTP_USER_AGENT'];
 $date = gmdate('Y-m-d H:i:s', time() + 7 * 3600);
 
@@ -68,10 +74,14 @@ $options = [
 ];
 $count = getTotal('users_online', $options);
 
-if ($count == 0) { //Truy cập lần đầu
-    insert_user_online($session, $time, $ip, $browser, $date);
-} else { //Truy cập lần 2
-    update_user_online($session, $time, $ip, $browser, $date);
+try {
+    if ($count == 0) { //Truy cập lần đầu
+        insert_user_online($session, $time, $ip, $browser, $date);
+    } else { //Truy cập lần 2
+        update_user_online($session, $time, $ip, $browser, $date);
+    }
+} catch (Exception $e) {
+    echo $e->getMessage();
 }
 
 // $sql3 = "SELECT * FROM users_online";

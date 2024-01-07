@@ -15,7 +15,7 @@ Support this project :stuck_out_tongue_winking_eye: :pray:
     - Web Server: Apache
     - Version PHP >= 8.0
     - OpenSSL PHP Extension
-    - Composer (Please install composer before running this project)
+    - [Composer](https://getcomposer.org/download/) (Please install composer before running this project)
     - MySQL >= 8.0 (or MariaDB >= 10.0)
 
 # 2. Technology

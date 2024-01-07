@@ -12,11 +12,11 @@ Support this project :stuck_out_tongue_winking_eye: :pray:
 </p>
 
 # 1. Configuration requirements
-    - Web Server: Apache
-    - Version PHP >= 8.0
-    - OpenSSL PHP Extension
-    - [Composer](https://getcomposer.org/download/) (Please install composer before running this project)
-    - MySQL >= 8.0 (or MariaDB >= 10.0)
+> - Web Server: Apache
+> - Version PHP >= 8.0
+> - OpenSSL PHP Extension
+> - [Composer](https://getcomposer.org/download/) (Please install composer before running this project).
+> - MySQL >= 8.0 (or MariaDB >= 10.0)
 
 # 2. Technology
 - Pure PHP language
@@ -77,9 +77,11 @@ Copy the .env.example file to .env:
 cp .env.example .env
 ```
 
-After a clone my repository to the local computer, you need to edit some code to be able to connect to the database and help the site works.
+# 6. Installation instructions
 
-## 5.1 Edit Config
+After running the above command, you need to edit the following information in the **.env** file:
+
+## 6.1 Edit Config
 
 You need to change the path in the '**.env**' file to match the location of this source code on your server and must match the domain you registered.
 
@@ -93,7 +95,7 @@ PATH_URL_IMG_PRODUCT=public/upload/products/
 > 
 > The path of the config file that is using these environment variables is located at: [`/lib/config/config.php`](https://github.com/TanHongIT/new-mvc-shop/tree/master/lib/config/config.php)
 
-## 5.2 Edit Connect Database
+## 6.2 Edit Connect Database
 
 You need to change the connection information and import sql file to the database after you have cloned my repository so that the website can work.
 
@@ -114,7 +116,7 @@ DB_NAME=chikoi
 >
 > The path of the database config file that is using these environment variables is located at: [`/lib/config/database.php`](https://github.com/TanHongIT/new-mvc-shop/tree/master/lib/config/database.php)
 
-## 5.3 Edit .htaccess
+## 6.3 Edit .htaccess
 
 Change RewriteBase - Recommend the path that matches your host address.
 
@@ -123,7 +125,7 @@ So we will have:
 RewriteBase /
 ```
 
------------------------------------------------
+---
 
 > **Note**: This applies to the case where your project is in a subfolder, and you want it accessible from a subpath URL.
 >
@@ -136,7 +138,7 @@ RewriteBase /
 > RewriteBase /new-mvc-shop/
 > ```
 
-### 5.4 Edit SMTP Mail
+## 6.4 Edit SMTP Mail
 
 > The third thing: 
 You need to change the information about **SMTP Mail** to be able to use some functions about user account authentication, change passwords, notify users, ...
@@ -160,47 +162,98 @@ Tips: https://support.google.com/accounts/answer/185833?hl=en
 >
 > The path of the email config file that is using these environment variables is located at: [`/lib/config/sendmail.php`](https://github.com/TanHongIT/new-mvc-shop/tree/master/lib/config/sendmail.php)
 
+# 7. Install with Docker
 
-# 6. Demo
+> Note: 
+> 
+> **Please skip this section if you have already installed the project in the above section.**
+
+If you want to run this project with Docker, you can edit .env file and use the following command:
+
+Please edit the following information in the **.env** file:
+
+(Please set ports for **MYSQL_PORT, PHPMYADMIN_PORT, APP_PORT, SSL_PORT** and not duplicate with other ports)
+
+Example:
+
+```dotenv
+PHP_VERSION_SELECTED=8.2
+
+APP_NAME=new-mvc-shop
+
+APP_PORT=85
+SSL_PORT=443 # (optional)
+
+MYSQL_PORT=3307
+MYSQL_USER=root
+MYSQL_ROOT_PASS=root
+MYSQL_DB=new-mvc-shop
+MYSQL_PASS=root
+
+PHPMYADMIN_PORT=8081
+PHPMYADMIN_UPLOAD_LIMIT=2048M
+```
+
+Then, run the following command:
+
+```bash
+docker-compose up -d
+```
+
+After running the above command, you need to install the composer package for the project.
+
+```bash
+docker-compose exec server bash
+composer install
+```
+
+Finally, you need to import the database file into the database container.
+
+# 8. Demo
 
 1. Front-End: [https://chikoiquan.tanhongit.com](https://chikoiquan.tanhongit.com)
 2. Back-End: [https://chikoiquan.tanhongit.com/admin.php](https://chikoiquan.tanhongit.com/admin.php)
 
 > **_Account login on Backend_**
+> 
+> ```
+> user :
+>     username: testna      | email: test@gmail.com        | password: 123456789
+>     username: tanhongitii | email: meowwww@gmail.com.com | password: 123456789
+> Mod :
+>     username: eyteyt      | email: moderator@gmail.com   | password: 12345678
+> 
+> Admin:
+>     username: admin       | email: admin@gmail.com       | password: 1234567890
+> ```
 
-```
-user :
-    username: testna      | email: test@gmail.com        | password: 123456789
-    username: tanhongitii | email: meowwww@gmail.com.com | password: 123456789
-Mod :
-    username: eyteyt      | email: moderator@gmail.com   | password: 12345678
-
-Admin:
-    username: admin       | email: admin@gmail.com       | password: 1234567890
-```
 # Demo Images
 
 **HomePage**
+
 ![Image](https://imgur.com/rncleZ0.png)
 
----------------------------------------------------------------------------------
+---
 
 **Slide of Homepage**
+
 ![Image](https://imgur.com/uI1Umba.png)
 
----------------------------------------------------------------------------------
+---
 
 **Product Page**
+
 ![Image](https://imgur.com/ExdAptJ.png)
 
----------------------------------------------------------------------------------
+---
 
 **Admin Manager Page**
+
 ![Image](https://imgur.com/xOpAmb4.png)
 
 ![Image](https://imgur.com/u8lXnsz.png)
 
----------------------------------------------------------------------------------
+---
 
 <p align="center">
      <img src="https://img.shields.io/packagist/l/doctrine/orm.svg" data-origin="https://img.shields.io/packagist/l/doctrine/orm.svg" alt="license">

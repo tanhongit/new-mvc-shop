@@ -6,11 +6,12 @@ networks:
 
 services:
   server:
-    build:
-      context: .
-      dockerfile: ./docker/Dockerfile
-      args:
-        - PHP_VERSION_SELECTED=${PHP_VERSION_SELECTED:-8.2}
+#    build:
+#      context: .
+#      dockerfile: ./docker/Dockerfile
+#      args:
+#        - PHP_VERSION_SELECTED=${PHP_VERSION_SELECTED:-8.2}
+    image: tanhong/new-mvc-shop:docker
     container_name: '${APP_NAME:-new_mvc_shop}-server'
     ports:
       - '${APP_PORT:-85}:80'

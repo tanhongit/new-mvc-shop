@@ -174,11 +174,9 @@ Please edit the following information in the **.env** file:
 
 (Please set ports for **MYSQL_PORT, PHPMYADMIN_PORT, APP_PORT, SSL_PORT** and not duplicate with other ports)
 
-Example:
+**Example:**
 
 ```dotenv
-PHP_VERSION_SELECTED=8.2
-
 APP_NAME=new-mvc-shop
 
 APP_PORT=85

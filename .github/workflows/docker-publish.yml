@@ -2,9 +2,9 @@ name: Publish Docker image
 
 on:
   push:
-    branches: [ "main" "docker"]
+    branches: [ master, docker ]
   pull_request:
-    branches: [ "main" "docker"]
+    branches: [ master, docker ]
 
 env:
   DOCKER_ID: ${{ secrets.DOCKER_USERNAME }}

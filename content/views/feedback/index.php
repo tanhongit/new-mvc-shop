@@ -57,9 +57,9 @@
                                     <?php else : ?>
                                         <h3>Bạn sẽ gửi phản hồi với tư cách là người dùng: <a href="admin.php?controller=user&action=info&user_id=<?= $userNav ?>"><b><?= $user_action['user_name'] ?></b></a></h3>
                                         <input type="hidden" class="form-control" name="user_id" value="<?= $userNav ?>">
-                                        <input type="hidden" name="name" value="<?= $user_login['user_name'] ?>" class="form-control">
-                                        <input type="hidden" name="email" value="<?= $user_login['user_email'] ?>" class="form-control">
-                                        <input type="hidden" value="<?= $user_login['user_phone'] ?>" name="phone" class="form-control">
+                                        <input type="hidden" name="name" value="<?= $userLogin['user_name'] ?>" class="form-control">
+                                        <input type="hidden" name="email" value="<?= $userLogin['user_email'] ?>" class="form-control">
+                                        <input type="hidden" value="<?= $userLogin['user_phone'] ?>" name="phone" class="form-control">
                                     <?php endif; ?>
                                     <div class="row">
                                         <div class="form-group">

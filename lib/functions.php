@@ -157,8 +157,8 @@ function upload($field, $config = [])
 function permission_user(): void
 {
     global $userNav;
-    $user_login = getRecord('users', $userNav);
-    if ($user_login['role_id'] == 0) {
+    $userLogin = getRecord('users', $userNav);
+    if ($userLogin['role_id'] == 0) {
         header('location:index.php');
         exit;
     }
@@ -170,8 +170,8 @@ function permission_user(): void
 function permission_moderator(): void
 {
     global $userNav;
-    $user_login = getRecord('users', $userNav);
-    if ($user_login['role_id'] == 2) {
+    $userLogin = getRecord('users', $userNav);
+    if ($userLogin['role_id'] == 2) {
         header('location:admin.php');
         exit;
     }

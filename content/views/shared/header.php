@@ -31,7 +31,7 @@ $options_menu_footer = [
 ];
 $menu_footers = getAll('menu_footers', $options_menu_footer);
 global $userNav;
-$user_login = getRecord('users', $userNav);
+$userLogin = getRecord('users', $userNav);
 
 if (isset($image_product)) {
     $link_image = $image_product;
@@ -121,7 +121,7 @@ if (isset($url_product)) {
 						<li>
 							<a href="<?= $contactUrl ?>"><i class="fa fa-headphones"></i>Liên hệ</a>
 						</li>
-						<?php if (!isset($user_login)) : ?>
+						<?php if (!isset($userLogin)) : ?>
 							<li>
 								<a href="register.php"><strong><i class="fa fa-sign-in"></i>Đăng ký</strong></a>
 							</li>
@@ -288,11 +288,11 @@ if (isset($url_product)) {
 							<?php else : ?>
 								<li class="dropdown mega-menu-item mega-menu-signin signin logged" id="headerAccount">
 									<a class="dropdown-toggle" href="admin.php">
-										<?php if (!isset($user_login['user_avatar'])) {
+										<?php if (!isset($userLogin['user_avatar'])) {
 										    echo '<i class="fa fa-user"></i>';
 										} else {
-										    echo '<img style="max-width: 25px;  border-radius: 15px 15px 15px 15px;" src="public/upload/images/' . $user_login['user_avatar'] . '" alt="' . $user_login['user_name'] . '">';
-										} ?> <?= $user_login['user_username'] ?>
+										    echo '<img style="max-width: 25px;  border-radius: 15px 15px 15px 15px;" src="public/upload/images/' . $userLogin['user_avatar'] . '" alt="' . $userLogin['user_name'] . '">';
+										} ?> <?= $userLogin['user_username'] ?>
 										<i class="fa fa-angle-down"></i>
 									</a>
 									<ul class="dropdown-menu">
@@ -302,11 +302,11 @@ if (isset($url_product)) {
 													<div class="col-md-6">
 														<div class="user-avatar">
 															<div class="img-thumbnail">
-																<img src="public/upload/images/<?= $user_login['user_avatar'] ?>" alt="<?= $user_login['user_name'] ?>">
+																<img src="public/upload/images/<?= $userLogin['user_avatar'] ?>" alt="<?= $userLogin['user_name'] ?>">
 															</div>
-															<p><strong><?= $user_login['user_name'] ?></strong><span><?php if ($user_login['role_id'] == 0) {
+															<p><strong><?= $userLogin['user_name'] ?></strong><span><?php if ($userLogin['role_id'] == 0) {
 															    echo 'Khách hàng';
-															} elseif ($user_login['role_id'] == 1) {
+															} elseif ($userLogin['role_id'] == 1) {
 															    echo 'Admin';
 															} else {
 															    echo 'Moderator';

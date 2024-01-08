@@ -1,8 +1,9 @@
 <?php
 
-if (isset($_GET['id'])) {
-    $productId = intval($_GET['id']);
+if (!isset($_GET['id'])) {
+    show404NotFound();
 }
+$productId = intval($_GET['id']);
 cart_delete($productId);
 global $userNav;
 if (isset($userNav)) {

@@ -1,11 +1,12 @@
 <?php
 
 require_once('content/models/products.php');
-if (isset($_GET['id'])) {
-    $productId = intval($_GET['id']);
-} else {
+
+if (!isset($_GET['id'])) {
     show404NotFound();
 }
+
+$productId = intval($_GET['id']);
 $product = getRecord('products', $productId);
 
 if (!$product) {

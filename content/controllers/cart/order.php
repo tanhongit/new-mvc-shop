@@ -7,7 +7,7 @@ if (empty($cart)) {
 }
 global $userNav;
 if (isset($userNav)) {
-    $user_login = getRecord('users', $userNav);
+    $userLogin = getRecord('users', $userNav);
 }
 //load view
 require('content/views/cart/order.php');

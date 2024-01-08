@@ -1,11 +1,12 @@
 <?php
 
-if (isset($_GET['id'])) {
-    $shop_id = intval($_GET['id']);
-} else {
+if (!isset($_GET['id'])) {
     show404NotFound();
 }
-$category = getRecord('categories', $shop_id);
+
+$shopId = intval($_GET['id']);
+
+$category = getRecord('categories', $shopId);
 if (!$category) {
     show404NotFound();
 }
@@ -25,13 +26,13 @@ $limit = 9;
 $offset = ($page - 1) * $limit;
 
 $options = [
-    'where' => 'category_id=' . $shop_id,
+    'where' => 'category_id=' . $shopId,
     'limit' => $limit,
     'offset' => $offset,
     'order_by' => 'id DESC',
 ];
 
-$url = 'shop/' . $shop_id . '-' . $category['slug'];
+$url = 'shop/' . $shopId . '-' . $category['slug'];
 $totalRows = getTotal('products', $options);
 $total = ceil($totalRows / $limit);
 

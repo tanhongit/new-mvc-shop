@@ -1,11 +1,11 @@
 <?php
 
 if (isset($_GET['id'])) {
-    $type_id = intval($_GET['id']);
+    $typeId = intval($_GET['id']);
 } else {
     show404NotFound();
 }
-$type = getRecord('types', $type_id);
+$type = getRecord('types', $typeId);
 if (!$type) {
     show404NotFound();
 }
@@ -20,12 +20,12 @@ $limit = 9;
 $offset = ($page - 1) * $limit;
 
 $options = [
-    'where' => 'product_typeid=' . $type_id,
+    'where' => 'product_typeid=' . $typeId,
     'limit' => $limit,
     'offset' => $offset,
     'order_by' => 'id DESC',
 ];
-$url = 'type/' . $type_id . '-' . $type['slug'];
+$url = 'type/' . $typeId . '-' . $type['slug'];
 $totalRows = getTotal('products', $options);
 $total = ceil($totalRows / $limit);
 $products = getAll('products', $options);

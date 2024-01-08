@@ -3,6 +3,7 @@
 permission_user();
 require_once('admin/models/users.php');
 $userId = intval($_GET['user_id']);
+checkAdmin($userId);
 global $userNav;
 $user = getRecord('users', $userNav);
 if ($_GET['user_id'] == $userNav || $user['role_id'] <> 1) {

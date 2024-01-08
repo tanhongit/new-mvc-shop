@@ -162,7 +162,7 @@ Tips: https://support.google.com/accounts/answer/185833?hl=en
 >
 > The path of the email config file that is using these environment variables is located at: [`/lib/config/sendmail.php`](https://github.com/TanHongIT/new-mvc-shop/tree/master/lib/config/sendmail.php)
 
-# 7. Install with Docker
+# 7. Install with Docker (Optional)
 
 > Note: 
 > 

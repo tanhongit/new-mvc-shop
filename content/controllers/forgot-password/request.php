@@ -23,14 +23,14 @@ if (!empty($_POST['email'])) {
         $users = getAll('users', $option);
         foreach ($users as $user) {
             if ($user['user_email'] == $email) {
-                $verification_Code = $user['verificationCode'];
+                $verificationCode = $user['verificationCode'];
             }
         }
         include 'lib/config/sendmail.php';
         $mail = new PHPMailer(true);
 
         try {
-            $verificationLink = PATH_URL . "index.php?controller=forgot-password&action=resultcode&code=" . $verification_Code;
+            $verificationLink = PATH_URL . "index.php?controller=forgot-password&action=resultcode&code=" . $verificationCode;
             //content
             $htmlStr = "";
             $htmlStr .= "Xin chào " . $username . ' (' . $email . "),<br /><br />";

@@ -1,14 +1,15 @@
 <?php
 
 require_once('content/models/posts.php');
-if (isset($_GET['id'])) {
-    $postId = intval($_GET['id']);
-} else {
+
+if (!isset($_GET['id'])) {
     show404NotFound();
 }
+
+$postId = intval($_GET['id']);
 $page = getRecord('posts', $postId);
 $user = getRecord('users', $page['post_author']);
-if (!$page || $page['post_status'] <> 'Publiced') {
+if (!$page || $page['post_status'] <> 'Published') {
     show404NotFound();
 } else {
     updateCountView($postId);

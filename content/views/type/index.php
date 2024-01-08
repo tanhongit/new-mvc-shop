@@ -1,4 +1,13 @@
-<?php require('content/views/shared/header.php'); ?>
+<?php
+
+/**
+ * @var array $products
+ * @var array $type
+ * @var string $pagination
+ * @var int $totalRows
+ */
+require('content/views/shared/header.php');
+  ?>
 <div role="main" class="main shop">
     <div class="container">
 

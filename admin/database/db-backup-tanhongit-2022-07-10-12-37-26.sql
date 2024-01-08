@@ -280,12 +280,12 @@ CREATE TABLE `posts` (
   KEY `fk_id_author` (`post_author`)
 ) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO posts VALUES("1","2","2020-04-08 05:57:42","","About","Publiced","2020-04-08 06:31:51","2","Tân Hồng ","48","about","about-1page.png");
-INSERT INTO posts VALUES("9","3","2020-04-12 13:20:20","","Web developmwnt","Publiced","0000-00-00 00:00:00","2","","0","fewrfewrew","");
-INSERT INTO posts VALUES("8","2","2020-04-08 23:13:53","","Điều khoản sử dụng","Publiced","0000-00-00 00:00:00","2","","1","terms-of-use-page","");
+INSERT INTO posts VALUES("1","2","2020-04-08 05:57:42","","About","Published","2020-04-08 06:31:51","2","Tân Hồng ","48","about","about-1page.png");
+INSERT INTO posts VALUES("9","3","2020-04-12 13:20:20","","Web developmwnt","Published","0000-00-00 00:00:00","2","","0","fewrfewrew","");
+INSERT INTO posts VALUES("8","2","2020-04-08 23:13:53","","Điều khoản sử dụng","Published","0000-00-00 00:00:00","2","","1","terms-of-use-page","");
 INSERT INTO posts VALUES("6","2","2020-04-08 11:47:48","","Dmca Luật bản quyền","Trash","2020-04-08 10:25:58","1","Tân Hồng ","5","dmca-luat-ban","");
 INSERT INTO posts VALUES("5","2","2020-04-09 14:03:15","Phim việt chất lượng cao<br />
-\n<img alt=\"\" src=\"/php-mvc-shop/public/upload/ckeditorimages/about-1page.png\" style=\"height:271px; width:482px\" />","Phim việt","Publiced","2020-04-08 10:13:10","1","Tân Hồng ","4","phim-viet","phim-viet-5post.png");
+\n<img alt=\"\" src=\"/php-mvc-shop/public/upload/ckeditorimages/about-1page.png\" style=\"height:271px; width:482px\" />","Phim việt","Published","2020-04-08 10:13:10","1","Tân Hồng ","4","phim-viet","phim-viet-5post.png");
 INSERT INTO posts VALUES("4","2","2020-04-12 12:54:02","ouhiuh<br />
 \naad<br />
 \n<img alt=\"\" src=\"/php-mvc-shop/public/upload/ckeditorimages/tenor.gif\" style=\"height:498px; width:498px\" /><br />
@@ -293,7 +293,7 @@ INSERT INTO posts VALUES("4","2","2020-04-12 12:54:02","ouhiuh<br />
 \nfhgtfrdhtrd<br />
 \nỵytrj","Privacy Policy","Draft","2020-04-08 06:05:46","2","Tân Hồng ","7","privacy-policy","privacy-policy-4page.jpg");
 INSERT INTO posts VALUES("3","2","2020-04-08 06:17:37","Luật bản quyền dựa tr&ecirc;n luật to&agrave;n cầu<br />
-\n<img alt=\"\" src=\"/php-mvc-shop/public/upload/ckeditorimages/dmca-luat-ban-quyen-2page.jpg\" style=\"height:304px; width:650px\" />","Dmca Luật bản quyền","Publiced","2020-04-07 23:52:43","2","","1","dmca-luat-ban-quyen","");
+\n<img alt=\"\" src=\"/php-mvc-shop/public/upload/ckeditorimages/dmca-luat-ban-quyen-2page.jpg\" style=\"height:304px; width:650px\" />","Dmca Luật bản quyền","Published","2020-04-07 23:52:43","2","","1","dmca-luat-ban-quyen","");
 
 
 DROP TABLE IF EXISTS products;

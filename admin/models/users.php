@@ -116,17 +116,17 @@ function changePassword($id, $newpassword, $currentPassword)
 function user_update()
 {
     global $userNav;
-    $user_login = getRecord('users', $userNav);
+    $userLogin = getRecord('users', $userNav);
     if ($_POST['user_id'] <> 0) {
         $editTime = gmdate('Y-m-d H:i:s', time() + 7 * 3600);
     } else {
         $editTime = '0000-00-00 00:00:00';
     }
 
-    if (isset($_POST['roleid']) && $user_login['role_id'] == 1) {
+    if (isset($_POST['roleid']) && $userLogin['role_id'] == 1) {
         $roleid = $_POST['roleid'];
     } else {
-        $roleid = $user_login['role_id'];
+        $roleid = $userLogin['role_id'];
     }
 
     $user_edit = [

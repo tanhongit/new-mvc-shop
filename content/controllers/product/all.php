@@ -21,5 +21,5 @@ $totalRows = getTotal('products', $options);
 $total = ceil($totalRows / $limit);
 $pagination = pagination($url, $page, $total);
 
-$products_all = getAll('products', $options);
+$products = getAll('products', $options);
 require('content/views/product/all.php');

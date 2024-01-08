@@ -6,7 +6,7 @@
             <ul class="breadcrumb">
                 <li><a href="<?= PATH_URL; ?>home">Home</a></li>
                 <li><a
-                        href="category/<?= $subcategories['id'] . '-' . $subcategories['slug']; ?>"><?= $breadCrumb ?></a>
+                        href="category/<?= $subCategoryData['id'] . '-' . $subCategoryData['slug']; ?>"><?= $breadCrumb ?></a>
                 </li>
                 <li class="active"><?= $product['product_name'] ?></li>
             </ul>
@@ -81,7 +81,7 @@
                             </form>
                             <div class="product_meta">
                                 <span class="posted_in">Danh Mục Con: <a rel="tag"
-                                        href="category/<?= $subcategories['id'] . '-' . $subcategories['slug']; ?>"><?= $breadCrumb ?></a></span>
+                                        href="category/<?= $subCategoryData['id'] . '-' . $subCategoryData['slug']; ?>"><?= $breadCrumb ?></a></span>
                             </div>
                             <hr class="tall">
                             <div class="feedback">
@@ -194,16 +194,16 @@
                                                             </div>
                                                         </div>
                                                     <?php else : ?>
-                                                        <input name="author" type="hidden" value="<?= $user_login['user_name'] ?>">
-                                                        <input name="email" type="hidden" value="<?= $user_login['user_email'] ?>">
-                                                        <input name="link_image" type="hidden" value="<?= $user_login['user_avatar'] ?>">
+                                                        <input name="author" type="hidden" value="<?= $userLogin['user_name'] ?>">
+                                                        <input name="email" type="hidden" value="<?= $userLogin['user_email'] ?>">
+                                                        <input name="link_image" type="hidden" value="<?= $userLogin['user_avatar'] ?>">
                                                     <?php endif; ?>
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-12">
                                                             <?php if (isset($userNav)) : ?>
-                                                                <label>Bạn đang đăng nhập với tài khoản <strong><?= $user_login['user_name'] ?></strong>. Bạn muốn <a href="admin.php?controller=home&action=logout">đăng xuất</a> ?</label>
+                                                                <label>Bạn đang đăng nhập với tài khoản <strong><?= $userLogin['user_name'] ?></strong>. Bạn muốn <a href="admin.php?controller=home&action=logout">đăng xuất</a> ?</label>
                                                             <?php else : ?>
                                                                 <label>Bạn có muốn <strong><a href="admin.php?controller=home&action=login">đăng nhập</a></strong> để bình luận bằng tài khoản của bạn.!</label>
                                                             <?php endif; ?>
@@ -243,11 +243,11 @@
                                                     </div>
                                                 <?php else : ?>
                                                     <input name="author" type="hidden" id="author"
-                                                        value="<?= $user_login['user_name'] ?>">
+                                                        value="<?= $userLogin['user_name'] ?>">
                                                     <input name="email" type="hidden" id="email"
-                                                        value="<?= $user_login['user_email'] ?>">
+                                                        value="<?= $userLogin['user_email'] ?>">
                                                     <input name="link_image" type="hidden" id="link_image"
-                                                        value="<?= $user_login['user_avatar'] ?>">
+                                                        value="<?= $userLogin['user_avatar'] ?>">
                                                 <?php endif; ?>
                                             </div>
                                             <div class="row">
@@ -255,7 +255,7 @@
                                                     <div class="col-md-12">
                                                         <?php if (isset($userNav)) : ?>
                                                             <label>Bạn đang đăng nhập với tài khoản
-                                                                <strong><?= $user_login['user_name'] ?></strong>. Bạn muốn
+                                                                <strong><?= $userLogin['user_name'] ?></strong>. Bạn muốn
                                                                 <a href="admin.php?controller=home&action=logout">đăng
                                                                     xuất</a>
                                                                 ?</label>
@@ -298,7 +298,7 @@
                     </div>
                     <?php $product_related = getAll('products', [
                         'limit' => '8',
-                        'where' => $subcategories['id'] . '=sub_category_id and id<>' . $product['id'], //liên quan theo category
+                        'where' => $subCategoryData['id'] . '=sub_category_id and id<>' . $product['id'], //liên quan theo category
                         'offset' => '0',
                         'order_by' => 'totalView DESC',
                     ]); ?>

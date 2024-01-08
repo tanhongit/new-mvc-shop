@@ -1,11 +1,12 @@
 <?php
 
 require_once('content/models/products.php');
-if (isset($_GET['id'])) {
-    $productId = intval($_GET['id']);
-} else {
+
+if (!isset($_GET['id'])) {
     show404NotFound();
 }
+
+$productId = intval($_GET['id']);
 $product = getRecord('products', $productId);
 
 if (!$product) {
@@ -20,9 +21,9 @@ $categories = getAll('categories', [
     'select' => 'id, category_name',
     'order_by' => 'id ASC',
 ]);
-$subcategories = getRecord('subcategory', $product['sub_category_id']);
+$subCategoryData = getRecord('subcategory', $product['sub_category_id']);
 if ($product['sub_category_id'] != 0) {
-    $breadCrumb = $subcategories['subcategory_name'];
+    $breadCrumb = $subCategoryData['subcategory_name'];
 }
 $comment_option = [
     'where' => 'product_id=' . $product['id'],

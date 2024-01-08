@@ -1,3 +1,9 @@
+<?php
+
+/**
+* @var array $cart
+ */
+?>
 <div class="featured-box featured-box-secundary featured-box-cart">
     <div class="box-content">
         <form method="post" action="index.php?controller=cart" role="form">

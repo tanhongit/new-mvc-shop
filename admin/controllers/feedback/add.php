@@ -20,7 +20,7 @@ $order = getRecord('orders', $orderId);
 $orderDetail = orderDetail($orderId);
 
 if (isset($userNav)) {
-    $user_action = getRecord('users', $userNav);
+    $userAction = getRecord('users', $userNav);
 }
 
 $status = [

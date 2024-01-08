@@ -251,7 +251,7 @@ $total_posts = getTotal('posts', $options_posts);
 
 $options_posts_status = [
     'order_by' => 'id DESC',
-    'where' => 'post_status="Publiced"',
+    'where' => 'post_status="Published"',
 ];
 $total_posts_status = getTotal('posts', $options_posts_status);
 

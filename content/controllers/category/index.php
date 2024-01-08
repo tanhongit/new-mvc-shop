@@ -7,6 +7,7 @@ if (!isset($_GET['id'])) {
 $categoryId = intval($_GET['id']);
 
 $category = getRecord('subcategory', $categoryId);
+
 if (!$category) {
     show404NotFound();
 }
@@ -40,9 +41,9 @@ $total = ceil($totalRows / $limit);
 $products = getAll('products', $options);
 $pagination = pagination($url, $page, $total);
 
-$subcategories = getRecord('subcategory', $_GET["id"]);
-if ($subcategories['id'] != 0) {
-    $breadCrumb = $subcategories['subcategory_name'];
+$subCategoryData = getRecord('subcategory', $_GET["id"]);
+if ($subCategoryData['id'] != 0) {
+    $breadCrumb = $subCategoryData['subcategory_name'];
 }
 $title = $category['subcategory_name'] . ' - Quán Chị Kòi';
 require('content/views/category/index.php');

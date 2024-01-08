@@ -34,7 +34,7 @@
                 </form>
                 <div class="copyright text-center">
                     &copy;
-                    <script>document.write(new Date().getFullYear())</script>,
+                    <script>document.write(new Date().getFullYear().toString())</script>,
                     <span>Thiết kế: <a href="https://thememakker.com/" target="_blank">ThemeMakker</a></span><span> - Phát triển bởi <a href="https://tanhongit.com" target="_blank">TanHongIT</a></span>
                 </div>
             </div>

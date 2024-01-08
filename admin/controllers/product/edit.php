@@ -31,7 +31,7 @@ $categories = getAll('categories', [
     'select' => 'id,category_name',
     'order_by' => 'id',
 ]);
-$subcategories = getAll('subcategory', [
+$subCategoryData = getAll('subcategory', [
     'select' => 'id,subcategory_name',
     'order_by' => 'subcategory_name',
 ]);

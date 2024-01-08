@@ -7,43 +7,43 @@
 						<h2><a href="type/2-san-pham-moi">Sản Phẩm <strong>Mới</strong></a></h2>
 					</div>
 					<ul class="products product-thumb-info-list">
-						<?php if (empty($new_products)) : ?>
+						<?php if (empty($newProducts)) : ?>
 							<h3 class="col-sm-12">Không có sản phẩm nào trong danh mục này.</h3>
 						<?php endif; ?>
-						<?php foreach ($new_products as $new_product) : ?>
+						<?php foreach ($newProducts as $newProduct) : ?>
 							<li class="col-sm-3 col-xs-12 product">
-								<?php if ($new_product['saleoff'] != 0) : ?>
+								<?php if ($newProduct['saleoff'] != 0) : ?>
 									<a href="type/3-san-pham-dang-giam-gia">
-										<span class="onsale">-<?= $new_product['percentoff']; ?>%</span>
+										<span class="onsale">-<?= $newProduct['percentoff']; ?>%</span>
 									</a>
 								<?php endif; ?>
 								<span class="product-thumb-info">
-									<form action="cart/add/<?= $new_product['id']; ?>" method="post">
+									<form action="cart/add/<?= $newProduct['id']; ?>" method="post">
 										<input type="hidden" name="number_cart" value="1">
-										<a class="add-to-cart-product"><button type="submit" href="cart/add/<?= $new_product['id']; ?>"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button></a>
+										<a class="add-to-cart-product"><button type="submit" href="cart/add/<?= $newProduct['id']; ?>"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button></a>
 									</form>
-									<a href="product/<?= $new_product['id']; ?>-<?= $new_product['slug']; ?>">
+									<a href="product/<?= $newProduct['id']; ?>-<?= $newProduct['slug']; ?>">
 										<span class="product-thumb-info-image">
 											<span class="product-thumb-info-act">
 												<span class="product-thumb-info-act-left"><em>Lượt xem</em></span>
 												<span class="product-thumb-info-act-right"><em><i class="fa fa-plus"></i> Chi tiết</em></span>
 											</span>
-											<img alt="<?=$new_product['product_name']?>" class="img-responsive" src="public/upload/products/<?= $new_product['img1']; ?>">
+											<img alt="<?=$newProduct['product_name']?>" class="img-responsive" src="public/upload/products/<?= $newProduct['img1']; ?>">
 										</span>
 									</a>
 									<span class="product-thumb-info-content">
-										<a href="product/<?= $new_product['id']; ?>-<?= $new_product['slug']; ?>/">
-											<h4 title="<?= $new_product['product_name']; ?>"><?php if (strlen($new_product['product_name']) > 50) {
-											    echo substr($new_product['product_name'], 0, 57) . '...';
+										<a href="product/<?= $newProduct['id']; ?>-<?= $newProduct['slug']; ?>/">
+											<h4 title="<?= $newProduct['product_name']; ?>"><?php if (strlen($newProduct['product_name']) > 50) {
+											    echo substr($newProduct['product_name'], 0, 57) . '...';
 											} else {
-											    echo $new_product['product_name'];
+											    echo $newProduct['product_name'];
 											}  ?></h4>
 											<span class="price">
-												<?php if ($new_product['saleoff'] != 0) { ?>
-													<del title="<?= $new_product['product_name']; ?>"><span class="amount"><?= number_format($new_product['product_price'], 0, ',', '.');  ?></span></del>
-													<ins title="<?= $new_product['product_name']; ?>"><span class="amount"><?= number_format(($new_product['product_price']) - (($new_product['product_price'] * $new_product['percentoff']) / 100), 0, ',', '.'); ?> VNĐ</span></ins>
+												<?php if ($newProduct['saleoff'] != 0) { ?>
+													<del title="<?= $newProduct['product_name']; ?>"><span class="amount"><?= number_format($newProduct['product_price'], 0, ',', '.');  ?></span></del>
+													<ins title="<?= $newProduct['product_name']; ?>"><span class="amount"><?= number_format(($newProduct['product_price']) - (($newProduct['product_price'] * $newProduct['percentoff']) / 100), 0, ',', '.'); ?> VNĐ</span></ins>
 												<?php } else { ?>
-													<ins><span class="amount"><?= number_format($new_product['product_price'], 0, ',', '.');  ?> VNĐ</span></ins>
+													<ins><span class="amount"><?= number_format($newProduct['product_price'], 0, ',', '.');  ?> VNĐ</span></ins>
 												<?php } ?>
 											</span>
 										</a>

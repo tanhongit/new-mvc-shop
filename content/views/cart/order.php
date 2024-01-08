@@ -1,4 +1,12 @@
-<?php require('content/views/shared/header.php'); ?>
+<?php
+
+/**
+ * @var array $cart
+ * @var array $userLogin
+ */
+
+require('content/views/shared/header.php');
+?>
 <div role="main" class="main shop">
     <div class="container">
         <hr class="tall">
@@ -174,7 +182,7 @@
                                             <div class="form-group">
                                                 <div class="col-md-12">
                                                     <label><strong>Họ & Tên</strong></label>
-                                                    <input type="text" name="name" value="<?= $user_login['user_name'] ?>" class="form-control" required="required" placeholder="Nhập họ và tên thật ...">
+                                                    <input type="text" name="name" value="<?= $userLogin['user_name'] ?>" class="form-control" required="required" placeholder="Nhập họ và tên thật ...">
                                                 </div>
                                             </div>
                                         </div>
@@ -186,7 +194,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label><strong>SĐT để liên lạc</strong></label>
-                                                    <input type="text" value="<?= $user_login['user_phone'] ?>" name="phone" required="required" class="form-control">
+                                                    <input type="text" value="<?= $userLogin['user_phone'] ?>" name="phone" required="required" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -194,7 +202,7 @@
                                             <div class="form-group">
                                                 <div class="col-md-12">
                                                     <label><strong>Địa chỉ </strong></label>
-                                                    <input type="text" name="address" value="<?= $user_login['user_address'] ?>" required="required" class="form-control" placeholder="Mong các bạn nhập chi tiết địa chỉ ạ...">
+                                                    <input type="text" name="address" value="<?= $userLogin['user_address'] ?>" required="required" class="form-control" placeholder="Mong các bạn nhập chi tiết địa chỉ ạ...">
                                                 </div>
                                             </div>
                                         </div>

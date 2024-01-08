@@ -13,31 +13,27 @@ foreach ($contacts as $contact) {
     $phone = preg_replace("/([0-9]{3})([0-9]{4})/", "$1-$2", $contact['phone']);
     $phone2 = preg_replace("/([0-9]{3})([0-9]{4})/", "$1-$2", $contact['phone_2']);
     $contactUrl = $contact['link_Contact'];
-    $email_contact = $contact['email'];
-    $link_Facebook = $contact['link_Facebook'];
-    $link_Twitter = $contact['link_Twitter'];
-    $address_contact = $contact['address'];
-    $zalo_contact = $contact['zalo'];
-    $linkedin_contact = $contact['link_linkedin'];
+    $contactEmail = $contact['email'];
+    $contactFacebook = $contact['link_Facebook'];
+    $contactTwitter = $contact['link_Twitter'];
+    $contactAddress = $contact['address'];
+    $contactZalo = $contact['zalo'];
+    $contactLinkedin = $contact['link_linkedin'];
     $aboutUrl = $contact['link_about'];
-    $about_footer = $contact['about_footer'];
-    $link_logo = $contact['link_Logo'];
+    $aboutFooter = $contact['about_footer'];
+    $linkLogo = $contact['link_Logo'];
     $favicon = $contact['favicon'];
 }
-$options_menu_footer = [
+$menuFooterOptions = [
     'order_by' => 'id',
-
     'offset' => 15,
 ];
-$menu_footers = getAll('menu_footers', $options_menu_footer);
+$footerMenu = getAll('menu_footers', $menuFooterOptions);
 global $userNav;
-$user_login = getRecord('users', $userNav);
+$userLogin = getRecord('users', $userNav);
 
-if (isset($image_product)) {
-    $link_image = $image_product;
-} else {
-    $link_image = PATH_URL . 'public/img/bang-hieu-chikoishop.jpg';
-}
+$link_image = $image_product ?? PATH_URL.'public/img/bang-hieu-chikoishop.jpg';
+
 if (isset($url_product)) {
     $url_site = PATH_URL . $url_product . '/';
 } else {
@@ -109,8 +105,8 @@ if (isset($url_product)) {
 			<div class="container">
 				<div class="logo">
 					<a href="home">
-						<?php if (isset($link_logo)) : ?>
-							<img alt="Porto" width="111" height="54" data-sticky-width="82" data-sticky-height="40" src="public/img/<?= $link_logo ?>"><?php endif; ?>
+						<?php if (isset($linkLogo)) : ?>
+							<img alt="Porto" width="111" height="54" data-sticky-width="82" data-sticky-height="40" src="public/img/<?= $linkLogo ?>"><?php endif; ?>
 					</a>
 				</div>
 				<nav>
@@ -121,7 +117,7 @@ if (isset($url_product)) {
 						<li>
 							<a href="<?= $contactUrl ?>"><i class="fa fa-headphones"></i>Liên hệ</a>
 						</li>
-						<?php if (!isset($user_login)) : ?>
+						<?php if (!isset($userLogin)) : ?>
 							<li>
 								<a href="register.php"><strong><i class="fa fa-sign-in"></i>Đăng ký</strong></a>
 							</li>
@@ -288,11 +284,11 @@ if (isset($url_product)) {
 							<?php else : ?>
 								<li class="dropdown mega-menu-item mega-menu-signin signin logged" id="headerAccount">
 									<a class="dropdown-toggle" href="admin.php">
-										<?php if (!isset($user_login['user_avatar'])) {
+										<?php if (!isset($userLogin['user_avatar'])) {
 										    echo '<i class="fa fa-user"></i>';
 										} else {
-										    echo '<img style="max-width: 25px;  border-radius: 15px 15px 15px 15px;" src="public/upload/images/' . $user_login['user_avatar'] . '" alt="' . $user_login['user_name'] . '">';
-										} ?> <?= $user_login['user_username'] ?>
+										    echo '<img style="max-width: 25px;  border-radius: 15px 15px 15px 15px;" src="public/upload/images/' . $userLogin['user_avatar'] . '" alt="' . $userLogin['user_name'] . '">';
+										} ?> <?= $userLogin['user_username'] ?>
 										<i class="fa fa-angle-down"></i>
 									</a>
 									<ul class="dropdown-menu">
@@ -302,11 +298,11 @@ if (isset($url_product)) {
 													<div class="col-md-6">
 														<div class="user-avatar">
 															<div class="img-thumbnail">
-																<img src="public/upload/images/<?= $user_login['user_avatar'] ?>" alt="<?= $user_login['user_name'] ?>">
+																<img src="public/upload/images/<?= $userLogin['user_avatar'] ?>" alt="<?= $userLogin['user_name'] ?>">
 															</div>
-															<p><strong><?= $user_login['user_name'] ?></strong><span><?php if ($user_login['role_id'] == 0) {
+															<p><strong><?= $userLogin['user_name'] ?></strong><span><?php if ($userLogin['role_id'] == 0) {
 															    echo 'Khách hàng';
-															} elseif ($user_login['role_id'] == 1) {
+															} elseif ($userLogin['role_id'] == 1) {
 															    echo 'Admin';
 															} else {
 															    echo 'Moderator';

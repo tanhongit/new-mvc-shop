@@ -41,7 +41,7 @@ function publicPost($id)
         show404NotFound();
     }
     global $linkConnectDB;
-    $sql = 'UPDATE posts SET post_status="Publiced", post_date="' . gmdate('Y-m-d H:i:s', time() + 7 * 3600) . '" where id=' . $id;
+    $sql = 'UPDATE posts SET post_status="Published", post_date="' . gmdate('Y-m-d H:i:s', time() + 7 * 3600) . '" where id=' . $id;
     mysqli_query($linkConnectDB, $sql) or die(mysqli_error($linkConnectDB));
 }
 function postDelete($id)

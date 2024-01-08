@@ -63,7 +63,7 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <?php foreach ($subcategories as $subcategory) : ?>
+                                        <?php foreach ($subCategoryData as $subcategory) : ?>
                                             <tr>
                                                 <td><?= $subcategory['id'] ?></td>
                                                 <td><a href="admin.php?controller=category&amp;action=edit&amp;sub_cate_id=<?= $subcategory['id']; ?>"><?= $subcategory['subcategory_name']; ?></a></td>

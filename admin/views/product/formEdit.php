@@ -51,7 +51,7 @@
                                     </tr>
                                     <tr>
                                         <td><strong>Thuộc danh mục con</strong> </td>
-                                        <td><?php foreach ($subcategories as $subcategory) {
+                                        <td><?php foreach ($subCategoryData as $subcategory) {
                                             if ($product && ($product['sub_category_id'] == $subcategory['id'])) {
                                                 echo $subcategory['subcategory_name'];
                                             }
@@ -151,7 +151,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <select name="subcategory_id" class="form-control show-tick">
-                                            <?php foreach ($subcategories as $subcategory) {
+                                            <?php foreach ($subCategoryData as $subcategory) {
                                                 $selected = '';
                                                 if ($product && ($product['sub_category_id'] == $subcategory['id'])) {
                                                     $selected = 'selected=""';

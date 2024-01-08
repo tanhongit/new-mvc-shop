@@ -6,7 +6,7 @@
             <ul class="breadcrumb">
                 <li><a href="<?= PATH_URL; ?>home">Home</a></li>
                 <li><a
-                        href="category/<?= $subcategories['id'] . '-' . $subcategories['slug']; ?>"><?= $breadCrumb ?></a>
+                        href="category/<?= $subCategoryData['id'] . '-' . $subCategoryData['slug']; ?>"><?= $breadCrumb ?></a>
                 </li>
                 <li class="active"><?= $product['product_name'] ?></li>
             </ul>
@@ -81,7 +81,7 @@
                             </form>
                             <div class="product_meta">
                                 <span class="posted_in">Danh Mục Con: <a rel="tag"
-                                        href="category/<?= $subcategories['id'] . '-' . $subcategories['slug']; ?>"><?= $breadCrumb ?></a></span>
+                                        href="category/<?= $subCategoryData['id'] . '-' . $subCategoryData['slug']; ?>"><?= $breadCrumb ?></a></span>
                             </div>
                             <hr class="tall">
                             <div class="feedback">
@@ -298,7 +298,7 @@
                     </div>
                     <?php $product_related = getAll('products', [
                         'limit' => '8',
-                        'where' => $subcategories['id'] . '=sub_category_id and id<>' . $product['id'], //liên quan theo category
+                        'where' => $subCategoryData['id'] . '=sub_category_id and id<>' . $product['id'], //liên quan theo category
                         'offset' => '0',
                         'order_by' => 'totalView DESC',
                     ]); ?>

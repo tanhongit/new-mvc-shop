@@ -9,7 +9,7 @@ $options = [
     'order_by' => 'id',
 ];
 $title = 'Danh mục sản phẩm';
-$subcategories = getAll('subcategory', $options);
+$subCategoryData = getAll('subcategory', $options);
 $navCategory = 'class="active open"';
 
 require('admin/views/category/index.php');

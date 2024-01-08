@@ -2,7 +2,6 @@
 
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
-use PHPMailer\PHPMailer\PHPMailer;
 
 if (isset($_GET['user_id'])) {
     $userId = intval($_GET['user_id']);

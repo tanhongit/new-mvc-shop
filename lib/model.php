@@ -157,19 +157,3 @@ function getTime($timePost, $timeReply): string
 
     return $result;
 }
-
-/**
- * @param $userId
- *
- * @return false|void
- */
-function checkAdmin($userId)
-{
-    $user = getRecord('users', $userId);
-    if ($user['user_username'] == 'admin') {
-        header('location:admin.php?controller=user&action=edit&user_id=' . $userId);
-        die;
-    }
-
-    return false;
-}

@@ -17,7 +17,6 @@ if ($userId != $userNav && $loginUser['role_id'] == 0) {
 }
 require_once('admin/models/users.php');
 if (!empty($_POST)) {
-    checkAdmin($_POST['user_id']);
     user_update();
 }
 $title = ($userId == 0) ? 'Thêm thông tin' : 'Cập nhật thông tin tài khoản';

@@ -9,12 +9,12 @@ if (!empty($_GET['id'])) {
     $option = [
         'order_by' => 'id',
     ];
-    $get_user_notActive = getAll('users', $option);
-    foreach ($get_user_notActive as $user) {
+    $notActiveUsers = getAll('users', $option);
+    foreach ($notActiveUsers as $user) {
         if ($user['id'] == $_GET['id']) {
             $email = $user['user_email'];
             $username = $user['user_username'];
-            $verification_Code = $user['verificationCode'];
+            $verificationCode = $user['verificationCode'];
         }
     }
     //send mail
@@ -22,7 +22,7 @@ if (!empty($_GET['id'])) {
     $mail = new PHPMailer(true);
 
     try {
-        $verificationLink = PATH_URL . "index.php?controller=register&action=activate&code=" . $verification_Code;
+        $verificationLink = PATH_URL . "index.php?controller=register&action=activate&code=" . $verificationCode;
         //content
         $htmlStr = "";
         $htmlStr .= "Xin chào " . $username . ' (' . $email . "),<br /><br />";

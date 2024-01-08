@@ -1,4 +1,11 @@
-<?php require('content/views/shared/header.php'); ?>
+<?php
+
+/**
+ * @var array $page
+ * @var array $user
+ */
+require('content/views/shared/header.php');
+?>
 <div role="main" class="main">
     <section class="page-top">
         <div class="container">

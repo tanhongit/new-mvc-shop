@@ -6,21 +6,21 @@ $options_hotproduct = [
     'offset' => '0',
     'order_by' => 'createDate DESC',
 ];
-$hot_products = getAll('products', $options_hotproduct);
+$hotProducts = getAll('products', $options_hotproduct);
 $options_newproduct = [
     'where' => 'product_typeid = 2',
     'limit' => '12',
     'offset' => '0',
     'order_by' => 'createDate DESC',
 ];
-$new_products = getAll('products', $options_newproduct);
+$newProducts = getAll('products', $options_newproduct);
 $options_saleproduct = [
     'where' => 'product_typeid = 3',
     'limit' => '12',
     'offset' => '0',
     'order_by' => 'createDate DESC',
 ];
-$saleoff_products = getAll('products', $options_saleproduct);
+$saleoffProducts = getAll('products', $options_saleproduct);
 $title = 'Trang chủ - Quán Chị Kòi';
 $option_slide = [
     'order_by' => 'id asc',

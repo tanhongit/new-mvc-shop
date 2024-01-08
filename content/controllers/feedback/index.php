@@ -13,7 +13,7 @@ if (isset($_GET['product_id'])) {
 
 $product = getRecord('products', $productId);
 if (isset($userNav)) {
-    $user_action = getRecord('users', $userNav);
+    $userAction = getRecord('users', $userNav);
 }
 $title = 'Gửi phản hồi của bạn đến Chị Kòi Quán';
 require('content/views/feedback/index.php');

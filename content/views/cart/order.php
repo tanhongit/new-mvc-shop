@@ -1,4 +1,12 @@
-<?php require('content/views/shared/header.php'); ?>
+<?php
+
+/**
+ * @var array $cart
+ * @var array $userLogin
+ */
+
+require('content/views/shared/header.php');
+?>
 <div role="main" class="main shop">
     <div class="container">
         <hr class="tall">

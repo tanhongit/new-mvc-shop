@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * @var string $title
+ */
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 }
@@ -51,7 +55,7 @@ if (isset($_GET['id'])) {
                     <div class="copyright text-center">
                         &copy;
                         <script>
-                            document.write(new Date().getFullYear())
+                            document.write(new Date().getFullYear().toString())
                         </script>,
                         <span>Phát triển bởi <a href="https://tanhongit.com" target="_blank">TanHongIT</a></span>
                     </div>

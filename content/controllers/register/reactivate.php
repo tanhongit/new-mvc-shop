@@ -2,17 +2,17 @@
 
 if (!empty($_GET['code'])) {
 
-    $select_user_option = [
+    $selectUserOption = [
         'order_by' => 'id',
     ];
-    $user_need_activate = getAll('users', $select_user_option);
+    $user_need_activate = getAll('users', $selectUserOption);
     foreach ($user_need_activate as $user) {
         if ($user['verificationCode'] == $_GET['code']) {
-            $verifi_id_user = $user['id'];
+            $userVerifyId = $user['id'];
         }
     }
     $user_edit = [
-        'id' => $verifi_id_user,
+        'id' => $userVerifyId,
         'verified' => 1,
     ];
     save('users', $user_edit);

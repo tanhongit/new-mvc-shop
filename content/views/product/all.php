@@ -1,4 +1,12 @@
-<?php require('content/views/shared/header.php'); ?>
+<?php
+
+/**
+ * @var array $products
+ * @var string $pagination
+ * @var int $totalRows
+ */
+require('content/views/shared/header.php');
+?>
 <div role="main" class="main shop">
     <div class="container">
         <hr class="tall">
@@ -15,7 +23,7 @@
                 <div class="row">
                     <ul class="products product-thumb-info-list" data-plugin-masonry data-plugin-options='{"layoutMode": "fitRows"}'>
                         <?php
-                        foreach ($products_all as $product) : ?>
+                        foreach ($products as $product) : ?>
                             <li class="col-md-4 col-sm-6 col-xs-12 product">
                                 <?php if ($product['saleoff'] != 0) : ?>
                                     <a href="type/3-san-pham-dang-giam-gia">

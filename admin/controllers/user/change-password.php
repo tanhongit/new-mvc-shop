@@ -3,6 +3,7 @@
 require_once('admin/models/users.php');
 if (isset($_GET['user_id'])) {
     $userId = intval($_GET['user_id']);
+    checkAdmin($userId);
 } else {
     $userId = 0;
 }

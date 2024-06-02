@@ -17,7 +17,7 @@ jobs:
     name: Shellcheck
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@master
         with:
@@ -47,6 +47,11 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=tag
+            type=semver,pattern={{version}}
+            latest=true  # This ensures the 'latest' tag is always applied to the build
 
       - name: Build and push Docker image
         id: build-and-push

@@ -51,7 +51,7 @@ jobs:
             type=ref,event=branch
             type=ref,event=tag
             type=semver,pattern={{version}}
-            latest=true  # This ensures the 'latest' tag is always applied to the build
+            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/docker' }}
 
       - name: Build and push Docker image
         id: build-and-push

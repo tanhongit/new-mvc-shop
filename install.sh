@@ -4,11 +4,20 @@ set -a
 source .env
 set +a
 
-# Check if .env file not exists
-if [ ! -f .env ]; then
+if [ -f .env ]; then
+    echo "  ∟ .env file exists"
+else
+    echo "  ∟ Creating .env file"
     cp .env.example .env
 fi
 
 docker compose up -d
 
-docker compose run --rm -w /var/www/html server composer install
+if [ -d vendor ]; then
+    echo "  ∟ vendor directory exists"
+    echo "  ∟ Running composer update"
+    docker compose run --rm -w /var/www/html server composer update
+else
+    echo "  ∟ Running composer install"
+    docker compose run --rm -w /var/www/html server composer install
+fi

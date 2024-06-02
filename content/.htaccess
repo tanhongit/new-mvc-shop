@@ -1,4 +1,4 @@
-deny form all
+deny from all
 
 #    Developed by: TanHongIT
 #    Website: https://tanhongit.com - https://tanhongit.net

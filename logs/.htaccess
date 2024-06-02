@@ -1,1 +1,1 @@
-deny form all
+deny from all

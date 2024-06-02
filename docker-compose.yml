@@ -44,6 +44,7 @@ services:
     volumes:
       - db_data:/var/lib/mysql
       - ./docker/db/mariadb/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./admin/database:/var/lib/mysql/sql
     networks:
       - new_mvc_shop
 

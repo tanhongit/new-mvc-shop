@@ -1,16 +1,15 @@
 #!/bin/bash
 
-set -a
-# shellcheck disable=SC1091
-source .env
-set +a
-
 if [ -f .env ]; then
     echo "  ∟ .env file exists"
 else
     echo "  ∟ Creating .env file"
     cp .env.example .env
 fi
+
+set -a
+source .env
+set +a
 
 docker compose up -d
 

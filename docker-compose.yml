@@ -31,7 +31,10 @@ services:
       - new_mvc_shop
 
   db_server:
-    image: mariadb
+    build:
+      context: .
+      dockerfile: ./docker/db/Dockerfile
+#    image: mariadb
     container_name: '${APP_NAME:-new_mvc_shop}-db'
     restart: always
     ports:
@@ -43,7 +46,6 @@ services:
       MYSQL_DATABASE: '${MYSQL_DB:-new_mvc_shop_db}'
     volumes:
       - db_data:/var/lib/mysql
-      - ./docker/db/mariadb/my.cnf:/etc/mysql/conf.d/my.cnf
       - ./admin/database:/var/lib/mysql/sql
     networks:
       - new_mvc_shop

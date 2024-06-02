@@ -193,6 +193,8 @@ PHPMYADMIN_PORT=8081
 PHPMYADMIN_UPLOAD_LIMIT=2048M
 ```
 
+## 7.1 Installation with bash script:
+
 If your OS is **Linux**, you can use the bash script to easily run the project with Docker.
 
 ```bash
@@ -202,6 +204,8 @@ bash install.sh
 ---
 
 If not, please follow the instructions below.
+
+## 7.2 Installation with commands:
 
 Run the following command:
 

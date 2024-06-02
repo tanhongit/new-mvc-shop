@@ -21,3 +21,5 @@ else
     echo "  ∟ Running composer install"
     docker compose run --rm -w /var/www/html server composer install
 fi
+
+docker-compose run --rm db_server sh -c "mysql -h db_server -P 3306 -u $MYSQL_USER -p$MYSQL_PASS $MYSQL_DB < /var/lib/mysql/sql/db.sql"

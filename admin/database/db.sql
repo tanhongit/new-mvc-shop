@@ -797,7 +797,7 @@ INSERT INTO users VALUES("3","eyteyt","25d55ad283aa400af464c76d713c07ad","Tân H
 INSERT INTO users VALUES("1038","shtshrffgd","e807f1fcf82d132f9bb018ca6738a19f","t4greg","0","author-auto.png","phuong12357tan@gmail.com","+8489941576","3128  Doctors Drive","2020-04-02 01:35:31","0","3cb8761195802abf0656e670f73b277c","2020-04-11 01:40:43");
 INSERT INTO users VALUES("1039","thtreht","e807f1fcf82d132f9bb018ca6738a19f","dtrdhtrjy","2","author-auto.png","trehytrh@gmail.com","4089941576","3128  Doctors Drive","2020-04-11 02:41:21","0","9b20629c075697db8c9c5d3b94a86f8b",NULL);
 INSERT INTO users VALUES("1040","admin","e807f1fcf82d132f9bb018ca6738a19f","Át min","1","author-auto.png","admin@gmail.com","4089941576","3128  Doctors Drive","2020-04-11 02:43:23","0","aca75e03278fa33d61ce42889ea19ed3",NULL);
-INSERT INTO users VALUES("1041","ưer","eba0fd768067afc24806607a4de3f852","ỳdtdy","0","author-auto.png","ph12rgesgresg@gmail.com","4089941576","3128  Doctors Drive","2020-04-11 02:45:37","0","8d9bce9a1dec443a338a00c3e79576f8","2020-04-11 03:20:35");
+INSERT INTO users VALUES("1041","user","eba0fd768067afc24806607a4de3f852","ỳdtdy","0","author-auto.png","ph12rgesgresg@gmail.com","4089941576","3128  Doctors Drive","2020-04-11 02:45:37","0","8d9bce9a1dec443a338a00c3e79576f8","2020-04-11 03:20:35");
 
 
 DROP TABLE IF EXISTS users_online;

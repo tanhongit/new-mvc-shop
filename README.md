@@ -14,6 +14,7 @@ Support this project :stuck_out_tongue_winking_eye: :pray:
 # 1. Configuration requirements
 > - Web Server: Apache
 > - Version PHP >= 8.0
+> - Composer >= 2.0
 > - OpenSSL PHP Extension
 > - [Composer](https://getcomposer.org/download/) (Please install composer before running this project).
 > - MySQL >= 8.0 (or MariaDB >= 10.0)
@@ -65,16 +66,16 @@ Clone the project to your computer:
 git clone https://github.com/tanhongit/new-mvc-shop.git
 ```
 
-Run composer install:
-
-```bash
-composer install
-```
-
 Copy the .env.example file to .env:
 
 ```bash
 cp .env.example .env
+```
+
+Run composer install:
+
+```bash
+composer install
 ```
 
 # 6. Installation instructions
@@ -109,7 +110,7 @@ DB_HOST=db_server
 DB_PORT=3306
 DB_USER=root
 DB_PASS=root
-DB_NAME=chikoi
+DB_NAME=new_mvc_shop_db
 ```
 
 > **Note:**
@@ -177,7 +178,7 @@ Please edit the following information in the **.env** file:
 **Example:**
 
 ```dotenv
-APP_NAME=new-mvc-shop
+APP_NAME=nms
 
 APP_PORT=85
 SSL_PORT=443 # (optional)
@@ -195,14 +196,13 @@ PHPMYADMIN_UPLOAD_LIMIT=2048M
 Then, run the following command:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 After running the above command, you need to install the composer package for the project.
 
 ```bash
-docker-compose exec server bash
-composer install
+docker compose run --rm -w /var/www/html server composer install
 ```
 
 Finally, you need to import the database file into the database container.

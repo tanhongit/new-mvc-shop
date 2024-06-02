@@ -193,7 +193,17 @@ PHPMYADMIN_PORT=8081
 PHPMYADMIN_UPLOAD_LIMIT=2048M
 ```
 
-Then, run the following command:
+If your OS is **Linux**, you can use the bash script to easily run the project with Docker.
+
+```bash
+bash install.sh
+```
+
+---
+
+If not, please follow the instructions below.
+
+Run the following command:
 
 ```bash
 docker compose up -d
